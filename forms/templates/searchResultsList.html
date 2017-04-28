@@ -1,0 +1,264 @@
+
+
+<div class="row" style="margin-bottom: 20px;">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-8 text-right">
+        <span class="badge">{{selectedItems}}</span> Selected records
+        <button class="btn btn-default">Add to My List</button> or
+        <div class="btn-group" dropdown>
+            <button type="button" class="btn btn-primary" ng-click="goToAppoint()" ng-if="actionType === ''">
+                Appoint attorney
+            </button>
+            <button type="button" class="btn btn-primary" ng-click="goToAppoint()" ng-if="actionType === 'APPOINT'">
+                Appoint attorney
+            </button>
+            <button type="button" class="btn btn-primary" ng-click="" ng-if="actionType === 'REMOVE'">
+                Remove attorney
+            </button>
+            <button type="button" class="btn btn-primary" ng-click="" ng-if="actionType === 'WITHDRAW'">
+                Withdraw attorney
+            </button>
+            <button type="button" class="btn btn-primary" ng-if="actionType === 'SEARCH'">
+                Choose an action...
+            </button>
+            
+            <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-if="actionType === 'SEARCH'">
+                <span class="caret"></span>
+                <span class="sr-only">Split button!</span>
+            </button>
+            <ul class="dropdown-menu" role="menu" ng-if="actionType === 'SEARCH'">
+                <li><a href="" ng-click="goToAppoint()">Appoint new attorney</a>
+                </li>
+                <li><a href="#/">Replace primary attorney</a>
+                </li>
+                <li><a href="#/">Remove attorney</a>
+                </li>
+                <li><a href="#/"> </a>
+                </li>
+            </ul>
+                
+        </div>
+    </div>
+</div>
+<div class="alert alert-danger" ng-show="showErr" >You have to choose at least one trademark </div>
+
+<hr class="big" />
+<div class="row form-group">
+    <div class="col-sm-4">
+       <fieldset class="pn-toggle">
+	       	<label ng-class="expandCollapseValue == 0? 'pn-toggle-next' : 'pn-toggle-checked'"><span>Expand all</span>
+	       		<input type="radio" name="1bb66911-eaa1-409b-919f-cd596762711e" value="Expand all" class="" ng-click="expandCollapseValue = 1;clearExpandCollapse();">
+	       	</label>
+       		
+       		<label ng-class="expandCollapseValue == 1? 'pn-toggle-next' : 'pn-toggle-checked'"><span>Collapse all</span>
+       			<input type="radio" name="1bb66911-eaa1-409b-919f-cd596762711e" value="Collapse all" ng-click="expandCollapseValue = 0;clearExpandCollapse();">
+       		</label>
+       </fieldset>
+    </div>
+</div>
+
+<table class="table table-sortable">
+    <thead>
+        <tr>
+            <th class="" style="width: 35px;">
+                <label>
+                    <input type="checkbox" ng-click="allNeedsClicked()" ng-checked="allNeedsMet()">
+                </label>
+            </th>             
+
+            <th class="sortable active">
+                <button class="pn-table-sort-trigger" ng-click="changeSorting('primary_attorney_full_nm')">Primary 
+                <br />attorney</button>
+            </th> 
+            
+            <th>
+                <button class="pn-table-sort-trigger" ng-click="changeSorting('primary_firm_nm')">Firm
+                 <br />name</button>
+            </th>
+            <th>   Other appointed
+                    <br />attorneys
+
+            </th>
+            <th>
+                <button class="pn-table-sort-trigger" ng-click="changeSorting('serial_num')">Serial
+                    <br />number</button>
+                <button class="pn-select-columns"><span>Select columns</span>
+            </th>
+            <th>
+                Owner
+                <!-- <button class="pn-table-sort-trigger" ng-click="changeSorting('owner_nm')">Owner</button>
+                <button class="pn-select-columns" ><span>Select columns</span> -->
+            </th>
+            <th>
+                Mark image               
+                <!-- Note for Lechen - please show image, if no image then show mark literal -->
+                
+            </th>
+        </tr>
+    </thead>
+    
+
+    <tbody class="pn-table-grouped-rows-container" ng-class="activePosition == $index? 'defaultClass' :(expandCollapseValue == 1 ? 'defaultClass' : 'pn-inactive')" ng-repeat="result in solrResults.response.docs">
+             
+        <tr class="pn-table-group-title-row">
+            <td>
+                <label>
+                    <input type="checkbox" ng-model="result.cb" ng-click="calculateSelectedItems()">
+                </label>
+            </td>
+            <td class="freeze-column">
+                 
+                    
+                <button ng-click="toggleClass($index)"><span style="display:none;">Expand/collapse</span> {{result.primary_attorney_full_nm}}
+                </button>
+
+            </td>           
+
+            <td>{{result.primary_firm_nm}}</td>
+            <td><span ng-repeat="attorney in result.secondary_attorney">{{getName(attorney)}}<span ng-show="!$last">,<br/></span></span></td>
+            <td><a target="_blank" href="http://tsdr.uspto.gov/#caseNumber={{result.serialNumTx}}&caseType=SERIAL_NO&searchType=statusSearch">{{result.serial_num}}</a>
+            </td>
+            
+            <td>
+                <span ng-repeat="name in result.owner_nm track by $index">{{name}}<br /></span>
+            </td>            
+
+            <td>
+                <div ng-if="result.standardCharacterTx!=null" >
+                    {{result.literalElementTx}}
+                </div>
+                <div ng-if="result.standardCharacterTx==null" >                    
+                    <img src="http://tess2.uspto.gov/ImageAgent/ImageAgentProxy?getImage={{result.serial_num}}" alt="Trademark Image" height="100%" width="100%" />
+                    <!--
+					<img ng-src="{{cmsMarkUrl}}/cms/rest/case/{{result.serial_num}}/mark/image/rendition/image-png" alt="Trademark Image" height="100%" width="100%" />
+                	-->
+				</div>
+            </td>
+        </tr>
+        <tr>
+            <td class="expandedContainer" colspan="7" ng-show="activePosition == $index || expandCollapseValue == 1 ">
+                <div class="expandedContent">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <table class="no-border">
+                                <tr>
+                                    <th scope="col">Serial Number:</th>
+                                     
+                                    <td scope="col">{{result.serial_num}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Registration Number:</th>
+                                    
+                                   <td scope="col">{{result.registration_num}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-4">
+                            <table class="no-border">
+                                <tr>
+                                    <th scope="col">Filing Date:</th>
+                                     
+                                    <td scope="col">{{ formatDate(result.filing_dt) | date:'yyyy-MM-dd' }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Registration Date:</th>
+                                    <td></td>
+                                 </tr>
+
+                            </table>
+                        </div>
+                        <div class="col-md-4">
+                            <table class="no-border">
+                                <tr>
+                                    <th scope="col">Class IDs:</th>
+                                    
+                                    <td scope="col">{{result.trademark_id}}</td>
+                                </tr>
+                                <tr>
+                                     
+                                    <th ng-if="result.mark_literal!=null" scope="row">Mark Literal:</th>
+                                    <td ng-if="result.mark_literal!=null" >      
+                                            {{result.mark_literal}}
+                                    </td>
+                                    <!-- <th ng-if="result.standardCharacterTx==null" scope="row">Mark Image:</th>
+                                    <td ng-if="result.standardCharacterTx==null" >
+                                        
+                                        <img src="http://tess2.uspto.gov/ImageAgent/ImageAgentProxy?getImage={{result.serial_num}}" alt="Trademark Image" height="100%" width="100%" />
+                                    </td> -->
+                                </tr>
+
+                            </table>
+                        </div>                        
+                        <div class="col-md-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Attorney</th>
+                                        <th scope="col">Firm</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Docket Number</th>
+                                        <th scope="col">Email Address</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr>                                  
+                                   <td>{{result.primary_attorney_full_nm}}</td>
+                                   <td>{{result.primary_firm_nm}}</td>
+                                   <td>{{result.primary_street_addr_line1}} {{result.primary_street_addr_line2}} {{result.primary_city}} {{result.primary_state}} {{result.primary_zip}} {{result.primary_country}}</td>
+                                   <td>{{result.primary_docket_number}}</td>
+                                   <td>{{result.primary_email}}</td>
+                                  
+                                </tr> 
+
+                                <tr ng-repeat="attorney in result.secondary_attorney">                                  
+                                               
+                                   <td>{{getName(attorney)}}</td>
+                                   <td>{{getFirmName(attorney)}}</td>
+                                   <td>{{getAddress(attorney)}}</td>
+                                   <td>{{getDocketNumber(attorney)}}</td>
+                                    <td>{{getEmail(attorney)}}</td>
+                                    
+                                </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </td>
+
+        </tr>
+</table>
+
+
+
+<div class="form-inline pull-right" ng-if="solrResults.response.numFound>0">
+    <div class="form-group">
+        <div class="dropdown">
+            <button type="button" id="pageControlBtn" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="text-muted normal">Showing</span> {{(dict.currentPage-1)*pageSize+1}}-{{(dict.currentPage*pageSize>solrResults.response.numFound)? solrResults.response.numFound : dict.currentPage*pageSize}} <span class="text-muted normal">of</span> {{solrResults.response.numFound}} <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+
+                <li style="padding: 0 16px" role="presentation">
+                    <form name="pagerForm" ng-submit="submitGotoItem()">
+                        <label for="jumpToItem2">Jump to item</label>
+                        <input id="jumpToItem2" ng-model="itemToDisplay" type="number" min="1" max="{{solrResults.response.numFound}}" 
+                        class="form-control" ng-change="goToPage()"    required>
+                        <input type="submit" class="hidden" name="submitGotoItem"/>
+                    </form>
+                </li>
+                <li class="divider"></li>
+                <li role="presentation" class="dropdown-header">Show up to</li>
+                <li role="presentation" ng-repeat="itemPerPage in itemPerPages" ><a role="menuitem" tabindex="-1"  ng-click="changePageSize(itemPerPage)">{{itemPerPage}} items</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <pager style="float: left;" boundary-links="true" items-per-page="pageSize" total-items="solrResults.response.numFound"  ng-model="dict.currentPage" ng-change="pageChanged()" previous-text="<" next-text=">">
+        </pager>
+    </div>
+
+</div>

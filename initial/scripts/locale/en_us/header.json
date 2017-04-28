@@ -1,0 +1,362 @@
+{
+    "headerMenu":[
+        {
+            "text": "Sign Up / <br /> Change Plans",
+            "linkText" : "http://medicare.gov/sign-up-change-plans/index.html",
+            "srText": "Expand Sign Up / Change Plans menu",
+            "subMenu": [
+                {
+                    "text": "Getting started with Medicare",
+                    "linkText": "http://medicare.gov/people-like-me/new-to-medicare/getting-started-with-medicare.html"
+                },
+                {
+                    "text": "Your Medicare coverage choices",
+                    "linkText": "http://medicare.gov/sign-up-change-plans/decide-how-to-get-medicare/your-medicare-coverage-choices.html"
+                },
+                {
+                    "text": "When & how to sign up for Part A & Part B",
+                    "linkText": "http://medicare.gov/sign-up-change-plans/get-parts-a-and-b/when-how-to-sign-up-for-part-a-and-part-b.html"
+                },
+                {
+                    "text": "Apply for Medicare online",
+                    "linkText": "http://www.socialsecurity.gov/medicareonly/"
+                },
+                {
+                    "text": "How to get drug coverage",
+                    "linkText": "http://medicare.gov/sign-up-change-plans/get-drug-coverage/get-drug-coverage.html"
+                },
+                {
+                    "text": "When can I join a health or drug plan?",
+                    "linkText": "http://medicare.gov/sign-up-change-plans/when-can-i-join-a-health-or-drug-plan/when-can-i-join-a-health-or-drug-plan.html"
+                },
+                {
+                    "text": "About Medicare health plans",
+                    "linkText": "http://medicare.gov/sign-up-change-plans/medicare-health-plans/medicare-health-plans.html"
+                },
+                {
+                    "text": "Find health & drug plans",
+                    "linkText": "https://medicare.gov/find-a-plan/questions/home.aspx"
+                },
+                {
+                    "text": "Check your enrollment",
+                    "linkText": "https://medicare.gov/find-a-plan/enrollment/check-enrollment.aspx"
+                },
+                {
+                    "text": "Find doctors, hospitals, & facilities",
+                    "linkText": "http://medicare.gov/forms-help-and-resources/find-doctors-hospitals-and-facilities/quality-care-finder.html"
+                }
+            ]
+        },
+        {
+            "text": "Your Medicare <br /> Costs",
+            "linkText" : "http://medicare.gov/your-medicare-costs/index.html",
+            "srText": "Expand Your Medicare Costs menu",
+            "subMenu": [
+                {
+                    "text": "Get help paying costs",
+                    "linkText": "http://medicare.gov/your-medicare-costs/help-paying-costs/get-help-paying-costs.html"
+                },
+                {
+                    "text": "Part A costs",
+                    "linkText": "http://medicare.gov/your-medicare-costs/part-a-costs/part-a-costs.html"
+                },
+                {
+                    "text": "Part B costs",
+                    "linkText": "http://medicare.gov/your-medicare-costs/part-b-costs/part-b-costs.html"
+                },
+                {
+                    "text": "Costs for Medicare drug coverage",
+                    "linkText": "http://medicare.gov/part-d/costs/part-d-costs.html"
+                },
+                {
+                    "text": "Costs for Medicare health plans",
+                    "linkText": "http://medicare.gov/your-medicare-costs/medicare-health-plan-costs/costs-for-medicare-advantage-plans.html"
+                },
+                {
+                    "text": "Ways to pay Part A & Part B premiums",
+                    "linkText": "http://medicare.gov/your-medicare-costs/paying-parts-a-and-b/pay-parts-a-and-b-premiums.html"
+                },
+                {
+                    "text": "Costs at a glance",
+                    "linkText": "http://medicare.gov/your-medicare-costs/costs-at-a-glance/costs-at-glance.html"
+                }
+            ]
+        },
+        {
+            "text": "What Medicare <br /> Covers",
+            "linkText" : "http://medicare.gov/what-medicare-covers/index.html",
+            "srText": "Expand What Medicare Covers menu",
+            "subMenu": [
+                {
+                    "text": "Is my test, item, or service covered?",
+                    "linkText": "http://medicare.gov/coverage/your-medicare-coverage.html"
+                },
+                {
+                    "text": "What Part A covers",
+                    "linkText": "http://medicare.gov/what-medicare-covers/part-a/what-part-a-covers.html"
+                },
+                {
+                    "text": "What Part B covers",
+                    "linkText": "http://medicare.gov/what-medicare-covers/part-b/what-medicare-part-b-covers.html"
+                },
+                {
+                    "text": "What drug plans cover",
+                    "linkText": "http://medicare.gov/part-d/coverage/part-d-coverage.html"
+                },
+                {
+                    "text": "What Medicare health plans cover",
+                    "linkText": "http://medicare.gov/what-medicare-covers/medicare-health-plans/what-medicare-health-plans-cover.html"
+                },
+                {
+                    "text": "Preventive services",
+                    "linkText": "http://medicare.gov/coverage/preventive-and-screening-services.html"
+                },
+                {
+                    "text": "Find suppliers of medical equipment & supplies",
+                    "linkText": "http://medicare.gov/supplierdirectory/search.html"
+                },
+                {
+                    "text": "Find doctors, hospitals, & facilities",
+                    "linkText": "http://medicare.gov/forms-help-and-resources/find-doctors-hospitals-and-facilities/quality-care-finder.html"
+                },
+                {
+                    "text": "What's not covered by Part A & Part B?",
+                    "linkText": "http://medicare.gov/what-medicare-covers/not-covered/item-and-services-not-covered-by-part-a-and-b.html"
+                }
+            ]
+        },
+        {
+            "text": "Drug Coverage <br /> (Part D)",
+            "linkText" : "http://medicare.gov/part-d/index.html",
+            "srText": "Expand Drug Coverage (Part D) menu",
+            "subMenu": [
+                {
+                    "text": "How to get drug coverage",
+                    "linkText": "http://medicare.gov/sign-up-change-plans/get-drug-coverage/get-drug-coverage.html"
+                },
+                {
+                    "text": "What drug plans cover",
+                    "linkText": "http://medicare.gov/part-d/coverage/part-d-coverage.html"
+                },
+                {
+                    "text": "Costs for Medicare drug coverage",
+                    "linkText": "http://medicare.gov/part-d/costs/part-d-costs.html"
+                },
+                {
+                    "text": "When can I join a health or drug plan?",
+                    "linkText": "http://medicare.gov/sign-up-change-plans/when-can-i-join-a-health-or-drug-plan/when-can-i-join-a-health-or-drug-plan.html"
+                },
+                {
+                    "text": "How Part D works with other insurance",
+                    "linkText": "http://medicare.gov/part-d/how-part-d-works-with-other-insurance/part-d-and-other-insurance.html"
+                },
+                {
+                    "text": "Find health & drug plans",
+                    "linkText": "https://medicare.gov/find-a-plan/questions/home.aspx"
+                }
+            ]
+        },
+        {
+            "text": "Supplements & <br /> Other Insurance",
+            "linkText" : "http://medicare.gov/supplement-other-insurance/index.html",
+            "srText": "Expand Supplements & Other Insurance menu",
+            "subMenu": [
+                {
+                    "text": "How Medicare works with other insurance",
+                    "linkText": "http://medicare.gov/supplement-other-insurance/how-medicare-works-with-other-insurance/how-medicare-works-with-other-insurance.html"
+                },
+                {
+                    "text": "Retiree insurance",
+                    "linkText": "http://medicare.gov/supplement-other-insurance/retiree-insurance/retiree-insurance.html"
+                },
+                {
+                    "text": "What's supplement (Medigap) insurance?",
+                    "linkText": "http://medicare.gov/supplement-other-insurance/medigap/whats-medigap.html"
+                },
+                {
+                    "text": "Find a Medigap policy",
+                    "linkText": "http://medicare.gov/find-a-plan/questions/medigap-home.aspx"
+                },
+                {
+                    "text": "When can I buy Medigap?",
+                    "linkText": "http://medicare.gov/supplement-other-insurance/when-can-i-buy-medigap/when-can-i-buy-medigap.html"
+                },
+                {
+                    "text": "How to compare Medigap policies",
+                    "linkText": "http://medicare.gov/supplement-other-insurance/compare-medigap/compare-medigap.html"
+                },
+                {
+                    "text": "Medigap & travel",
+                    "linkText": "http://medicare.gov/supplement-other-insurance/medigap-and-travel/medigap-and-travel.html"
+                }
+            ]
+        }, 
+        {
+            "text": "Claims & <br /> Appeals",
+            "linkText" : "http://medicare.gov/claims-and-appeals/index.html",
+            "srText": "Expand Claims & Appeals menu",
+            "subMenu": [
+                {
+                    "text": "File a complaint",
+                    "linkText": "http://medicare.gov/claims-and-appeals/file-a-complaint/complaints.html"
+                },
+                {
+                    "text": "File a claim",
+                    "linkText": "http://medicare.gov/claims-and-appeals/file-a-claim/file-a-claim.html"
+                },
+                {
+                    "text": "Check the status of a claim (MyMedicare.gov)",
+                    "linkText": "https://www.mymedicare.gov/"
+                },
+                {
+                    "text": "File an appeal",
+                    "linkText": "http://medicare.gov/claims-and-appeals/file-an-appeal/appeals.html"
+                },
+                {
+                    "text": "Your right to a fast appeal",
+                    "linkText": "http://medicare.gov/claims-and-appeals/right-to-fast-appeal/fast-appeals.html"
+                },
+                {
+                    "text": "Your Medicare rights",
+                    "linkText": "http://medicare.gov/claims-and-appeals/medicare-rights/medicare-rights-overview.html"
+                },
+                {
+                    "text": "Get Medicare forms",
+                    "linkText": "http://medicare.gov/forms-help-and-resources/forms/medicare-forms.html"
+                },
+                {
+                    "text": "Authorization to Disclose Personal Health Information",
+                    "linkText": "https://www.medicare.gov/MedicareOnlineForms/AuthorizationForm/OnlineFormStep.asp"
+                }
+            ]
+        },  
+        {
+            "text": "Manage Your <br /> Health",
+            "linkText" : "http://medicare.gov/manage-your-health/index.html",
+            "srText": "Expand Manage Your Health menu",
+            "subMenu": [
+                {
+                    "text": "Login to MyMedicare.gov",
+                    "linkText": "https://www.mymedicare.gov/"
+                },
+                {
+                    "text": "Get Medicare forms",
+                    "linkText": "http://medicare.gov/forms-help-and-resources/forms/medicare-forms.html"
+                },
+                {
+                    "text": "Advance directives & long-term care",
+                    "linkText": "http://medicare.gov/manage-your-health/advance-directives/advance-directives-and-long-term-care.html"
+                },
+                {
+                    "text": "Personal Health Records (PHRs)",
+                    "linkText": "javascript:void()"
+                },
+                {
+                    "text": "Electronic prescribing",
+                    "linkText": "http://medicare.gov/manage-your-health/electronic-prescribing/electronic-prescribing.html"
+                },
+                {
+                    "text": "Electronic Health Records (EHRs)",
+                    "linkText": "http://medicare.gov/manage-your-health/electronic-health-records/electronic-health-records.html"
+                },
+                {
+                    "text": "Medicare's Blue Button",
+                    "linkText": "http://medicare.gov/manage-your-health/blue-button/medicare-blue-button.html"
+                },
+                {
+                    "text": "Coordinating your care",
+                    "linkText": "http://medicare.gov/manage-your-health/coordinating-your-care/coordinating-your-care.html"
+                }
+            ]
+        },  
+        {
+            "text": "Forms, Help, & <br /> Resources",
+            "linkText" : "http://medicare.gov/forms-help-and-resources/index.html",
+            "srText": "Expand Forms, Help, & Resources menu",
+            "subMenu": [
+                {
+                    "text": "Find health & drug plans",
+                    "linkText": "https://medicare.gov/find-a-plan/questions/home.aspx"
+                },
+                {
+                    "text": "Find doctors, hospitals, & facilities",
+                    "linkText": "http://medicare.gov/forms-help-and-resources/find-doctors-hospitals-and-facilities/quality-care-finder.html"
+                },
+                {
+                    "text": "Get help paying costs",
+                    "linkText": "http://medicare.gov/your-medicare-costs/help-paying-costs/get-help-paying-costs.html"
+                },
+                {
+                    "text": "Find suppliers of medical equipment & supplies",
+                    "linkText": "http://medicare.gov/supplierdirectory/search.html",
+                    "appendDivider":"true"
+                },
+                {
+                    "text": "Forms",
+                    "linkText": "http://medicare.gov/forms-help-and-resources/forms/medicare-forms.html"
+                },
+                {
+                    "text": "Publications",
+                    "linkText": "http://medicare.gov/Publications/Search/SearchCriteria.asp?version=default&browser=IE%7C7%7CWindows+7&Language=English&pagelist=Home&comingFrom=13"
+                },
+                {
+                    "text": "\"Medicare & You\" Handbook",
+                    "linkText": "http://medicare.gov/medicare-and-you/medicare-and-you.html"
+                },
+                {
+                    "text": "Mail you get about Medicare",
+                    "linkText": "http://medicare.gov/forms-help-and-resources/mail-about-medicare/mail-about-medicare.html"                    
+                },
+                {
+                    "text": "Lost/incorrect Medicare card",
+                    "linkText": "https://secure.ssa.gov/apps6z/IMRC/main.html",
+                    "appendDivider":"true"
+                },
+                {
+                    "text": "Report fraud & abuse",
+                    "linkText": "http://medicare.gov/forms-help-and-resources/report-fraud-and-abuse/fraud-and-abuse.html"
+                },
+                {
+                    "text": "File a complaint",
+                    "linkText": "http://medicare.gov/claims-and-appeals/file-a-complaint/complaints.html"
+                },
+                {
+                    "text": "Identity theft: protect yourself",
+                    "linkText": "http://medicare.gov/forms-help-and-resources/identity-theft/identity-theft.html"
+                },
+                {
+                    "text": "Phone numbers & websites",
+                    "linkText": "http://medicare.gov/Contacts/Default.aspx",
+                    "appendDivider":"true"
+                },
+                {
+                    "text": "Privacy practices",
+                    "linkText": "http://medicare.gov/forms-help-and-resources/privacy-practices/privacy.html"
+                },
+                {
+                    "text": "Contact Medicare",
+                    "linkText": "http://medicare.gov/forms-help-and-resources/contact/contact-medicare.html"
+                }
+            ]
+        }            
+    ],
+	"skipnav_linktext": "Skip to main content",
+	"view_resp_btntext": "View",
+	"toggle_srtext": "Toggle navigation",
+	"mymedicate_linktext": "MyMedicare.gov Login",
+	"site_resp_btntext": "Sites",
+	"spanish_linktext": "Español",
+	"fontsize_linktext": "A",
+	"email_linktext": "Email",
+	"print_linktext": "Print",
+	"aboutcms_linktext": "About Us",
+	"faq_linktext": "FAQ",
+	"glossay_linktext": "Glossary",
+    "medicaresite_linktext": "Medicare.gov",
+	"cmssite_linktext": "CMS.gov",
+	"search_srtext": "Search Medicare.gov",
+	"search_btntext": "Search",
+	"menu_resp_btntext": "Menu",
+	"backtomain_litext": "Back to Main Menu"
+    
+}

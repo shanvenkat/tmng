@@ -1,0 +1,440 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a><span ng-bind-html="resourceBundle['ui.gobal.navAttorney1']"></span></a>
+        </li>
+        <li class="completed">
+            <a ng-bind-html="resourceBundle['ui.gobal.navAction']"></a>
+        </li>
+        <li class="disabled">
+            <a ng-bind-html="resourceBundle['ui.gobal.navSearch']"></a>
+        </li>
+        <li class="disabled">
+            <a ng-bind-html="resourceBundle['ui.gobal.navResult']"></a>
+        </li>
+        <li class="disabled">
+            <a ng-bind-html="resourceBundle['ui.gobal.navCaseLists']"></a>
+        </li>
+        <li class="active">
+            <a ng-bind-html="resourceBundle['ui.gobal.navReviewAndSign']"></a>
+        </li>
+    </ul>
+</nav>
+<h1 ng-bind-html="resourceBundle['ui.reviewAndSign.txtHeader']"></h1>
+
+<div class="panel panel-default" ng-if="ctrlName=='ReviewAttorneyCtrl' || ctrlName=='ReviewRemovedAttorneyCtrl' || ctrlName=='WithdrawReviewAndSign'">
+    <div class="panel-body">
+        <!-- TODO replace attorneyInfo.html to attorneyInfoWithdraw.html-->
+        <div ng-if="ctrlName=='ReviewAttorneyCtrl' || ctrlName=='ReviewRemovedAttorneyCtrl'">
+            <div ng-include="'templates/attorneyInfo.html'"></div>
+        </div>
+        <div ng-if="ctrlName=='WithdrawReviewAndSign'">
+            <div ng-include="'templates/attorneyInfoWithdraw.html'"></div>
+        </div>
+
+
+        <div class="expandcollapse-item">
+            <button class="btn btn-link" ng-click="active = !active" ng-class="{'expandcollapse-heading-collapsed': active, 'expandcollapse-heading-expanded': !active}">> Show attorney details</button>
+
+            <div class="slideDown" ng-show="active">
+                <div class="expand-collapse-content">
+                    <div ng-if="ctrlName=='ReviewAttorneyCtrl' || ctrlName=='ReviewRemovedAttorneyCtrl'">
+                        <div ng-include="'templates/allAttorneys.html'"></div>
+                    </div>
+                    <div ng-if="ctrlName=='WithdrawReviewAndSign'">
+                        <div ng-include="'templates/subAttorneyDetailTable.html'"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-if="ctrlName=='AttorneysReviewCtrl'">
+    <div ng-include="'templates/attorneyInfoTable.html'"></div>
+</div>
+
+<div class="panel panel-default" ng-if="ctrlName=='ReviewAttorneyCtrl' || ctrlName=='ReviewRemovedAttorneyCtrl'">
+    <!-- result review -->
+    <div class="panel-body">
+        <h2>Review your enteries</h2>
+        <div ng-if="ctrlName=='ReviewAttorneyCtrl'">
+            <p>You are appointing the following attorney(s) to the record</p>
+        </div>
+        <div ng-if="ctrlName=='ReviewRemovedAttorneyCtrl'">
+            <p>You are requesting removal of the following attorney(s) from the record.</p>
+        </div>
+        <p>Role: Additional authorized attorney</p>
+        <div ng-include="'templates/appointAttorneyResult.html'"></div>
+    </div>
+</div>
+
+<div class="panel panel-default" ng-show="ctrlName=='WithdrawReviewAndSign'">
+    <div class="panel-body">
+        
+        <h2 class="section-heading">Please review the Withdrawal of Attorney Information:</h2>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="step-details">
+                    <fieldset>
+                        <legend class="h3">You Attest:</legend>
+                        <div class="row">
+                            <div class="col-md-12" ng-if="!lastOptionSelected">
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left" disabled="disabled" checked="true"><span class="checkbox-label">(1)I have notified the applicant/registrant of my withdrawal from employment and the filing of this request for withdrawal with the USPTO.</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left" disabled="disabled" checked="true"><span class="checkbox-label">(2) I have delivered to the applicant/registrant all documents and property in any file concerning the application, registration, or proceeding to which the applicant/registrant is entitled.</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left" disabled="disabled" checked="true"><span class="checkbox-label">(3) I have notified the applicant/registrant of any response that may be due and the deadline for the response, or I affirm that no response is due at this time.</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left" disabled="disabled" checked="true"><span class="checkbox-label">(4) I have notified the TEAS Plus or TEAS RF applicant that any prior e-mail authorization will not continue and that the applicant must provide the USPTO an e-mail address and authorize the USPTO to communicate via e-mail to retain TEAS Plus or TEAS RF status, or I affirm that this notification is not necessary because the application does not currently have TEAS Plus or TEAS RF status.</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left" disabled="disabled" checked="true"><span class="checkbox-label">(5) I have given the applicant/registrant notice of my withdrawal from employment at least two (2) months prior to the expiration of the response period, if applicable; OR, notice of my withdrawal from employment was not required because the applicant/registrant terminated representation when less than two (2) months remained in the response period.</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-12" ng-if="lastOptionSelected">
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left" disabled="disabled" checked="true"><span class="checkbox-label">(6) I affirm that more than one qualified attorney is of record and representation by co-counsel will be ongoing.</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <h3>And your statement is as follows:</h3>
+                <p>{{woaReasonStmt.text}}</p>
+                <h3>If the information above is correct, you may complete the remainder of this form.</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default" ng-show="ctrlName=='WithdrawReviewAndSign'">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-8">
+                <h3>You are requesting removal of the following primary attorney from the record.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box box-info">
+                    <p>
+                        <span ng-if="primaryAttorney.lastName != null && primaryAttorney.firstName != null">
+                            {{primaryAttorney.lastName}}, {{primaryAttorney.firstName}} {{primaryAttorney.middleName}}
+                        </span>
+                        <span ng-if="!(primaryAttorney.lastName != null && primaryAttorney.firstName != null)">
+                            <span ng-if="primaryAttorney.partyName != null">
+                                {{primaryAttorney.partyName}}
+                            </span>
+                        </span>
+                        <!--
+                        <br />Member, Virginia Bar Association
+                        -->
+                        <span ng-hide="!(primaryAttorney.firmName)">
+                            <br />{{primaryAttorney.firmName}}
+                        </span>
+                        <span ng-if="primaryAttorney.address1!=null">
+                            <br />{{primaryAttorney.address1}} 
+                        </span>
+                        <span ng-if="primaryAttorney.address2!=null">
+                            <br />{{primaryAttorney.address2}} 
+                        </span>
+                        <span ng-if="primaryAttorney.address3!=null">
+                            <br />{{primaryAttorney.address3}}
+                        </span>
+                        <span ng-if="primaryAttorney.geographicRegion!=null">
+                            <br />{{primaryAttorney.geographicRegion}}
+                        </span>
+                        <span ng-if="primaryAttorney.country!=null">
+                            <br />{{primaryAttorney.country}}
+                        </span>
+                        <br />
+                        <span ng-if="primaryAttorney.email!=null">
+                            (Email) {{primaryAttorney.email}}  <br />
+                        </span>
+                        <span ng-if="primaryAttorney.website!=null">
+                            (URL) {{primaryAttorney.website}}  <br />
+                        </span>
+                        <span ng-if="primaryAttorney.phone!=null">
+                            (p) {{primaryAttorney.phone}}
+                        </span>
+                        <span ng-if="primaryAttorney.fax!=null">
+                            (f) {{primaryAttorney.fax}}
+                        </span>
+                        <span ng-if="primaryAttorney.fax!=null || primaryAttorney.phone!=null">
+                            <br />
+                        </span>
+                        <span ng-if="primaryAttorney.docketNumber!=null && primaryAttorney.docketNumber!=''">
+                            <strong>Docket #</strong>{{primaryAttorney.docketNumber}}
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <h3>And you have supplied the following as updated correspondence information.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="outline-box outline-box-default">
+                    <!-- <h4>Domestic representative</h4> -->
+                    <!-- <div class="dropdown pull-right">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+
+                            <span class="fa fa-pencil"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="">Edit</a>
+                            </li>
+                            <li><a href="">Remove</a>
+                            </li>
+                        </ul>
+                    </div> -->
+                    <p>
+                        {{correspondence.lastName}}, {{correspondence.firstName}} {{correspondence.middleName}}
+                        <!--
+                        <br />Member, Virginia Bar Association
+                        -->
+                        <span ng-hide="!(correspondence.firmName)">
+                            <br />{{correspondence.firmName}}
+                        </span>
+                        <span ng-if="correspondence.address1!=null">
+                            <br />{{correspondence.address1}} 
+                        </span>
+                        <span ng-if="correspondence.address2!=null">
+                            <br />{{correspondence.address2}} 
+                        </span>
+                        <span ng-if="correspondence.address3!=null">
+                            <br />{{correspondence.address3}}
+                        </span>
+                        <span ng-if="correspondence.geographicRegion!=null">
+                            <br />{{correspondence.geographicRegion}}
+                        </span>
+                        <span ng-if="correspondence.country!=null">
+                            <br />{{correspondence.country}}
+                        </span>
+                        <br />
+                        <span ng-if="correspondence.email!=null">
+                            (Email) {{correspondence.email}}  <br />
+                        </span>
+                        <span ng-if="correspondence.website!=null">
+                            (URL) {{correspondence.website}}  <br />
+                        </span>
+                        <span ng-if="correspondence.phone!=null">
+                            (p) {{correspondence.phone}}
+                        </span>
+                        <span ng-if="correspondence.fax!=null">
+                            (f) {{correspondence.fax}}
+                        </span>
+                        <span ng-if="correspondence.fax!=null || correspondence.phone!=null">
+                            <br />
+                        </span>
+                        <span ng-if="correspondence.docketNumber!=null && correspondence.docketNumber!=''">
+                            <strong>Docket #</strong>{{correspondence.docketNumber}}
+                        </span>
+                    </p>
+                </div>
+                <h4>Changes to the courtesy copy emails</h4>
+                <span ng-if="oldCorrespondenceEmail !=null && oldCorrespondenceEmail !=''">
+                    To Be Removed: {{oldCorrespondenceEmail}}<br />
+                </span>
+                <span ng-if="correspondence.email !=null && correspondence.email !=''">
+                    To Be Added: {{correspondence.email}}
+                </span>
+            </div>
+        </div>
+    </div>
+ </div>
+
+<div class="panel panel-default">   
+    <!-- Miscellaneous Statement -->
+    <div class="panel-body">
+        <h2 ng-bind-html="resourceBundle['ui.reviewAndSign.txtMiscellaneousStmtHeader']"></h2>
+        <div class="row">
+            <div class="col-md-12">
+                <input type="checkbox" ng-click="showOrDeleteMiscStatement()" ng-model="checked">
+                <label ng-bind-html="resourceBundle['ui.reviewAndSign.cbIncludeMiscellaneous']"></label>
+                <!--form name="miscellaneousInfoForm"-->
+                <div class="check-element animate-show" ng-show="checked">
+                    <div class="row form-group">
+                        <div class="col-sm-12">
+                            <input type="hidden" id="miscellaneousStmtId" name="miscellaneousStmtId" ng-model="miscellaneousInfoForm.id">
+                            <label for="miscellaneousStmt" class="sr-only"></label>
+                            <textarea rows="4" class="form-control" id="miscellaneousStmt" name="miscellaneousStmt" ng-model="miscellaneousInfoForm.text"></textarea>
+                            <div class="alert error" ng-show="miscellaneousStmtError">Miscellaneous Statement can not be empty.</div>
+                            <!--div id='editor-example-1' data-ng-model="miscellaneousStmt">
+                                <h2>Gettysburg Address Opening</h2>
+                                <p>
+                                    Four score and seven years ago our fathers brought forth on this continent a new nation, conceived in liberty, and dedicated to the proposition that all men are created equal.
+                                </p>
+                            </div-->
+                        </div>
+                    </div>
+                    <div ng-include="'templates/fileList.html'"></div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <input id="fileUpload" type="file" ng-files-model="fileModel"/>
+                            <!--label for="fileUpload" class="sr-only" ng-bind-html="resourceBundle['ui.reviewAndSign.lblUploadFile']"></label-->
+                            <label for="fileUpload" class="sr-only" ng-bind-html="resourceBundle['ui.reviewAndSign.lblUploadFile']"></label>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" ng-click="uploadFile()" data-ng-disabled="checkFile()" ng-bind-html="resourceBundle['ui.reviewAndSign.btnUpload']"></button>
+                            <div class="alert error" ng-show="fileTypeError">File extension not allowed, please choose a JPG or PDF file.</div>
+                            <div class="alert error" ng-show="fileSizeError">The file size exceeds the limit 5MB.</div>
+                            <div class="alert error" ng-show="fileNameTooLongError">The file name exceeds 50 characters. Please rename the file and try again.</div>
+                        </div>
+                    </div>
+                </div>
+                <!--/form-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default"> 
+    <!-- Sigature -->
+    <div class="panel-body">
+        <h2 ng-bind-html="resourceBundle['ui.reviewAndSign.txtSignatureHeader']"></h2>
+
+        <p ng-bind-html="resourceBundle['ui.reviewAndSign.txtSignatureNotice']"></p>
+        <div class="expandcollapse-link">
+                  
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample" >
+            Who can sign this form?
+            </button>
+            
+            <div class="collapse" id="collapseExample1" aria-expanded="false" style="height: 0px;">
+            <p ng-bind-html="resourceBundle['ui.reviewAndSign.txtSignatureTips']">
+                
+            </p>
+            </div>
+        </div>
+       
+            <!--fieldset>
+                <legend ng-bind-html="resourceBundle['ui.reviewAndSign.lblSignatureMethodSelection']"></legend>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="action" checked><span ng-bind-html="resourceBundle['ui.reviewAndSign.txtSignatureMethod1']"></span>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" value="" ng-model="action"><span ng-bind-html="resourceBundle['ui.reviewAndSign.txtSignatureMethod2']"></span>
+                    </label>
+                </div>
+                <div class="radio ">
+                    <label>
+                        <input type="radio" value="" ng-model="action"><span ng-bind-html="resourceBundle['ui.reviewAndSign.txtSignatureMethod3']"></span>
+                    </label>
+                </div>
+            </fieldset-->
+            <!--
+            <div ng-include="'templates/signatureList.html'"></div>
+            -->
+            <form name="signatureForm">
+                <div ng-include="'templates/signatureSection.html'"></div>
+            </form>
+            
+        
+        <div class="alert alert-warning">
+            <p ng-bind-html="resourceBundle['warn.global.warnAttorney']"></p>
+        </div>
+        <div ng-show="noSignatures" class="alert alert-warning">
+            <p class="alert-danger">Please provide a valid signature before submitting</p>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <!--
+    <div class="panel-body" ng-controller="EmailRequestSignatureCtrl">
+        <div class="row form-group">
+            <div class="col-md-6">
+                <h2 class="section-heading">Your progress has been saved</h2> </div>
+            <div class="col-md-6 text-right">               
+                <button class="btn btn-default active" ng-click=GoPrint()>Print this case</button>
+            </div>
+        </div>
+        <p>se the link below to resume the process and complete signature. If you are not authorized to provide a signature,forward this link directly or use the email option below to send to a second party for signature.</p>
+        <p>Progress link: <a href="signatureEmail.progressLink">{{signatureEmail.progressLink}}</a>
+        </p>
+        <p>Signatory link: <a href="signatureEmail.signatureLink">{{signatureEmail.signatureLink}}</a>
+        </p>
+        <div class="outline-box outline-box-default">
+            <h3 class="h4 section-heading">Email links (optional)</h3>
+            <div class="row form-group">
+                <div class="col-md-6">
+                    <label for="operatorName">Your Name</label>
+                    <input type="text" name="operatorName" id="operatorName" class="form-control" ng-model="signatureEmail.operatorName">
+                </div>
+                <div class="col-md-6">
+                    <label for="recipientName">Name of Recipient(optional)</label>
+                    <input type="text" name="recipientName" id="recipientName" class="form-control" ng-model="signatureEmail.recipientName">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6">
+                    <label for="operatorEmail">Your Email Address</label>
+                    <input type="text" name="operatorEmail" id="operatorEmail" class="form-control" ng-model="signatureEmail.operatorEmail">
+                </div>
+                <div class="col-md-6">
+                    <label for="recipientEmail">Recipient Email Address(optional)</label>
+                    <input type="text" name="recipientEmail" id="recipientEmail" class="form-control" ng-model="signatureEmail.recipientEmail">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="confirmOperatorEmail">Confirm Your Email Address</label>
+                    <input type="text" name="confirmOperatorEmail" id="confirmOperatorEmail" class="form-control" ng-model="signatureEmail.confirmOperatorEmail">
+                </div>
+                <div class="col-md-6">
+                    <label for="confirmRecipientEmail">Confirm Recipient Email Address</label>
+                    <input type="text" name="confirmRecipientEmail" id="confirmRecipientEmail" class="form-control" ng-model="signatureEmail.confirmRecipientEmail">
+                    <div class="margin-top-fifteen"><strong>Include: </strong>
+                        <div class="checkbox-inline">
+                            <label>
+                                <input type="checkbox">Only signatory link</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-default" ng-click="sendRequestSignatureEmail()">Send Email</button>
+        </div>
+    </div>
+    --!>
+    
+    <div class="panel-footer">
+        <div class="row">
+            <div class="col-md-4 col-xs-4 ">
+                <button class="btn btn-default" id="previousPage" ng-bind-html="resourceBundle['ui.gobal.btnGoBack']" ng-click="goBack()"></button>
+            </div>
+            <div class="col-md-4 col-xs-4 text-center">
+                <button class="btn btn-default" id="saveButton" ng-bind-html="resourceBundle['ui.gobal.btnSave']" ng-click="saveMiscellaneousStmt()"></button>
+            </div>
+            <div class="col-md-4 col-xs-4 text-right">
+                <button class="btn btn-primary pull-right" id="continueButton" ng-click="submit()">
+                    <span  ng-if="ctrlName=='ReviewAttorneyCtrl' || ctrlName=='AttorneysReviewCtrl'">Submit</span>
+                    <span ng-if="ctrlName=='ReviewRemovedAttorneyCtrl'">Request removal of attorney(s)</span>
+                    <span ng-if="ctrlName=='WithdrawReviewAndSign'">Request withdrawal of attorney</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+@import "vendor/bootstrap/print.less";
+@media print {
+
+    h1 {
+        font-size: 22px !important;
+        text-align: center;
+    }
+    h2, h3{
+        font-size: 18px !important;     
+    }
+    .text-muted {
+        color: @text-muted !important;
+    }
+    .table {
+        border-collapse: collapse !important;
+        table-layout: fixed;
+        td,
+        th {
+            background-color: #fff !important;
+        }
+        thead th {
+            background-color: @brand-info !important;
+            font-weight: bold;
+        }
+        tbody th {
+            background-color: @gray-lighter !important;
+            font-weight: bold;
+        }
+    }
+    .table-bordered {
+        th,
+        td {
+            border: 1px solid @brand-primary !important;
+        }
+    }
+    
+}

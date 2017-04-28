@@ -1,0 +1,51 @@
+<div class="row equalheight" equal-height>
+    <div class="col-sm-4" ng-repeat="attorney in secondaryAttorneys track by $index" ng-class="$index % 4 === 0 ? 'newClass':'' ">
+    <div class="box  box-default">
+        <div class="dropdown pull-right" ng-show="editVar">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                <span class="fa fa-pencil"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li><a href="" ng-bind-html="resourceBundle['ui.gobal.linkEdit']" ng-click="edit(attorney)"></a>
+                </li>
+                <li><a href="" ng-bind-html="resourceBundle['ui.gobal.linkRemove']" ng-click="delete(attorney)"></a>
+                </li>
+            </ul>
+        </div>
+        <p>
+            <b>Additional attorney</b><br/>
+            {{attorney.partyName}}<br />
+            <!--
+            <br />Member, Virginia Bar Association
+            -->
+            <span ng-if="attorney.firmName != null">
+                {{attorney.firmName}}<br />
+            </span>
+            <span ng-if="attorney.address1 != null">
+                {{attorney.address}}<br />
+            </span>
+            <span ng-if="attorney.geographicRegion != null">
+                {{attorney.geographicRegion}}<br />
+            </span>
+            <span ng-if="attorney.country != null">
+                {{attorney.country}}<br />
+            </span>
+            <span ng-if="attorney.email != null">
+                (Email) {{attorney.email}}  <br />
+            </span>
+            <span ng-if="attorney.website != null">
+                (URL) {{attorney.website}}  <br />
+            </span>
+            <span ng-if="attorney.phone != null">
+                (Phone) {{attorney.phone}}  <br />
+            </span>
+            <span ng-if="attorney.fax != null">
+                (Fax) {{attorney.fax}}  <br />
+            </span>
+            <span ng-if="attorney.docketNumber != null">
+                Docket Number: {{attorney.docketNumber}}
+            </span>
+        </p>
+        </div>
+    </div>
+</div>       

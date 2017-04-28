@@ -1,0 +1,7 @@
+<script type="text/template" id="lookupDataTemplate">
+
+	<option value="">Please select</option>
+   <% _.each(lookupDataCollection, function(lookupData)) { %>
+                    <option value="<%= lookupData.get('value') %>"><%= lookupData.get('label') %></option>
+   <% } %>                 
+</script>

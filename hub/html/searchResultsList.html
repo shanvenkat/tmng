@@ -1,0 +1,270 @@
+<div class="row">
+    <div class="col-sm-4"> 42 Records found
+    </div>
+    <div class="col-sm-4">
+        <fieldset class="pn-toggle">
+            <label class="pn-toggle-next"><span>Expand all</span>
+                <input type="radio" name="1bb66911-eaa1-409b-919f-cd596762711e" value="Expand all" class="">
+            </label>
+            <label class="pn-toggle-checked"><span>Collapse all</span>
+                <input type="radio" name="1bb66911-eaa1-409b-919f-cd596762711e" value="Collapse all">
+            </label>
+        </fieldset>
+    </div>
+    <div class="col-sm-4 text-right">
+    <button class="btn btn-primary btn-icon-only"><span class="fa fa-list"></span>
+    </button>
+    <button class="btn btn-default btn-icon-only"><span class="fa fa-th-large"></span>
+    </button>
+    </div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>Serial <br />Number</th>
+            <th>Registration <br />Number</th>
+            <th>Primary Attorney <br />&amp; Firm Name</th>
+            <th>Owner</th>
+            <th>Mark</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-class="rowSelected ? 'info' : 'default'">
+            <td>
+                <input type="checkbox" ng-model="rowSelected">
+            </td>
+            <td data-toggle="collapse" data-target="#demo1" class="accordion-toggle" ng-class="">
+                <button class="btn btn-default btn-xs"><span class="fa fa-angle-down"></span>
+                </button>
+            </td>
+            <td data-toggle="collapse" data-target="#demo1" class="accordion-toggle">1234567</td>
+            <td data-toggle="collapse" data-target="#demo1" class="accordion-toggle">56567878</td>
+            <td data-toggle="collapse" data-target="#demo1" class="accordion-toggle">John Smith<br />Smith, Smith &amp; Smith</td>
+            <td data-toggle="collapse" data-target="#demo1" class="accordion-toggle">Mr. T</td>
+            <td data-toggle="collapse" data-target="#demo1" class="accordion-toggle">Image</td>
+
+        </tr>
+        <tr>
+            <td colspan="7" class="hiddenRow" style="border-top: 0; border-bottom: 0; background-color: white; padding: 0 0 20px;">
+                <div class="accordian-body collapse" id="demo1" style="background-color: #f8fbfd; padding: 10px;">
+                   <div class="row">
+                        <div class="col-md-6">
+                            <table class="no-border">
+                            <tr>
+                                    <th scope="row">Registration Number:</th>
+                                    <td>1234567</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Filing Date:</th>
+                                    <td scope="col">12/04/2014</td>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="no-border">
+                                <tr>
+                                    <th scope="col">Class IDs:</th>
+                                    <td>12, 09</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Mark Literal:</th>
+                                    <td>Add text</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Attorney</th>
+                                        <th scope="col">Firm</th>
+                                        <th scope="col">Docket Number</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Add text</td>
+                                        <td>Add text</td>
+                                        <td>Add text</td>
+                                       
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" ng-model="rowSelected">
+            </td>
+            <td data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
+                <button class="btn btn-default btn-xs"><span class="fa fa-angle-down"></span>
+                </button>
+            </td>
+            <td data-toggle="collapse" data-target="#demo2" class="accordion-toggle">1234567</td>
+            <td data-toggle="collapse" data-target="#demo2" class="accordion-toggle">56567878</td>
+            <td data-toggle="collapse" data-target="#demo2" class="accordion-toggle">John Smith <br />Smith, Smith &amp; Smith</td>
+            <td data-toggle="collapse" data-target="#demo2" class="accordion-toggle">Mr. T</td>
+            <td data-toggle="collapse" data-target="#demo2" class="accordion-toggle">Image</td>
+
+        </tr>
+        <tr>
+            <td colspan="7" class="hiddenRow" style="border-top: 0; border-bottom: 0; background-color: white; padding: 0 0 20px;">
+                <div class="accordian-body collapse" id="demo2" style="background-color: #f8fbfd; padding: 10px;">
+                   <div class="row">
+                        <div class="col-md-6">
+                            <table class="no-border">
+                            <tr>
+                                    <th scope="row">Registration Number:</th>
+                                    <td>1234567</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Filing Date:</th>
+                                    <td scope="col">12/04/2014</td>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="no-border">
+                                <tr style="background-color: #f8fbfd;">
+                                    <th scope="col">Class IDs:</th>
+                                    <td scope="col">12, 09</td>
+                                </tr>
+                                <tr style="background-color: #f8fbfd;">
+                                    <th scope="row">Mark Literal:</th>
+                                    <td>Add text</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Attorney</th>
+                                        <th scope="col">Firm</th>
+                                        <th scope="col">Docket Number</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Add text</td>
+                                        <td>Add text</td>
+                                        <td>Add text</td>
+                                       
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" ng-model="rowSelected">
+            </td>
+            <td data-toggle="collapse" data-target="#demo3" class="accordion-toggle">
+                <button class="btn btn-default btn-xs"><span class="fa fa-angle-down"></span>
+                </button>
+            </td>
+            <td data-toggle="collapse" data-target="#demo3" class="accordion-toggle">1234567</td>
+            <td data-toggle="collapse" data-target="#demo3" class="accordion-toggle">56567878</td>
+            <td data-toggle="collapse" data-target="#demo3" class="accordion-toggle">John Smith<br />Smith, Smith &amp; Smith</td>
+            <td data-toggle="collapse" data-target="#demo3" class="accordion-toggle">Mr. T</td>
+            <td data-toggle="collapse" data-target="#demo3" class="accordion-toggle">Image</td>
+
+        </tr>
+        <tr>
+            <td colspan="7" class="hiddenRow" style="border-top: 0; border-bottom: 0; background-color: white; padding: 0 0 20px;">
+                <div class="accordian-body collapse" id="demo3" style="background-color: #f8fbfd; padding: 10px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table class="no-border">
+                            <tr>
+                                    <th scope="row">Registration Number:</th>
+                                    <td>1234567</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Filing Date:</th>
+                                    <td scope="col">12/04/2014</td>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="no-border">
+                                <tr style="background-color: #f8fbfd;">
+                                    <th scope="col">Class IDs:</th>
+                                    <td scope="col">12, 09</td>
+                                </tr>
+                                <tr style="background-color: #f8fbfd;">
+                                    <th scope="row">Mark Literal:</th>
+                                    <td>Add text</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Attorney</th>
+                                        <th scope="col">Firm</th>
+                                        <th scope="col">Docket Number</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Add text</td>
+                                        <td>Add text</td>
+                                        <td>Add text</td>
+                                       
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="form-inline pull-right">
+    <div class="form-group">
+        <div class="dropdown" style="display: inline-block">
+            <button type="button" id="dropdownMenu3" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="text-muted normal">Showing</span> 150-160 <span class="text-muted normal">of</span> 305 <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+                <li style="padding: 0 16px" role="presentation">
+                    <form action="">
+                        <label>Jump to item</label>
+                        <input type="text" placeholder="150" class="form-control">
+                    </form>
+                </li>
+                <li class="divider"></li>
+                <li role="presentation" class="dropdown-header">Show up to</li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">10 items</a>
+                </li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">25 items</a>
+                </li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">50 items</a>
+                </li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">100 items</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <pager style="float: left;" boundary-links="true" items-per-page="15" total-items="1" ng-model="dict.currentPage" previous-text="<" next-text=">">
+        </pager>
+    </div>
+</div>

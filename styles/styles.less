@@ -1,0 +1,124 @@
+@import "pneumatic/theme/vanilla.less";
+@import "font-awesome/font-awesome.less";
+@import "variables.less";
+@import "tables.less";
+ .main-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    overflow: auto;
+}
+/*.pn-flex-grid {
+height: 100%;
+width: 100%;
+}
+.pn-flex-body {
+    padding: 40px 30px;
+    padding: 4rem 3rem;
+    overflow-x: hidden;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+*/
+.pn-flex-row {height:auto;}
+.margin-top-twenty {
+    margin-top: 2rem;
+}
+/* this class is to make content of the screen but not hidden from AT*/
+
+.hiddenText {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+.flex-container {  
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.item-start { 
+  -webkit-align-items: flex-start; 
+  align-items: flex-start;  
+} 
+.item-end { 
+  -webkit-align-items: flex-end; 
+  align-items: flex-end; 
+}
+.item-center { 
+  -webkit-align-items: center; 
+  align-items: center; 
+  >p, div, input, button{
+  margin-right:5px;
+  }
+} 
+.item-baseline { 
+  -webkit-align-items: baseline; 
+  align-items: baseline; 
+}
+.item-stretch { 
+  -webkit-align-items: stretch; 
+  align-items: stretch; 
+} 
+.justify-start { 
+  -webkit-justify-content: flex-start; 
+  justify-content: flex-start; 
+} 
+.justify-end { 
+  -webkit-justify-content: flex-end; 
+  justify-content: flex-end; 
+}
+.justify-center { 
+  -webkit-justify-content: center; 
+  justify-content: center; 
+}  
+.justify-space-between { 
+  -webkit-justify-content: space-between; 
+  justify-content: space-between; 
+} 
+.justify-space-around { 
+  -webkit-justify-content: space-around; 
+  justify-content: space-around; 
+} 
+/* override for pNeumatic styles */
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    border: 1px solid #d5d5d5;
+}
+.btn-link {
+    padding-left: 0;
+}
+.btn-link, .btn-primary {
+    [class^="icon-"], [class*=" icon-"] {
+        padding-right: 5px;
+    }
+}
+.styled-select {
+    float: left;
+}
+#editor-example-1 {
+    width: 500px;
+}
+.editor-btns {
+    display: flex;
+    height: auto;
+}
+.alert {
+  max-width: 100%;
+
+}
+ .error{ text-align: left;}
+
+

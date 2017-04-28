@@ -1,0 +1,119 @@
+<!-- show this div based on the selection from the radio button -->
+<% if (basisTypeValueSelected=='all' ) {%>
+<%}%>
+<% if (basisTypeValueSelected=='class' ) {%>
+    <div class="row margin-up-twenty">
+        <div class="col-md-12">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="select1">View items</label>
+                </div>
+                <div class="form-group">
+                    <select id="select1" class="form-control">
+                        <option>15</option>
+                    </select>
+                </div>
+                <div class="form-group pull-right">
+                    <p>Selected:
+                        <span class="badge" id="countGoodsByClass"><%= collection.selectedGoods %></span>
+                        <span>Good(s)</span>|
+                        <span class="badge" id="countClassesByClass"><%= collection.selectedClasses %></span>
+                        <span>Class(es)</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table id="assignBasisByClass" class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col" class="col-md-1">
+                <input type="checkbox" id="classChkAll" >
+                <label for="classChkAll"><b>Select all</b>
+                </label>
+            </th>
+            <th scope="col" class="col-md-2">
+                Good and Service Class
+            </th>
+            <th scope="col" class="col-md-9">
+                Good and Service Description
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% _.each(collection.models, function(basis){ %>
+
+        <tr>
+            <td>
+                <input type="checkbox" name="checkClass" id="class<%= basis.get('id') %>" value="<%= basis.get('id') %>" <% print((basis.get('filingBasisCd')==='1(b)') ?  'checked="checked"' : '') %>  >
+                <label for="class<%= basis.get('id') %>" class="sr-only"><%= basis.get('gdsSrvcTermTx') %></label>
+            </td>
+            <td><%= basis.get('classId') %></td>
+            <td><%= basis.get('gdsSrvcTermTx') %></td>
+
+        </tr>
+        <% }); %>
+        </tbody>
+
+
+
+    </table>
+<%}%>
+<% if (basisTypeValueSelected=='gs' ) {%>
+<!-- show this div based on the selection from the radio button -->
+    <div class="row margin-up-twenty">
+        <div class="col-md-12">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="select1">View items</label>
+                </div>
+                <div class="form-group">
+                    <select id="select2" class="form-control">
+                        <option>15</option>
+                    </select>
+                </div>
+                <div class="form-group pull-right">
+                    <p>Selected:
+                        <span class="badge" id="countGoodsByGood"><%= collection.selectedGoods %></span>
+                        <span>Goods</span>|
+                        <span class="badge" id="countClassesByGood"><%= collection.selectedGoods %></span>
+                        <span>Classes</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table id="assignBasisByGood" class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col" class="col-md-1">
+                <input type="checkbox" id="goodChkAll" >
+                <label for="goodChkAll"><b>Select all</b>
+                </label>
+            </th>
+            <th scope="col" class="col-md-5">
+                Good and Service Description
+            </th>
+            <th scope="col" class="col-md-2">
+                Class
+            </th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <% _.each(collection.models, function(basis){ %>
+
+        <tr>
+            <td>
+                <input type="checkbox" name="checkGood" id="gs<%= basis.get('id') %>" value="<%= basis.get('id') %>" <% print((basis.get('filingBasisCd')==='1(b)') ?  'checked="checked"' : '') %> >
+                <label for="gs<%= basis.get('id') %>" class="sr-only"><%= basis.get('gdsSrvcTermTx') %></label>
+            </td>
+            <td><%= basis.get('gdsSrvcTermTx') %></td>
+            <td><%= basis.get('classId') %></td>
+
+        </tr>
+        <% }); %>
+        </tbody>
+    </table>
+<%}%>
+<div id="pagination"></div>

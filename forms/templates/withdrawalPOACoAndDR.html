@@ -1,0 +1,263 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a>Attorney</a>
+        </li>
+        <li class="completed"><a>Actions</a>
+        </li>
+        <li class="disabled"><a>Search</a>
+        </li>
+        <li class="disabled"><a>Search Results</a>
+        </li>
+        <li class="disabled" dropdown is-open="status.isopen">
+            <a type="button" href="#" class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">My List <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a>
+                </li>
+                <li><a href="#">Another action</a>
+                </li>
+                <li><a href="#">Something else here</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<div ng-show="ctrlName=='domesticRepWithdrawCtrl'">
+    <h1>Update Domestic Rep (Step 3)</h1>
+</div>
+<div ng-show="ctrlName=='correspondenceWithdrawCtrl'">
+    <h1>Update Correspondent Information (Step 2)</h1>
+</div>
+<div class="alert alert warning">
+    <p>Warning: You may not use this form if you are not the applicant's/registrant's current Primary attorney of record, or the mark owner.</p>
+</div>
+<div ng-show="ctrlName=='domesticRepWithdrawCtrl'" class="form-group row">
+    <div class="col-sm-5">
+        <button class="btn btn-default" ng-click="goBack()">
+            < Back to Step 2</button>
+    </div>
+</div>
+<div ng-show="ctrlName=='correspondenceWithdrawCtrl'" class="form-group row">
+    <div class="col-sm-5">
+        <button class="btn btn-default" ng-click="goBack()">
+            < Back to Step 1</button>
+    </div>
+</div>
+<h2>1 Selection</h2>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div ng-include="'templates/attorneyInfo.html'"></div>
+
+        <div ng-if="withdrawMode == 'raa4'">
+            <button class="btn btn-link" ng-click="openTsdrWindow()"> View all attorneys (in TSDR)</button>
+        </div>
+
+        <div class="expandcollapse-link">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                Show attorney details
+            </button>
+
+            <div class="collapse" id="collapseExample1" aria-expanded="false" style="height: 0px;">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div ng-include="'templates/subAttorneyDetailTable.html'"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div ng-show="ctrlName=='correspondenceWithdrawCtrl'">
+            <h2 class="section-heading">Correspondence Information</h2>
+        </div>
+        <div ng-show="ctrlName=='domesticRepWithdrawCtrl'">
+            <h2 class="section-heading">Domestic Representative Information</h2>
+        </div>
+
+        <p>The USPTO will send all future correspondence to the address you select below, until a new power of attorney or change of correspondence address is filed.</p>
+        <p><i>WARNING: For an application filed under TEAS Plus or TEAS RF, the failure to maintain a correct e-mail address for ongoing e-mail communication will result in the loss of TEAS Plus or TEAS RF status and a requirement to pay $50 per class processing fee.</i>
+        </p>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+
+        <div ng-show="ctrlName=='correspondenceWithdrawCtrl'">
+            <h2 class="section-heading">Select a Correspondence</h2>
+        </div>
+        <div ng-show="ctrlName=='domesticRepWithdrawCtrl'">
+            <h2 class="section-heading">Select a Domestic Representative</h2>
+        </div>
+
+        <div class="row equalheight" equal-height>
+            <div class="col-sm-4 ">
+                <div class="box" ng-class="radio.selected=='current'? 'box-info' : 'box-default'">
+                    <div class="radio">
+                        <label>
+                            <!-- input box to toggle a variable to true or false -->
+                            <input type="radio" name="content" ng-model="radio.selected" value="current">
+                            <p ng-show="ctrlName=='correspondenceWithdrawCtrl'">Current Correspondent</p>
+                            <p ng-show="ctrlName=='domesticRepWithdrawCtrl'">Current Domestic Representative</p>
+                            <p ng-show="ctrlName=='domesticRepWithdrawCtrl'"><span class="text-bold">{{trademark.domesticRep.partyName}}</span>
+                                <br />
+                                <span ng-hide="!trademark.domesticRep.firmName"><br /><span class="text-bold">{{trademark.domesticRep.firmName}}</span></span>
+                                <span ng-hide="!trademark.domesticRep.address"><br />{{trademark.domesticRep.address}}</span>
+                                <span ng-hide="!trademark.domesticRep.geographicRegion"><br />{{trademark.domesticRep.geographicRegion}}</span>
+                                <span ng-hide="!trademark.domesticRep.country"><br />{{trademark.domesticRep.country}}</span>
+
+                                <span ng-hide="!trademark.domesticRep.phone"><br />(p) {{trademark.domesticRep.phone}}</span>
+                                <span ng-hide="!trademark.domesticRep.fax"><br />(f) {{trademark.domesticRep.fax}}</span>
+                                <br />
+                                <span ng-hide="!trademark.domesticRep.email"><br />{{trademark.domesticRep.email}}</span>
+                            </p>
+                            <p ng-show="ctrlName=='correspondenceWithdrawCtrl'"><span class="text-bold">{{trademark.correspondence.partyName}}</span>
+                                <br />
+                                <span ng-hide="!trademark.correspondence.firmName"><br/><span class="text-bold">{{trademark.correspondence.firmName}}</span></span>
+                                <span ng-hide="!trademark.correspondence.address"><br />{{trademark.correspondence.address}}</span>
+                                <span ng-hide="!trademark.correspondence.geographicRegion"><br />{{trademark.correspondence.geographicRegion}}</span>
+                                <span ng-hide="!trademark.correspondence.country"><br />{{trademark.correspondence.country}}</span>
+
+                                <span ng-hide="!trademark.correspondence.phone"><br />(p) {{trademark.correspondence.phone}}</span>
+                                <span ng-hide="!trademark.correspondence.fax"><br />(f) {{trademark.correspondence.fax}}</span>
+                                <br />
+                                <span ng-hide="!trademark.correspondence.email"><br />{{trademark.correspondence.email}}</span>
+                            </p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4 " ng-if="ctrlName=='correspondenceWithdrawCtrl' && !isAdditionalAttorneysDropped" ng-repeat="party in trademark.additionalAttorneys">
+                <div class="box" ng-class="radio.selected=={{party.id}} ? 'box-info' : 'box-default'">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="content" ng-model="radio.selected" value="{{party.id}}">
+
+                            <p><span class="text-bold">{{party.partyName}}</span>
+                                <br />
+                                <span ng-hide="!party.firmName"><br /><span class="text-bold">{{party.firmName}}</span></span>
+                                <span ng-hide="!party.address"><br />{{party.address}}</span>
+                                <span ng-hide="!party.geographicRegion"> <br />{{party.geographicRegion}}</span>
+                                <span ng-hide="!party.country"><br />{{party.country}}</span>
+
+                                <span ng-hide="!party.phone"><br />(p) {{party.phone}}</span>
+                                <span ng-hide="!party.fax"><br />(f) {{party.fax}}</span>
+                                <br />
+                                <span ng-hide="!party.email"><br /> {{party.email}}</span>
+                            </p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4 "  ng-if="ctrlName=='domesticRepWithdrawCtrl' && !isAdditionalAttorneysDropped" ng-repeat="party in trademark.additionalAttorneys | filter: {country: 'US'}">
+                <div class="box" ng-class="radio.selected=={{party.id}} ? 'box-info' : 'box-default'">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="content" ng-model="radio.selected" value="{{party.id}}">
+
+                            <p><span class="text-bold">{{party.partyName}}</span>
+                                <br />
+                                <span ng-hide="!party.firmName"><br /><span class="text-bold">{{party.firmName}}</span></span>
+                                <span ng-hide="!party.address"><br />{{party.address}}</span>
+                                <span ng-hide="!party.geographicRegion"> <br />{{party.geographicRegion}}</span>
+                                <span ng-hide="!party.country"><br />{{party.country}}</span>
+
+                                <span ng-hide="!party.phone"><br />(p) {{party.phone}}</span>
+                                <span ng-hide="!party.fax"><br />(f) {{party.fax}}</span>
+                                <br />
+                                <span ng-hide="!party.email"><br /> {{party.email}}</span>
+                            </p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4 " ng-if="ctrlName=='domesticRepWithdrawCtrl'" ng-repeat="party in trademark.owners | filter: {country: 'US'}">
+                <div class="box" ng-class="radio.selected=={{party.id}} ? 'box-info' : 'box-default'">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="content" ng-model="radio.selected" value="{{party.id}}">
+
+                            <p><span class="text-bold">{{party.partyName}}</span>
+                                <br />
+                                <span ng-hide="!party.firmName"><br /><span class="text-bold">{{party.firmName}}</span></span>
+                                <span ng-hide="!party.address"><br />{{party.address}}</span>
+                                <span ng-hide="!party.geographicRegion"> <br />{{party.geographicRegion}}</span>
+                                <span ng-hide="!party.country"><br />{{party.country}}</span>
+
+                                <span ng-hide="!party.phone"><br />(p) {{party.phone}}</span>
+                                <span ng-hide="!party.fax"><br />(f) {{party.fax}}</span>
+                                <br />
+                                <span ng-hide="!party.email"><br /> {{party.email}}</span>
+                            </p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4 " ng-if="ctrlName=='correspondenceWithdrawCtrl'" ng-repeat="party in trademark.owners">
+                <div class="box" ng-class="radio.selected=={{party.id}} ? 'box-info' : 'box-default'">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="content" ng-model="radio.selected" value="{{party.id}}">
+
+                            <p><span class="text-bold">{{party.partyName}}</span>
+                                <br />
+                                <span ng-if="party.firmName"><br /><span class="text-bold">{{party.firmName}}</span></span>
+                                <span ng-if="party.address"><br />{{party.address}}</span>
+                                <span ng-if="party.geographicRegion"> <br />{{party.geographicRegion}}</span>
+                                <span ng-if="party.country"><br />{{party.country}}</span>
+
+                                <span ng-if="party.phone"><br />(p) {{party.phone}}</span>
+                                <span ng-if="party.fax"><br />(f) {{party.fax}}</span>
+                                <br />
+                                <span ng-if="party.email"><br /> {{party.email}}</span>
+                            </p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4" ng-if="ctrlName=='domesticRepWithdrawCtrl'">
+                <div class="box" ng-class="radio.selected=='newDR' ? 'box-info' : 'box-default'">
+                    <div class="radio">
+                        <label>
+                            <input id="dr" type="radio" name="content" ng-model="radio.selected" value="newDR"> I wish to provide new domestic Representative
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4" ng-if="ctrlName=='correspondenceWithdrawCtrl'">
+                <div class="box" ng-class="radio.selected=='newCO' ? 'box-info' : 'box-default'">
+                    <div class="radio">
+                        <label>
+                            <input id="co" type="radio" name="content" ng-model="radio.selected" value="newCO"> I wish to provide new correspondence information
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form name="partyInfoForm" novalidate>
+        <div class="panel-body" ng-if="radio.selected === 'newDR'">
+            <div ng-include="'templates/domesticRepForm.html'"></div>
+        </div>
+        <div class="panel-body" ng-if="radio.selected === 'newCO'">
+            <div ng-include="'templates/correspondenceForm.html'"></div>
+            <p class="alert error" ng-show="(radio.selected === 'newCO' && corrRequired===true)">correspondent information required</p>
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-md-4 col-xs-4 ">
+                    <button class="btn btn-default" id="previousPage" ng-click="cancel()">Cancel</button>
+                </div>
+                <div class="col-md-4 col-xs-4 text-center">
+                    <button class="btn btn-default" id="saveDrButton" ng-if="ctrlName=='domesticRepWithdrawCtrl'" ng-click="saveDomesticRep()" ng-disabled="partyInfoForm.$invalid">Save</button>
+                    <button class="btn btn-default" id="saveCoButton" ng-if="ctrlName=='correspondenceWithdrawCtrl'" ng-click="saveCorrespondence()" ng-disabled="partyInfoForm.$invalid">Save</button>
+                </div>
+                <div class="col-md-4 col-xs-4 text-right">
+                    <button class="btn btn-primary pull-right" ng-if="ctrlName=='correspondenceWithdrawCtrl'" id="continueCoButton" ng-click="goToDomesticRep(((radio.selected=== 'newDR' || radio.selected=== 'newCO')&&partyInfoForm.$invalid))">Continue</button>
+                    <button class="btn btn-primary pull-right" ng-if="ctrlName=='domesticRepWithdrawCtrl'" id="continueDrButton" ng-click="goToReview()">Continue</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

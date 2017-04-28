@@ -1,0 +1,155 @@
+
+                    <!-- End new block of code on 9/5 - mk-->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label for="markOwner">Legal Business Name
+                                <span class="glyphicon glyphicon-asterisk">
+                                <span class="sr-only">Required</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <input type="text" class="form-control" name='markOwner' id="markOwner" >
+                                </div>
+                            </div>
+                            <span aria-hidden="true" style="color:red" id="markOwnerError"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-9 margin-up-ten">
+                            <fieldset>
+                            <legend class="sr-only">Business is know as other names also</legend>
+                            <input type="radio" value="false" id="otherNamesChxBoxNo" name="otherNamesChxBox" />
+                            <label for="otherNamesChxBoxNo">This is the only name under which this business operates</label>
+                            <input type="radio" value="true" id="otherNamesChxBoxYes" name="otherNamesChxBox" />
+                            <label for="otherNamesChxBoxYes">The business also operates under another name such as a DBA</label>
+                        </div>
+                    </fieldset>
+                </div>
+                <!--This section may not be possible for individual Brandon is confirming - End -->
+                <div id="otherNamesContainer">
+                    <div class="form-group row">
+                        <div class="col-sm-3">
+                            <label for="doingbusinessAs" class="">
+                                <a id="lblDBA" data-type="text" class="editable editable-click">Doing business as
+                                </a>
+                            </label>
+                            <input type="text" class="form-control" id="doingbusinessAs" name="doingbusinessAs" >
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="alsoKnownAs" class="">
+                                <a id="lblAKA" data-type="text" class="editable editable-click">Also known as
+                                </a>
+                            </label>
+                            <input type="text" class="form-control" id="alsoKnownAs" name="alsoKnownAs" >
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="tradingAs" class="">
+                                <a id="lblTA" data-type="text" class="editable editable-click">Trading as
+                                </a>
+                            </label>
+                            <input type="text" class="form-control" id="tradingAs" name="tradingAs" >
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="formerlyKnownAs" class="">
+                                <a id="lblFKA" data-type="text" class="editable editable-click">Formerly known as
+                                </a>
+                            </label>
+                            <input type="text" class="form-control" id="formerlyKnownAs" name="formerlyKnownAs" >
+                        </div>
+                    </div>
+                </div>
+                <!-- start new block of code on 9/5 - mk asking for citizenship first-->
+               
+                    <div class="form-group row margin-up-twenty">
+                        <div class="col-sm-7" id="entityCountry">
+                            <label class="">In what country is the business legally organized?
+                                <span class="glyphicon glyphicon-asterisk">
+                                <span class="sr-only">Required</span>
+                                </span>
+                            </label>
+                            <div class="control-group">
+                                <div class="controls">
+                               
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-5 hidden" id="entityState">
+                            <label class="">In what state?</label>
+                            <div class="control-group">
+                                <div class="controls">
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <!--End new section for separating name in first/last/middle name -->
+                    </div>
+              
+                <!-- End new block of code on 9/5 - mk-->
+                
+                <!-- start this section shows based on the frist radio button regarding owner type, only show if the owner type is business-->
+                <div>
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <label for="entityType">
+                                What type of entity is applying for the trademark (sole proprietor, corporation, etc.)? 
+                                <span class="glyphicon glyphicon-asterisk">
+                                <span class="sr-only">Required</span>
+                                </span> 
+                            </label>
+                        </div>
+                         <div class="col-sm-7">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <select id="entityType" name="entityType" class="form-control">
+                                        <option value="">Please select ..</option>
+                                        <option value="3">Corporation</option>
+                                        <option value="16">Limited Liability Company</option>
+                                        <option value="2">Partnership</option>
+                                        <option value="13">Limited Partnership</option>
+                                        <option value="5">Joint Venture</option>
+                                        <option value="19">Sole Proprietorship</option>
+                                        <option value="17">Trust</option>
+                                        <option value="18">Estate</option>
+                                        <option value="99">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="entityTypeContainer"></div>
+                </div>
+                <!-- End this section shows based on the frist radio button regarding owner type, only show if the owner type is business-->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="alert alert-warning">
+                            <p>Reminder: all filing information is made public, including the applicant's name and address. Some applicants prefer to use a PO box address or a business address rather than publishing their home address.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p class="text-bold">What is the business' legal address?</p>
+                        <p>This should be an address where [define the type of address: is it where others mail papers to the applicant or registrant about using the mark? where packages can be delivered]?</p>
+                    </div>
+                </div>
+             
+                    <div class="row" id="applicantCountry">
+                      <div class="col-sm-8">    
+                        <label for="country" class="">
+                            <a id="lblCountry" data-type="text" class="editable editable-click">First select the applicant's country</a>
+                            <span class="glyphicon glyphicon-asterisk">
+                            <span class="sr-only">Required</span>
+                            </span>
+                        </label>
+                        <div class="control-group" >
+                            <div class="controls">
+                           
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+              
+             

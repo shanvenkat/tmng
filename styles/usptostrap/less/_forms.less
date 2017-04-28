@@ -1,0 +1,126 @@
+@import "vendor/bootstrap/forms.less";
+
+// increase spacing between inline radio/checkboxes to distinguish label relationships.
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+    margin-left: 18px;
+}
+
+// improve checkbox/radio positioning
+input[type="radio"], input[type="checkbox"] {
+    /*margin: .2em 0 0;*/
+}
+
+label {
+    // color: @gray-light;
+    font-weight: 600;
+}
+
+// removes shadow from inputs and darkens focused field
+.form-control {
+    box-shadow: none;
+
+    &:focus {
+        background-color: #fafafb;
+        box-shadow: none;
+    }
+
+    .has-error & {
+        box-shadow: none;
+    }
+}
+
+.form-group-sm {
+    .form-control-static {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+}
+
+textarea {
+    resize: none;
+}
+
+.form-group {
+    /*margin-bottom: 8px;*/
+    .help-block{
+    margin-bottom: 0;
+    }
+}
+
+
+// bumps up z-index for input-group-btns to make sure borders are clean.
+.input-group .input-group-btn {
+    z-index: 2;
+}
+
+.input-group .form-control:focus {
+    z-index: 3;
+}
+
+// adds required asterisk after label
+form:not(.form-horizontal) {
+    label.required::after {
+        position: relative;
+        content: "*";
+        color: @state-danger-text;
+        left: 4px;
+        font-size: 12px;
+    }
+}
+
+// adds required asterisk before label
+.form-horizontal {
+    @media(min-width: @screen-sm) {
+        label.required::before {
+            position: relative;
+            content: "*";
+            color: @state-danger-text;
+            left: -4px;
+            font-size: 12px;
+        }
+    }
+    @media(max-width: 767px) {
+        label.required::after {
+            position: relative;
+            content: "*";
+            color: @state-danger-text;
+            left: 4px;
+            font-size: 12px;
+        }
+    }
+}
+
+.input-search {
+    border-radius: 100px;
+}
+
+// Add an icon inside the front of an input
+.input-icon {
+    position: absolute;
+    pointer-events: none;
+    margin-top: 8px;
+    margin-left: 9px;
+    color: #ccc;
+    font-size: 14px;
+}
+.input-icon+input {
+    padding-left: 28px;
+}
+
+.form-control-width-xs {
+    max-width: 75px;
+}
+.form-control-width-sm {
+    max-width: 150px;
+}
+.form-control-width-md {
+    max-width: 250px;
+}
+.form-control-width-lg {
+    max-width: 350px;
+}
+.form-control-width-fill {
+    max-width: 100%;
+}
+

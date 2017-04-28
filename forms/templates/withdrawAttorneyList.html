@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-sm-4 ">
+        <div class="box box-info">
+            <p>
+                <span ng-if="primaryAttorney.lastName != null && primaryAttorney.firstName != null">
+                    {{primaryAttorney.lastName}}, {{primaryAttorney.firstName}} {{primaryAttorney.middleName}}
+                </span>
+                <span ng-if="!(primaryAttorney.lastName != null && primaryAttorney.firstName != null)">
+                    <span ng-if="primaryAttorney.partyName != null">
+                        {{primaryAttorney.partyName}}
+                    </span>
+                </span>
+                <!--
+                <br />Member, Virginia Bar Association
+                -->
+                <span ng-hide="!(primaryAttorney.firmName)">
+                    <br />{{primaryAttorney.firmName}}
+                </span>
+                <span ng-if="primaryAttorney.address1!=null">
+                    <br />{{primaryAttorney.address1}} 
+                </span>
+                <span ng-if="primaryAttorney.address2!=null">
+                    <br />{{primaryAttorney.address2}} 
+                </span>
+                <span ng-if="primaryAttorney.address3!=null">
+                    <br />{{primaryAttorney.address3}}
+                </span>
+                <span ng-if="primaryAttorney.geographicRegion!=null">
+                    <br />{{primaryAttorney.geographicRegion}}
+                </span>
+                <span ng-if="primaryAttorney.country!=null">
+                    <br />{{primaryAttorney.country}}
+                </span>
+                <br />
+                <span ng-if="primaryAttorney.email!=null">
+                    (Email) {{primaryAttorney.email}}  <br />
+                </span>
+                <span ng-if="primaryAttorney.website!=null">
+                    (URL) {{primaryAttorney.website}}  <br />
+                </span>
+                <span ng-if="primaryAttorney.phone!=null">
+                    (p) {{primaryAttorney.phone}}
+                </span>
+                <span ng-if="primaryAttorney.fax!=null">
+                    (f) {{primaryAttorney.fax}}
+                </span>
+                <span ng-if="primaryAttorney.fax!=null || primaryAttorney.phone!=null">
+                    <br />
+                </span>
+                <span ng-if="primaryAttorney.docketNumber!=null && primaryAttorney.docketNumber!=''">
+                    <strong>Docket #</strong>{{primaryAttorney.docketNumber}}
+                </span>
+            </p>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <p class="margin-top-ten text-bold">If you are Withdrawing this attorney as the attorney of record for Mark serial number <a href="#">{{trademarkInfo.serialNumTx}}</a>, the following form must be completed:
+        </p>
+
+    </div>
+</div>

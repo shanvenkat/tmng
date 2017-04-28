@@ -1,0 +1,890 @@
+'use strict';
+
+/* Controllers */
+/* Controllers for Withdrawal Primary Attorney Single case */
+
+efileControllers.controller('WithdrawAttorneyCtrl', ['$scope', '$rootScope', '$location', '$http', '$routeParams', '$q', 'TrmTrademarkResource',
+    function($scope, $rootScope, $location, $http, $routeParams, $q, TrmTrademarkResource) {
+    
+        console.log("Withdraw Attorney");
+        console.log("Case Number: " + $routeParams.serialNumber);
+
+        //resource bundle
+        $scope.resourceBundle = $rootScope.rootResourceBundleResource;
+        $scope.withdrawMode = $routeParams.withdrawMode;
+
+        // page info
+        $scope.trademarkInfo = {};
+        $scope.primaryAttorney = {};
+        $scope.withdrawReason = "";
+        $scope.withdrawCheckList = [];
+        
+        $scope.wd={};
+        $scope.wd.radioPowerAttorneyEnded = '';
+        $scope.wd.affirmStatementCheckbox = false;
+        $scope.woaReasonStmt = {};
+        
+        // UI switch
+        $scope.disableContinue = true;
+        $scope.errMsgWOAStmt = false;
+        $scope.errMsgCheckBox = false;
+
+        $scope.cmsMarkUrl = "";
+        $http.get("/efile/rest/cms/mark/url").success(function (url) {     
+            console.log('url: '+url);                             
+            $scope.cmsMarkUrl = url;  
+        }).error(function (error) { 
+            console.log('Error: ' + error);
+        });
+                
+        // init page
+        $scope.trademarkInfo = TrmTrademarkResource.get({
+            serialNo: $routeParams.serialNumber
+        });
+
+        $scope.trademarkInfo.$promise.then(function(result){
+
+            if (angular.isUndefined($scope.trademarkInfo.id)) {
+                $location.path('/attorney/error/No case was found');
+            }
+            // pick up the primary attorney
+            angular.forEach($scope.trademarkInfo.attorneys, function(attorney){
+                if (attorney.roleCd === 'AT') {
+                    $scope.primaryAttorney = attorney;
+                };
+            });
+
+            // get Mark Literal
+            if ($scope.trademarkInfo.standardCharacterTx != null) {
+                $scope.markLiteral = $scope.trademarkInfo.standardCharacterTx;
+            } else {
+                angular.forEach($scope.trademarkInfo.tmLiterals, function(tmLiteral, index) {
+                    $scope.markLiteral = tmLiteral.literalElementTx;
+                });
+            } // mark literal
+
+            // handle no primary AT case
+            if ($scope.primaryAttorney.id === null || $scope.primaryAttorney.id === undefined || $scope.primaryAttorney.id === '') {
+                $location.path('/attorney/error/No primary attorney was found');
+            };
+
+            // init woa reason statment
+            var woaResource = $http({
+                method : 'GET',
+                url : '/efile/rest/woa/woaStmtBySerialNumber/' + $routeParams.serialNumber,
+                headers : {
+                'Content-Type' : 'application/json'
+                }
+            }).success(function(result){
+                $scope.woaReasonStmt.id = '';
+                $scope.woaReasonStmt.trademarkId = $scope.trademarkInfo.id;
+                $scope.woaReasonStmt.text = '';
+                $scope.woaReasonStmt.serialNumTx = $routeParams.serialNumber;
+
+                if (result != null && result != '') {
+                    $scope.woaReasonStmt.id = result.id;
+                    $scope.woaReasonStmt.text = result.text;
+                    $scope.woaReasonStmt.serialNumTx = $routeParams.serialNumber;
+                };
+            });
+
+            // init radio button
+            var readRadioButton = $http({
+                method : 'GET',
+                url : '/efile/rest/property/woaBySerial/'+$scope.withdrawMode+"/" + $routeParams.serialNumber,
+                headers : {
+                    'Content-Type' : 'application/json'
+                }
+            }).success(function(result){
+            	
+            	if($scope.withdrawMode =='raa4'){
+            		$scope.wd.radioPowerAttorneyEnded = result.propertyValue;
+            		
+            	}else if($scope.withdrawMode =='raa3'){
+            		///////////////////////////////////////////
+            		$scope.withdrawCheckList[0] = false;
+                    $scope.withdrawCheckList[1] = false;
+                    $scope.withdrawCheckList[2] = false;
+                    $scope.withdrawCheckList[3] = false;
+                    $scope.withdrawCheckList[4] = false;
+                    $scope.withdrawCheckList[5] = false; 
+
+                    if (result != '') {
+                      var resultArray = result.propertyValue.split(" ");
+                      for (var i = 0; i < resultArray.length; i++) {
+                        if (resultArray[i] === 'true') {
+                          $scope.withdrawCheckList[i] = true;
+                        };
+                      }      
+                    }
+                    ///////////////////////////////////////////
+            	}
+            });
+        }, function(error) {
+            $location.path('/attorney/error/No case was found');
+        });
+
+        // page function
+        // back to action
+        $scope.goBack = function () {
+          $location.path('/attorney/');
+        }
+
+        // save info
+        $scope.save = function() {
+        	
+            var saveWOAStmt = $http({
+              method: 'POST',
+              url: '/efile/rest/woa/woaStmt',
+              data: $scope.woaReasonStmt
+            }).success(function(result){
+              console.log("Success!");
+              if (result != null && result != '') {
+                $scope.woaReasonStmt.id = result.id;
+                $scope.woaReasonStmt.trademarkId = result.trademarkId;
+                $scope.woaReasonStmt.text = result.text;
+                $scope.woaReasonStmt.serialNumTx = $routeParams.serialNumber;
+                
+                // for save radio button selection
+                if($scope.withdrawMode  == 'raa4'){
+                  var saveRadioButton = $http({
+                    method: 'POST',
+                    url: '/efile/rest/property/woa',
+                    data: {
+                      markId :  $scope.woaReasonStmt.trademarkId,
+                      propertyValue : $scope.wd.radioPowerAttorneyEnded,
+                      propertyCd : 'waend',
+                      serialNumberTx : $routeParams.serialNumber
+                    }
+                  }).success(function(){
+                    console.log("Success!");
+                  });
+                ///////////////
+                }else if($scope.withdrawMode  == 'raa3'){
+                	var withdrawCheckListString = $scope.withdrawCheckList.join(' ');
+                	var saveRadioButton = $http({
+                        method: 'POST',
+                        url: '/efile/rest/property/woa',
+                        data: {
+                          markId :  $scope.woaReasonStmt.trademarkId,
+                          propertyValue : withdrawCheckListString,
+                          propertyCd : 'woa',
+                          serialNumberTx : $routeParams.serialNumber
+                        }
+                      }).success(function(){
+                        console.log("Success!");
+                      });
+                }
+                //////////////////////
+              };
+            });
+         
+          $scope.checkBoxErrMsg();
+          $scope.checkStmtErrMsg();
+        }
+
+        $scope.checkBoxErrMsg = function() {
+          if ($scope.withdrawCheckList[0] == true && $scope.withdrawCheckList[1] == true && $scope.withdrawCheckList[2] == true && $scope.withdrawCheckList[3] == true && $scope.withdrawCheckList[4] == true) {
+            $scope.errMsgCheckBox = false;
+          } else if ($scope.withdrawCheckList[5] == true) {
+            $scope.errMsgCheckBox = false;
+          } else {
+            $scope.errMsgCheckBox = true;
+          };
+        }
+
+        $scope.checkStmtErrMsg = function() {
+          if ($scope.woaReasonStmt.text != null && $scope.woaReasonStmt.text != '' && $scope.woaReasonStmt.text != ' ') {
+            $scope.errMsgWOAStmt = false;
+          } else {
+            $scope.errMsgWOAStmt = true;
+          };
+        }
+
+        // cancel withdraw action and go main page
+        $scope.cancel = function() {
+          $location.path('/main');
+        }
+        
+        $scope.openTsdrWindow = function () {
+            $scope.tsdrurl = "http://tsdr.uspto.gov/#caseNumber="+$routeParams.serialNumber+"&caseType=SERIAL_NO&searchType=statusSearch";
+            window.open($scope.tsdrurl, '_blank'); 
+        }
+
+        $scope.adjustContinueButton = function(){
+        	if($scope.wd.affirmStatementCheckbox && $scope.wd.radioPowerAttorneyEnded =='Agreee'){
+        		$scope.disableContinue = false;
+        	}else{
+        		$scope.disableContinue = true;
+        	}
+        }
+
+        // continue button for going to second page
+        $scope.goToCorrespondence = function() {
+          $scope.save();
+          $location.path('/attorney/withdraw/correspondence/' + $routeParams.serialNumber);
+        }
+
+        // for checkbox business logic
+        $scope.checkbox1To5OnClick = function () {
+          if ($scope.withdrawCheckList[0] == true || $scope.withdrawCheckList[1] == true || $scope.withdrawCheckList[2] == true || $scope.withdrawCheckList[3] == true || $scope.withdrawCheckList[4] == true) {
+            $scope.withdrawCheckList[5] = false;
+          };
+        }
+
+        $scope.checkbox6OnClick = function () {
+          if ($scope.withdrawCheckList[5] == true) {
+            $scope.withdrawCheckList[0] = false;
+            $scope.withdrawCheckList[1] = false;
+            $scope.withdrawCheckList[2] = false;
+            $scope.withdrawCheckList[3] = false;
+            $scope.withdrawCheckList[4] = false;
+          };
+        }
+
+
+        // parameter watchers
+        // for continue button
+        $scope.$watch('[withdrawCheckList[0], withdrawCheckList[1], withdrawCheckList[2], withdrawCheckList[3], withdrawCheckList[4], withdrawCheckList[5], woaReasonStmt.text]', function(){    
+          $scope.errMsgWOAStmt = false;
+          $scope.errMsgCheckBox = false;
+          // for UI continue button
+          if ($scope.woaReasonStmt.text != null && $scope.woaReasonStmt.text != '' && $scope.woaReasonStmt.text != ' ') {
+            if ($scope.withdrawCheckList[0] == true && $scope.withdrawCheckList[1] == true && $scope.withdrawCheckList[2] == true && $scope.withdrawCheckList[3] == true && $scope.withdrawCheckList[4] == true) {
+              $scope.disableContinue = false;
+            } else if ($scope.withdrawCheckList[5] == true) {
+              $scope.disableContinue = false;
+            } else {
+              $scope.disableContinue = true;
+            };
+          } else {
+            $scope.disableContinue = true;
+          };
+        });
+    }
+]);
+
+efileControllers.controller('CorrespondenceCtrl', ['$scope', '$rootScope', '$filter', '$routeParams', '$location', 'RaaMarkResource', "PropertyResource", "CorrespondenceResource",
+    function($scope, $rootScope, $filter, $routeParams, $location, RaaMarkResource, PropertyResource, CorrespondenceResource) {
+        console.log("Correspondence");
+        $scope.serialNumber = $routeParams.serialNumber;
+        console.log("CorrespondenceCtrl: " + $scope.serialNumber);
+
+        $scope.correspondenceForm = {};
+        $scope.appPropertyForm = {};
+        $scope.radio = {};
+
+        $scope.trademarkInfo = RaaMarkResource.get({
+            serialNo: $scope.serialNumber
+        });
+
+
+
+        $scope.trademarkInfo.$promise.then(function() {
+
+                angular.forEach($scope.trademarkInfo.attorneys, function(attorney) {
+                    if (attorney.roleCd === 'AT') {
+                        $scope.primaryAttorney = attorney;
+                    }
+                });
+
+                // handle no primary AT case
+                if (!$scope.primaryAttorney || $scope.primaryAttorney.id === null || $scope.primaryAttorney.id === undefined || $scope.primaryAttorney.id === '') {
+                    $location.path('/attorney/error/No primary attorney');
+                }
+
+                $scope.appPropertyForm = PropertyResource.get({
+                    markId: $scope.trademarkInfo.id,
+                    propertyCd: "cotyp"
+                });
+
+                $scope.appPropertyForm.$promise.then(function() {
+                    $scope.radio.content = $scope.appPropertyForm.propertyValueTx;
+                    if ($scope.radio.content === "new") {
+                        var party = $scope.findCorrespondent($scope.trademarkInfo.parties, 'CO');
+                        console.log(party);
+                        if (party) {
+                            $scope.copy(party);
+                        }
+                    }
+                })
+            },
+            function(error) {
+                $location.path('/attorney/error/' + error.data);
+            }
+
+        );
+        $scope.findCorrespondent = function(input, roleCd) {
+            var i = 0,
+                len = input.length;
+            for (; i < len; i++) {
+                if (input[i].roleCd == roleCd) {
+                    return input[i];
+                }
+            }
+            return null;
+        }
+
+
+
+        $scope.getCorrespondenceForm = function(id) {
+            console.log(id);
+            console.log($scope.trademarkInfo.parties);
+            if ($scope.trademarkInfo.parties) {
+                var party = $filter('getById')($scope.trademarkInfo.parties, id);
+                console.log(party);
+                if (party) {
+                    $scope.copy(party);
+                }
+            }
+        }
+
+        $scope.copy = function(party) {
+            $scope.correspondenceForm.firstName = party.firstName;
+            $scope.correspondenceForm.middleName = party.middleName;
+            $scope.correspondenceForm.lastName = party.lastName;
+            $scope.correspondenceForm.suffix = party.suffix;
+            $scope.correspondenceForm.correspondenceName = party.partyName;
+            $scope.correspondenceForm.nameLine2Tx = party.firmName;
+            $scope.correspondenceForm.country = party.country;
+            $scope.correspondenceForm.address1 = party.address1;
+            $scope.correspondenceForm.address2 = party.address2;
+            $scope.correspondenceForm.address3 = party.address3;
+            $scope.correspondenceForm.city = party.city;
+            $scope.correspondenceForm.state = party.state;
+            $scope.correspondenceForm.zip = party.zip;
+            $scope.correspondenceForm.phone = party.phone;
+            $scope.correspondenceForm.fax = party.fax;
+            $scope.correspondenceForm.docketNumber = party.docketNumber;
+            $scope.correspondenceForm.website = party.website;
+            $scope.correspondenceForm.email = party.email;
+        }
+
+        $scope.save = function() {
+         if ($scope.radio.content) {
+            var appProperty = {};
+            appProperty.fkTrademarkId = $scope.trademarkInfo.id;
+            appProperty.fkAppPropertyCd = "cotyp"
+            appProperty.propertyValueTx = $scope.radio.content;
+            var save = PropertyResource.save(appProperty);
+            save.$promise.then(
+                function(value) {
+                    if (value.propertyValueTx !== "new") {
+                        $scope.getCorrespondenceForm(value.propertyValueTx);
+                    }
+                    $scope.correspondenceForm.markId = $scope.trademarkInfo.id;
+                    var save = CorrespondenceResource.save($scope.correspondenceForm)
+                    save.$promise.then(
+                        //success
+                        function(value) {
+                            /*Do something with value*/
+                            $scope.$broadcast('event:correspondence-save-success');
+                        },
+                        //error
+                        function(error) {
+                            /*Do something with error*/
+                            $scope.$broadcast('event:correspondence-save-fail');
+                        }
+                    )
+                },
+                function(error) {}
+            )
+         }
+        }
+
+        $scope.gotoReviewAndSign = function() {
+            this.save();
+            $scope.$on('event:correspondence-save-success', function() {
+                $location.path('/attorney/withdraw/reviewAndSign/' + $routeParams.serialNumber);
+            });
+        }
+
+        $scope.backStep1 = function() {
+            $location.path('/attorney/withdraw/case/' + $routeParams.serialNumber);
+        }
+
+        $scope.cancel = function() {
+            $location.path('/main');
+        }
+    }
+]);
+
+efileControllers.controller('WithdrawReviewAndSignCtrl', ['$scope', '$rootScope', '$routeParams', '$location', '$http', '$q', 'RaaMarkResource', 'SignatureResource', 'MiscellaneousResource', 'MiscellaneousDocResource', 'RaaMiscellaneousDocResource', 'RaaMiscellaneousResource', 'FileUpload', 'WithdrawCompleteInfo', 'configuration',
+    function($scope, $rootScope, $routeParams, $location, $http, $q, RaaMarkResource, SignatureResource, MiscellaneousResource, MiscellaneousDocResource, RaaMiscellaneousDocResource, RaaMiscellaneousResource, FileUpload, WithdrawCompleteInfo, Configuration) {
+      
+      console.log("Withdraw Review And Sign Page");
+
+
+      $scope.ctrlName = "WithdrawReviewAndSign";
+
+      console.log(Configuration.allowedFileTypes);
+      var allowedFileTypes=Configuration.allowedFileTypes.split(',');
+      console.log(allowedFileTypes);
+
+      //resource bundle
+      $scope.resourceBundle = $rootScope.rootResourceBundleResource;
+
+
+      // page info
+      $scope.trademarkInfo = {};
+      $scope.primaryAttorney = {};
+      $scope.correspondence = {};
+      $scope.withdrawReason = "";
+      $scope.woaReasonStmt = {};
+      $scope.oldCorrespondenceEmail = "";
+      // signature
+      $scope.signatureInfoForm = {};
+      $scope.signatureInfoForm.signingDt = new Date();
+      // miscellaneous
+      $scope.miscellaneousIn = false;
+      $scope.miscellaneousInfoForm = {};
+      $scope.miscellaneousInfoForm.text = '';
+      $scope.miscellaneousInfoForm.id = -1;
+
+      
+      // UI switch
+      $scope.disableContinue = true;
+      $scope.lastOptionSelected = false;
+      $scope.noSignatures = false;
+      $scope.noCheckBoxReason = false;
+      $scope.noWOAStatement = false;
+
+
+      // init page
+      $scope.trademarkInfo = RaaMarkResource.get({
+        serialNo: $routeParams.serialNumber
+      });
+
+      $scope.trademarkInfo.$promise.then(function(result){
+        
+        //markId
+        console.log('mark id : '+$scope.trademarkInfo.id);
+        $scope.markId = $scope.trademarkInfo.id;
+            
+        // pick up the primary attorney
+        angular.forEach($scope.trademarkInfo.attorneys, function(attorney){
+          if (attorney.roleCd === 'AT') {
+            $scope.primaryAttorney = attorney;
+          };
+        });
+
+        // pick up the correspondence
+        angular.forEach($scope.trademarkInfo.parties, function(party){
+          if (party.roleCd === 'CO') {
+            $scope.correspondence = party;
+          };
+        });
+
+        // init woa reason statment
+        var woaResource = $http({
+          method : 'GET',
+          url : '/efile/rest/woa/woaStmt/?markID=' + $scope.trademarkInfo.id,
+          headers : {
+            'Content-Type' : 'application/json'
+          }
+        }).success(function(result){
+          $scope.woaReasonStmt.id = '';
+          $scope.woaReasonStmt.trademarkId = $scope.trademarkInfo.id;
+          $scope.woaReasonStmt.text = '';
+
+          if (result != null && result != '') {
+            $scope.woaReasonStmt.id = result.id;
+            $scope.woaReasonStmt.text = "\"" + result.text + "\"";
+          } else {
+            $scope.noWOAStatement = true;
+          };
+        });
+
+        // init radio button
+        var readRadioButton = $http({
+          method : 'GET',
+          url : '/efile/rest/property/woa/?markId=' + $scope.trademarkInfo.id,
+          headers : {
+            'Content-Type' : 'application/json'
+          }
+        }).success(function(result){
+          if (result != '') {
+            var resultArray = result.propertyValue.split(" ");
+            if (resultArray[0] === 'true' && resultArray[1] === 'true' && resultArray[2] === 'true' && resultArray[3] === 'true' && resultArray[4] === 'true') {
+              $scope.lastOptionSelected = false;
+            } else if (resultArray[5] === 'true') {
+              $scope.lastOptionSelected = true;
+            } else {
+              $scope.noCheckBoxReason = true;
+            };
+          } else {
+            $scope.noCheckBoxReason = true;
+          }
+        });
+
+        // get old correspondence email
+        var readRadioButton = $http({
+          method : 'GET',
+          url : '/efile/rest/woa/correspondence/' + $routeParams.serialNumber,
+          headers : {
+            'Content-Type' : 'application/json'
+          }
+        }).success(function(result){
+          if (result.electronicAddresses != null) {
+            angular.forEach(result.electronicAddresses, function(electronicAddress){
+              if (electronicAddress.electronictype === 'EMAIL') {
+                $scope.oldCorrespondenceEmail = electronicAddress.text;
+              };
+            });
+          };
+          console.log($scope.oldCorrespondenceEmail);
+        });
+
+        // some info not complete
+        $q.all([woaResource, readRadioButton]).then(function(){
+          if ($scope.noCheckBoxReason === true || $scope.noWOAStatement === true) {
+            $location.path('/attorney/error/Needs required step for withdraw attorney');
+          } else {
+            // for signatures
+            $scope.getSignatures();
+            // for MiscellaneousStmt
+            $scope.getMiscellaneousStmt();
+          };
+        });
+      });
+      
+      // signature logic
+      $scope.getSignatures = function() {
+        $scope.signatures = [];
+        $scope.signatures = SignatureResource.query({
+          markId: $scope.trademarkInfo.id
+        });
+      };
+      
+      
+
+      //replacing createSignature. We now have only one signature.
+        $scope.saveOrUpdateSignature = function() {
+            
+            $scope.signatureInfoForm.markId = $scope.markId; 
+            $scope.signatureInfoForm.id = $scope.signatures[0].id;
+            $scope.signatureInfoForm.signature = $scope.signatures[0].signature; 
+            $scope.signatureInfoForm.signatoryName = $scope.signatures[0].signatoryName; 
+            $scope.signatureInfoForm.signatoryPosition = $scope.signatures[0].signatoryPosition; 
+            $scope.signatureInfoForm.signingDt = new Date();
+            $scope.signatureInfoForm.signType = $scope.signatures[0].signType; 
+            $scope.signatureInfoForm.signatoryPhoneNumber = $scope.signatures[0].signatoryPhoneNumber; 
+                      
+            var save = SignatureResource.save($scope.signatureInfoForm);
+            save.$promise.then(function(value) {
+                $scope.signatures.push(value);
+                $scope.signatureInfoForm = {};
+                $scope.signatureInfoForm.signingDt = new Date();
+            });
+        };
+
+      /*
+      $scope.createSignature = function() {
+        $scope.signatureInfoForm.markId = $scope.trademarkInfo.id;
+        var save = SignatureResource.save($scope.signatureInfoForm);
+        save.$promise.then(function(value) {
+          $scope.signatures.push(value);
+          $scope.signatureInfoForm = {};
+          $scope.signatureInfoForm.signingDt = new Date();
+        });
+      };
+
+      $scope.deleteSignature = function(signature) { // Delete a signature
+        SignatureResource.delete({}, {
+          'id': signature.id
+        }).$promise.then(function() {
+          $scope.getSignatures();
+        });
+      };
+      */
+
+      // miscellanous logic
+      $scope.uploadFile = function() {
+        if (!$scope.files) {
+          $scope.files = [];
+        }
+        var allowedTypeIn = false;
+        var allowedSizeIn = false;
+        $scope.fileTypeError = false;
+        $scope.fileSizeError = false;
+        $scope.fileNameTooLongError = false;
+
+        var file = $scope.fileModel[0];
+
+        // name cannot exceed 50 characters. db limit.
+        if (file.name.length > 50) {
+          $scope.fileNameTooLongError = true;
+
+        }
+
+        console.log(file.type);
+
+       if ($.inArray(file.type, allowedFileTypes)>=0) {
+          allowedTypeIn = true;
+        } else {
+          $scope.fileTypeError = true;
+        }
+        if (file.size < 5242880) {
+          allowedSizeIn = true;
+        } else {
+          $scope.fileSizeError = true;
+        }
+        if (allowedTypeIn && allowedSizeIn && !($scope.fileNameTooLongError)) {
+          $scope.fileTypeError = false;
+          $scope.fileSizeError = false;
+          $scope.files.push(file);
+          $scope.fileModel = null;
+        }
+
+        console.log($scope.files);
+      };
+
+      $scope.deleteFile = function(file) {
+        $scope.files.splice($scope.files.indexOf(file), 1);
+        if (file.id) {
+          MiscellaneousDocResource.delete({}, {
+            'id': file.id
+          }).$promise.then(function() {
+
+          });
+        }
+      };
+
+      $scope.checkFile = function() {
+        if (!$scope.fileModel) {
+          return true;
+        } else {
+          return false;
+        }
+      };
+
+      $scope.getMiscellaneousDocs = function() {
+        $scope.files = RaaMiscellaneousDocResource.query({
+          stmtId: $scope.stmtId,
+          markId: $scope.trademarkInfo.id
+        });
+      };
+
+      $scope.getMiscellaneousStmt = function() {
+        RaaMiscellaneousResource.get({
+          markId: $scope.trademarkInfo.id
+        }).$promise.then(function(value) {
+          if (value.text) {
+            $scope.checked = true;
+            $scope.miscellaneousInfoForm.id = value.id;
+          }
+          $scope.miscellaneousInfoForm.text = value.text;
+          $scope.files = value.supportingDocuments;
+        });
+      }
+
+      $scope.saveMiscellaneousStmt = function() {
+        
+        $scope.saveOrUpdateSignature();
+        
+        if (!$scope.checked) {
+          if ($scope.miscellaneousInfoForm.id > 0) {
+            var $promise = $http({
+              method: 'DELETE',
+              url: '/efile/rest/additionalstmt/miscellaneous/raa/' + $scope.miscellaneousInfoForm.id
+            }).success(function(result) {
+              $scope.miscellaneousInfoForm.id = -1;
+              $scope.miscellaneousInfoForm.text = null;
+              $scope.files = null;
+            });
+          }
+        } else {
+          if ($scope.miscellaneousInfoForm.id > 0) {
+            if (!$scope.miscellaneousInfoForm.text) {
+              $scope.miscellaneousStmtError = true;
+            } else {
+              $scope.saveMiscStmtToDB();
+            }
+          } else {
+            if (!$scope.miscellaneousInfoForm.text) {
+              $scope.miscellaneousStmtError = true;
+            } else {
+              $scope.saveMiscStmtToDB();
+            }
+          }
+        };
+      }
+
+      $scope.saveMiscStmtToDB = function() {
+        $scope.miscellaneousStmtError = false;
+        $scope.miscellaneousInfoForm.trademarkId = $scope.trademarkInfo.id;
+        var save = MiscellaneousResource.save($scope.miscellaneousInfoForm);
+
+        //Misc is saved now. Upload the file.
+        save.$promise.then(function(value) {
+          $scope.stmtId = value.id;
+          $scope.miscellaneousInfoForm.id = value.id;
+
+          var uploadUrl = "/efile/rest/raa/upload/stmtId/" + value.id + "/trademarkId/" + $scope.trademarkInfo.id + "/serialNum/" + $routeParams.serialNumber;
+          if ($scope.files) {
+            for (var i = 0; i < $scope.files.length; i++) {
+              var file = $scope.files[i];
+              if (!file.id) {
+                FileUpload.uploadFileToUrl(file, uploadUrl).then(
+                  function(value) {
+                    $scope.getMiscellaneousDocs();
+                  },
+                  function() {
+                    console.log("error");
+                  });
+              }
+            }
+          }
+        });//end of upload.
+      } // end of saveMiscStmtToDB.
+
+      // for submit button
+      $scope.submit = function() {
+        // At least one signature is required.
+        $scope.getSignatures();
+        //wait for signatures call to return.
+        $scope.signatures.$promise.then(function(value) {
+          if ($scope.signatures.length < 1) {
+            $scope.noSignatures = true;
+          } else {
+            $scope.noSignatures = false;
+
+            // save attachments.
+            $scope.saveMiscellaneousStmt();
+            console.log($scope.primaryAttorney);
+    
+            //generate xml.
+            var $promise = $http({
+              method: 'PUT',
+              url: '/efile/rest/woa/xml/' + $routeParams.serialNumber
+            }).success(function(result) {
+              
+              console.log("xml generated successfully.");
+              
+              // delete primary Attorney        
+              var $promise = $http({  
+                      method: 'DELETE',
+                      url: '/efile/rest/raa',
+                      data: {
+                        markId: $scope.trademarkInfo.id,
+                        id: $scope.primaryAttorney.id,
+                        attorneyType: $scope.primaryAttorney.roleCd,
+                        serialNum: $routeParams.serialNumber
+                  },
+                  headers: {
+                  'Content-Type': 'application/json'
+                  }
+              }).success(function(result) {
+                console.log("delete success");
+              });
+
+            // clear withdraw reason statment and checkbox
+            var deleteWOACheckBox = $http({
+              method: 'DELETE',
+              url: '/efile/rest/property/woa?markId=' + $scope.trademarkInfo.id
+            }).success(function(){
+              console.log("WOA checkbox delete success!!!");
+            });
+
+            var deleteWOAStat = $http({
+              method: 'DELETE',
+              url: '/efile/rest/woa/woaStmt',
+              data: {
+                id : $scope.woaReasonStmt.id
+              },
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            }).success(function(){
+              console.log("WOA statment delete success!!!");
+            });
+
+            // transfer info to complete page
+            WithdrawCompleteInfo.setWithdrawCompleteInfo($scope.primaryAttorney.partyName, $scope.oldCorrespondenceEmail, $scope.correspondence.partyName, $scope.correspondence.email);
+            
+          });
+            
+            
+
+            // go to complete
+            $location.path('/attorney/withdraw/completeWithdraw/' + $routeParams.serialNumber);
+          }
+        }); // promise ends.    
+      };
+
+      // for go back
+      $scope.goBack = function() {
+        $location.path('/attorney/withdraw/correspondence/' + $routeParams.serialNumber);
+      }
+
+    }
+]);
+
+efileControllers.controller('CompleteWithdrawATCtrl', ['$scope', '$rootScope', '$routeParams', '$location','$http', 'WithdrawCompleteInfo',
+    function($scope, $rootScope, $routeParams, $location, $http, WithdrawCompleteInfo) {
+        
+        console.log("complete withdraw primary attorney");
+        $scope.ctrlName = 'CompleteWithdrawATCtrl';
+        $scope.resourceBundle = $rootScope.rootResourceBundleResource;
+        $scope.serialNumList = [];
+        $scope.serialNumList.push($routeParams.serialNumber);
+        
+        // page info
+        $scope.tmSerialNumber = $routeParams.serialNumber;
+        $scope.primaryAttorney = WithdrawCompleteInfo.getPrimaryAttorneyName();
+        $scope.oldCourtesyCorrespondenceEmail = WithdrawCompleteInfo.getOldCourtesyCorrespondenceEmail();
+        $scope.primaryCorrespondent = WithdrawCompleteInfo.getPrimaryCorrespondentName();
+        $scope.newCourtesyCorrespondenceEmail = WithdrawCompleteInfo.getNewCourtesyCorrespondenceEmail();
+
+        // for email
+        $scope.attorneyInfoMultipleCasesForm = {};
+        $scope.attorneyInfoMultipleCasesForm.ackEmail = '';
+        
+        // click done.
+        $scope.done = function() {  
+          //send ackemail
+          var $promise = $http({
+            method: 'POST',
+            url: '/efile/rest/raa/complete',
+            data: {
+              serialNums : $scope.serialNumList,
+              ackEmail:$scope.attorneyInfoMultipleCasesForm.ackEmail,
+              formType:"WOA"
+            }
+          }).success(function(result) {
+              console.log('ackEmail saved.');
+          });
+            
+          $location.path('/main');
+          WithdrawCompleteInfo.clearWithdrawCompleteInfo();
+      };
+    }
+]);
+
+
+angular.module('efileControllers').controller('domesticRepPoaCtrl', ['$scope', '$rootScope', '$routeParams', '$location','$http', 'TrmTrademarkResource',
+    function($scope, $rootScope, $routeParams, $location, $http, TrmTrademarkResource) {
+        $scope.ctrlName = 'domesticRepPoaCtrl';
+
+        // init page
+        $scope.trademarkInfo = TrmTrademarkResource.get({
+            serialNo: $routeParams.serialNumber
+        });
+
+
+    }
+]);
+
+
+angular.module('efileControllers').controller('correspondencePoaCtrl', ['$scope', '$rootScope', '$routeParams', '$location','$http', 'TrmTrademarkResource',
+    function($scope, $rootScope, $routeParams, $location, $http, TrmTrademarkResource) {
+        $scope.ctrlName = 'correspondencePoaCtrl';
+
+        // init page
+        $scope.trademarkInfo = TrmTrademarkResource.get({
+            serialNo: $routeParams.serialNumber
+        });
+
+
+    }
+]);

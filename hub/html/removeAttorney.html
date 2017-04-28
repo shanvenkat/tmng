@@ -1,0 +1,117 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a href="#">Attorney</a>
+        </li>
+        <li class="completed"><a href="#/html/attorneyTask">Actions</a>
+        </li>
+        <li class="disabled"><a href="#">Search</a>
+        </li>
+        <li class="disabled"><a href="#">Search Results</a>
+        </li>
+        <li class="disabled"><a href="#">Case Lists</a>
+        </li>
+        <li class="active"><a href="#">Remove Attorney</a>
+        </li>
+    </ul>
+</nav>
+<h1>Remove additional attorneys</h1>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div ng-include="'html/attorneyInfo.html'"></div>
+
+
+        <div class="expandcollapse-item">
+            <button class="btn btn-link" ng-click="active = !active" ng-class="{'expandcollapse-heading-collapsed': active, 'expandcollapse-heading-expanded': !active}">
+                > Show attorney details</button>
+
+            <div class="slideDown" ng-show="active">
+                <div class="expand-collapse-content">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h2 class="h4">Primary attorney of record</h2>
+                            <p>{{lastName}}, {{firstName}} {{middleName}}
+                                <br />Member, Virginia Bar Association
+                                <br />Example, LLC
+                                <br />123 Example Street
+                                <br />Suite 400
+                                <br />Vienna, VA 22181
+                                <br />USA
+                                <br />helen.keller@lawfirm.com
+                                <br />(p) 202-234-2343, (f) 202-123-4321
+                                <br />
+                                <strong>Docket #</strong>- 1234-908573
+                            </p>
+                        </div>
+                        <div class="col-sm-8">
+                            <div ng-class="editable ? 'editableDiv' : 'uneditableDiv'">
+                                <h2 class="h4">Courtesy copy emails are currently being sent to:</h2>
+                                <div class="dropdown pull-right editBtn">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+
+                                        <span class="fa fa-pencil"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                        <li><a href="" ng-click="editableActive()">Edit</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="row editControls">
+                                <div class="col-md-4 pull-right text-right margin-btm-ten">
+                                    <button class="btn btn-default " ng-click="editableInactive()">Cancel</button>
+                                    <button class="btn btn-default " ng-click="editableInactive()">Done editing</button>
+                                </div>
+                                </div>
+                                <p class="editControls">Edit the courtesy copy email addresses below. For best results, enter only 1 email address per line. Maximum of X addresses total.</p>
+                                <label class="sr-only" for="input1">Additional Attorney 1</label>
+                                <input type="text" id="input1" ng-readonly="isInput1ReadOnly" value="TM@smithjones.com">,
+                                <br />
+                                <label class="sr-only" for="input2">Additional Attorney 2</label>
+                                <input type="text" id="input2" ng-readonly="isInput1ReadOnly" value="office@smithjones.com">,
+                                <br />
+                                <label class="sr-only" for="input3">Additional Attorney 3</label>
+                                <input type="text" id="input3" ng-readonly="isInput1ReadOnly" value="johnstone@example.com">,
+                                <br />
+                                <label class="sr-only" for="input4">Additional Attorney 4</label>
+                                <input type="text" id="input4" ng-readonly="isInput1ReadOnly" value="sandeep@example.com">
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2>Select or enter the attorneys to remove</h2>
+        <div>
+
+            <p>Additional authorized attorney(s)</p>
+            <div ng-include="'html/removeAttorneyList.html'"></div>
+        </div>
+    </div>
+    <div class="panel-footer">
+
+        <div class="row">
+            <div class="col-md-4 col-xs-4 ">
+
+            </div>
+            <div class="col-md-4 col-xs-4 text-center">
+                <button class="btn btn-default" id="saveButton">Save</button>
+            </div>
+            <div class="col-md-4 col-xs-4 text-right">
+                <button class="btn btn-default" id="previousPage">Cancel</button>
+                <button class="btn btn-primary pull-right" id="continueButton" ng-click="showPopup()">Continue</button>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,719 @@
+<main class="main-container">
+ <button class='toggle btn-primary' type="button">Toggle rich text editor</button>
+    <div class="pn-flex-col" style="-webkit-box-flex: 1.509; flex-grow: 1.509;">
+        
+        <div class="view pn-flex-view pn-src-office-action" id="editor-example-1" style="height:auto;" data-doc-id="921">
+            <div class="banner pn-flex-banner">
+                <div>
+                    <div class="button-tray doc-menubar">
+                        <!-- In this menu bar... -->
+                        <!-- Attr `value` is command name as defined in pn.editor_controls obj. Required. -->
+                        <!-- Attr `cmd-arg` is argument for the said command. Optional. -->
+                        <fieldset id="DD1" class="pn-menu">
+                            <legend>
+                                <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="c41d1a71-851f-4db5-8168-100747ae0a16">
+                                    <span>File</span>
+                                </button>
+                            </legend>
+                            <ul id="c41d1a71-851f-4db5-8168-100747ae0a16" tabindex="0" style="position: fixed; display: none;">
+                                <li>
+                                    <button type="button" value="save">Save</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="print">Print</button>
+                                </li>
+                                <hr>
+                                <li>
+                                    <button type="button" value="rebind">Refresh header data</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="showSettings" disabled="">Priority Office Action Choices ...</button>
+                                </li>
+                                <hr>
+                                <li label="Replicate">
+                                    <fieldset class="pn-menu">
+                                        <legend>
+                                            <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="33f68fc6-40a7-4f14-802d-1f2fd05c12b0">Replicate</button>
+                                        </legend>
+                                        <ul id="33f68fc6-40a7-4f14-802d-1f2fd05c12b0" tabindex="0" style="position: fixed; display: none;">
+                                            <li>
+                                                <button type="button" value="replicateSame">Copy to a new office action in a same case …</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="replicateDifferent">Copy to a new office action in a different case …</button>
+                                            </li>
+                                            <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                                        </ul>
+                                    </fieldset>
+                                </li>
+                                <li>
+                                    <button type="button" value="changeType">Switch Template …</button>
+                                </li>
+                                <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                            </ul>
+                        </fieldset>
+                        <fieldset id="DD2" class="pn-menu">
+                            <legend>
+                                <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="0c1e5ac6-08c3-4373-997d-cccd291d542b">
+                                    <span>Edit</span>
+                                </button>
+                            </legend>
+                            <ul id="0c1e5ac6-08c3-4373-997d-cccd291d542b" tabindex="0" style="position: fixed; display: none;">
+                                <li>
+                                    <button type="button" value="undo">Undo</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="redo">Redo</button>
+                                </li>
+                                <hr>
+                                <li label="Paste Mode">
+                                    <fieldset class="pn-menu">
+                                        <legend>
+                                            <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="de6c3d73-3221-457b-876b-64b61b05d844">Paste Mode</button>
+                                        </legend>
+                                        <ul id="de6c3d73-3221-457b-876b-64b61b05d844" tabindex="0" style="position: fixed; display: none;">
+                                            <li>
+                                                <button type="button" value="pastemode" cmd-arg="merge">Paste and MERGE formatting</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="pastemode" cmd-arg="remove">Paste and REMOVE source formatting</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="pastemode" cmd-arg="preserve">Paste and KEEP source formatting</button>
+                                            </li>
+                                            <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                                        </ul>
+                                    </fieldset>
+                                </li>
+                                <hr>
+                                <li>
+                                    <button type="button" value="search">Find &amp; Replace …</button>
+                                </li>
+                                <hr>
+                                <li>
+                                    <button type="button" value="uspEmpty">New USP</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="uspFromSelection">New USP from Selection</button>
+                                </li>
+                                <hr>
+                                <li>
+                                    <button type="button" value="restoreCombo">Reset Dropdowns</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="cleanupEndnotes">Cleanup End Notes</button>
+                                </li>
+                                <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                            </ul>
+                        </fieldset>
+                        <fieldset class="pn-menu">
+                            <legend>
+                                <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="c937aa99-40cf-4f53-85d6-f99fed9bb0f9">
+                                    <span>Format</span>
+                                </button>
+                            </legend>
+                            <ul id="c937aa99-40cf-4f53-85d6-f99fed9bb0f9" tabindex="0" style="position: fixed; display: none;">
+                                <li>
+                                    <button type="button" value="bold">Bold</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="italic">Italic</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="underline">Underline</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="strike">Strikethrough</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="superscript">Superscript</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="subscript">Subscript</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="indent">Indent</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="outdent">Outdent</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="hilite">Highlight</button>
+                                </li>
+                                <hr>
+                                <li label="Text size">
+                                    <fieldset class="pn-menu">
+                                        <legend>
+                                            <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="a3c4c450-ca63-4d76-9a42-1a90523fa379">Text size</button>
+                                        </legend>
+                                        <ul id="a3c4c450-ca63-4d76-9a42-1a90523fa379" tabindex="0" style="position: fixed; display: none;">
+                                            <li>
+                                                <button type="button" value="fontsize" cmd-arg="10">10</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="fontsize" cmd-arg="12">12 - default</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="fontsize" cmd-arg="14">14</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="fontsize" cmd-arg="16">16</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="fontsize" cmd-arg="18">18</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="fontsize" cmd-arg="20">20</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="fontsize" cmd-arg="24">24</button>
+                                            </li>
+                                            <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                                        </ul>
+                                    </fieldset>
+                                </li>
+                                <li label="Text style">
+                                    <fieldset class="pn-menu">
+                                        <legend>
+                                            <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="1a8b525d-fea0-4ba5-9053-d445c10bcef9">Text style</button>
+                                        </legend>
+                                        <ul id="1a8b525d-fea0-4ba5-9053-d445c10bcef9" tabindex="0" style="position: fixed; display: none;">
+                                            <li>
+                                                <button type="button" value="styles" cmd-arg="p">Normal Text</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="styles" cmd-arg="h1">Heading 1</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="styles" cmd-arg="h2">Heading 2</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="styles" cmd-arg="h3">Heading 3</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="styles" cmd-arg="pre">Preformatted</button>
+                                            </li>
+                                            <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                                        </ul>
+                                    </fieldset>
+                                </li>
+                                <li label="Align">
+                                    <fieldset class="pn-menu">
+                                        <legend>
+                                            <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="e8f15aaa-d7c7-4256-a326-f699b0844cf6">Align</button>
+                                        </legend>
+                                        <ul id="e8f15aaa-d7c7-4256-a326-f699b0844cf6" tabindex="0" style="position: fixed; display: none;">
+                                            <li>
+                                                <button type="button" value="justifyLeft">Left</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="justifyCenter">Center</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="justifyRight">Right</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="justifyFull">Justified</button>
+                                            </li>
+                                            <hr>
+                                            <li>
+                                                <button type="button" value="indent">Increase indent</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="outdent">Decrease indent</button>
+                                            </li>
+                                            <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                                        </ul>
+                                    </fieldset>
+                                </li>
+                                <li label="List style">
+                                    <fieldset class="pn-menu">
+                                        <legend>
+                                            <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="3c146170-3733-4fea-814a-6a767cd6ba23">List style</button>
+                                        </legend>
+                                        <ul id="3c146170-3733-4fea-814a-6a767cd6ba23" tabindex="0" style="position: fixed; display: none;">
+                                            <li>
+                                                <button type="button" value="bulletList">Bullet</button>
+                                            </li>
+                                            <hr>
+                                            <li>
+                                                <button type="button" value="orderedList">1,2,3</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="" disabled="">A,B,C</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="" disabled="">I,II,III</button>
+                                            </li>
+                                            <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                                        </ul>
+                                    </fieldset>
+                                </li>
+                                <li label="Line spacing">
+                                    <fieldset class="pn-menu">
+                                        <legend>
+                                            <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="68c8ff52-609b-4e40-91c4-d428d3fd00ee">Line spacing</button>
+                                        </legend>
+                                        <ul id="68c8ff52-609b-4e40-91c4-d428d3fd00ee" tabindex="0" style="position: fixed; display: none;">
+                                            <li>
+                                                <button type="button" value="lineheight" cmd-arg="100%">1</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="lineheight" cmd-arg="150%">1.5</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="lineheight" cmd-arg="200%">2</button>
+                                            </li>
+                                            <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                                        </ul>
+                                    </fieldset>
+                                </li>
+                                <li label="Zoom">
+                                    <fieldset class="pn-menu">
+                                        <legend>
+                                            <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="0fd8f127-0e12-48bd-ab99-dd6d7faa225b">Zoom</button>
+                                        </legend>
+                                        <ul id="0fd8f127-0e12-48bd-ab99-dd6d7faa225b" tabindex="0" style="position: fixed; display: none;">
+                                            <li>
+                                                <button type="button" value="zoom" cmd-arg="0.25">25%</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="zoom" cmd-arg="0.5">50%</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="zoom" cmd-arg="0.75">75%</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="zoom" cmd-arg="1">100%</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="zoom" cmd-arg="1.25">125%</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="zoom" cmd-arg="1.5">150%</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="zoom" cmd-arg="2">200%</button>
+                                            </li>
+                                            <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                                        </ul>
+                                    </fieldset>
+                                </li>
+                                <hr>
+                                <li>
+                                    <button type="button" value="clearFormatting" disabled="">Clear formatting</button>
+                                </li>
+                                <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                            </ul>
+                        </fieldset>
+                        <fieldset class="insert pn-menu">
+                            <legend>
+                                <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="1185e888-acb6-492d-ae2b-bb534f060e29">
+                                    <span>Insert</span>
+                                </button>
+                            </legend>
+                            <ul id="1185e888-acb6-492d-ae2b-bb534f060e29" tabindex="0" style="position: fixed; display: none;">
+                                <li>
+                                    <button type="button" value="insertFormParagraph">Form Paragraph …</button>
+                                </li>
+                                <li label="Identification" class="insert-identification">
+                                    <fieldset class="insert-identification pn-menu">
+                                        <legend>
+                                            <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="7feedf11-f683-4c5b-b692-63ac4a27b941">Identification</button>
+                                        </legend>
+                                        <ul id="7feedf11-f683-4c5b-b692-63ac4a27b941" tabindex="0" class="" style="position: fixed; display: none;">
+                                            <li>
+                                                <button type="button" value="allIds">All IDs</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="acceptableIds">Acceptable IDs only</button>
+                                            </li>
+                                            <li>
+                                                <button type="button" value="unacceptableIds">Unacceptable IDs only</button>
+                                            </li>
+                                            <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                                            <li class="pn-spinner">
+                                                <span>Loading</span>
+                                            </li>
+                                            <li class="pn-error">
+                                                <span>Error</span>
+                                            </li>
+                                        </ul>
+                                    </fieldset>
+                                </li>
+                                <li>
+                                    <button type="button" value="insertPicture">Picture …</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="link">Hyperlink …</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="reminder">Reminder …</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="endNote">EndNote</button>
+                                </li>
+                                <li label="Frequently Used Symbols">
+                                    <fieldset class="pn-menu">
+                                        <legend>
+                                            <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="be8fa6c7-eeec-45e2-a325-b1e02ef92b90">Frequently Used Symbols</button>
+                                        </legend>
+                                        <ul id="be8fa6c7-eeec-45e2-a325-b1e02ef92b90" tabindex="0" style="position: fixed; display: none;">
+                                            <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                                        </ul>
+                                    </fieldset>
+                                </li>
+                                <li label="Recently Used Symbols">
+                                    <fieldset class="pn-menu">
+                                        <legend>
+                                            <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="f5edc535-747d-4459-8b43-4ba72145e92f">Recently Used Symbols</button>
+                                        </legend>
+                                        <ul id="f5edc535-747d-4459-8b43-4ba72145e92f" tabindex="0" style="position: fixed; display: none;">
+                                            <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                                        </ul>
+                                    </fieldset>
+                                </li>
+                                <li>
+                                    <button type="button" value="symbols">More Symbols …</button>
+                                </li>
+                                <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                            </ul>
+                        </fieldset>
+                        <fieldset class="review pn-menu">
+                            <legend>
+                                <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="123fb681-d1da-47d6-bccd-d72dd4d35e94">
+                                    <span>Review</span>
+                                </button>
+                            </legend>
+                            <ul id="123fb681-d1da-47d6-bccd-d72dd4d35e94" tabindex="0" style="position: fixed; display: none;">
+                                <li>
+                                    <button type="button" value="comment">Add Comment</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="spellcheck">Spell Check</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="manageUserDictionary">Manage Spelling Dictionary</button>
+                                </li>
+                                <hr>
+                                <li>
+                                    <button type="button" class="mentee" value="sendToMentor" style="display: block;">Send to Mentor …</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="mentor" value="returnToMentee" style="display: none;">Return to Mentee</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="mentor" value="send" style="display: none;">Approve &amp; Send …</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="validate">Validate</button>
+                                </li>
+                                <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                            </ul>
+                        </fieldset>
+                        <fieldset class="view_menu pn-menu">
+                            <legend>
+                                <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="5ecfda6f-1e31-40b1-9083-3c77e4ddb699">
+                                    <span>View</span>
+                                </button>
+                            </legend>
+                            <ul id="5ecfda6f-1e31-40b1-9083-3c77e4ddb699" tabindex="0" style="position: fixed; display: none;">
+                                <li>
+                                    <button type="button" value="view_comments" data-toggle="">Comments</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="view_changes" data-toggle="">Changes</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="view_reminders" data-toggle="">Reminders</button>
+                                </li>
+                                <hr>
+                                <li>
+                                    <button type="button" value="view_markers" data-toggle="">Markers</button>
+                                </li>
+                                <li>
+                                    <button type="button" value="view_fpids" data-toggle="">Form Paragraph Numbers</button>
+                                </li>
+                                <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                            </ul>
+                        </fieldset>
+                    </div>
+                    <div class="button-tray doc-menu-aux">
+                        <span class="timestamp">
+                            <span>Draft Saved: 11/24/2014 10:33 am</span>
+                        </span>
+                        <span class="aux-actions">
+                            <button class="oa-send btn-primary" type="button">Send</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="oa-editor-toolbar">
+                    <fieldset legend="History" class="tb-history">
+                        <button title="Undo" class="tb-undo">
+                            <span>Undo</span>
+                        </button>
+                        <button title="Redo" class="tb-redo">
+                            <span>Redo</span>
+                        </button>
+                    </fieldset>
+                    <span class="tb-separator">&nbsp;</span>
+                    <div class="styled-select tb-styles">
+                        <select class="tb-style" title="Format" data-no-label-needed="">
+                            <option value="_donothing">(Mixed)</option>
+                            <option value="h1">Heading 1</option>
+                            <option value="h2">Heading 2</option>
+                            <option value="h3">Heading 3</option>
+                            <option value="p">Body</option>
+                            <option value="pre">Preformatted Text</option>
+                        </select>
+                    </div>
+                    <div class="styled-select tb-fontsize">
+                        <select class="tb-fontsize" title="Font size" data-no-label-needed="">
+                            <option value="_donothing">(Mixed)</option>
+                            <option value="Default">Default</option>
+                            <option value="10">10</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="16">16</option>
+                            <option value="18">18</option>
+                            <option value="20">20</option>
+                            <option value="24">24</option>
+                        </select>
+                    </div>
+                    <span class="tb-separator">&nbsp;</span>
+                    <button title="Bold" class="tb-bold">
+                        <span><b>B</b>
+                        </span>
+                    </button>
+                    <button title="Italic" class="tb-italic">
+                        <span><i>I</i>
+                        </span>
+                    </button>
+                    <button title="Underline" class="tb-underline">
+                        <span>
+                            <span style="text-decoration: underline;">U</span>
+                        </span>
+                    </button>
+                    <button title="Highlight" class="tb-hilite">
+                        <span>
+                            <span style="background-color: rgb(255,255,128)">H</span>
+                        </span>
+                    </button>
+                    <span class="tb-separator">&nbsp;</span>
+                    <fieldset legend="Justification" class="tb-justify">
+                        <button title="Justify left" class="tb-justifyLeft">
+                            <span>Left</span>
+                        </button>
+                        <button title="Justify center" class="tb-justifyCenter">
+                            <span>Center</span>
+                        </button>
+                        <button title="Justify right" class="tb-justifyRight">
+                            <span>Right</span>
+                        </button>
+                        <button title="Justify full" class="tb-justifyFull">
+                            <span>Justify</span>
+                        </button>
+                    </fieldset>
+                    <fieldset legend="List" class="tb-list">
+                        <button title="Bullet List" class="tb-bulletList">
+                            <span>Bullet List</span>
+                        </button>
+                        <button title="Numbered List" class="tb-orderedList">
+                            <span>Numbered List</span>
+                        </button>
+                    </fieldset>
+                    <button title="Outdent" class="tb-outdent">
+                        <span>Outdent</span>
+                    </button>
+                    <button title="Indent" class="tb-indent">
+                        <span>Indent</span>
+                    </button>
+                    <span class="tb-separator">&nbsp;</span>
+                    <button title="Insert Form Paragraph" class="tb-insertFormParagraph">
+                        <span>Insert Form Paragraph</span>
+                    </button>
+                    <button title="Insert Image" class="tb-insertImage">
+                        <span>Insert Image</span>
+                    </button>
+                    <button title="Reminder" class="tb-reminder">
+                        <span>Reminder</span>
+                    </button>
+                    <span class="tb-separator">&nbsp;</span>
+                    <div legend="Spellcheck All" class="split-btn btn tb-spellcheck">
+                        <button title="Spellcheck" class="tb-spellcheckBtn">
+                            <span>Abc✓</span>
+                        </button>
+                        <fieldset class="pn-menu tb-spellcheckMenu">
+                            <legend>
+                                <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="1b7e3d02-4606-441c-9b13-25c4467c6f31">
+                                    <span class="hidden">Options</span>
+                                </button>
+                            </legend>
+                            <ul id="1b7e3d02-4606-441c-9b13-25c4467c6f31" tabindex="0" style="position: fixed; display: none;">
+                                <li>
+                                    <label>
+                                        <input type="checkbox" value="ignore-uppercase">
+                                        <span>Ignore words in UPPERCASE</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="checkbox" value="ignore-numbers">
+                                        <span>Ignore words with numbers</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <hr>
+                                </li>
+                                <li>
+                                    <button value="manage-dictionary">
+                                        <span>Manage custom dictionary</span>
+                                    </button>
+                                </li>
+                                <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                            </ul>
+                        </fieldset>
+                    </div>
+                    <div class="styled-select tb-scale">
+                        <select title="Scale" data-no-label-needed="">
+                            <option value="scale(0.5)">50%</option>
+                            <option value="scale(0.75)">75%</option>
+                            <option value="scale(1)">100%</option>
+                            <option value="scale(1.25)">125%</option>
+                            <option value="scale(1.5)">150%</option>
+                            <option value="scale(2)">200%</option>
+                        </select>
+                    </div>
+                    <button title="Link" class="tb-link">
+                        <span>Link</span>
+                    </button>
+                    <button title="Track Changes" class="tb-trackChanges">
+                        <span>Track Changes</span>
+                    </button>
+                    <div class="hidden tb-folders">
+                        <fieldset class="pn-src-oa-editor-toolbar-usp-folders pn-menu">
+                            <legend>
+                                <button type="button" class="pn-menu-opener" aria-haspopup="true" aria-controls="c71bf424-55ef-4012-80b0-c73a5acc360b">
+                                    <span>Folders</span>
+                                </button>
+                            </legend>
+                            <ul class="folders" id="c71bf424-55ef-4012-80b0-c73a5acc360b" tabindex="0" style="position: fixed; display: none;">
+                                <li class="folder" data-repeat="">
+                                    <label>
+                                        <input type="checkbox">
+                                        <span data-source=".description"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <button class="save" disabled="">Save</button>
+                                </li>
+                                <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                            </ul>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="oa-editor-search hidden">
+                    <button class="close" name="find-replace">
+                        <span>Close</span>
+                    </button>
+                    <div class="search-fields">
+                        <label>
+                            <span>Find</span>
+                            <input class="oa-find-field" placeholder="Find" type="text">
+                        </label>
+                        <!-- <button class="oa-find" type="button">Find</button> -->
+                        <div class="input-append">
+                            <label>
+                                <span>Replace</span>
+                                <input class="oa-replace-field" placeholder="Replace" type="text">
+                            </label>
+                            <button class="oa-find-previous" type="button">
+                                <span>Previous</span>
+                            </button>
+                            <button class="oa-find-next" type="button">
+                                <span>Next</span>
+                            </button>
+                        </div>
+                        <span class="oa-find-results"></span>
+                        <button class="oa-replace" type="button">Replace</button>
+                        <button class="oa-replace-all" type="button">Replace All</button>
+                    </div>
+                    <div class="search-refinements">
+                        <label>
+                            <input class="match-case" type="checkbox">Match Case</label>
+                        <label>
+                            <input class="whole-words" type="checkbox">Find Whole Words Only</label>
+                        <label>
+                            <input class="oa-use-wildcards" type="checkbox" checked="">Use Wildcards * $ ? "" {}</label>
+                        <label>
+                            <input class="oa-ignore-punctuation" type="checkbox">Ignore Punctuation</label>
+                        <label>
+                            <input class="ignore-whitespace" type="checkbox">Ignore Whitespace</label>
+                    </div>
+                </div>
+                <div class="oa-keymap-div hidden">
+                    <div title="Keymap" class="pn-src-keymap">
+                        <section>
+                            <b>Frequently Used</b>
+                            <div class="frequent-symbols">
+                                <ul class="keys">
+                                    <li class="key pn-bindomatic-insertion-point-zombie" style="display: none;"></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section>
+                            <b>Latest</b>
+                            <div class="latest-symbols">
+                                <ul class="keys">
+                                    <li class="key pn-bindomatic-insertion-point-zombie" style="display: none;"></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section>
+                            <label>
+                                <b>More Symbols</b>
+                                <select class="symbol-sets">
+                                    <option value="">Pick a Symbol Set</option>
+                                    <option value="latin-extended">Latin Extended</option>
+                                    <option value="greek">Greek</option>
+                                    <option value="cyrillic">Cyrillic</option>
+                                    <option value="money">Currency</option>
+                                    <option value="math">Math</option>
+                                </select>
+                            </label>
+                            <div class="more-symbols"></div>
+                        </section>
+
+
+                    </div>
+                </div>
+                <div class="oa-error">
+                    <h4>Validation Errors</h4>
+                    <ul>
+                        <li class="pn-bindomatic-insertion-point-zombie" style="display: none;"></li>
+                    </ul>
+                </div>
+
+                <div class="read-only">Not editable</div>
+                <span class="pn-spinner">
+                    <span>Loading</span>
+                </span>
+                <span class="pn-error">
+                    <span>Error</span>
+                </span>
+            </div>
+            <div class="">
+                
+                <!-- Starts read only, becomes writable only if the user has correct permissions -->
+
+                <div class="">
+                    <div class="paragraph-container"><p>hello </p></div>
+                </div>
+                
+
+            </div>
+        </div>
+       
+    </div>
+</main>

@@ -1,0 +1,166 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a>Attorney </a>
+        </li>
+        <li class="completed"><a>Actions</a>
+        </li>
+        <li class="disabled"><a>Search</a>
+        </li>
+        <li class="disabled"><a>Search Results</a>
+        </li>
+        <li class="disabled"><a>Case Lists</a>
+        </li>
+        <li class="active"><a>Remove Attorney</a>
+        </li>
+    </ul>
+</nav>
+<h1>Remove additional attorneys</h1>
+
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div ng-include="'templates/attorneyInfo.html'"></div>
+
+        <div class="expandcollapse-item">
+            <button class="btn btn-link" ng-click="active = !active" ng-class="{'expandcollapse-heading-collapsed': active, 'expandcollapse-heading-expanded': !active}">
+                <div ng-bind-html="resourceBundle['ui.appointAttorney.btnShowDetails']" ng-show="!active"></div>
+                <div ng-show="active">v Hide attorney details</div>
+            </button>
+            <div class="slideDown" ng-show="active">
+                <div class="expand-collapse-content">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p>
+                                <h2 class="h4">Primary attorney of record</h2>
+                                {{trademark.primaryAttorney.partyName}}<br />
+                                <!--
+                                <br />Member, Virginia Bar Association
+                                -->
+                                <span ng-if="trademark.primaryAttorney.firmName != null">
+                                    {{trademark.primaryAttorney.firmName}}<br />
+                                </span>
+                                <span ng-if="trademark.primaryAttorney.address1 != null">
+                                    {{trademark.primaryAttorney.address}}<br />
+                                </span>
+                                <span ng-if="trademark.primaryAttorney.geographicRegion != null">
+                                    {{trademark.primaryAttorney.geographicRegion}}<br />
+                                </span>
+                                <span ng-if="trademark.primaryAttorney.country != null">
+                                    {{trademark.primaryAttorney.country}}<br />
+                                </span>
+                                <span ng-if="trademark.primaryAttorney.email != null">
+                                    (Email) {{trademark.primaryAttorney.email}}  <br />
+                                </span>
+                                <span ng-if="trademark.primaryAttorney.website != null">
+                                    (URL) {{trademark.primaryAttorney.website}}  <br />
+                                </span>
+                                <span ng-if="trademark.primaryAttorney.phone != null">
+                                    (Phone) {{trademark.primaryAttorney.phone}}  <br />
+                                </span>
+                                <span ng-if="trademark.primaryAttorney.fax != null">
+                                    (Fax) {{trademark.primaryAttorney.fax}}  <br />
+                                </span>
+                                <span ng-if="trademark.primaryAttorney.docketNumber != null">
+                                    Docket Number: {{trademark.primaryAttorney.docketNumber}}
+                                </span>
+                            </p>
+                        </div>
+                        <div class="col-sm-8">
+                            <div ng-class="editable ? 'editableDiv' : 'uneditableDiv'">
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <h2 class="h4">Courtesy copy emails are currently being sent to:</h2>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="dropdown pull-right editBtn" ng-show="!editable">
+                                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                                <span class="fa fa-pencil"></span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                                <li>
+                                                    <a href="" ng-click="editableActive()">Edit</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-show="!editable">
+                                    <p>
+                                        <div ng-repeat="email in courtesyCopyEmails track by $index">
+                                            <span>{{email.electronicAddress.text}}</span>
+                                            <br />
+                                        </div>
+                                    </p>
+                                </div>
+                                <div class="editControls">
+                                    
+                                    <p class="alert error" ng-show="showErrTooMuchEmail">Courtesy copy emails should less than 10</p>
+                                    <p>Edit the courtesy copy email addresses below. For best results, enter only 1 email address per line. Maximum of 10 addresses total.</p>
+                                    <div class="form-group row" ng-repeat="email in courtesyCopyEmails track by $index">
+                                        <div class="col-sm-6 padding-right-zero">
+                                            <label class="sr-only" for="{{email.electronicAddress.text}}">{{email.electronicAddress.text}}</label>
+                                            <input class="form-control" type="text" id="{{email.electronicAddress.text}}" value="{{email.electronicAddress.text}}" ng-change="changeCourtesyCopyEmail(email)" ng-model="email.electronicAddress.text">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <button class="btn btn-default" type="button" id="delete" ng-click="deleteCourtesyCopyEmail(email)">
+                                            delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="form-group row" ng-repeat="(i, email) in newCopyEmails track by $index">
+                                        <div class="col-sm-6">
+                                            <label class="sr-only" for="new email">new email</label>
+                                            <input type="text" id="new email" value="{{email}}" ng-model="newCopyEmails[i]" ng-pattern="emailRegex">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <button class="btn btn-default" type="button" id="delete" ng-click="deleteNewCopyEmail(i)">
+                                            delete
+                                            </button>
+                                        </div>                                   
+                                    
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-4">
+                                            <button class="btn btn-block btn-primary" ng-click="addNewEmail()">Add </button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <button class="btn btn-default " ng-click="editableCancel()">Cancel</button>
+                                            <button class="btn btn-default " ng-click="editableDone()">Done editing</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2>Select or enter the attorneys to remove</h2>
+        <div>
+            <p>Additional authorized attorney(s)</p>
+            <div ng-include="'templates/removeAttorneyList.html'"></div>
+        </div>
+    </div>
+    <div class="panel-footer">
+
+        <div class="row">
+            <div class="col-md-4 col-xs-4 ">
+            </div>
+            <div class="col-md-4 col-xs-4 text-center">
+                <!-- <button class="btn btn-default" id="saveButton" ng-click="delete()">Save</button> -->
+            </div>
+            <div class="col-md-4 col-xs-4 text-right">
+                <button class="btn btn-default" id="previousPage" ng-click="cancelRemove()">Cancel</button>
+                <button class="btn btn-primary pull-right" id="continueButton" ng-click="continue()" ng-disabled="disableContinue">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>

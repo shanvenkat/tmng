@@ -1,0 +1,53 @@
+
+    <div class="panel-body">
+        <h2>Please enter your reasons for withdrawal as the attorney of record for mark serial number {{trademark.serialNumTx}} :
+        </h2>
+        <ol class="step">
+            <li>
+                <div class="step-details">
+                    <div class="form-inline">
+                        <p id="text1" class="form-group margin-rt-twenty">Are you withdrawing because Power of Attorney has ended ? <font size="3" color="red">*</font></p>
+                        <label class="radio-inline">
+                            <input type="radio" aria-describedby="text1" ng-model="wd.radioPowerAttorneyEnded" value="Agreee"> Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" aria-describedby="text1" ng-model="wd.radioPowerAttorneyEnded" value="DontAgree"> No
+                        </label>                        
+					    <div class="alert error" ng-show="wd.radioPowerAttorneyEnded == 'DontAgree'">This action can only be completed if your Power of Attorney has ended.</div>
+
+                    </div>
+                </div>
+            </li>            
+            
+            <li>
+                <div class="step-details">
+                    <label for="txt2">I wish to make the following statement regarding my withdrawal from this Mark: <font size="3" color="red">*</font></label>                    
+                    <textarea id="txt2" class="form-control" ng-model="woaReasonStmt.text" id="stmt" name="stmt" required></textarea>
+                    <p class="alert error" ng-show="errMsgWOAStmt">Your reason for withdrawal is required.</p>
+                </div>
+            </li>
+            <li>
+                <div class="step-details">
+                    <fieldset>
+                        <legend>I affirm by using the checkbox below:</legend>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" ng-model="wd.affirmStatementCheckbox" value="afirm" class="pull-left">
+                                        <span class="checkbox-label"><span>I request removal of the attorney information currently listed in the application/registration record.  I affirm the power of attorney for the attorney(s) identified in the application/registration record has ended because the mark has registered, ownership has changed, the application has abandoned, or the mark has cancelled or expired.  If the power of attorney was filed in connection with an affidavit under section 8, 12(c), 15, or 71 of the Trademark Act, a renewal application under section 9 of the Act, or a request for amendment or correction under section 7 of the Act, I affirm that the power of attorney has ended due to the acceptance or final rejection of the filing.</span>
+                                    </label>
+                                </div>
+                               
+                            </div>
+                           
+                            
+                        </div>
+                        
+                    </fieldset>
+
+                </div>
+            </li>
+        </ol>
+
+    </div>

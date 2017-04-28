@@ -1,0 +1,71 @@
+<div id="utilityBarContainer"></div>
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-md-3" role="navigation" id="leftNavContainer"></div>
+        <div class="col-md-9">
+            <!-- begin Main -->
+            <main class="main-wrapper" id="main-wrapper">
+            <div class="page-header">
+                <h1>Open Saved Application</h1>
+            </div>
+            <div class="page-body">
+                <div class="row">
+                    
+                    <div class="col-md-8">
+                        <p>Continue an applicatoin you've already started by opening the file or entering the ID number.</p>
+                        <p>                  Open and continue the saved applicatoin in one of two ways</p>
+                        <ul>
+                            <li>If you saved the file on your computer hard drive or other device, open the saved file. All files are in [xxxx] format.</li>
+                            <li>
+                            If you received a code via [whatever method], enter the code.</li>
+                        </ul>
+                    </div>
+                     <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body" style="min-height:150px;">
+                               <p>Video Example</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row margin-up-thirty margin-down-thirty"> 
+                <div class="col-md-4">
+                    <button class="btn btn-block btn-primary btn-lg">Open the saved file</button>
+                </div>
+                
+                <div class="col-md-4">
+                    <button class="btn btn-block btn-primary btn-lg">Enter a code</button>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                
+                <div class="col-md-12" >
+                    <h2>Trademark already started</h2>
+                    <table class="table table-bordered">
+                        <% _.each(marks, function(mark){ %>
+                        <tr>
+                            <td><%= mark.get('id') %></td>
+                            <td><%= mark.get('registrationNum') %></td>
+                            <td><%= mark.get('createUserId') %></td>
+                            <td><%= mark.get('createTs') %></td>
+                            <td><a id="markDetails/<%= mark.get('id') %>"  href="#markDetails/<%= mark.get('id') %>">View</a> | <a class="deleteApp" id="<%= mark.get('id') %>" href="#">Delete</a> </td>
+                        </tr>
+                        <% }); %>
+                    </table>
+                </div>
+            </div>
+             <hr />
+            <div class="row">
+                <div class="col-md-4 col-xs-4 ">
+                    <a class="btn btn-default margin-down-thirty" id="previousPage">Previous</a>
+                </div>
+            </div>
+        </div>
+        </main>
+    </div>
+    <!-- end Main-->
+</div>
+</div>
+<script id="markList" type="text/template">
+</script>

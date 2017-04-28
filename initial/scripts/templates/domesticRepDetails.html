@@ -1,0 +1,70 @@
+<div id="utilityBarContainer"></div>
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-md-3" role="navigation" id="leftNavContainer"></div>
+        <div class="col-md-9">
+            <!-- begin Main -->
+            <main class="main-wrapper">
+                <div class="page-header">
+                    <h1>Do you have a domestic representative for this application?</h1>
+                </div>
+                <div class="page-body">
+                    <div class="form-group row">
+                        <div class="col-sm-12">
+                            <p>Foreign citizens and foreign entities may appoint a domestic representative if at least one applicant's address is outside the United States.</p>
+                            <p>The domestic representative will be someone whom may be served notices or process in proceedings affecting the mark.  Learn more about domestic representatives<a href="">Read more about domestic representatives</a>
+                        </p>
+                       </div>
+                    </div>
+                    <fieldset>
+                        <legend class="legend">Would you like to add a domestic representative for this application?</legend>
+                        <div class="clearfix">
+                            <input type="radio" id="drYes" name="domesticRepFilingIn" value="true" />
+                            <label for="drYes">Yes, list a domestic representative for this application</label>
+                        </div>
+                        <div class="clearfix">
+                            <input type="radio" id="drNo" name="domesticRepFilingIn" value="false"/>
+                            <label for="drNo">No</label>
+                        </div>
+                    </fieldset>
+                    <!-- show the following section if the above question is selected yes -->
+                    <div id="confirmAttorney">
+                        <fieldset>
+                            <legend class="legend">Is the attorney the domestic representative for this trademark application?</legend>
+
+                            <div class="clearfix">
+                                <input type="radio" id="attorneyYes" name="attorneyIn" value="true" />
+                                <label for="attorneyYes">Yes, the attorney listed on the application is the domestic representative.</label>
+                            </div>
+                            <div class="clearfix">
+                                <input type="radio" id="attorneyNo" name="attorneyIn" value="false" />
+                                <label for="attorneyNo">No, appoint someone other than the listed attorney</label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                            <div class="alert alert-warning">
+                                <p>Important: If an attorney has been appointed, the official correspondent will be the attorney. If no attorney has been appointed, but a domestic representative has been designated, then the official correspondent would be the domestic representative. Finally, if there is no attorney or domestic representative, then the owner of the mark (or, where appropriate, specific name of party to receive correspondence) will be the official correspondent.</p>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="button-bar">
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-4 col-xs-4 ">
+                                <a class="btn btn-default margin-down-thirty" id="previousPage">Previous</a>
+                            </div>
+                            <!--div class="col-md-4 col-xs-4 text-center">
+                                <a class="btn btn-success margin-down-thirty" id="saveButton">Save</a>
+                            </div-->
+                            <div class="col-md-4 col-xs-4">
+                                <a class="btn btn-primary margin-down-thirty pull-right" id="continueButton">Next</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>

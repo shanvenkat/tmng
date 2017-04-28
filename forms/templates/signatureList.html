@@ -1,0 +1,14 @@
+<div class="well" ng-show="signatures.length">
+    <div class="row" ng-repeat="signature in signatures">
+        <div class="col-md-9" >
+            <p>{{signature.signature}}
+                <br />{{signature.signatoryName}}
+                <br />{{signature.signatoryPosition}}
+                <br />{{signature.signingDt|date:'MM/dd/yyyy'}}
+            </p>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block" id="removeSignatory" ng-click="deleteSignature(signature)"ng-bind-html="resourceBundle['ui.reviewAndSign.btnRemoveSignature']"></button>
+        </div>
+    </div>
+</div>

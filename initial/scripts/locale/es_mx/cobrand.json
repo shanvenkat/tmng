@@ -1,0 +1,47 @@
+{
+    "headerMenu":[
+        {
+            "text": "Sign Up / <br /> Change Plans",
+            "linkText" : "javascript:void(0)",
+            "srText": "Expand Sign Up / Change Plans menu"
+        },
+        {
+            "text": "Your Medicare <br /> Costs",
+            "linkText" : "javascript:void(0)",
+            "srText": "Expand Your Medicare Costs menu"
+        },
+        {
+            "text": "What Medicare <br /> Covers",
+            "linkText" : "javascript:void(0)",
+            "srText": "Expand What Medicare Covers menu"
+        },
+        {
+            "text": "Drug Coverage <br /> (Part D)",
+            "linkText" : "javascript:void(0)",
+            "srText": "Expand Drug Coverage (Part D) menu"
+        },
+        {
+            "text": "Supplements & <br /> Other Insurance",
+            "linkText" : "javascript:void(0)",
+            "srText": "Expand Supplements & Other Insurance menu"
+        }
+    ],
+	"skipnav_linktext": "Skip to main content",
+	"view_resp_btntext": "View",
+	"toggle_srtext": "Toggle navigation",
+	"mymedicate_linktext": "MyMedicare.gov Login",
+	"site_resp_btntext": "Sites",
+	"spanish_linktext": "Español",
+	"fontsize_linktext": "A",
+	"email_linktext": "Email",
+	"print_linktext": "Print",
+	"aboutcms_linktext": "About CMS",
+	"faq_linktext": "FAQ",
+	"glossay_linktext": "Glossary",
+	"cmssite_linktext": "CMS.gov",
+	"search_srtext": "Search Medicare.gov",
+	"search_btntext": "Search",
+	"menu_resp_btntext": "Menu",
+	"backtomain_litext": "Back to Main Menu"
+    
+}

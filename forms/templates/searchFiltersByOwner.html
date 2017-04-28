@@ -1,0 +1,160 @@
+<div class="outline-box outline-box-default">
+    <form class="filters">
+        <div class="filter-heading">
+            Refine by <a href="" class="filters-clear pull-right" ng-click="clear()">Clear</a>
+        </div>
+        <div class="form-group clearfix">
+            <label for="input12">Search within by
+            </label>
+            <input name="facet_field_Search_in_Search" id="input12" type="text" class="form-control" ng-model="html_further_search_txt">
+            <button class="btn btn-default btn-sm pull-right margin-top-ten" ng-click="goFilterSearch(html_further_search_txt)">Filter <span class="fa fa-search"></span></button>
+        </div>
+        <div class="filter-list">
+            <h2 class="h4">Owner information</h2>
+            <div data-toggle="collapse" data-target="#filterGroup1" class="filter-group-title">
+                Owner entity type
+            </div>
+            <div id="filterGroup1" class="collapse in">
+                <div class="filter-group-content">
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="facet_field_owner_category" value ="I" ng-click="doFilterSearch()">Individual
+                                <span>({{getCount(solrResults.facet_counts.facet_fields.owner_category, 'I')}})</span>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="facet_field_owner_category" value ="O" ng-click="doFilterSearch()">Corporation or LLC
+                                <span>({{getCount(solrResults.facet_counts.facet_fields.owner_category, 'O')}})</span>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div data-toggle="collapse" data-target="#filterGroup2" class="filter-group-title">
+                Owner Address
+            </div>
+            <div id="filterGroup2" class="collapse in">
+                <div class="filter-group-content">
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="facet_field_owner_addr_country" value ="US" ng-click="doFilterSearch()">United States
+                                <span>({{getCount(solrResults.facet_counts.facet_fields.owner_addr_country, 'US')}})</span>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="facet_field_owner_addr_country" value ="CA" ng-click="doFilterSearch()">Canada
+                                <span>({{getCount(solrResults.facet_counts.facet_fields.owner_addr_country, 'CA')}})</span>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="facet_field_owner_addr_country" value ="Other" ng-click="doFilterSearch()"> Other
+                                <span>({{getCount(solrResults.facet_counts.facet_fields.owner_addr_country, 'Other')}})</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-toggle="collapse" data-target="#filterGroup3" class="filter-group-title">
+                Owner address states
+            </div>
+            <div id="filterGroup3" class="collapse in">
+                <div class="filter-group-content">
+                    <div class="form-group">
+                        <label for="select1" class="sr-only">States</label>
+                        <select id="select1" size="7" name="facet_field_owner_addr_state" class="form-control" multiple="multiple" ng-model="selectedStates" ng-change="doFilterSearch()">
+                            <option value="" disabled>Please Select Multiple...</option>
+
+                            <option value="AL">Alabama  ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'AL')}})</option>
+                            <option value="AK">Alaska ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'AK')}})</option>
+                            <option value="AZ">Arizona ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'AZ')}})</option>
+                            <option value="AR">Arkansas ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'AR')}})</option>
+                            <option value="AE">Armed Forces Europe ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'AE')}})</option>
+                            <option value="AP">Armed Forces Pacific ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'AP')}})</option>
+                            <option value="AA">Armed Forces the Americas ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'AA')}})</option>
+                            <option value="CA">California ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'CA')}})</option>
+                            <option value="CO">Colorado ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'CO')}})</option>
+                            <option value="CT">Connecticut ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'CT')}})</option>
+                            <option value="DE">Delaware ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'DE')}})</option>
+                            <option value="DC">District Of Columbia ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'DC')}})</option>
+                            <option value="FL">Florida ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'FL')}})</option>
+                            <option value="GA">Georgia ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'GA')}})</option>
+                            <option value="HI">Hawaii ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'HI')}})</option>
+                            <option value="ID">Idaho ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'ID')}})</option>
+                            <option value="IL">Illinois ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'IL')}})</option>
+                            <option value="IN">Indiana ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'IN')}})</option>
+                            <option value="IA">Iowa ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'IA')}})</option>
+                            <option value="KS">Kansas ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'KS')}})</option>
+                            <option value="KY">Kentucky ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'KY')}})</option>
+                            <option value="LA">Louisiana ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'LA')}})</option>
+                            <option value="ME">Maine ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'ME')}})</option>
+                            <option value="MD">Maryland ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'MD')}})</option>
+                            <option value="MA">Massachusetts ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'MA')}})</option>
+                            <option value="MI">Michigan ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'MI')}})</option>
+                            <option value="MN">Minnesota ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'MN')}})</option>
+                            <option value="MS">Mississippi ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'MS')}})</option>
+                            <option value="MO">Missouri ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'MO')}})</option>
+                            <option value="MT">Montana ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'MT')}})</option>
+                            <option value="NE">Nebraska ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'NE')}})</option>
+                            <option value="NV">Nevada ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'NV')}})</option>
+                            <option value="NH">New Hampshire ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'NH')}})</option>
+                            <option value="NJ">New Jersey ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'NJ')}})</option>
+                            <option value="NM">New Mexico ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'NM')}})</option>
+                            <option value="NY">New York ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'NY')}})</option>
+                            <option value="NC">North Carolina ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'NC')}})</option>
+                            <option value="ND">North Dakota ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'ND')}})</option>
+                            <option value="OH">Ohio ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'OH')}})</option>
+                            <option value="OK">Oklahoma ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'OK')}})</option>
+                            <option value="OR">Oregon ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'OR')}})</option>
+                            <option value="PA">Pennsylvania ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'PA')}})</option>
+                            <option value="RI">Rhode Island ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'RI')}})</option>
+                            <option value="SC">South Carolina ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'SC')}})</option>
+                            <option value="SD">South Dakota ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'SD')}})</option>
+                            <option value="TN">Tennessee ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'TN')}})</option>
+                            <option value="TX">Texas ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'TX')}})</option>
+                            <option value="UT">Utah ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'UT')}})</option>
+                            <option value="VT">Vermont ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'VT')}})</option>
+                            <option value="VA">Virginia ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'VA')}})</option>
+                            <option value="WA">Washington ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'WA')}})</option>
+                            <option value="WV">West Virginia ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'WV')}})</option>
+                            <option value="WI">Wisconsin ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'WI')}})</option>
+                            <option value="WY">Wyoming ({{getCount(solrResults.facet_counts.facet_fields.owner_addr_state, 'WY')}})</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div data-toggle="collapse" data-target="#filterGroup4" class="filter-group-title">
+                Mark Status
+            </div>
+            <div id="filterGroup4" class="collapse in">
+                <div class="filter-group-content">
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="facet_field_app_status" value="Registered" ng-click="doFilterSearch()">Registered
+                                <span>({{getCount(solrResults.facet_counts.facet_fields.app_status, 'Registered')}})</span>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="facet_field_app_status" value="Application" ng-click="doFilterSearch()">Application
+                                <span>({{getCount(solrResults.facet_counts.facet_fields.app_status, 'Application')}})</span>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="facet_field_app_status" value="Expired" ng-click="doFilterSearch()">expired
+                                <span>({{getCount(solrResults.facet_counts.facet_fields.app_status, 'Expired')}})</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

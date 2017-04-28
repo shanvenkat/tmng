@@ -1,0 +1,476 @@
+<div class="sidebar-offcanvas" id="sidebar">
+    <ul class="nav-list">
+    <%if (goodsInformationActive || contactInformationActive || ownerInformationActive || reviewInformationActive) {%>
+        <div class="" style="overflow:hidden;">
+            <div style="border:1px solid #333; min-height: 100px;">
+            show mark preview here
+            </div>
+            <button class="btn btn-primary pull-right margin-up-twenty" id="">Enlarge Image</button>
+
+        </div>
+        <hr />
+    <%}%>
+        <%if (homeSectionActive) {%>
+            <li class="nav-header">
+                <a href="#appHome">
+                    <span class="fa fa-arrow-circle-down">
+                            <span class="sr-only">Active Section</span>
+                        </span>
+                eFile Home
+                    <small style="display: block;">Start or open an application</small>
+                </a>            
+            </li>
+        <%}%>
+        <%if (!homeSectionActive) {%>
+             <li class="nav-header">
+                <a href="#appHome">
+                    eFile Home
+                    <small style="display: block;">Start or open an application</small>
+                </a>
+            </li>
+            <%if (gettingStartedActive) {%>
+                <li class="nav-header active">
+                    <a href="#getStartedCover">
+                        <span class="fa fa-arrow-circle-down">
+                            <span class="sr-only">Active Section</span>
+                        </span>
+                        Get Started
+                    </a>
+                </li>
+            <%}%>
+            <%if (!gettingStartedActive) {%>
+                <li class="nav-header completed">
+                    <a href="#getStartedCover">
+                         <span class="fa fa-check">
+                            <span class="sr-only">Completed Section</span>
+                        </span>
+                    Get Started
+                    </a>
+                </li>
+            <%}%>
+            <%if (markInformationActive) {%>
+                <%if (mark.markId) {%>
+                <li class="nav-header active">
+                    <a href="#markCover/<%= mark.markId %>">
+                        <span class="fa fa-arrow-circle-down">
+                            <span class="sr-only">Active Section</span>
+                        </span>
+                        Mark Information</a>
+                    <ul class="">
+                        <li <%if (markDetailsActive) {%>class="active"<%}%> >
+                            <%if(pageMap['markDetails'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check" ></span> <%}%>
+                            <a href="#markDetails/<%= mark.markId %>">Identify the mark</a>
+                        </li>
+                        <li <%if (markTypeDetailsActive) {%>class="active"<%}%> >
+                            <%if(pageMap['markTypeDetails'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check"> </span> <%}%>
+                            <a href="#markTypeDetails/<%= mark.markId %>">Enter the mark</a>
+                        </li>
+                        <!-- show this link only for design mark type start-->
+                         <li <%if (markTypeFeaturesActive) {%>class="active"<%}%> >
+                             <%if(pageMap['markFeatures'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check" /> <%}%>
+                            <a href="#markTypeFeatures/<%= mark.markId %>">Tell us about the mark</a>
+                        </li>
+                        <!-- show this link only for design mark type end-->
+                        <li <%if (markStatementsActive) {%>class="active"<%}%> >
+                            <%if(pageMap['markStatements'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check" /> <%}%>
+                            <a href="#markStatements/<%= mark.markId %>">Special situations</a>
+                        </li>
+                    </ul>
+                </li>
+                <%}%>
+                <%if (!mark.markId) {%>
+                <li class="nav-header active">
+                    <a href="#markCover">
+                        <span class="fa fa-arrow-circle-down">
+                            <span class="sr-only">Active Section</span>
+                        </span>
+                    Mark Information
+                    </a>
+                    <ul class="">
+                        <li>
+                            <a href="#markDetails">Identify the mark</a>
+                        </li>
+                        <li>
+                            <a class="disabled">Enter the mark</a>
+                        </li>
+                        <!-- show this link only for design mark type start-->
+                        <li>
+                            <a class="disabled">Tell us about the mark</a>
+                        </li>
+                        <!-- show this link only for design mark type end-->
+                        <li>
+                            <a class="disabled">Special situations</a>
+                        </li>
+                    </ul>
+                </li>
+                <%}%>
+            <%}%>
+            <%if (!markInformationActive) {%>
+                <%if (!mark.markId) {%>
+                <li class="nav-header">
+                    <a href="#markCover">Mark Information</a>
+                </li>
+                <%}%>
+                <%if (mark.markId) {%>
+                <li class="nav-header <%if(markCheck){%>completed<%}%>" >
+                    <a href="#markCover/<%= mark.markId %>">
+                    	<%if(markCheck){%> <span class="fa fa-check">
+                            <span class="sr-only">Completed Section</span>
+                        </span> <%}%>
+                        Mark Information</a>
+                </li>
+                <%}%>
+            <%}%>
+            <%if (goodsInformationActive) {%>
+                <%if (!mark.markId) {%>
+                <li class="nav-header active">
+                    <a href="#goodsAndServicesCover">
+                        <span class="fa fa-arrow-circle-down">
+                            <span class="sr-only">Active Section</span>
+                        </span>
+                        Goods and Services</a>
+
+                    <ul class="">
+                        <li>
+                            <a class="disabled">Add Goods and Services ID [ID checker and ID manual]</a>
+                        </li>
+                        <li>
+                            <a class="disabled">About assigning basis (usage)</a>
+                        </li>                        
+                        <li>
+                            <a class="disabled">International filing</a>
+                        </li>
+                        <!-- Hiding it based on Kekti's feedback>
+                        <li>
+                            <a href="#internationalBasis2">International filing - 44(e)</a>
+                        </li-->
+
+                        <li>
+                            <a class="disabled">Identify the basis</a>
+                        </li>
+                        <li>
+                            <a class="disabled">Assign Basis</a>
+                        </li>
+                        <li>
+                            <a class="disabled">Special situation</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <%}%>
+                <%if (mark.markId) {%>
+                <li class="nav-header active">
+                    <a href="#goodsAndServicesCover/<%= mark.markId %>">
+                        <span class="fa fa-arrow-circle-down">
+                            <span class="sr-only">Active Section</span>
+                        </span>
+                        Goods and Services</a>
+                    <ul class="">
+                        <li <%if (addClassesAndIDActive) {%>class="active"<%}%> >
+                            <%if(pageMap['addClassesAndID'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check" /> <%}%>
+                            <a href="#addClassesAndID/<%= mark.markId %>">Add Goods and Services ID [ID checker and ID manual]</a>
+                        </li>
+                        <li <%if (addBasisCoverActive) {%>class="active"<%}%> >
+                            <a href="#addBasisCover/<%= mark.markId %>">About assigning basis (usage)</a>
+                        </li>                        
+                         <li <%if (internationalBasis1Active) {%>class="active"<%}%> >
+                             <%if(pageMap['internationalBasis1'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check" /> <%}%>
+                            <a href="#internationalBasis1/<%= mark.markId %>">International filing</a>
+                        </li>
+                        <li <%if (identifyBasisActive) {%>class="active"<%}%> >
+                            <%if(pageMap['identifyBasis'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check" /> <%}%>
+                            <a href="#identifyBasis/<%= mark.markId %>">Identify the basis</a>
+                        </li>
+                        <li <%if (basisDetailsActive) {%>class="active"<%}%> >
+                            <%if(pageMap['basisDetails'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check" /> <%}%>
+                            <a href="#basisDetails/<%= mark.markId %>">Assign Basis</a>
+                        </li>
+                        <li <%if (goodsStatementsActive) {%>class="active"<%}%> >
+                            <%if(pageMap['goodsStatements'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check" /> <%}%>
+                            <a href="#goodsStatements/<%= mark.markId %>">Special situation</a>
+                        </li>
+                    </ul>
+                </li>
+                <%}%>
+            <%}%>
+            <%if (!goodsInformationActive) {%>
+                <%if (!mark.markId) {%>
+                <li class="nav-header">
+                    <a href="#goodsAndServicesCover">Goods and Services</a>
+                </li>
+                <%}%>
+                <%if (mark.markId) {%>
+                <li class="nav-header <%if(goodsCheck){%>completed<%}%>">
+                    <a href="#goodsAndServicesCover/<%= mark.markId %>">
+                    <%if(goodsCheck){%> <span class="fa fa-check">
+                            <span class="sr-only">Completed Section</span>
+                        </span> <%}%>
+                         Goods and Services</a>
+                </li>
+                <%}%>
+            <%}%>
+            <%if (ownerInformationActive) {%>
+                <%if (!mark.markId) {%>
+
+                <li class="nav-header active">
+                    <a href="#ownerCover">
+                    <span class="fa fa-arrow-circle-down">
+                            <span class="sr-only">Active Section</span>
+                        </span>
+                        Applicant Information</a>
+
+                    <ul class="">
+                        <li>
+                            <a class="disabled">List of applicant</a>
+                        </li>
+                        <li>
+                            <a class="disabled">Guiding page: Ownership</a>
+                        </li>
+                        <li>
+                            <a class="disabled">Add an applicant</a>
+                        </li>
+                    </ul>
+                </li>
+                <%}%>
+                <%if (mark.markId) {%>
+                <li class="nav-header active">
+                    <a href="#ownerCover/<%= mark.markId %>">
+                    <span class="fa fa-arrow-circle-down">
+                            <span class="sr-only">Active Section</span>
+                        </span>Applicant Information</a>
+                    <ul class="">
+                        <li <%if (ownerListActive) {%>class="active"<%}%> >
+                            <%if(pageMap['ownerList'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check" ></span> <%}%>
+                            <a href="#ownerList/<%= mark.markId %>">List of applicant</a>
+                        </li>
+                        <li <%if (ownershipCoverActive) {%>class="active"<%}%> >
+                            <a href="#ownershipCover/<%= mark.markId %>">Guiding page: Ownership</a>
+                        </li>
+                        <li <%if (ownerDetailsActive) {%>class="active"<%}%> >
+                            <%if(pageMap['ownerDetails'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check" /> <%}%>
+                            <a href="#ownerDetails/<%= mark.markId %>">Add an applicant</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <%}%>
+            <%}%>
+            <%if (!ownerInformationActive) {%>
+                <%if (!mark.markId) {%>
+                <li class="nav-header">
+                    <a href="#ownerCover">Applicant Information</a>
+                </li>
+                <%}%>
+                <%if (mark.markId) {%>
+                <li class="nav-header <%if(applicantCheck){%>completed<%}%>">
+                    <a href="#ownerCover/<%= mark.markId %>">
+                    	<%if(applicantCheck){%> <span class="fa fa-check">
+                            <span class="sr-only">Completed Section</span>
+                        </span> <%}%>
+                        Applicant Information</a>
+                </li>
+                <%}%>
+            <%}%>
+            <%if (contactInformationActive) {%>
+                <%if (!mark.markId) {%>
+                <li class="nav-header active">
+                    <a href="#contactCover">
+                        <span class="fa fa-arrow-circle-down">
+                            <span class="sr-only">Active Section</span>
+                        </span>
+                    Contact Information</a>
+
+                    <ul>
+                        <!--li>
+                            <a class="disabled">Attorney and Domestic Representative Information - old</a>
+                        </li-->
+                        <li>
+                            <a class="disabled">Is an attorney representing the mark?</a>
+                        </li>
+                        <!-- if yes for the attorney, show the following link in the left nav
+                        <li>
+                            <a class="disabled">Attorney Information</a>
+                        </li-->
+                        <!--li>
+                            <a class="disabled">Do you have a domestic representative?</a>
+                        </li-->
+                        <!-- if yes for the domestic representative, show the following link in the left nav
+                        <li>
+                            <a class="disabled">Domestic representative Information</a>
+                        </li-->
+                        <li>
+                            <a class="disabled">Where should USPTO send official correspondence?</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <%}%>
+                <%if (mark.markId) {%>
+                <li class="nav-header active">
+                    <a href="#contactCover/<%= mark.markId %>">
+                    <span class="fa fa-arrow-circle-down">
+                            <span class="sr-only">Active Section</span>
+                        </span>
+                        Contact Information</a>
+                    <ul>
+                        <%if(pageMap['ownerDetails'].reviewStatusCd === 'COMPL'){%>
+                            <li <%if (attorneyDetailsNewActive) {%>class="active"<%}%> >
+                                <%if(pageMap['attorneyDetails_new'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check" /> <%}%>
+                                <a href="#attorneyDetails_new/<%= mark.markId %>">Is an attorney representing the mark?</a>
+                            </li>
+                            <%if(pageMap['attorneyDetails_new'].reviewStatusCd === 'COMPL'){%>
+                                <!-- if yes for the attorney, show the following link in the left nav -->
+                                <%if( pageMap['attorneyInfo'].reviewStatusCd !== 'NA') {%>
+                                    <li <%if (attorneyInfoActive) {%>class="active"<%}%> >
+                                        <%if(pageMap['attorneyInfo'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check" /> <%}%>
+                                        <a href="#attorneyInfo/<%= mark.markId %>">Attorney Information</a>
+                                    </li>
+                                <%}%>
+                            <%}%>
+                            <%if(pageMap['attorneyInfo'].reviewStatusCd !== 'INCOM'){%>
+                            	<%if(domesticRep){%>
+                                    <%if( pageMap['domesticRepDetails'].reviewStatusCd !== 'NA') {%>
+                                        <li <%if (domesticRepDetailsActive) {%>class="active"<%}%> >
+                                        <%if(pageMap['domesticRepDetails'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check" /> <%}%>
+                                        <a href="#domesticRepDetails/<%= mark.markId %>">Do you have a domestic representative?</a>
+                                        </li>
+                                    <%}%>
+                                    <!-- if yes for the domestic representative, show the following link in the left nav -->
+                                    <%if( pageMap['domesticRepInfo'].reviewStatusCd !== 'NA') {%>
+                                        <li <%if (domesticRepInfoActive) {%>class="active"<%}%> >
+                                        <%if(pageMap['domesticRepInfo'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check" /> <%}%>
+                                        <a href="#domesticRepInfo/<%= mark.markId %>">Domestic representative Information</a>
+                                        </li>
+                                    <%}%>
+                                <%}%>
+                                <%if(pageMap['domesticRepInfo'].reviewStatusCd !== 'INCOM' && pageMap['domesticRepDetails'].reviewStatusCd !== 'INCOM'){%>
+                                      <li <%if (correspondenceDetailsActive) {%>class="active"<%}%> >
+                                      <%if(pageMap['correspondenceDetails'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check" /> <%}%>
+                                      <a href="#correspondenceDetails/<%= mark.markId %>">Where should USPTO send official correspondence?</a>
+                                      </li>
+                                <% } else { %>
+                                      <%if(pageMap['correspondenceDetails'].reviewStatusCd === 'COMPL'){%>
+                                            <li><span class="fa fa-check" />
+                                                <a href="#correspondenceDetails/<%= mark.markId %>">Where should USPTO send official correspondence?</a>
+                                            </li>
+                                      <% } else { %>
+                                            <li>
+                                                <a class="disabled">Where should USPTO send official correspondence?</a>
+                                            </li>
+                                      <% } %>
+                                <% } %>
+                            <% } else { %>
+                                    <!-- Have not completed attorneyInfo section-->
+                                    <!--li>
+                                        <a class="disabled">Do you have a domestic representative?</a>
+                                    </li-->
+                                    <!-- if yes for the domestic representative, show the following link in the left nav>
+                                    <li>
+                                        <a class="disabled">Domestic representative Information</a>
+                                    </li-->
+                                    <li>
+                                        <a class="disabled">Where should USPTO send official correspondence?</a>
+                                    </li>
+                            <% } %>
+                        <% } else{%>
+                            <!-- Have not completed Applicant section-->
+                            <li>
+                                <a class="disabled">Is an attorney representing the mark?</a>
+                            </li>
+
+                            <!--li>
+                                <a class="disabled">Do you have a domestic representative?</a>
+                            </li-->
+
+                            <li>
+                                <a class="disabled">Where should USPTO send official correspondence?</a>
+                            </li>
+
+                         <% } %>
+
+                    </ul>
+                </li>
+                <%}%>
+            <%}%>
+            <%if (!contactInformationActive) {%>
+                <%if (!mark.markId) {%>
+                <li class="nav-header">
+                   <a href="#contactCover">Contact Information</a>
+                </li>
+                <%}%>
+                <%if (mark.markId) {%>
+                <li class="nav-header <%if(contactCheck){%>completed<%}%>">
+                    <a href="#contactCover/<%= mark.markId %>">
+                    	<%if(contactCheck){%> <span class="fa fa-check">
+                            <span class="sr-only">Completed Section</span>
+                        </span> <%}%>
+                        Contact Information</a>
+                </li>
+                <%}%>
+            <%}%>
+            <%if (reviewInformationActive) {%>
+                <%if (!mark.markId) {%>
+                <li class="nav-header active">
+                    <a href="#reviewAndSignCover">
+                    <span class="fa fa-arrow-circle-down">
+                            <span class="sr-only">Active Section</span>
+                        </span>
+                        Review and sign</a>
+                    <ul class="">
+                        <li>
+                            <a class="disabled">Confirm your entries</a>
+                        </li>
+                        <li>
+                            <a class="disabled">Review summary and fees</a>
+                        </li>
+                        <li>
+                            <a class="disabled">Sign</a>
+                        </li>
+                    </ul>
+                </li>
+                <%}%>
+                <%if (mark.markId) {%>
+                <li class="nav-header active">
+                    <a href="#reviewAndSignCover/<%= mark.markId %>"><span class="fa fa-arrow-circle-down">
+                            <span class="sr-only">Active Section</span>
+                        </span>
+                        Review and sign</a>
+                    <ul class="">
+                        <li <%if (confirmEntriesActive) {%>class="active"<%}%> >
+                            <a href="#confirmEntries/<%= mark.markId %>">Confirm your entries</a>
+                        </li>
+                        <li <%if (reviewSummaryActive) {%>class="active"<%}%> >
+                            <a href="#reviewSummary/<%= mark.markId %>">
+                                Review summary and fees</a>
+                        </li>
+                        <li <%if (signDetailsActive) {%>class="active"<%}%> >
+                            <%if(pageMap['signDetails'].reviewStatusCd === 'COMPL'){%> <span class="fa fa-check" /> <%}%>
+                            <a href="#signDetails/<%= mark.markId %>">Sign</a>
+                        </li>
+                    </ul>
+                </li>
+                <%}%>
+            <%}%>
+            <%if (!reviewInformationActive) {%>
+                <%if (!mark.markId) {%>
+                <li class="nav-header">
+                    <a href="#reviewAndSignCover"> Review and sign</a>
+                </li>
+                <%}%>
+                <%if (mark.markId) {%>
+                <li class="nav-header <%if(reviewCheck){%>completed<%}%>">
+                    <a href="#reviewAndSignCover/<%= mark.markId %>"> 
+                    	<%if(reviewCheck){%> <span class="fa fa-check">
+                            <span class="sr-only">Completed Section</span>
+                        </span> <%}%>
+                        Review and sign</a>
+                </li>
+                <%}%>
+            <%}%>
+        <%}%>
+    </ul>
+    <div class="list-group">
+        <a href="#" class="list-group-item">Help</a>
+        <a href="#" class="list-group-item">Related resources</a>
+    </div>
+</div>

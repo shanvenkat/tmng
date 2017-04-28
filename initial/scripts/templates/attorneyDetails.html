@@ -1,0 +1,41 @@
+<div id="utilityBarContainer"></div>
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-md-3" role="navigation" id="leftNavContainer"></div>
+        <div class="col-md-9">
+            <!-- begin Main -->
+            <main class="wrapper">
+                <h2>Attorney and Domestic Representative</h2>
+                <fieldset>
+                    <legend class="legend">Is an attorney filing this application?</legend>
+                    <input type="checkbox" id="attorneyFilingFlag" name="attorneyFilingFlag" />
+                    <label for="attorneyFilingFlag">Check here if an attorney is filing this form on behalf of applicant(s). If an attorney is not filing, simply click on the box if currently checked to" uncheck" that box.</label>
+                    <input type="checkbox" id="domesticRepFlag" name="domesticRepFlag" />
+                    <label for="domesticRepFlag">Check here if the applicant wishes to appoint a Domestic Representative. A Domestic Representative is OPTIONAL if the applicant's address is outside the United States. Once checked, a separate section of the form will appear to enter the Domestic Representative information.</label>
+                    
+                </fieldset>
+
+                <div id='errorSummary'></div>
+
+                <div id="addressAttorneyContainer"></div>
+
+                
+
+                <div id="addressDomesticRepContainer"></div>
+                <div id="countryContainer"></div>
+                <div class="row">
+                      <div class="col-md-4 col-xs-4 ">
+                        <a class="btn btn-default margin-down-thirty" id="previousPage">Previous</a>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <a class="btn btn-primary margin-down-thirty" id="saveAttorneyButton">Save</a>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <a class="btn btn-success margin-down-thirty pull-right" id="continueButton">Next</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+

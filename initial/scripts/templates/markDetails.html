@@ -1,0 +1,99 @@
+<div id="utilityBarContainer"></div>
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-md-3" role="navigation" id="leftNavContainer"></div>
+        <div class="col-md-9">
+            <!-- begin Main -->
+            <main class="main-wrapper">
+                <div class="page-header">
+                    <h1>Identify the mark</h1>
+                </div>
+                <div class="page-body">
+                    <div id="markTypeContainer">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <legend>What kind of mark are you applying to register?</legend>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="markType-box">
+                                                <input value="4" type="radio" id="stdCharMark" name="markType">
+                                                <label for="stdCharMark" class=""><b>Text only, with no particular stylization or font</b>
+                                                </label>
+                                                <p>Words, phrases, characters, or any other text. This is also known as a "standard character" mark.</p>
+                                            </div>
+                                            <div class="markType-example">
+                                                <img src="images/stdCharImg.png">
+                                                <a href="">Example</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="markType-box">
+                                                <input value="5" type="radio" id="stylizedTextMark" name="markType">
+                                                <label for="stylizedTextMark" class=""><b>Text in a particular style or font</b>
+                                                </label>
+                                                <p>Words, phrases, characters, or any other text presented in a particular style or font - a type of special form mark.</p>
+                                            </div>
+                                            <div class="markType-example">
+                                                <img src="images/stylizedTxtImg.png">
+                                                <a href="">Example</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 margin-down-twenty">
+                                            <div class="markType-box">
+                                                <input value="2" type="radio" id="designOnlyMark" name="markType">
+                                                <label for="designOnlyMark" class=""><b>Design only mark</b>
+                                                </label>
+                                                <p>A useful explanation here - a type of special form mark.</p>
+                                            </div>
+                                            <div class="markType-example">
+                                                <img src="images/designImg.png">
+                                                <a href="">Example</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="markType-box">
+                                                <input value="3" type="radio" id="designMark" name="markType">
+                                                <label for="designMark" class=""><b>Design with text</b>
+                                                </label>
+                                                <p>A useful explanation here - a type of special form mark.</p>
+                                            </div>
+                                            <div class="markType-example">
+                                                <img src="images/designTxtImg.png">
+                                                <a href="">Example</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- this mark type is no longer used, I have left it here for reference -->
+                                </fieldset>
+                                <div class="col-md-9">
+                                    <p class="text-danger" id="markTypeError"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-md-12">
+                        <p><a href="">> Select a less common type of mark</a></p>
+                        </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4 ">
+                            
+                        </div>
+                        <div class="col-md-4 col-xs-4 text-center">
+                            <a class="btn btn-success margin-down-thirty" id="saveMark">Save</a>
+                        </div>
+                        <div class="col-md-4 col-xs-4">
+                            <a class="btn btn-primary margin-down-thirty pull-right" id="continueButton">Next</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>

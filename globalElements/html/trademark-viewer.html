@@ -1,0 +1,955 @@
+<div class="view pn-vg-trademark pn-pinnable pn-hide-pin" title="Trademark Viewer">
+    <div class="banner">
+<!--         <button class="add notes btn-small hidden" disabled="disabled">Add a Note</button> -->
+<!--         <button class="existing notes btn-small" disabled="disabled">Show Notes</button> -->
+        <button name="internalnotesplus" class="icon-plus-4" style="color: #debb27;"><span class="hidden">new note</span></button>
+        <span>&nbsp;</span>
+        <label class="pn-toggle-checked all new corrections amended">
+            <span name ="tm_i_notes" class="hidden newNote">
+                <sup name="notescount"></sup>
+           </span>
+        </label>
+        <label class="milestone"><span>Snapshots</span>
+            <div class="styled-select">
+                <select disabled>
+                    <option value="">Snapshots</option>
+                    <!-- populated by JavaScript -->
+                </select>
+            </div>
+        </label>
+        <a class="draft-action not-available"></a>
+        <button class="menuButton" title="Preferences"><span>Preferences</span></button>
+        <button class="iconPrinter" title="Print"><span>Print</span></button>
+    </div>
+    <div class="body tm-body">
+        <div class="application-header">
+            <div class="application-head-meta">
+                <div>
+                    <h4>
+                        <span class="milestone"><strong>SNAPSHOT</strong></span>
+                        <span data-source=".statusA" class="app-status">Not Available</span>
+                        <span class="milestone"><span>as of </span>
+                            <span data-source=".milestone.timestamp" data-decorator="dateOnly"></span></span>
+                        <span data-source=".trademark.filingType" data-decorator="teasPlus" class="app-file-type badge">Not Available</span><br/>
+                        <span data-source=".statusB" class="app-status-line2"></span>
+                        <span data-source="" data-decorator="statusStyle" class="app-status-special"></span>
+                        <span data-source=".state.actionTimeStamp" data-decorator="dateTimeStamp" class="app-action-timestamp"></span>
+                        <span class="suspend-reason hidden" >
+                            <hr>
+                            <ul class="ul-as-linefeed" data-source=".state.suspensionInformation"
+                                data-decorator="suspendInfo"></ul>
+                        </span>
+                    </h4>
+                    <table>
+                        <tr><th>Serial Number:</th>
+                            <td><span class="status-value" data-source=".trademark.serialNumber"
+                                data-decorator="emergencyLaunch"></span></td>
+                        </tr>
+                        <tr>
+                            <th>Filed:</th><td>
+                            <span class="status-date" data-source=".trademark.filingDate"
+                                data-decorator="dateOnly"></span>
+                        </td></tr>
+                        <tr class="division-parent"><th>Child Of:</th><td>
+                            <span class="status-value" ><a data-source=".division.sn"
+                                data-decorator="openParent"></a></span>
+                            <span class="status-date" data-source=".division.filingDate"
+                                data-decorator="dateOnly"></span>
+                        </td></tr>
+                        <tr><th>Registration:</th><td>
+                            <span class="status-value" data-source=".registration.registrationNumber" 
+                                  data-decorator="registration"></span>
+                            <span class="status-date" data-source=".registration.registrationDate"
+                                data-decorator="dateOnly"></span>
+                        </td></tr>
+                        <tr><th>Register:</th>
+                            <td colspan="2" >
+                                <ul class="ul-as-comma"><li data-source=".registration.category"
+                                    data-decorator="registryDecode"></li></ul>
+                            </td>
+                        </tr>
+<!-- Changed to a single table on 20140410 -->
+                        <tr><th><span class="current">Current </span>Basis:</th>
+                            <td>
+                                <ul class="ul-as-comma"><li data-source=".filingBasis"
+                                    data-decorator="filingBasis"></li></ul>
+                            </td>
+                        </tr>
+                        <tr class="currentOwner"><th><span class="current">Current </span>Owner:</th>
+                            <td>
+                                <ul class="ul-as-linefeed"><li data-repeat=".trademark.owners"
+                                    data-source=".name"></li></ul>
+                            </td>
+                        </tr>
+                        <tr class="currentContact"><th><span class="current">Current </span>Contact:</th>
+                            <td>
+                                <ul class="ul-as-linefeed">
+                                    <li data-repeat=".trademark.consolidatedContacts">
+                                        <span class="status-role" data-source=".role"
+                                            data-decorator="shortRole"></span>
+                                        <span class="status-value" data-source=".name"></span>
+                                        <span class="status-date" data-source=".number"></span>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="application-mark-meta">
+                <div class="ttab-proceedings ttab-pending hidden">
+                    <div>
+                        <button>
+                            <span>Expand/Collapse</span>
+                        </button>
+                        <h4>TTAB Proceedings</h4>
+                        <span class="ttab-summary" data-source=".ttabSummaryText"></span>
+                    </div>
+                    <div class="ttabProceedingsMini hidden">
+                        <ul>
+                            <li data-repeat=".ttabProceedings">
+                                <span data-source=".url" data-decorator="ttabFormatter"></span>
+                                <span data-source=".status" data-decorator="ttabStatusLookup"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mark-image-meta">
+                    <a class="imageMark" href="#" data-source=".trademark.drawingType" data-decorator="markMeta">
+                        <img class="scalable-img hidden" src="images/no_image.png" alt="Mark Image - Information Below" />
+                    </a>
+                    <div class="mark-summary-meta">
+                        <dl>
+                            <dt>Literal: <span data-source=".trademark.literalText"></span></dt>
+                            <dt>Mark Drawing Code: <span data-source=".drawingTypeDisplay"></span></dt>
+                            <dt>Description: <span data-source=".trademark.description"></span></dt>
+                        </dl>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="main-record">
+            <select class="section-expander"><!-- JavaScript converts to radio group -->
+                <option>Expand all</option>
+                <option>Indeterminate</option>
+                <option>Collapse all</option>
+            </select>
+            <section class="viewer-section">
+                <!-- JavaScript replicates this for each embedded snippet below -->
+                <button>
+                    <h3><!-- snippet title attribute goes here --></h3>
+                    <h6 class="sub-title hidden"><!-- optional sub title goes here --></h6>
+                    <h4 class="viewer-summary"><!-- snippet sends a summary to insert here --></h4>
+                </button>
+                <label><input type="checkbox" checked><span>Expand section</span></label>
+                <div><!-- gets replaced with snippet content --></div>
+            </section>
+            <a class="pn-snip" href="tm-goods-services-section.html">Goods and Services</a>
+            <a class="pn-snip" href="tm-mark-info-section.html">Mark Info</a>
+            <a class="pn-snip" href="tm-owner-section.html">Owner/Assignment</a>
+            <!-- Only one or the other of the next two sections should be visible, depending on
+                the "hasAttorney" field -->
+            <a class="pn-snip" href="tm-attorney-section.html">Attorney</a>
+            <a class="pn-snip" href="tm-correspondence-section.html">Correspondence</a>
+            <a class="pn-snip" href="tm-misc-section.html">Miscellaneous</a>
+            <a class="pn-snip" href="tm-location-section.html">Location/Status</a>
+            <a class="pn-snip" href="tm-foreign-application-section.html">Foreign Application</a>
+            <a class="pn-snip" href="tm-foreign-registration-section.html">Foreign Registration</a>
+            <a class="pn-snip" href="tm-foreign-section.html">Foreign Trademark</a>
+            <a class="pn-snip" href="tm-international-section.html">International Trademark</a>
+        </div>
+    </div>
+</div>
+
+<script>
+/**
+Trademark Viewer
+================
+
+Shows an aggregation of detailed data about a trademark application. The main content is a
+collection of sub-snippets that follow the naming convention `tm-[part]-section.html`.
+
+- [Goods and Services](#snipdoc.html?href=../tmng/tm-goods-services-section.html)
+- [Mark Info](#snipdoc.html?href=../tmng/tm-mark-info-section.html)
+- [Owner/Assignment](#snipdoc.html?href=../tmng/tm-owner-section.html)
+- [Attorney](#snipdoc.html?href=../tmng/tm-attorney-section.html)
+- [Correspondence](#snipdoc.html?href=../tmng/tm-correspondence-section.html)
+- [Miscellaneous](#snipdoc.html?href=../tmng/tm-misc-section.html)
+- [Location/Status](#snipdoc.html?href=../tmng/tm-location-section.html)
+- [Foreign Application](#snipdoc.html?href=../tmng/tm-foreign-application-section.html)
+- [Foreign Registration](#snipdoc.html?href=../tmng/tm-foreign-registration-section.html)
+- [Foreign Trademark](#snipdoc.html?href=../tmng/tm-foreign-section.html)
+- [International Trademark](#snipdoc.html?href=../tmng/tm-international-section.html)
+
+The trademark viewer provides a function `snip.d.markInfo` that sub-snippets should invoke to get
+trademark data without making their own redundant service calls.
+
+The snippet can takes as parameters:
+
+- `sn`: the serial number to show
+- `milestone`: the milestone name to show
+
+Classes for styling
+-------------------
+
+These styles apply to the entire snippet:
+
+- `milestone`: showing the case at a historical state
+- `milestones-available`: the case has other historical states viewable
+
+Nodes within the snippet recieve these classes depending on whether they should appear in historical
+views or not:
+
+- `milestone`: appear in milestone view only
+- `current`: appear in latest view only
+
+*/
+(function () {
+    var mark;
+    var waiting = [];
+    var runQueue = function () {
+        while (waiting.length) {
+            var fn = waiting.shift();
+            fn(mark);
+        }
+        snip.find('.viewer-section').each(function () {
+            var section = $(this);
+            var summary = pn.snip(section.children()[1]).fn('summary')()[0];
+            section.children().first().find('.viewer-summary').append(summary);
+        });
+    };
+    if (snip.d.sn) {
+        tmng.get('mark/{sn}/details/?{milestone}', snip.d)
+            .spinner(snip.find('.body').first())
+            .done(function (reply) {
+                mark = reply;
+                // Decide if we should show the foreign column(s)
+                var compareById = function (a, b) {
+                    var arraysEqual = true;
+                    if (a.length != b.length) {
+                        arraysEqual = false;
+                    } else {
+                        $.each(a, function (idx, aItem) {
+                            var aFound = false;
+                            $.each(b, function (bidx, bItem) {
+                                if (aItem.id === bItem.id) {
+                                    aFound = true;
+                                }
+                            });
+                            if (!aFound) {
+                                arraysEqual = false;
+                            }
+                        });
+                    }
+                    return arraysEqual;
+                };
+                mark.showForeign = false;
+                var firstArray;
+                $.each(mark.goods, function (i, gs) {
+                    if (gs.foreign.applications.length) {
+                        if (!firstArray) {
+                            firstArray = gs.foreign.applications;
+                        }
+                        if (!compareById(firstArray, gs.foreign.applications)) {
+                            mark.showForeign = true;
+                        }
+                    } else if (gs.foreign.registrations.length) {
+                        if (!firstArray) {
+                            firstArray = gs.foreign.registrations;
+                        }
+                        if (!compareById(firstArray, gs.foreign.registrations)) {
+                            mark.showForeign = true;
+                        }
+                    }
+                });
+                runQueue();
+            });
+
+            $.getJSON(tmng.url('/wbs/notes/internal/sn/{}', snip.d.sn))
+                .done(function (notes, statusMsg, xhr) {
+                    // Don't do anything if no notes are returned.
+                    if (xhr.status !== 204) {
+                        snip.find("[name='notescount']").text(notes.length);
+                        var isBlocked = false;
+                        var windowRefs = [];
+
+                        $.each(notes, function (index, note) {
+                            isBlocked = (isBlocked || note.preventApprovalForPublication == true ||
+                            note.preventAllowanceForRegistration == true );
+
+                            windowRefs.push({url: 'internal-note.html',
+                                params: {sn: snip.d.sn, noteId: note.id}});
+                        });
+
+                        var noteIcon = $('<a>', {href : function() {
+                            return '#internal-notes-list.html?' + pn.nav.params({
+                                sn : snip.d.sn
+                            });
+                        }});  
+                        
+                        if (isBlocked) {
+                            snip.find("[name='tm_i_notes']").removeClass("hidden");
+                            noteIcon.append($('<span>',{class : function() {
+                                     $(this).addClass("icon-blocked layer-over");
+                                 }                               
+                            }));
+                        }
+                        
+                        snip.find("[name='tm_i_notes']").removeClass("hidden");
+                        noteIcon.prepend($('<span>',{class : function() {
+                                 $(this).addClass("icon-icon-note layer-under");
+                             }                               
+                        }));
+                        snip.find("[name='notescount']").appendTo(noteIcon);
+                    
+                        snip.find("[name='tm_i_notes']").prepend(noteIcon);
+                        
+                        // Seems the only way to get more than one tab open,
+                        // without the delay the force-pin gets beat by a race condition.
+                        var openNote = function () {
+                            var href = windowRefs.shift();
+                            var thisPane = pn.reflex.pane(snip);
+
+                            pn.snip.load(href.url, function (content) {
+                                thisPane.insert(content);
+                            }, href.params);
+
+                            if (windowRefs.length > 0) {
+                                setTimeout(openNote, 1000);
+                            }
+                        };
+                        openNote();
+                    }
+                });
+    }
+    
+    
+    /**
+    This function, available only to nested snippets, invokes its `done` callback, passing a
+    trademark data object from the mark details service, once data becomes available. This allows
+    nested snippets to render themselves without redundant service calls.
+    */
+    snip.d.markInfo = function (done) {
+        waiting.push(done);
+        if (mark) {
+            runQueue();
+        }
+    };
+
+    /**
+    Nested snippets should call this non-public function to summarize the content of the section
+    they represent. They should pass the arguments:
+
+    - `section`: the snip object
+    - `summary`: a bag of nodes or html summarizing the content
+    */
+    snip.d.summarize = function (section, summary) {
+        section.closest('.viewer-section').children().first().find('.viewer-summary').append(summary);
+    };
+
+    /**
+     Nested snippets should call this non-public function to add a sub title under the
+     title of this section.  They should pass the arguments:
+
+     - `section`: the snip object
+     - `summary`: Text to put in the subtitle.
+     */
+    snip.d.subTitle = function (section, subTitleText) {
+        section.closest('.viewer-section').children().first().find('h6').removeClass("hidden").text(subTitleText);
+    }   
+   
+    
+})();
+
+/**
+For sub-snippets to format things that occur in more than one part of the trademark viewer
+*/
+snip.d.sharedDecorators = {
+    trueToYes: function (container, d) {
+        this.text(d ? 'Yes' : 'No');
+    },
+    dateOnly: function (o, date) {
+        if (pn.utils.isBlank(date)) {
+            this.html('&nbsp;');
+        } else {
+            this.text(pn.utils.getDateString(date, "D"));
+        }
+    },
+    mailingAddressFormat: function (whatisit, addr) {
+        this.empty().append(tmng.dataFormatter.formatAddress(addr));
+    },
+    phoneFormat: function (data, obj) {
+        this.empty().append(tmng.dataFormatter.formatTelecommAddress(obj.telecommAddresses));
+    },
+    electronicFormat: function (data, obj) {
+        this.empty().append(tmng.dataFormatter.formatElectronicAddress(obj.electronicAddresses));
+    },
+    primaryContactFormat: function (data, obj) {
+        this.empty().append(tmng.dataFormatter.lookupContactMethod(obj.primaryContactMethod));
+    },
+    registryDecode: function (data, fld, ref) {
+        this.text({"P": "Principal", "S": "Supplemental"}[fld]);
+    },
+    roleDecode: function (data, fld, ref) {
+        this.text({"AT": "Attorney", "DR": "Domestic Representative"}[fld]);
+    },
+    dateTimeStamp: function (data, fld) {
+        if (pn.utils.isBlank(fld)) {
+            this.html('&nbsp;');
+        } else {
+            this.text(pn.utils.getDateString(fld, "TS"))
+        }
+    }
+};
+
+/**
+Utility for use by foreign application and foreign registration sections to remap goods and
+services foreign mark info to be keyed based on foreign mark ID.
+*/
+snip.d.byForeignId = function (markInfo, type) {
+    var byForeignId = {};
+    $.each(markInfo.goods, function (classId, gs) {
+        $.each(gs.foreign[type], function (i, foreign) {
+            var foreignId = foreign.id + ' (' + foreign.country + ')';
+            byForeignId[foreignId] = byForeignId[foreignId] || $.extend({
+                id: foreignId,
+                classes: {}
+            }, foreign);
+            byForeignId[foreignId].classes[classId] = true;
+        });
+    });
+    return $.map(byForeignId, function (v) {
+        var result = $.extend(v, {
+            classes: $.map(v.classes, function (v, k) {
+                return k;
+            })
+        });
+        result.classes.sort(function (a, b) {
+            return parseInt(a, 10) - parseInt(b, 10);
+        });
+        return result;
+    });
+};
+
+// TODO figure out if this "if" is necessary and kill it if it isn't.
+if (!snip.d.sn) {
+    pn.pane.load('office-action-drafts.html', pn.pane.tab(snip));
+    pn.pane.remove(snip);
+    return;
+}
+
+if (snip.d.milestone) {
+    snip.addClass('milestone');
+    pn.pane.rename(snip, 'Snapshot'); // Will get full title after data pulled
+}
+// TODO: links from related cases are supposed to open this in read only mode. Would be better to
+//      make read only a flag in snip.d
+var isReadOnly = (data && data.trademark && data.trademark.serialNumber);
+if (isReadOnly) {
+    pn.pane.rename(this, "Trademark Viewer - " + snip.d.sn);
+}
+var drawingTypeLookup = {
+                            0: "UNKNOWN",
+                            1: "TYPED DRAWING",
+                            2: "DESIGN ONLY",
+                            3: "DESIGN PLUS WORDS, LETTERS, AND/OR NUMBERS",
+                            4: "STANDARD CHARACTER MARK",
+                            5: "WORDS, LETTERS, AND/OR NUMBERS IN STYLIZED FORM",
+                            6: "NO DRAWING"
+                        };
+
+/**
+    Adding a method to refresh when assigning the case to yourself.
+ */
+snip.fn.milestoneRefresh = function () {
+    tmng.get('mark/{sn}/milestones/', snip.d)
+        .done(function (milestones) {
+            if (snip.d.milestone) {
+                $('<option value="latest">Latest</option>')
+                    .appendTo(snip.find('.banner .milestone select'))
+            }
+            $.each(milestones, function (type, milestone) {
+                var humanDate = pn.utils.getDateString(new XDate(milestone.timestamp), 'D');
+                snip.addClass('milestones-available');
+                if (type === snip.d.milestone) {
+                    pn.pane.rename(snip, humanDate + ' Snapshot');
+                    return;
+                }
+                $('<option></option>')
+                    .attr('value', milestone.milestoneURL || type)
+                    .text(humanDate + ' Snapshot - ' + milestone.description)
+                    .appendTo(snip.find('.banner .milestone select'));
+            });
+            snip.find('.banner .milestone select')
+                .removeAttr('disabled')
+                .on('change', function () {
+                    if (this.value === 'latest') {
+                        window.location = '#trademark-viewer.html?'
+                            + pn.nav.params($.extend({}, snip.d, {milestone: null}));
+                    } else {
+                        if (this.value.indexOf('http') === 0) {
+                            var fileName = this.value.substr(this.value.lastIndexOf("/") + 1);
+                            var href = tmng.url('/cms/rest/case/{sn}/legacy/{fileName}', snip.d.sn, fileName);
+                            var title = $(this).find('option[value="' + this.value + '"]').text();
+                            window.location = '#resource-viewer.html?'
+                                + pn.nav.params({
+                                    title: title,
+                                    url: href
+                                });
+                        } else {
+                            window.location = '#trademark-viewer-milestone.html?'
+                                + pn.nav.params($.extend({milestone: this.value}, snip.d));
+                        }
+                    }
+                    $(this).closest('select').val('');
+                });
+        });
+};
+
+snip.fn.milestoneRefresh();
+
+snip.find('[name="internalnotesplus"]').on("click", function(evt) {
+    window.location = '#internal-note.html?' + pn.nav.params({
+        sn : snip.d.sn,
+        location : 'TRADEMARK'
+    });
+});
+
+
+snip.find('button.iconPrinter').on('click', function () {
+    var tmData = $(snip.find('div.tm-body').clone());
+    var userName = $('.pn-src-toolbox h2.user span.user').text().split(",");
+    var markLiteral = tmData.find('div.mark-summary-meta span[data-source=".trademark.literalText"]').text();
+    var cllist = $(snip).attr('class');
+
+    tmData.find('div.mark-summary-meta').remove();
+    tmData.find('fieldset').remove();
+    tmData.find('section button').replaceWith(function() {
+        return $('h3', $(this));
+    });
+    tmData.find('section label').not('.block').remove();
+    tmData.find('div.main-record div.banner').remove();
+    tmData.find('div.main-record div.tooltip').remove();
+    tmData.find('table li[data-source=".filingBasis"]').closest('table').remove();
+    tmData.find('tr td span[data-source=".registration.registrationNumber"]').closest('tr').remove();
+    tmData.find('div.edit-controls').remove();
+
+    if (tmData.find('.foreign').hasClass('empty')) {
+        tmData.find('section h3:contains("Foreign Trademark")').closest('section').remove();
+    }
+
+    var ref = pn.wins.open('tm-viewer-print.html');
+    ref.onload = function (a, b,c) {
+        var self = $(this.document);
+        $('.tm-loc', self).append(tmData);
+        if (userName.length && userName.length > 1) {
+            $('span.user-name', self).text(userName[1] + " " + userName[0]);
+        } else {
+            $('span.user-name', self).text(userName);
+        }
+        $('h1.literal-header', self).text(markLiteral);
+        $('span.print-date', self).text(pn.utils.getDateString("", "TS"));
+        $('body', self).attr('class', cllist);
+        $('button.print', self).trigger('click');
+    };
+});
+
+(function () {
+    // inject sub-snippet content into viewer sections
+    var template = snip.find('.main-record > .viewer-section').remove();
+    var sections = snip.find('.main-record').children('div').map(function () {
+        var section = template.clone();
+        var content = $(this);
+        section.children().first().find('h3').text(content.attr('title'));
+        content.removeAttr('title');
+        section.find('div').replaceWith(content);
+        return section[0];
+    });
+    snip.find('.main-record').append(sections);
+    
+})();
+
+var bom_options = {
+    decorators: $.extend({
+        markMeta: function (o, drawingType) {
+            $(this).text('');
+            var targetLoc = $(this);
+            if (drawingType === "6") {
+                targetLoc = $('.mark-summary-meta');
+            }
+            tmng.getMarkViewer({
+                "useQuickThumbs": false,
+                "drawingType" : drawingType,
+                "mark"        : o.literal,
+                "serialNumber": o.trademark.serialNumber,
+                "size"        : "image-png"
+            }, targetLoc, 'scalable-img');
+            if (drawingType === "6") {
+                $(this).remove();
+            } else {
+                snip.find('.imageMark').on('click', function (e) {
+                    e.preventDefault();
+                    $(this).children('img').first().clone().popup({
+                        title: "Image Mark"
+                    });
+                });
+            }
+        },
+        filingBasis: function (o, lst) {
+            this.text(lst.join(","));
+        },
+        dateOnly: function (o, date) {
+            if (pn.utils.isBlank(date)) {
+                this.html('&nbsp;');
+            } else {
+                this.text(pn.utils.getDateString(date, "D"));
+            }
+        },
+        teasPlus: function (data, value) {
+            var appType = tmng.dataFormatter.getFilingType(data);
+            this.addClass(appType.className);
+            this.text(appType.type);
+        },
+        shortRole: function (container, d) {
+            var clName = d.substr(0, 1);
+            this.text(clName);
+            clName += "-status-role";
+            this.addClass(clName);
+        },
+        openParent: function (data, sn) {
+            $(this).attr('href', tmng.url('flex.html#case?sn={}', sn))
+                    .text(sn)
+                    .css('cursor', 'pointer');
+        },
+        /**
+         *  suspended-case
+         *  freeze
+         *  abandonded
+         *  approved
+         */
+        statusStyle: function (data, status) {
+            var statusSpan = this.closest('h4');
+
+            if (data.statusA.indexOf("NEW A") >= 0) {
+                //do nothing
+            } else if (data.statusA.indexOf("SUSPEN") >= 0) {
+                statusSpan.addClass('suspended-case');
+            } else if (data.statusA.indexOf("FREEZE") >= 0) {
+                statusSpan.addClass('frozen-case');
+            } else if (data.statusA.indexOf("DEAD") >= 0) {
+                statusSpan.addClass('dead-case');
+            } else if (data.statusA.indexOf("APPROV") >= 0) {
+                statusSpan.addClass('published-case');
+            } else if (data.statusA.indexOf("PENDING") >= 0) {
+                statusSpan.addClass('pending-case');
+            } else if (data.statusA.indexOf("REGISTERED") >= 0) {
+                statusSpan.addClass('registered-case');
+            }
+            this.text("");
+        },
+        suspendInfo: function (data, suspObj) {
+            var reasonDesc = this.empty();
+            var reasonSpan;
+            // Show the suspend reason span.
+            if (!pn.utils.isBlank(suspObj.primaryReason)) {
+                reasonSpan = reasonDesc.closest('span.suspend-reason');
+                reasonSpan.removeClass('hidden');
+                reasonSpan.closest('h4').addClass('suspended-case');
+
+                // Iterate through each of the reasons for suspension.
+                $.each(suspObj.descList, function (i, reason) {
+                    var currentReason = "";
+                        var format = function (string, object, linkType) {
+                            // For each serial number find it in the string.
+                            $.each(object.relatedList, function (idx, knownSn) {
+                                var tmpStr = "";
+                                var offSet = string.indexOf(knownSn);
+                                if (offSet >= 0) {
+                                    tmpStr = string.substring(0, offSet);
+                                    tmpStr += '<a href="#" tabindex="0" data-id="' + knownSn +
+                                            '" data-type="' + linkType + '">' + knownSn + '</a>';
+                                    tmpStr += string.substring(offSet + 8);
+                                    string = tmpStr;
+                                }
+                            });
+
+                           return string;
+                        };
+
+                    currentReason = format(reason, suspObj, "case");
+                    // Append the reason for suspension to the DOM.
+                    reasonDesc.append($('<li></li>').html(currentReason));
+                });
+
+                var hoverMenu = $('<div class="tooltip" tabindex="-1"></div>');
+
+                // Based on type and if any, set up the events for each of the links in
+                // the suspension reasons.
+                reasonDesc.find('a[data-type]')
+                    // Navigate to the appropriate page/context based on the
+                    // link's type.
+                    .on('click', function (e) {
+                        var reasonLink = $(e.target),
+                                linkType = reasonLink.attr('data-type'),
+                                id = reasonLink.attr('data-id');
+
+                        e.preventDefault();
+
+                        // Close the hover menu.
+                        hoverMenu.remove();
+
+                        // Navigate to the appropriate context based on
+                        // the link's type.
+                        // TODO: Is correct for anything other than linkType="case"?
+                        window.location = "#case?sn=" + id;
+                    })
+                    // Open the hover menu only for links to cases.
+                    .filter('[data-type="case"]')
+                    .on('focus mouseenter', function (e) {
+                        var body = e.target ? $(e.target.ownerDocument.body) : $('body'),
+                                reasonLink = $(e.target),
+                                id = reasonLink.attr('data-id');
+
+                        // Get the case details for the hovered case link.
+                        $.get(tmng.url('mark/{}', id), function (data) {
+                            if (data) {
+                                var markLiteral = data.literal || "";
+                                var pyStatusWork = data.status || 'NOT AVAILABLE';
+                                var hoverMenuContents = $('<div></div>')
+                                        .append($('<span></span>').css('font-weight', 'bold')
+                                                .append($('<span></span>').text(id))
+                                                .append('&nbsp;')
+                                                .append($('<span></span>').text(markLiteral)))
+                                        .append('<br/>')
+                                        .append($('<span></span>').text('Status: ' + pyStatusWork));
+
+                                hoverMenu
+                                        .empty()
+                                        .append(hoverMenuContents)
+                                        .appendTo(body)
+                                        .follow(reasonLink);
+                            }
+                        });
+                    })
+                    .on('blur mouseleave', function (e) {
+                        // Close the hover menu.
+                        hoverMenu.remove();
+                    });
+            }
+        },
+        ttabStatusLookup: function (data, item) {
+            this.text({
+                    OPP: "Opposition",
+                    CAN: "Cancellation",
+                    EXT: "Extension of Time",
+                    MIS: "MIS"
+                }[item]);
+        },
+        ttabFormatter: function (data, item) {
+            var btnRef = $(this).parent();
+            var href = "http://ttabvue.uspto.gov/ttabvue/" + data.url;
+            this.text(data.name);
+            btnRef.attr('href', encodeURI(href));
+            btnRef.on('click', function (evt) {
+                window.location = "#resource-viewer.html?"
+                    + pn.nav.params({title: "TTABvue", url: $(this).attr('href')});
+            });
+        },
+        emergencyLaunch: function (data, item) {
+            $(this).on('click', function (evt) {
+                if (evt.altKey === true && evt.shiftKey === true) {
+                    var targetSn = $(this).text();
+                    var href = "http://tsdr.uspto.gov/#caseNumber=" + targetSn + "&caseType=SERIAL_NO&searchType=statusSearch";
+                    pn.wins.open(href);
+                }
+            })
+        },
+        registration: function (data, itm) {
+            // Hide if it isn't registered.
+            if (pn.utils.isBlank(itm) || parseInt(itm, 10) === 0) {
+                $(this).closest('tr').hide();
+            }
+        }
+    }, snip.d.sharedDecorators)
+};
+
+var sectionFor = function (partialSelector) {
+    return snip.find('.pn-src-tm-' + partialSelector + '-section').closest('.viewer-section');
+};
+var scrollOnClick = function (clickable, target) {
+    snip.find(clickable).on('click', function () {
+        sectionFor(target)[0].scrollIntoView(true);
+    });
+};
+scrollOnClick('.currentOwner', 'owner');
+
+var markEmptyForeignSection = function (markInfo, type) {
+    // User story says that the foreign application and registration sections should only show
+    // when they have data. Type given here should be one of "application" or "registration"
+    var show = false;
+    $.each(markInfo.goods, function (classId, gs) {
+        show = show || gs.foreign[type + 's'].length;
+    });
+    if (!show) {
+        sectionFor('foreign-' + type).addClass('empty');
+    }
+};
+
+snip.d.markInfo(function (mark) {
+    if(mark.ttabProceedings.length > 0) {
+        $('div.ttab-proceedings').removeClass('hidden');
+        var pending = 0, terminated = 0;
+        $.each(mark.ttabProceedings, function (idx, obj) {
+            if (obj.status.toLowerCase() === "pending") {
+                pending += 1;
+            } else if (obj.status.toLowerCase() === "terminated") {
+                terminated += 1;
+            }
+        });
+        mark.ttabSummaryText = (pending > 0 ? (pending + " pending; ") : "") +
+                                   (terminated > 0 ? (terminated + " terminated") : "");
+        if (pending === 0) {
+            $('div.ttab-proceedings').removeClass('ttab-pending');
+        }
+    }
+    if(!mark.division) {
+        $('tr.division-parent').remove();
+    }
+    if (mark.hasAttorney) {
+        sectionFor('correspondence').addClass('hidden');
+        scrollOnClick('.currentContact', 'attorney');
+    } else {
+        sectionFor('attorney').addClass('hidden');
+        scrollOnClick('.currentContact', 'correspondence');
+    }
+
+    var bindable = $.extend({
+        // Removed mark.trademark.drawingTypeDescription; per DE1153
+        drawingTypeDisplay: mark.trademark.drawingType + "-" + drawingTypeLookup[mark.trademark.drawingType]
+    }, mark);
+
+    // TTAB
+    $('.ttab-proceedings button').on('click', function () {
+        $(this).closest('.ttab-proceedings').children().last().toggleClass('hidden');
+        $(this).closest('button').toggleClass('toggler');
+    });
+    pn.bindomatic.bind(bindable, snip.find('.application-header'), bom_options);
+
+    var draftActions = $.map(bindable.draftActions, function (action) {
+        return action;
+    });
+    draftActions.sort(function (a, b) {
+        return -a.updatedTimeStamp.localeCompare(b.updatedTimeStamp);
+    });
+    if (draftActions[0]) {
+        snip.find('.banner .draft-action').text(draftActions[0].documentName)
+            .attr('href', '#oa?' + pn.nav.params({
+                    sn: snip.d.sn,
+                    id: draftActions[0].documentIdentifier,
+                    type: draftActions[0].documentType
+                }))
+            .removeClass('not-available');
+    }
+
+    markEmptyForeignSection(mark, 'application');
+    markEmptyForeignSection(mark, 'registration');
+});
+
+function prefPopup() {
+    tmng.prefs.openPrefs("pref-case-tmViewer");
+}
+
+if (isReadOnly) {
+    var banner = snip.find('.banner');
+    snip.addClass('readOnlyViewer');
+    banner.addClass('readOnlyViewer');
+    banner.children().remove();
+    banner.append($('<span class="read-only"/>').text('- Read Only -'));
+} else {
+    this.find('.banner .menuButton').on('click', prefPopup);
+}
+
+pn.toggle.toggleSections(snip.find('select.section-expander'), snip.find('.main-record > section'));
+
+(function () { // set section expanded state from user preferences
+    // TODO: prefs has "additionalStatements," where is it in markup?
+    var prefKeys = {
+        // only needs an entry if the pref key doesn't match the snippet name
+        goodsAndServices: 'goods-services',
+        markInfo: 'mark-info',
+        locationStatus: 'location',
+        foreignApplication: 'foreign-application',
+        foreignRegistration: 'foreign-registration',
+        foreignTrademark: 'foreign',
+        internationalTrademark: 'international'
+    };
+    var prefs = tmng.user_preferences.case.trademarkViewer || {};
+    $.each(prefs, function (k, v) {
+        var section = sectionFor(prefKeys[k] || k);
+        if (section.length) {
+            if (!prefs[k]) {
+                // expanded by default - false as the entry in prefs means collapsed
+                section.children('button')[0].click();
+            }
+        }
+    });
+})();
+
+snip.find('button.add.notes').removeAttr('disabled')
+    .on('click', function () {
+        var menu;
+        pn.snip.load('internal-note-menu.html', function (snip) {
+            menu = pn.popup(snip);
+        }, {addInternalNote: function () {
+                    pn.popup.close(menu);
+                    tmng.addInternalNote();
+                }
+        });
+    });
+
+/**
+ * Refresh the application summary.
+ *
+ * The code seems a bit over the top but it is the best
+ * and safest way to "refresh" the data in the summary section.
+ *
+ * This code will:
+ *
+ * 1. Find the bound data
+ * 2. Clean out the data object
+ * 3. Extend the object with the new data
+ * 4. Rebind the data to the .application-header
+ */
+snip.fn.refresh = function () {
+    tmng.get('mark/{sn}/details/?{milestone}', snip.d)
+    .done(function (tmValues) {
+        // This is the only value derived on the page for the refreshed section.
+        tmValues.trademark.drawingTypeDisplay = tmValues.trademark.drawingType + "-" + drawingTypeLookup[tmValues.trademark.drawingType];
+
+        var binding = pn.bindomatic.findBinding(snip.find('.application-header'));
+        $.each(binding.data, function (key, val) {
+            delete binding.data[key];
+        });
+        $.extend(binding.data, tmValues);
+        pn.bindomatic.bind(binding.data, snip.find('.application-header'), bom_options);
+    });
+};
+
+snip.fn.refreshNoteCount = function() {
+    $.getJSON(tmng.url('/wbs/notes/internal/sn/{}', snip.d.sn))
+    .done(function (notes, statusMsg, xhr) {
+        // Don't do anything if no notes are returned.
+        if (xhr.status !== 204) {
+            snip.find("[name='notescount']").text(notes.length);
+        }
+    });
+};
+
+tmng.updateShowNotes(this);
+snip.find('button.existing.notes').on('click', function () {
+    window.location.hash = "notes.html";
+});
+tmng.internalNoteDeleter(this);
+</script>

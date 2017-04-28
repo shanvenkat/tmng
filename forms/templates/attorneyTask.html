@@ -1,0 +1,83 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a><span ng-bind-html="resourceBundle['ui.gobal.navAttorney1']"></span></a>
+        </li>
+        <li class="active"><a ng-bind-html="resourceBundle['ui.gobal.navAction']"></a>
+        </li>
+        <li class="disabled"><a ng-bind-html="resourceBundle['ui.gobal.navSearch']"></a>
+        </li>
+        <li class="disabled"><a ng-bind-html="resourceBundle['ui.gobal.navResult']"></a>
+        </li>
+        <li class="disabled"><a ng-bind-html="resourceBundle['ui.gobal.navCaseLists']"></a>
+        </li>
+        <li class="disabled"><a ng-bind-html="resourceBundle['ui.gobal.navUpdateRecords']"></a>
+        </li>
+    </ul>
+</nav>
+<h1 ng-bind-html="resourceBundle['ui.attorney.txtPageHeader']"></h1>
+
+<fieldset>
+    <legend ng-bind-html="resourceBundle['ui.attorney.lblAttorneySelection']"></legend>
+    <div class="radio">
+        <label>
+            <input type="radio" value="raa" ng-model="action" checked><span ng-bind-html="resourceBundle['ui.attorney.txtAttorneySelectionItem1']"></span>
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" value="raa1" ng-model="action" disabled><span ng-bind-html="resourceBundle['ui.attorney.txtAttorneySelectionItem2']"></span>
+        </label>
+    </div>
+    <div class="radio ">
+        <label>
+            <input type="radio" value="raa2" ng-model="action"><span ng-bind-html="resourceBundle['ui.attorney.txtAttorneySelectionItem3']"></span>
+        </label>
+    </div>
+    <div class="radio ">
+        <label>
+            <input type="radio" value="raa3" ng-model="action">Withdrawal as the Primary Attorney of Record
+        </label>
+    </div>
+    
+    <div class="radio ">
+        <label>
+            <input type="radio" value="raa4" ng-model="action">Withdrawal as the Primary Attorney due to power of Attorney Ending 
+            
+        </label>
+    </div>
+    
+</fieldset>
+<hr class="big" />
+<div>
+    <div class="row">
+        <div class="col-sm-8">
+            <label for="serialNumber" ng-bind-html="resourceBundle['ui.attorney.lblSerialNumberInput']"></label>
+        </div>
+    </div>
+    <div class="alert alert-danger" ng-show="showme" ng-bind-html="resourceBundle['err.global.invalidSerialNumber']"></div>
+    <div class="alert alert-danger" ng-if="showErr">{{errMsg}} for the serial number entered. Please try again.</div>
+    <div class="alert alert-danger" ng-if="noCaseMsg">No Match Found</div>
+  <form ng-submit="go()">
+      <div class="row">
+          <div class="col-sm-8 padding-right-zero">
+              <input type="text" class="form-control" id="serialNumber" name="serialNumber" ng-model="serialNumber" ng-focus="showErr=false;showme=false;noCaseMsg=false;">
+              <span class="help-block" ng-bind-html="resourceBundle['ui.attorney.lblSerialNumberInputHelp']"></span>
+          </div>
+          <div class="col-sm-1">
+              <button class="btn btn-primary" ng-click="go()" ng-bind-html="resourceBundle['ui.attorney.btnGo']"></button>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-sm-8">
+              <p  ng-bind-html="resourceBundle['ui.attorney.lblOr']"></p>
+          </div>
+      </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-8">
+            <p>Find records using other search criteria, such as attorney, firm, owner, or docket number.</p>
+            <button class="btn btn-secondary" ng-click="gotoNewPage()" ng-bind-html="resourceBundle['ui.attorney.btnSearchButton']" >
+            </button>
+        </div>
+    </div>
+</div>

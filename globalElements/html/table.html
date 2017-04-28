@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="../styles/patternLibrary.css">
+<link rel="stylesheet" href="../styles/globalElements.css">
+
+<div class="navbar navbar-inverse">
+    <header>
+        <img src="../images/logo.png" alt="USPTO Logo">
+    </header>
+</div>
+
+<div style="margin: 0 20px;">
+    <div>
+        <button class="default">Default sort</button>
+        <button class="custom">Custom sort</button>
+        <button class="number">Number sort</button>
+    </div>
+    <table id="table1">
+        <thead>
+            <tr>
+                <th>Default</th>
+                <th>Custom</th>
+                <th>Date</th>
+                <th>Number</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>Galahad</td>
+            <td>Knight of the round table</td>
+            <td pn-table-data-type="date">1970-01-01</td>
+            <td pn-table-data-type="number">3</td>
+        </tr>
+        <tr>
+            <td>Arthur</td>
+            <td>King of the Britons, defeater of the Saxons, Sovereign of all England</td>
+            <td pn-table-data-type="date">2038-01-19</td>
+            <td pn-table-data-type="number">20</td>
+        </tr>
+    </table>
+    <select class="st">
+        <option  value="ungroup">Ungroup</option>
+        <option value="group" >Group</option>
+    </select>
+    <table id="table2">
+        <thead>
+            <tr>
+                <th>Characteristic</th>
+                <th>Knight</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>Brave</td>
+            <td>Arthur</td>
+        </tr>
+        <tr>
+            <td>Brave</td>
+            <td>Lancelot</td>
+        </tr>
+        <tr>
+            <td>Cowardly</td>
+            <td>Robin</td>
+        </tr>
+        <tr>
+            <td>Wise</td>
+            <td>Bedevere</td>
+        </tr>
+    </table>
+    <div id="div1"></div>
+</div>

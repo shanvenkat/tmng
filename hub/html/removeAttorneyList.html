@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-sm-4 ">
+        <div class="box" ng-class="divSelected ? 'box-info' : 'box-default'">
+            <div class="checkbox">
+                <label>
+                    <!-- input box to toggle a variable to true or false -->
+                    <input type="checkbox" ng-model="divSelected">
+                    <p>Smith, Adam Keller
+                        <br />Member, Virginia Bar Association
+                        <br />Example, LLC
+                        <br />123 Example Street
+                        <br />Suite 400
+                        <br />Vienna, VA 22181
+                        <br />USA
+                        <br />Adam.keller@lawfirm.com
+                        <br />(p) 202-234-2343, (f) 202-123-4321
+                        <br />
+                        <strong>Docket #</strong>- 1234-908573
+                    </p>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="alert alert-warning">
+                    <p>
+                        Additional authorized attorneys submitted outside of the TEAS Trademarks Attorney Forms might not be listed here. <a href="#">Please check for additional authorized attorneys in TSDR</a>
+                    </p>
+                </div>
+                <label>
+                    <input type="checkbox" ng-model="checked"> Remove additional previously appointed attorneys </label>
+                <div ng-show="checked">
+                    <label for="input10" class="sr-only">Enter the attorney names as shown in TSDR, separated by commas</label>
+                    <input id="input10" type="text" class="form-control"><span class="help-block">Enter the attorney names as shown in TSDR, separated by commas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

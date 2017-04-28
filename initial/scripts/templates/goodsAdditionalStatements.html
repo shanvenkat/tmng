@@ -1,0 +1,52 @@
+<div id="utilityBarContainer"></div>
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-md-3" role="navigation" id="leftNavContainer"></div>
+        <div class="col-md-9">
+            <!-- begin Main -->
+            <main class="wrapper">
+                <h2>Additional Statement</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-info">The "Additional Statement" section of this form is to enter various statement(s) that may pertain to the mark, for example, a disclaimer or translation. Because you are filing under TEAS Plus, you must enter the following, if applicable within the facts of your application: (1) claim of prior registration(s); (2) translation; (3) transliteration; (4) consent of individual identified in mark; and (5) concurrent use claim. You are not required to enter any other statement(s) at the time of filing; however, you may be required to add a statement(s) to the record during examination of the application. If you are unsure whether you should make such a statement, besides those specifically identified above, the examining attorney assigned to your application will issue a requirement, if appropriate.</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- hide this whole div in development -->
+                        <div class="well" style="min-height: 95px;">
+                            <p>Does this application require additional goods and services statements? </p>
+                            <input value="yes" type="radio" id="additionalStatementsRadioYes" name="markType"><label for="additionalStatementsRadioYes" style="padding-right:15px;">Yes</label>
+                            <input value="no" type="radio" id="additionalStatementsRadioNo" name="markType" checked="true"><label for="additionalStatementsRadioNo">No</label>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-12">
+                        <div id="additionalStatementsContainer">
+
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-info" id="infoMessage"></div>
+                <div class="alert alert-danger" id="errorMessage"></div>
+                
+                <hr />
+
+                <div class="row">
+                    <div class="col-md-4 col-xs-4 ">
+                        <a class="btn btn-default margin-down-thirty" id="previousPage">Previous</a>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <a class="btn btn-primary margin-down-thirty" id="save">Save</a>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <a class="btn btn-success margin-down-thirty pull-right" id="continueButton">Next</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <!-- end Main-->
+</div>

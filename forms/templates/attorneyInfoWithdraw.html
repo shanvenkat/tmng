@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-sm-12">
+        <span class="h3">Serial number</span>
+        <span class="h3">{{trademarkInfo.serialNumTx}}</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <table class="no-border">
+            <tr>
+                <th scope="col">Primary Attorney of <br />record</th>
+                <!--<th scope="col">J Smith</th> -->
+                <!-- note James/Lechen - please switch between the two for withdrawing attorney -->
+                <th scope="col"><span>{{trademarkInfo.primaryAttorneyName}} (to be Withdrawn) </span><p class="text-muted">Interaction to add</p></th>
+            </tr>
+            <tr>
+                <th scope="row">Firm name</th>
+                <td>{{trademarkInfo.primaryAttorneyFirm}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Docket number</th>
+                <td>{{trademarkInfo.primaryAttorneyDocketNum}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Other appointed attorneys</th>
+                <td>{{trademarkInfo.additionalAttorneys}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-sm-4">
+        <table class="no-border">
+            <tr>
+                <th scope="col">Owner</th>
+                <th scope="col">{{trademarkInfo.owner}}</th>
+            </tr>
+            <tr>
+                <th scope="row">Registration No.</th>
+                <td>{{trademarkInfo.registrationNum}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Class IDs</th>
+                <td>
+                    <span ng-repeat="classId in trademarkInfo.classes">
+                        <button popover-placement="bottom" popover-title="{{classId.idNum}}" popover="{{classId.classIdPopover}}" class="btn btn-link"> {{classId.idNum}} </button>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Mark literal</th>
+                <td>
+                  {{markLiteral}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-sm-2">
+        <div style="border: 1px solid #333; height:100px; width:100%;" ng-if="markLiteral==null" >
+           <img src="http://teas.uspto.gov/ccr/view/common/No-Image-File.jpg" alt="No Trademark Image"/>
+        </div>
+        <div style="border: 1px solid #333; height:100px; width:100%;" ng-if="markLiteral!=null" >
+           <img ng-src="{{cmsMarkUrl}}/cms/rest/case/{{trademarkInfo.serialNumTx}}/mark/image/rendition/image-png" alt="Trademark Image" height="100%" width="100%" />
+        </div>
+    </div>
+</div>

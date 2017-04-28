@@ -1,0 +1,41 @@
+<% if (collection.length>0 ) {%>
+<div class="col-sm-12 ">
+    <table class="table">
+        <caption class="sr-only">Multiple Attorney Details</caption>
+        <thead>
+        <tr>
+            <th scope="column">Designate as Correspondent Attorney </th>
+            <th scope="column">Attorney Name</th>
+            <th scope="column">Attorney Firm</th>
+            <th scope="column">Edit</th>
+            <th scope="column">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% _.each(collection, function(attorney){ %>
+        <tr>
+            <td>
+                <% if (attorney.attorneyType==='AT' ) {%>
+                    <input type="radio" id="<%= attorney.id %>" name="attorneyType_<%= attorney.id %>"  data-col="1" value="AT" checked>
+                    <label class="sr-only checked" for="<%= attorney.id %>"></label>
+                <%}%>
+                <% if (attorney.attorneyType==='SAT' ) {%>
+                    <input type="radio" id="<%= attorney.id %>" name="attorneyType_<%= attorney.id %>"  data-col="1" value="SAT">
+                    <label class="sr-only" for="<%= attorney.id %>"></label>
+                <%}%>
+            </td>
+            <td><%= attorney.attorneyName%></td>
+            <td><%= attorney.nameLine2Tx%></td>
+
+            <td>
+                <button type="button" id="editAttorney" name="<%= attorney.id %>" class="btn btn-primary btn-sm glyphicon glyphicon-edit"></button>
+            </td>
+            <td>
+                <button type="button" id="deleteAttorney" name="<%= attorney.id %>" class="btn btn-default btn-sm glyphicon glyphicon-remove-sign"></button>
+            </td>
+        </tr>
+        <% }); %>
+        </tbody>
+    </table>
+</div>
+<%}%>

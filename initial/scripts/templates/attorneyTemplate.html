@@ -1,0 +1,285 @@
+<div id="utilityBarContainer"></div>
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-md-3" role="navigation" id="leftNavContainer"></div>
+        <div class="col-md-9">
+            <!-- begin Main -->
+            <main class="main-wrapper">
+                <div class="page-header">
+                    <h1>Attorney information</h1>
+                </div>
+                <div class="page-body">
+                    <div class="row">
+                        <div class="col-sm-6 pull-right">
+                            <p class="text-right">Required fields are marked with an asterisk (
+                                <span class="glyphicon glyphicon-asterisk">
+                                    <span class="sr-only">Required</span>
+                                </span>)</p>
+                        </div>
+                        <div class="col-sm-12 ">
+                            <p>Identify the attorney for this trademark application. If you have more than one attorney, you may list them, but only one attorney can be the primary or "correspondent" attorney. The USPTO will correspond with this attorney.  The first attorney added will be defaulted to the "correspondent" attorney.</p>
+                            <p>You currently have the following attorneys added to your current application.  If you do not need to add an additional attorney, click Next to continue your application.</p>
+                        </div>
+                         <!-- show the following div if there are attorney added -->
+                         <div id="attorneyListContainer"></div>
+                    </div>
+                    
+                    <h2>Identify attorneys for this trademark application</h2>
+                    
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                            <label for="country" class="">
+                                Country
+                                <span class="glyphicon glyphicon-asterisk">
+                                    <span class="sr-only">Required</span>
+                                </span>
+                            </label>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <select class="form-control" id="country" name="country">
+                                        <option value="">Please select</option>
+                                        <option value="US">United States</option>
+                                        <option value="AF">Afghanistan</option>
+                                        <option value="AX">&#197;land Islands</option>
+                                        <option value="AL">Albania</option>
+                                        <option value="DZ">Algeria</option>
+                                        <option value="AS">American Samoa</option>
+                                        <option value="AD">Andorra</option>
+                                        <option value="BO">Bolivia, Plurinational State of</option>
+                                        <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                                        <option value="BA">Bosnia and Herzegovina</option>
+                                        <option value="BW">Botswana</option>
+                                        <option value="BV">Bouvet Island</option>
+                                        <option value="BR">Brazil</option>
+                                        <option value="IO">British Indian Ocean Territory</option>
+                                        <option value="BN">Brunei Darussalam</option>
+                                        <option value="BG">Bulgaria</option>
+                                        <option value="BF">Burkina Faso</option>
+                                        <option value="BI">Burundi</option>
+                                        <option value="KH">Cambodia</option>
+                                        <option value="CM">Cameroon</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="VG">Virgin Islands, British</option>
+                                        <option value="VI">Virgin Islands, U.S.</option>
+                                        <option value="WF">Wallis and Futuna</option>
+                                        <option value="EH">Western Sahara</option>
+                                        <option value="YE">Yemen</option>
+                                        <option value="ZM">Zambia</option>
+                                        <option value="ZW">Zimbabwe</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                  
+                    <!--show the following section if the country is not US or CANADA -->
+                    <div id="foreignAttorneyWarning" class="form-group row" hidden>
+                        <div class="col-sm-8">
+                            <div class="alert alert-warning">
+                                <p>Important: Foreign attorneys, other than authorized Canadian attorneys, are not permitted to represent applicants before the USPTO (e.g., file written communications, authorize an amendment to an application, or submit legal arguments in response to a requirement or refusal).  See 37 C.F.R. §§2.17(e), 11.14(c), (e); TMEP §602.03-.03(c).  Unless the identified foreign attorney can establish that he or she is authorized under 37 C.F.R. §11.14, then this attorney is not authorized to practice before the USPTO in trademark matters and may not sign responses or otherwise represent applicant in this application.  See 37 C.F.R. §2.62(b); TMEP §602.03(e).  Any power of attorney to this foreign attorney is void ab initio.  TMEP §602.03(e). </p>
+                            </div>
+                        </div>
+                    </div> 
+                    <fieldset>
+                        <legend>What is the name of the primary ("corresondent") attorney?</legend>
+                        <div class="form-group row">
+                            <div class="col-sm-5">
+                                <label for="firstName" class="">First name (personal name)
+                                    <span class="glyphicon glyphicon-asterisk">
+                                        <span class="sr-only">Required</span>
+                                    </span>
+                                </label>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="firstName" name="firstName">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="middleName" class="">Middle name</label>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="middleName" name="middleName">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <label for="lastName" class="">Last name (surname or family name)
+                                    <span class="glyphicon glyphicon-asterisk">
+                                        <span class="sr-only">Required</span>
+                                    </span>
+                                </label>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="lastName" name="lastName">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 margin-up-ten">
+                                <label for="suffix" class="">Suffix (Jr., Sr., III, etc.)</label>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <select class="form-control" id="suffix" name="suffix">
+                                            <option></option>
+                                            <option>Jr.</option>
+                                            <option>Sr.</option>
+                                            <option>III</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End new section for separating name in first/last/middle name -->
+                        </div>                        
+                    </fieldset>
+                    <div class="form-group row">
+                        <div class="col-sm-8">
+                            <label for="nameLine2Tx" class="">What is the name of the attorney's law firm or legal entity?</label>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <input type="text" class="form-control" name="nameLine2Tx" id="nameLine2Tx">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="margin-up-twenty">
+                        <div class="form-group row">
+                            <div class="col-sm-8">
+                                <label for="address1" class="">
+                                    Address Line 1
+                                    <span class="glyphicon glyphicon-asterisk">
+                                        <span class="sr-only">Required</span>
+                                    </span>
+                                </label>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="address1" name="address1" required />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-8">
+                                <label for="address2" class="">
+                                    Address Line 2
+                                </label>
+                                <input type="text" class="form-control" id="address2" name="address2" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-8">
+                                <label for="address3" class="">
+                                    Address Line 3
+                                </label>
+                                <input type="text" class="form-control" id="address3" name="address3" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-5">
+                                <label for="city" class="">
+                                    City
+                                    <span class="glyphicon glyphicon-asterisk">
+                                        <span class="sr-only">Required</span>
+                                    </span>
+                                </label>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="city" name="city" required />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="countryContainer"></div>
+
+
+                        <div class="form-group row">
+                            <div class="col-sm-8">
+                                <label for="docketNumber" class="">Docket or Reference Number</label>
+                                <p>If applicable, enter the attorney docket or reference number.</p>
+
+                                <input type="text" class="form-control" name="docketNumber" id="docketNumber">
+
+                            </div>
+                        </div>
+                         <div class="form-group row">
+                            <div class="col-sm-8">
+                                <label for="website" class="">Website URL</label>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input type="url" class="form-control" id="website" name="website" required />
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <fieldset>
+                            <legend>Attorney email</legend>
+                             <div class="form-group row">
+                                <div class="col-sm-8">
+                                    <div class="alert alert-info">
+                                        <p>$ Potential savings: Allow the USPTO to send all official correspondence via email....</p>
+                                    </div>
+                                    <p>An e-mail address for communication with the appointed attorney must be provided. The attorney must keep this address current in the Office's records. Specific authorization for this communication may be made, below.</p>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-8">
+                                    <label for="email" class="">
+                                        Email address
+                                    </label>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <input type="text" class="form-control" name='email' id="email" required />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="clearfix">
+
+                                <input type="checkbox" id="emailPermissionFlag" name="emailPermissionFlag" />
+
+                                <label for="emailPermissionFlag">Check here to authorize the USPTO to communicate with the appointed attorney via e-mail. (Informal communication is permissible without authorization.)</label>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-8">
+                                    <div class="alert alert-warning">
+                                        <p>Important: By checking this box, the appointed attorney acknowledges that it is solely responsible for receipt of USPTO documents sent via e-mail. The appointed attorney should periodically check the status of its application through the Trademark Status & Document Retrieval (TSDR) database, to see if the assigned examining attorney has e-mailed an Office Action. If an action has been sent to the provided e-mail address, the USPTO is not responsible for any e-mail not received due to the applicant's security or anti-spam software, or any problems within the applicant's e-mail system. All sent actions can be viewed on-line, from Trademark Status & Document Retrieval.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-8">
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <input type="hidden" name="id"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="form-group row">
+                            <div class="col-sm-5">
+                            <button class="btn btn-info btn-block" id="addAttorney">Add Attorney</button>
+                            </div>
+                        </div>
+                       
+                    </div>
+
+                    <div class="button-bar">
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-4 col-xs-4 ">
+                                <a class="btn btn-default" id="previousPage">Previous</a>
+                            </div>
+                            <div class="col-md-4 col-xs-4 text-center">
+                                <a class="btn btn-success" id="saveButton">Save</a>
+                            </div>
+                            <div class="col-md-4 col-xs-4">
+                                <a class="btn btn-primary pull-right" id="continueButton">Next</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>

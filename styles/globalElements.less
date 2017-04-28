@@ -1,0 +1,77 @@
+@import "pneumatic/theme/vanilla.less";
+@import "font-awesome/font-awesome.less";
+@import "variables.less";
+@import "tables.less";
+
+
+/* Overriding pattern library till we get latest CSS from Brian Matthews */
+body{ background: #e7e7e7;}
+.navbar {
+   .navbar-header {
+   > a {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: normal;
+    letter-spacing: .2rem;
+    }
+  }
+}
+
+.navbar-inverse{background-color: #323232; border-bottom: 2px solid #3081b3; min-height: 100px;}
+
+
+ 
+// Default navbar
+.navbar-default {
+  background-color: @navbar-default-link-active-bg;
+  border-bottom: 2px solid #323232; /*Change it to variable*/
+
+  
+
+  .navbar-text {
+    color: @navbar-default-color;
+  }
+
+  .navbar-nav {
+    > li:first-child {border-left: 1px solid #585858;}
+    > li {border-right: 1px solid #585858;}
+    > a {
+      color: @link-color;
+
+      &:hover,
+      &:focus {
+        color: @link-hover-color;
+        background-color: @navbar-default-link-hover-bg;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @link-color;
+        font-weight: 700;
+        background-color: white; /*Change it to variable*/
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-default-link-disabled-color;
+        background-color: @navbar-default-link-disabled-bg;
+      }
+    }
+  }
+
+  
+  
+}
+.pl-sidebar{ top:200px;}
+
+/* overriding pNeumatic styles */
+button.pn-menu-opener{
+  background: none;
+  color: white;
+  border: none;
+  vertical-align: middle;
+}

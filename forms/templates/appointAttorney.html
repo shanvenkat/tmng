@@ -1,0 +1,73 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a><span ng-bind-html="resourceBundle['ui.gobal.navAttorney1']"></span></a>
+        </li>
+        <li class="completed"><a ng-bind-html="resourceBundle['ui.gobal.navAction']"></a>
+        </li>
+        <li class="disabled"><a ng-bind-html="resourceBundle['ui.gobal.navSearch']"></a>
+        </li>
+        <li class="disabled"><a ng-bind-html="resourceBundle['ui.gobal.navResult']"></a>
+        </li>
+        <li class="disabled"><a ng-bind-html="resourceBundle['ui.gobal.navCaseLists']"></a>
+        </li>
+        <li class="active"><a ng-bind-html="resourceBundle['ui.gobal.navAppointAttorney']"></a>
+        </li>
+    </ul>
+</nav>
+<h1 ng-bind-html="resourceBundle['ui.appointAttorney.txtPageHeader']"></h1>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+     <div ng-include="'templates/attorneyInfo.html'"></div>       
+        <div class="expandcollapse-item">
+            <button class="btn btn-link" ng-click="active = !active" ng-class="{'expandcollapse-heading-collapsed': active, 'expandcollapse-heading-expanded': !active}">
+                <div ng-bind-html="resourceBundle['ui.appointAttorney.btnShowDetails']" ng-show="!active"></div>
+                <div ng-show="active">v Hide attorney details</div>
+            </button>
+            <div class="slideDown" ng-show="active">
+                <div class="expand-collapse-content">
+                    <div ng-include="'templates/allAttorneys.html'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-6 pull-right">
+        <p class="text-right" ng-bind-html="resourceBundle['err.global.requiredField']">
+        </p>
+      </div>
+    </div>
+        
+    
+    <div>
+        <p ng-bind-html="resourceBundle['ui.appointAttorney.txtListOtherAttorneys']"></p>
+        <div ng-include="'templates/appointAttorneyResult.html'"></div>
+    </div>
+        
+    <hr/>
+        
+    <h2 ng-bind-html="resourceBundle['ui.appointAttorney.txtNewAttorneyHeader']"></h2>
+    <div ng-include="'templates/appointAttorneyForm.html'"></div>
+
+    <div class="alert alert-warning">
+        <p ng-bind-html="resourceBundle['warn.global.warnAttorney']"></p>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="row">
+        <div class="col-md-4 col-xs-4 ">
+            <button class="btn btn-default" id="previousPage" ng-bind-html="resourceBundle['ui.gobal.btnGoBack']" ng-click="goBack()"></button>
+        </div>
+        <div class="col-md-4 col-xs-4 text-center" style="visibility: hidden;">
+            <button class="btn btn-default" id="saveButton" ng-bind-html="resourceBundle['ui.gobal.btnSave']"></button>
+        </div>
+        <div class="col-md-4 col-xs-4 text-right">
+            <button class="btn btn-default" id="previousPage" ng-bind-html="resourceBundle['ui.gobal.btnCancel']" ng-click="cancel()"></button>
+            <button class="btn btn-primary pull-right" id="continueButton" ng-click="continue()" ng-disabled="disableContinue" ng-bind-html="resourceBundle['ui.gobal.btnContinue']"></button>
+        </div>
+    </div>
+  </div>
+</div>

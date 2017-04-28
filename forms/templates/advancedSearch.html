@@ -1,0 +1,514 @@
+
+
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a>Attorney</a>
+        </li>
+        <li class="completed"><a>Actions</a>
+        </li>
+        <li class="disabled"><a>Search</a>
+        </li>
+        <li class="disabled"><a>Search Results</a>
+        </li>
+        <li class="disabled" dropdown is-open="status.isopen">
+            <a type="button" href="#" class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+        My List <span class="caret"></span>
+      </a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a>
+                </li>
+                <li><a href="#">Another action</a>
+                </li>
+                <li><a href="#">Something else here</a>
+                </li>
+
+            </ul>
+
+        </li>
+
+
+    </ul>
+</nav>
+<h1>Appoint additional attorneys: Step 1</h1>
+
+<div class="form-group row">
+    <div class="col-sm-5">
+        <button class="btn btn-default" ng-click="goBack()">
+            < Back to Actions</button>
+    </div>
+</div>
+<h2>Advanced Search: I want to search ....</h2>
+
+ 
+ 
+<tabset justified="true">
+    <tab ng-controller = "SerialNumberTabCtrl" heading="By serial/registration, mark literal, or docket number" >        
+        <fieldset class="form-group">
+            <legend class="sr-only">search by serial/registration, mark literal, or docket number</legend>
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="serialnumber" ng-model="buttonval" ng-click="clearError()"> Serial or registration number
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="markliteral" ng-model="buttonval" ng-click="clearError()"> Mark literal
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="docketnumber" ng-model="buttonval" ng-click="clearError()"> Attorney or owner's docket number
+            </label>
+        </fieldset>
+        <div class="form-group">
+        <label for="txtarea1" class="sr-only">"Serial or registration number" or "Mark literal" or "Attorney or owner's docket number" note- change this based on radio selection</label>
+        <label for="serialNumber" hidden></label>
+        <textarea class="form-control" id="serialNumber" name="serialNumber" ng-model="serialNumber" ng-focus="clearError()"></textarea>
+        <p class="help-block" ng-show="buttonval === 'serialnumber'">Enter 7-digit registration or 8-digit serial numbers separated by commas. [Maximum of XXX records.]</p>
+        <div ng-show="buttonval === 'markliteral'">
+            <p class="help-block">Enter the mark literal elements, separated by commas. The mark literal is any word(s), letter(s), and/or number(s) that appear in the mark.</p>
+            <p class="help-block">
+                Tip: Enter the exact text to limit results. For example, "markey" returns all marks with that word, but "t. markey" returns only marks with that exact combination of words and letters.</p>
+        </div>
+        <p class="help-block" ng-show="buttonval === 'docketnumber'">Enter the attorney's or owner's docket or reference numbers, separated by commas.</p>
+        <!-- validation error message -->
+        <p class="alert error" ng-show="needOption">No search option is selected</p>
+        <p class="alert error" ng-show="serialNumberRequired">Serial or registration number is required</p>
+        <p class="alert error" ng-show="markLiteralRequired">Please enter a valid mark literal.</p>
+        <p class="alert error" ng-show="docketNumberRequired">Attorney or owner's docket number is required</p>
+        <p class="alert error" ng-show="serialNumberWrong">Serial or registration number is in wrong format</p>
+
+        </div>
+        <hr />
+
+        <p class="alert error" ng-show="buttonval === 'serialnumber' && noCaseMsg">Please enter a valid serial or registration number.</div>
+        <p class="alert error" ng-show="buttonval === 'markliteral' && noCaseMsg">Please enter a valid mark literal.</div>
+        <p class="alert error" ng-show="buttonval === 'docketnumber' && noCaseMsg">Please enter a valid docket number.</div>
+
+        <div class="row">
+            <div class="col-md-3 pull-right">
+                <button class="btn btn-primary btn-block" ng-click="go(serialNumber, buttonval)">Search</button>
+            </div>
+        </div>
+    </tab>
+    <tab ng-controller = "LawFirmTabCtrl" heading="By attorney or law firm">
+    <h3 class="section-heading">Find all mark records with</h3>
+        <div class="row form-group ">
+            <div class="col-sm-6 ">
+                <label for="input1">Any of these attorneys or firms</label>
+                <input id="input1" class="form-control ng-pristine ng-untouched ng-valid"  ng-model="lawFirm.srcByLawFirmName" ng-focus="clearErrMsg()" />
+                <p class="alert error" ng-show="nameErrNeedLawFirmName">Please enter one or more valid attorney/ firm name(s)</p>
+                <p class="help-block">Enter all or part of each name, separated by [commas]</p>
+            </div>
+            <div class="col-sm-6 ">
+                <p class="text-muted text-bold">Your results will include any records with either the firm name or an attorney name matching your entries.</p>
+            </div>
+        </div>
+        <hr />
+        <h3 class="section-heading">But only those including one or more of the following ...</h3>
+        <div class="row form-group ">
+            <div class="col-sm-6 ">
+                <label for="lawfirm.srcByState" class="sr-only">Attorneys with addresses in this state</label>
+                <select  class="form-control" id="lawfirm.srcByState" ng-model="lawfirm.srcByState" ng-click="clearErrMsg()">
+                    <option value="">Please Select...</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="AE">Armed Forces Europe</option>
+                    <option value="AP">Armed Forces Pacific</option>
+                    <option value="AA">Armed Forces the Americas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="DC">District Of Columbia</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                </select>
+
+            </div>
+            <div class="col-sm-6 ">
+                <p class="text-muted text-bold">Picking a state here will limit the results to records with an attorney listing this state as the attorney's address.</p>
+            </div>
+        </div>
+        <div class="row form-group ">
+            <div class="col-sm-6 ">
+                <label for="input2">This domain name in the attorney email address</label>                
+                <input id="input2" class="form-control" ng-model="lawfirm.srcByEmailAddress" ng-click="clearErrMsg()"/>
+                
+                <p class="help-block">Enter the part of the email address after the "@" sign</p>
+            </div>
+            <div class="col-sm-6 ">
+                <p class="text-muted text-bold">Entering a domain name here limits the results to records with an attorney email address ending in this entry, e.g., "attorney@domain.com"</p>
+            </div>
+        </div>
+        <div class="row form-group ">
+            <div class="col-sm-6 ">
+                <label for="input3">Records for this mark owner</label>
+                <input id="input3" class="form-control" ng-model="lawfirm.srcByMarkOwner" ng-click="clearErrMsg()"/>
+                <p class="help-block">Enter all or part of the name</p>
+            </div>
+            <div class="col-sm-6 ">
+                <p class="text-muted text-bold">Your entry here limits your results to marks that have this owner name.</p>
+            </div>
+        </div>
+        <div class="row form-group ">
+            <div class="col-sm-6 ">
+                <label for="input4">This exact name or firm name</label>
+                <input id="input4" class="form-control" ng-model="lawfirm.srcByExactFirmName" ng-click="clearErrMsg()"/>
+
+            </div>
+            <div class="col-sm-6 ">
+                <p class="text-muted text-bold">To limit your search, you can enter the name as it is on the application or registration</p>
+            </div>
+        </div>
+        <hr />
+        <p class="alert error" ng-show="noCaseMsg">No Match Found</div>
+        <div class="row">
+            <div class="col-md-3 pull-right">
+            <button class="btn btn-primary btn-block" ng-click="goToSearchResultByLawFirm(lawFirm.srcByLawFirmName,lawfirm.srcByState,lawfirm.srcByEmailAddress,lawfirm.srcByMarkOwner, lawfirm.srcByExactFirmName)">Search</button>
+            </div>
+        </div>
+    </tab>
+    <tab ng-controller = "OwnerTabCtrl" heading="By owner or applicant">
+        <h3 class="section-heading">Find all mark records with ...</h3>
+        <div class="row form-group ">
+            <div class="col-sm-6 ">
+                <label for="srcByOwnerNm">Any of these owner or applicant names</label>
+                <input id="srcByOwnerNm" class="form-control" ng-model="owner.srcByNm" ng-focus="clearErrMsg()"/>
+                <p class="alert error" ng-show="nameErrNeedName">Please enter one or more names of an owner/ applicant</p>
+                <p class="alert error" ng-show="nameErrOnlyChar">An applicant/owner name can contain only alphabetic characters</p>
+                <p class="help-block">Enter all or part of the owner name(s), separated by commas</p>
+            </div>
+            <div class="col-sm-6 ">
+                <p class="text-muted text-bold">Enter the name as it is on the applicaton or registration. Your results will include any records with an owner or applican'ts name containing one of your entries.</p>
+            </div>
+        </div><hr />
+        <h3 class="section-heading">But only those including one or more of the following ...</h3>
+        <div class="row form-group ">
+            <div class="col-sm-6 ">
+                <label for="srcByOwnerAddr">This owner or applicant street address</label>
+                <input id="srcByOwnerAddr" class="form-control" ng-model="owner.srcByAddr" ng-click="clearErrMsg()"/>
+                <p class="help-block">Enter a street address only. </p>
+            </div>
+            <div class="col-sm-6 ">
+                <p class="text-muted text-bold">The street address of the owner as listed on the mark record. Enter all or part of the street address. Do not include the city, state, zip or postal code, or country. </p>
+            </div>
+        </div>
+        <div class="row form-group ">
+            <div class="col-sm-6 ">
+                <label for="srcByDomEntity">An owner with this entity type</label>
+                <select id="srcByDomEntity" class="form-control margin-btm-ten" ng-model="owner.srcByDomEntity" ng-disabled="owner.domesticSelection" ng-change="selectDomesticEntityType()" ng-click="clearErrMsg()">
+                    <option value="">Choose a domestic entity type</option>
+                    <option value="1" >Individual</option>
+                    <option value="3">Corporation</option>
+                    <option value="16">Limited Liability Company</option>
+                    <option value="2">Partnership</option>
+                    <option value="13">Limited Partnership</option>
+                    <option value="5">Joint Venture</option>
+                    <option value="19">Sole Proprietorship</option>
+                    <option value="17">Trust</option>
+                    <option value="18">Estate</option>
+                    <option value="agency of the united states government">agency of the united states government</option>
+                    <option value="6">incorporated association</option>
+                    <option value="7">unincorporated association</option>
+                    <option value="body politic and corporate">body politic and corporate</option>
+                    <option value="37">business trust</option>
+                    <option value="charitable corporation">charitable corporation</option>
+                    <option value="charitable trust">charitable trust</option>
+                    <option value="charitable, non-profit corporation">charitable, non-profit corporation</option>
+                    <option value="chartered bank">chartered bank</option>
+                    <option value="congressionally chartered nonprofit organization">congressionally chartered nonprofit organization</option>
+                    <option value="cooperative association">cooperative association</option>
+                    <option value="cooperative corporation">cooperative corporation</option>
+                    <option value="credit union">credit union</option>
+                    <option value="15">federal agency</option>
+                    <option value="federally chartered credit union">federally chartered credit union</option>
+                    <option value="federally-recognized indian tribe">federally-recognized indian tribe</option>
+                    <option value="12">foundation</option>
+                    <option value="instrumentality">instrumentality</option>
+                    <option value="9">joint stock company</option>
+                    <option value="limited liability limited partnership">limited liability limited partnership</option>
+                    <option value="limited liability partnership">limited liability partnership</option>
+                    <option value="municipal corporation">municipal corporation</option>
+                    <option value="national banking association">national banking association</option>
+                    <option value="non-profit association">non-profit association</option>
+                    <option value="non-profit corporation">non-profit corporation</option>
+                    <option value="non-profit organization">non-profit organization</option>
+                    <option value="non-stock corporation">non-stock corporation</option>
+                    <option value="professional corporation">professional corporation</option>
+                    <option value="public benefit corporation">public benefit corporation</option>
+                    <option value="14">state agency</option>
+                    <option value="state-recognized indian tribe">state-recognized indian tribe</option>
+                    <option value="state university">state university</option>
+                    <option value="stock company">stock company</option>
+                    <option value="tax exempt corporation">tax exempt corporation</option>
+                    <option value="99">Other</option>
+                </select>
+                <label for="srcByForeignEntity" class="sr-only">domestic entity type</label>
+                <select id="srcByForeignEntity" class="form-control"  ng-model="owner.srcByForeignEntity" ng-disabled="owner.foreignSelection" ng-click="selectForeignEntityType();clearErrMsg();">
+                    <option value="">Choose a foriegn entity type</option>
+                    <option value="1">Individual</option>
+                    <option value="3">Corporation</option>
+                    <option value="16">Limited Liability Company</option>
+                    <option value="2">Partnership</option>
+                    <option value="13">Limited Partnership</option>
+                    <option value="5">Joint Venture</option>
+                    <option value="19">Sole Proprietorship</option>
+                    <option value="17">Trust</option>
+                    <option value="18">Estate</option>
+                    <option value="agrupamento complementar de empresas (ace)">agrupamento complementar de empresas (ace)</option>
+                    <option value="akciova spolecnost (a.s.)">akciova spolecnost (a.s.)</option>
+                    <option value="aksjeselskap (as)">aksjeselskap (as)</option>
+                    <option value="aktiebolag (ab)">aktiebolag (ab)</option>
+                    <option value="aktiebolag, publikt (apb)">aktiebolag, publikt (apb)</option>
+                    <option value="aktiengesellschaft">aktiengesellschaft (ag)</option>
+                    <option value="aktieselskap (a/s)">aktieselskap (a/s)</option>
+                    <option value="aktsiaselts (a.s.)">aktsiaselts (a.s.)</option>
+                    <option value="aktzionero druzhestvo (ad)">aktzionero druzhestvo (ad)</option>
+                    <option value="allmennaksjeselskap (asa)">allmennaksjeselskap (asa)</option>
+                    <option value="andelslag (al)">andelslag (al)</option>
+                    <option value="andelsselskab (amba)">andelsselskab (amba)</option>
+                    <option value="anonim sirketi (a.s.)">anonim sirketi (a.s.)</option>
+                    <option value="anonymos etairia (ae)">anonymos etairia (ae)</option>
+                    <option value="anpartsselskab (aps)">anpartsselskab (aps)</option>
+                    <option value="ansvarlig selskap (ans)">ansvarlig selskap (ans)</option>
+                    <option value="aps &amp; co. k/s">aps &amp; co. k/s</option>
+                    <option value="aruba vrijgestelde vennootschap (avv)">aruba vrijgestelde vennootschap (avv)</option>
+                    <option value="asociación civil (a.c.)">asociación civil (a.c.)</option>
+                    <option value="asociación en participación (a. en p.)">asociación en participación (a. en p.)</option>
+                    <option value="association">association</option>
+                    <option value="associazione">associazione</option>
+                    <option value="be'eravon mugbal (b.m.)">be'eravon mugbal (b.m.)</option>
+                    <option value="beslote korporasie (bk)">beslote korporasie (bk)</option>
+                    <option value="besloten vennootschap (b.v.)">besloten vennootschap (b.v.)</option>
+                    <option value="besloten vennootschap met beperkte aansprakelijkheid (bvba)">besloten vennootschap met beperkte aansprakelijkheid (bvba)</option>
+                    <option value="betiti társaság (bt)">betiti társaság (bt)</option>
+                    <option value="commanditaire vennootschap (c.v.)">commanditaire vennootschap (c.v.)</option>
+                    <option value="commanditaire vennootschap op aandelen (cva)">commanditaire vennootschap op aandelen (cva)</option>
+                    <option value="commanditaire vennootschap op andelen (cvoa)">commanditaire vennootschap op andelen (cvoa)</option>
+                    <option value="compania anonima (ca)">compania anonima (ca)</option>
+                    <option value="11">company</option>
+                    <option value="cwmni &amp; cyfyngedig cyhoeddus (ccc)">cwmni &amp; cyfyngedig cyhoeddus (ccc)</option>
+                    <option value="cyfyngedig (cyf.)">cyfyngedig (cyf.)</option>
+                    <option value="delniska druzba (d.d.)">delniska druzba (d.d.)</option>
+                    <option value="dionicko drustvo (d.d.)">dionicko drustvo (d.d.)</option>
+                    <option value="ditta individuale (di)">ditta individuale (di)</option>
+                    <option value="drustvo s ogranicenom odgovornoscu (d.o.o.)">drustvo s ogranicenom odgovornoscu (d.o.o.)</option>
+                    <option value="druzba z neomejeno odgovornostjo (d.n.o.)">druzba z omejeno odgovornostjo (d.o.o.)</option>
+                    <option value="druzhestvo s ogranichena otgovornost (ood)">druzhestvo s ogranichena otgovornost (ood)</option>
+                    <option value="ednolichno druzhestvo s ogranichena otgovornost (eood)">ednolichno druzhestvo s ogranichena otgovornost (eood)</option>
+                    <option value="einfache gesellschaft (eg)">einfache gesellschaft (eg)</option>
+                    <option value="eingetragene erwerbsgesellschaft (eeg)">eingetragene erwerbsgesellschaft (eeg)</option>
+                    <option value="eingetragener verein (e.v.)">eingetragener verein (e.v.)</option>
+                    <option value="einzelfirma">einzelfirma</option>
+                    <option value="empresa individual de responsabilidad limitada (eirl)">empresa individual de responsabilidad limitada (eirl)</option>
+                    <option value="entreprise unipersonnelle à responsabilité limitée (eurl)">entreprise unipersonnelle à responsabilité limitée (eurl)</option>
+                    <option value="etairia periorismenis efthinis (epe)">etairia periorismenis efthinis (epe)</option>
+                    <option value="eterrorrythmos (ee)">eterrorrythmos (ee)</option>
+                    <option value="exempted limited partnership (elp)">exempted limited partnership (elp)</option>
+                    <option value="fondation">fondation</option>
+                    <option value="fondazione">fondazione</option>
+                    <option value="12">foundation</option>
+                    <option value="genossenschaft (gen)">genossenschaft (gen)</option>
+                    <option value="gesellschaft burgerlichen rechts (gbr)">gesellschaft burgerlichen rechts (gbr)</option>
+                    <option value="gesellschaft mit beschränkter haftung (gmbh)">gesellschaft mit beschränkter haftung (gmbh)</option>
+                    <option value="gesmgh">gesmgh</option>
+                    <option value="gewone commanditaire vennootschap (gcv)">gewone commanditaire vennootschap (gcv)</option>
+                    <option value="gmbh &amp; co. kg">gmbh &amp; co. kg</option>
+                    <option value="groupement d'intéret économique (gie)">groupement d'intéret économique (gie)</option>
+                    <option value="godo kaisha (g.k.)">godo kaisha (g.k.)</option>
+                    <option value="gomei kaisha">gomei kaisha</option>
+                    <option value="goshi kaisha">goshi kaisha</option>
+                    <option value="handelsbolag (hb)">handelsbolag (hb)</option>
+                    <option value="hlutafelag (hf)">hlutafelag (hf)</option>
+                    <option value="interessentskab (i/s)">interessentskab (i/s)</option>
+                    <option value="javno trgovacko drustvo (j.t.d.)">javno trgovacko drustvo (j.t.d.)</option>
+                    <option value="9">joint stock company</option>
+                    <option value="julkinen osakeyhtiö (oyj)">julkinen osakeyhtiö (oyj)</option>
+                    <option value="kabushiki kaisha (k.k.)">kabushiki kaisha (k.k.)</option>
+                    <option value="kollektivgesellschaft (kolg)">kollektivgesellschaft (kolg)</option>
+                    <option value="kollektiv sirket (kol. srk)">kollektiv sirket (kol. srk)</option>
+                    <option value="komanditna delniska druzba (k.d.d.)">komanditna delniska druzba (k.d.d.)</option>
+                    <option value="komanditna druzba (k.d.)">komanditna druzba (k.d.)</option>
+                    <option value="komanditni spolecnost (k.s.)">komanditni spolecnost (k.s.)</option>
+                    <option value="komanditno drushestwo (kd)">komanditno drushestwo (kd)</option>
+                    <option value="komanditno drushestwo s akzii (kda)">komanditno drushestwo s akzii (kda)</option>
+                    <option value="komanditno drustvo (k.d.)">komanditno drustvo (k.d.)</option>
+                    <option value="komandit sirket (kom. srk)">komandit sirket (kom. srk)</option>
+                    <option value="kommandiittiyhtiö (ky)">kommandiittiyhtiö (ky)</option>
+                    <option value="kommandit-aktiengesellschaft (kag)">kommandit-aktiengesellschaft (kag)</option>
+                    <option value="kommanditaktieselskab (ka/s)">kommanditaktieselskab (ka/s)</option>
+                    <option value="kommanditbolag (kb)">kommanditbolag (kb)</option>
+                    <option value="kommanditgesellschaft (kg)">kommanditgesellschaft (kg)</option>
+                    <option value="kommanditgesellschaft auf aktien (kgaa)">kommanditgesellschaft auf aktien (kgaa)</option>
+                    <option value="kommanditselskab (k/s)">kommanditselskab (k/s)</option>
+                    <option value="kommandittselskap (ks)">kommandittselskap (ks)</option>
+                    <option value="korlátolt felelösségû társaság (kft)">korlátolt felelösségû társaság (kft)</option>
+                    <option value="közkereseti társaság (kkt)">közkereseti társaság (kkt)</option>
+                    <option value="közös vállalat (kv)">közös vállalat (kv)</option>
+                    <option value="limited company (ltd.)">limited company (ltd.)</option>
+                    <option value="limited corporation">limited corporation</option>
+                    <option value="limited duration company (ldc)">limited duration company (ldc)</option>
+                    <option value="limited liability company">limited liability company</option>
+                    <option value="10">limited liability joint stock company</option>
+                    <option value="naamloze vennootschap (nv)">naamloze vennootschap (nv)</option>
+                    <option value="obschestvo s ogranichennoy otveststvennostyu (ooo)">obschestvo s ogranichennoy otveststvennostyu (ooo)</option>
+                    <option value="offene handelsgesellschaft (ohg)">offene handelsgesellschaft (ohg)</option>
+                    <option value="omorrythmos (oe)">omorrythmos (oe)</option>
+                    <option value="osakeyhtiö (oy)">osakeyhtiö (oy)</option>
+                    <option value="osaühing (oü)">osaühing (oü)</option>
+                    <option value="otkrytoe aktsionernoe obshchestvo (oao)">otkrytoe aktsionernoe obshchestvo (oao)</option>
+                    <option value="penenaman modal asing (pma)">penenaman modal asing (pma)</option>
+                    <option value="penanaman modal dalam negeri (pmdn)">penanaman modal dalam negeri (pmdn)</option>
+                    <option value="perseroan terbatas, terbuka (pt tbk)">perseroan terbatas, terbuka (pt tbk)</option>
+                    <option value="perseroan terbuka (pt)">perseroan terbuka (pt)</option>
+                    <option value="partnership limited by shares">partnership limited by shares</option>
+                    <option value="private company limited by shares (prc)">private company limited by shares (prc)</option>
+                    <option value="private company limited by shares (prp. ltd.)">private company limited by shares (prp. ltd.)</option>
+                    <option value="private limited company">private limited company</option>
+                    <option value="private limited liability company">private limited liability company</option>
+                    <option value="private unlimited company">private unlimited company</option>
+                    <option value="professional limited liability company">professional limited liability company</option>
+                    <option value="proprietary company (pty.)">proprietary company (pty.)</option>
+                    <option value="proprietary limited company (p/l or pty. ltd.)">proprietary limited company (p/l or pty. ltd.)</option>
+                    <option value="public company limited by shares (pc ltd.)">public company limited by shares (pc ltd.)</option>
+                    <option value="public limited company (plc)">public limited company (plc)</option>
+                    <option value="publikt aktiebolag (apb)">publikt aktiebolag (apb)</option>
+                    <option value="raison individuelle (ri)">raison individuelle (ri)</option>
+                    <option value="részvénytársaság (rt)">részvénytársaság (rt)</option>
+                    <option value="riiklik aktsiaselts (ras)">riiklik aktsiaselts (ras)</option>
+                    <option value="selskap med delt ansar (da)">selskap med delt ansar (da)</option>
+                    <option value="sendirian berhad (sdn bhd)">sendirian berhad (sdn bhd)</option>
+                    <option value="sociedad anonima (sa)">sociedad anonima (sa)</option>
+                    <option value="sociedad anonima (sa de cv))">sociedad anonima (sa de cv))</option>
+                    <option value="sociedad anonima financiera de inversion (safi)">sociedad anonima financiera de inversion (safi)</option>
+                    <option value="sociedad anónima inscrita de capital abierto (s.a.i.c.a.)">sociedad anónima inscrita de capital abierto (s.a.i.c.a.)</option>
+                    <option value="sociedad de responsabilidad limitada (s. de r.l.)">sociedad de responsabilidad limitada (s. de r.l.)</option>
+                    <option value="sociedad de responsabilidad limitada (sl)">sociedad de responsabilidad limitada (sl)</option>
+                    <option value="sociedad de responsabilidad limitada (srl)">sociedad de responsabilidad limitada (srl)</option>
+                    <option value="sociedad en comandita (s. en c.)">sociedad en comandita (s. en c.)</option>
+                    <option value="sociedad en comandita simple (scs)">sociedad en comandita simple (scs)</option>
+                    <option value="sociedad en commandita (s.c.)">sociedad en commandita (s.c.)</option>
+                    <option value="sociedad en nombre colectivo (snc)">sociedad en nombre colectivo (snc)</option>
+                    <option value="sociedad en nombre colectivo (s.n.c.)">sociedad en nombre colectivo (s.n.c.)</option>
+                    <option value="sociedad limitada nueva empresa (slne)">sociedad limitada nueva empresa (slne)</option>
+                    <option value="sociedad regular colectiva (src)">sociedad regular colectiva (src)</option>
+                    <option value="sociedade em comandita simples (s.c.s.)">sociedade em comandita simples (s.c.s.)</option>
+                    <option value="sociedade em conta de participacão (scp)">sociedade em conta de participacão (scp)</option>
+                    <option value="sociedade gestora de participações socialis (sgps)">sociedade gestora de participações socialis (sgps)</option>
+                    <option value="sociedade por ações (s.a.)">sociedade por ações (s.a.)</option>
+                    <option value="sociedade por quotas de responsabiliadade limitada (ltda)">sociedade por quotas de responsabiliadade limitada (ltda)</option>
+                    <option value="sociedade por quotas limitada (lda)">sociedade por quotas limitada (lda)</option>
+                    <option value="sociedades anônimas (s/a)">sociedades anônimas (s/a)</option>
+                    <option value="società a garanzia limitata (sagl)">società a garanzia limitata (sagl)</option>
+                    <option value="società a responsabilità limitata (srl)">società a responsabilità limitata (srl)</option>
+                    <option value="societa cooperativa (sc)">societa cooperativa (sc)</option>
+                    <option value="societá in accomandita per azioni (sapa)">societá in accomandita per azioni (sapa)</option>
+                    <option value="societá in accomandita semplice (sas)">societá in accomandita semplice (sas)</option>
+                    <option value="società in nome collettivo (snc)">società in nome collettivo (snc)</option>
+                    <option value="società per azioni (spa)">società per azioni (spa)</option>
+                    <option value="società semplice (ss)">società semplice (ss)</option>
+                    <option value="societas europae (se)">societas europae (se)</option>
+                    <option value="societate cu raspondere limitata (srl)">societate cu raspondere limitata (srl)</option>
+                    <option value="societate in còmandita pe actiuni (sca)">societate in còmandita pe actiuni (sca)</option>
+                    <option value="societate in còmandita simpla (scs)">societate in còmandita simpla (scs)</option>
+                    <option value="societate in nume colectiv (snc)">societate in nume colectiv (snc)</option>
+                    <option value="societate pe actiuni (sa)">societate pe actiuni (sa)</option>
+                    <option value="société anonyme (sa)">société anonyme (sa)</option>
+                    <option value="société à responsabilité limitée (sarl)">société à responsabilité limitée (sarl)</option>
+                    <option value="société civile (sc)">société civile (sc)</option>
+                    <option value="société coopérative (scop)">société coopérative (scop)</option>
+                    <option value="société de participation financiére (soparfi)">société de participation financiére (soparfi)</option>
+                    <option value="société en commandite (sc)">société en commandite (sc)</option>
+                    <option value="société en commandite par actions (sca)">société en commandite par actions (sca)</option>
+                    <option value="société en commandite simple (scs)">société en commandite simple (scs)</option>
+                    <option value="société en nom collectif (senc)">société en nom collectif (senc)</option>
+                    <option value="société en nom collectif (snc)">société en nom collectif (snc)</option>
+                    <option value="société en participation (sp)">société en participation (sp)</option>
+                    <option value="société par actions simplifiée (sas)">société par actions simplifiée (sas)</option>
+                    <option value="société privée à responsabilité limitée (sprl)">société privée à responsabilité limitée (sprl)</option>
+                    <option value="société simple (ss)">société simple (ss)</option>
+                    <option value="spolecnost s rucenim omezenym (spol s.r.o.)">spolecnost s rucenim omezenym (spol s.r.o.)</option>
+                    <option value="spólka akcyjna (sa)">spólka akcyjna (sa)</option>
+                    <option value="spólka komandytowa (sk)">spólka komandytowa (sk)</option>
+                    <option value="spólka prawa cywilnego (sc)">spólka prawa cywilnego (sc)</option>
+                    <option value="spólka z ograniczona odpowiedzialnoscia (sp. z.o.o.)">spólka z ograniczona odpowiedzialnoscia (sp. z.o.o.)</option>
+                    <option value="stiftung">stiftung</option>
+                    <option value="tiha druzba (td)">tiha druzba (td)</option>
+                    <option value="türk limited sirket (tls)">türk limited sirket (tls)</option>
+                    <option value="vennootschap onder firma (vof)">vennootschap onder firma (vof)</option>
+                    <option value="verein">verein</option>
+                    <option value="verejna obchodni spolecnost (v.o.s.)">verejna obchodni spolecnost (v.o.s.)</option>
+                    <option value="yugen kaisha">yugen kaisha</option>
+                    <option value="99">Other</option>
+                </select>
+
+            </div>
+            <div class="col-sm-6 ">
+                <p class="text-muted text-bold">If the owner is a citizen or organized in the U.S., you can limit to this domestic entity type or "other". If the owner is a non-U.S. entity, select a foreign entity type or "other foreign entity".</p>
+            </div>
+        </div>
+        <div class="row form-group ">
+            <div class="col-sm-6 ">
+                <label for="srcByOwnerCountry">An owner with citizenship or legally organized in this country or U.S. state {{}}</label>
+                <select id="srcByOwnerCountry" class="form-control margin-btm-ten"  ng-model="owner.srcByCountry"  ng-click="clearErrMsg()">
+                    <option value="">Please select a country</option>
+                    <option ng-repeat="country in $root.rootCountryInfo" value="{{country.code}}">{{country.shortName}}</option>
+                </select>
+                <label for="srcByOwnerState" class="sr-only">An owner with citizenship or legally organized in this country or U.S. state</label>
+                <select id="srcByOwnerState" class="form-control" ng-model="owner.srcByState" ng-show="owner.srcByCountry =='US'" ng-click="clearErrMsg()">
+                    <option value="">Please select a U.S. state</option>
+                    <option ng-repeat="state in $root.rootStateInfo" value="{{state.value}}">{{state.name}}</option>
+                </select>
+
+            </div>
+            <div class="col-sm-6 ">
+                <p class="text-muted text-bold">Records with at least one individual owner having citizenship in the selected country or state. Or, for other entity types, the country or state where the entity is legally organized or incorporated.</p>
+            </div>
+        </div>
+        <hr />
+        <p class="alert error" ng-show="noCaseMsg">No Match Found</div>
+        <div class="row">
+            <div class="col-md-3 pull-right">
+                <button class="btn btn-primary btn-block" ng-click="goToSearchResultByOwner()">Search</button>
+            </div>
+        </div>
+    </tab>
+</tabset>

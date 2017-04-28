@@ -1,0 +1,38 @@
+.accordion-group {
+
+    > .accordion-panel {
+        margin-top: -1px;
+        > .accordion-header {
+            padding: 6px 12px 6px 6px;
+            // background: #fafbfc;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+
+            > a {
+                color: @text-color;
+                text-decoration: none;
+                font-weight: 600;
+
+
+            }
+        }
+
+        .accordion-body {
+            padding: 10px;
+        }
+
+    }
+
+    &[aria-expanded="false"] > .fa {
+        // content: "\f105";
+        transition: transform .2s;
+        transform: rotate(0deg);
+    }
+    &[aria-expanded="true"] > .fa {
+        // content: "\f107";
+        transition: transform .2s;
+        transform: rotate(90deg);
+    }
+}
+
+

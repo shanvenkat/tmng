@@ -1,0 +1,71 @@
+<main class="main-container ">
+    <div class="pn-flex-col">
+        <h1>Response to office action</h1>
+        <div class="flex-row-center">
+            <label for="applicationNumber">Application ID</label>
+            <input type="text" id="applicationNumber" ng-model="applicationNumber" />
+            <!-- the button to take to the next page #/html/123 -->
+
+            <button class="btn-primary" ng-click="go()">Find Application</button>
+        </div>
+        <div class=" ">
+            <div class="alert error" ng-show="showme">{{message}}
+              <p><span ng-if="notFound">Based on the provided serial number {{notFound}},</span> No response was found that requires action at this time.  Here are some other forms that you may want to use if you have changes you need to make regarding your application.</p>
+              <span ng-repeat="msg in resourceBundle | filter:{id: 1}">
+                <p ng-bind-html="msg.descriptionTx"></p>
+              </span>
+              <!--
+              <p><span ng-if="notFound">Based on the provided serial number {{notFound}},</span> No response was found that requires action at this time.  Here are some other forms that you may want to use if you have changes you need to make regarding your application.</p>
+              <ul>
+                  <li>Voluntary Amendment <a href="http://teas.uspto.gov/office/pra">http://teas.uspto.gov/office/pra</a></li>
+                  <li>Correspondence <a href="http://teas.uspto.gov/ccr/cca">http://teas.uspto.gov/ccr/cca</a> </li>
+                  <li>Attorney form revocation or appointment of attorney - <a href="http://teas.uspto.gov/ccr/raa"> http://teas.uspto.gov/ccr/raa</a></li>
+                  <li>Change of Owner Address <a href="http://teas.uspto.gov/ccr/coa/">http://teas.uspto.gov/ccr/coa/</a></li>
+              </ul>
+              -->
+            </div>
+        </div>
+        <div>
+          <p>Try these Serial numbers below.</p>
+          <!--
+          <ul>
+           <li><a href="#/result/85670084">85670084</a></li>
+           <li><a href="#/result/85670091">85670091</a></li>
+           <li><a href="#/result/85670103">85670103</a></li>
+           <li><a href="#/result/85670117">85670117</a></li>
+           <li><a href="#/result/85670134">85670134</a></li>
+           <li><a href="#/result/8567013A">8567013A</a></li>
+           <li><a href="#/result/73000303">73000303</a></li>
+          </ul>
+          -->
+          <table class="table table-bordered margin-top-twenty">
+              <thead>
+                  <th scope="row">Serial #</th>
+                  <th scope="row">TMNGi [FP Ids]</th>
+                  <th scope="row">TSDR [FP Ids]</th>
+                  <th scope="row">Response generated</th>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td scope="row"><a href="#/result/85043163">85043163</a></td>
+                    <td scope="row">L39,T2</td>
+                    <td scope="row">None</td>
+                    <td scope="row">T2 - Translation Statement</td>
+                  </tr>
+                  <tr>
+                    <td scope="row"><a href="#/result/81019809">81019809</a></td>
+                    <td scope="row">L39</td>
+                    <td scope="row">L54,T2</td>
+                    <td scope="row">L54 - Miscellaneous statement, T2 - Translation Statement</td>
+                  </tr>
+                  <tr>
+                    <td scope="row"><a href="#/result/8567013A">8567013A</a></td>
+                    <td scope="row">None</td>
+                    <td scope="row">J9</td>
+                    <td scope="row">J9 - Miscellaneous statement</td>
+                  </tr>
+              </tbody>
+          </table>
+        </div>
+    </div>
+</main>

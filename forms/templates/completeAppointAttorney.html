@@ -1,0 +1,118 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a><span ng-bind-html="resourceBundle['ui.gobal.navAttorney1']"></span></a>
+        </li>
+        <li class="active"><a ng-bind-html="resourceBundle['ui.gobal.navAction']"></a>
+        </li>
+        <li class="disabled"><a ng-bind-html="resourceBundle['ui.gobal.navSearch']"></a>
+        </li>
+        <li class="disabled"><a ng-bind-html="resourceBundle['ui.gobal.navResult']"></a>
+        </li>
+        <li class="disabled"><a ng-bind-html="resourceBundle['ui.gobal.navCaseLists']"></a>
+        </li>
+        <li class="active"><a ng-bind-html="resourceBundle['ui.gobal.navReviewAndSign']"></a>
+        </li>
+    </ul>
+</nav>
+<h1 ng-bind-html="resourceBundle['ui.completeAttorney.txtHeader']"></h1>
+<div class="alert alert-success">
+    <div ng-if="ctrlName=='appointAttorney'">
+        <p>You have successfully appointed {{attorneyCount}} additional authorized attorney to mark record {{serialNumber}}.</p>
+    </div>
+    <div ng-if="ctrlName=='removedAttorney'">
+        <p>{{removedAttorneyMSG}} from mark record {{serialNumber}}. </p>
+    </div>
+    <div ng-if="ctrlName=='attorneysCompleteCtrl'">
+        <p ng-show="attorneysIn">You have successfully appointed {{attorneys}} as an additional authorized attorney(s) for records {{serialNumbers}}.</p>
+        <p ng-show="!attorneysIn">No Request was made to appoint an additional authorized attorney(s) for records {{serialNumbers}}.</p>
+    </div>
+    <div ng-if="ctrlName=='withdrawCompleteCtrl'">
+        <p>
+            You have requested to remove <strong>{{trademark.primaryAttorney.partyName}}</strong> as a primary attorney from mark record {{trademark.serialNumTx}}. <span ng-if="trademark.trmCourtesyEmail && trademark.correspondenceChanged">You have also requested the removal of the following email address from Courtesy Correspondence: {{trademark.trmCourtesyEmail}}.</span>
+        </p>
+        <p>
+            <span ng-if="trademark.correspondenceChanged">Additionally, you have requested to add <strong>{{trademark.correspondence.partyName}}</strong> as a primary correspondent from mark record {{trademark.serialNumTx}}.</span>
+            <span ng-if="trademark.domesticRepChanged"> <strong>{{trademark.domesticRep.partyName}}</strong> has been appointed to be the domestic representative.</span>
+        </p>
+        <p ng-if="trademark.correspondence.email">
+        You have also requested the addition of the following email address to Courtesy Correspondence: {{trademark.correspondence.email}}.
+        </p>
+     </div>
+</div>
+<div class="panel panel-default ">
+    <div class="panel-body">
+        <div class="alert alert-info">
+            <p ng-bind-html="resourceBundle['ui.completeAttorney.txtImportantMsg']"></p>
+        </div>
+        <p ng-bind-html="resourceBundle['ui.completeAttorney.txtContactPTO']"></p>
+        <div class="row">
+            <div class="col-md-12">
+                <input type="checkbox" ng-model="checked">
+                <label ng-bind-html="resourceBundle['ui.completeAttorney.cbInputAddtionalEmail']"></label>
+                <div class="check-element animate-show" ng-show="checked">
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="emailaddress" ng-bind-html="resourceBundle['ui.completeAttorney.lblEnterEmailAddress']"></label>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <input id="emailaddress" type="text" class="form-control" ng-model="attorneyInfoMultipleCasesForm.ackEmail"/>
+                            <span class="help-block" ng-bind-html="resourceBundle['ui.completeAttorney.lblEnterEmailAddressHelp']"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-primary" ng-bind-html="resourceBundle['ui.completeAttorney.btnSendReciept']" ng-click="done()"></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div>
+            <h2 ng-bind-html="resourceBundle['ui.completeAttorney.txtDoNext']"></h2>
+            <div ng-if="ctrlName=='appointAttorney'">
+                <ul class="list-unstyled">
+                    <li><a href="" ng-bind-html="resourceBundle['ui.completeAttorney.linkAddToOtherRecords']"></a>
+                    </li>
+                    <li><a href="" ng-bind-html="resourceBundle['ui.completeAttorney.linkReplaceAttorney']"></a>
+                    </li>
+                    <li><a href="" ng-bind-html="resourceBundle['ui.completeAttorney.linkRemoveAttorneys']"></a>
+                    </li>
+                </ul>
+            </div>
+            <div ng-if="ctrlName=='removedAttorney'">
+                <ul class="list-unstyled">
+                    <li><a href="">Remove the same attorney(s) from other mark records</a>
+                    </li>
+                    <li><a href="">Appoint additional authorized attorneys to the same mark record</a>
+                    </li>
+                    <li><a href="">Replace the same mark's primary attorney of record with another authorized attorney</a>
+                    </li>
+                </ul>
+            </div>   
+            <div ng-if="ctrlName=='AttorneysCompleteCtrl'">
+                <ul class="list-unstyled">
+                    <li><a href="">Add the same attorney(s) to other mark records</a>
+                    </li>
+                    <li><a href="">Update the same records to replace the current primary attorney with another authorized attorney</a>
+                    </li>
+                    <li><a href="">Remove appointed attorneys from the same mark records</a>
+                    </li>
+                </ul>
+            </div>
+            <div ng-if="ctrlName=='withdrawCompleteCtrl'">
+                <ul class="list-unstyled">
+                    <li><a href="">Appoint additional authorized attorneys to the same mark record</a>
+                    </li>
+                    <li><a href="">Replace the same mark's primary attorney of record with another authorized attorney</a>
+                    </li>
+                </ul>
+            </div> 
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary btn-block" ng-bind-html="resourceBundle['ui.completeAttorney.btnFinish']" ng-click="done()" ></button>
+            </div>
+        </div>
+    </div>
+</div>

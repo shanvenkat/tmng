@@ -1,0 +1,92 @@
+<div id="utilityBarContainer"></div>
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-md-3" role="navigation" id="leftNavContainer"></div>
+        <div class="col-md-9">
+            <!-- begin Main -->
+            <main class="main-wrapper">
+            <div class="page-header">
+                <h1>Identify the basis to assign</h1>
+            </div>
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>
+                        Assigning the basis to your goods or services allows you to identify the current use or intended use of your mark in commerce. You are not required to assign one at this time.
+                        </p>
+                        <div class="alert alert-info">
+                            <p>Filing as intent to use will incur additional filing fees, since you will need to file usage at a later date.</p>
+                        </div>
+                        <fieldset>
+                            <legend>Select the basis option you would like to assign to your goods/services</legend>
+                            <p><a href="">I am not sure,  I want to read more about assigning a basis</a>
+                            </p>
+                            <div class="clearfix">
+                                <input type="radio" id="basis1a" name="basisType" value="1(a)" />
+                                <label for="basis1a">1 (a) basis - I am currently using my mark on at least one good or service</label>
+                            </div>
+                            <div class="clearfix">
+                                <input type="radio" id="basis1b" name="basisType" value="1(b)" />
+                                <label for="basis1b">1 (b) basis - I intend to use my mark in the future but am not yet using it</label>
+                            </div>
+                            <div class="clearfix">
+                                <input type="radio" id="noBasis" name="basisType" value="noBasis" />
+                                <label for="noBasis">I do not want to assign a basis at this time.
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+
+                <!--Start confirmation message markup -->
+                <div id="conformationForIb" hidden>
+                    <h2>Confirm your understanding of the following:</h2>
+                    <div class="clearfix">
+                        <input type="checkbox" id="new1" name="confirmationBasisIn" value="true" >
+
+                        <label for="new1" class="sr-only" aria-describedby="explanation">Selecting Section 1(b)</label>
+                        <span class="glyphicon glyphicon-asterisk">
+                                    <span class="sr-only">Required</span>
+                        </span>
+
+                        <span aria-hidden="true" class="text-danger" id="identifyBasisError"></span>
+
+                        <div id="explanation" class="margin-left-ten"><p>I understand that the selection of Section 1(b) "Intent to Use" as the filing basis requires the Applicant to do the following before the mark can register:</p>
+
+                                    <ol>
+                                        <li>
+                                            begin using the mark in commerce; and</li>
+                                        <li>
+                                            file an Allegation of Use that includes a specimen and an additional fee.</li>
+                                    </ol>
+                                    <p>
+
+                                        Furthermore, even if the application has already been approved, examination of the Allegation of Use may result in the examining attorney issuing a refusal.</p>
+                        </div>
+                    </div>
+                    <div class="alert alert-warning">
+                        <p>WARNING: If you select this option, additional filing(s) and fee(s) will be required when you begin use of the mark in commerce in order to receive a registration.</p>
+                    </div>
+                </div>
+
+
+                <!--end confirmation message markup-->
+                <hr />
+                <div class="row">
+                    <div class="col-md-4 col-xs-4 ">
+                        <a class="btn btn-default margin-down-thirty" id="previousPage">Previous</a>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <a class="btn btn-primary margin-down-thirty" id="saveButton">Save</a>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <a class="btn btn-success margin-down-thirty pull-right" id="continueButton">Next</a>
+                    </div>
+                </div>
+            </div>
+            </main>
+        </div>
+        <!-- end Main-->
+    </div>
+</div>

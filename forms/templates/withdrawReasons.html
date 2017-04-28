@@ -1,0 +1,63 @@
+  <div class="panel-body">
+        <h2>Please enter your reasons for withdrawal as the attorney of record for <br />Mark serial number {{trademarkInfo.serialNumTx}} :</h2>
+        <ol class="step">
+            <li>
+                <div class="step-details" ng-form name="WoaForm">
+                     <span class="glyphicon glyphicon-asterisk">
+                                
+                    </span>
+                    <label for="txt2">I wish to make the following statement regarding my withdrawal from this Mark:</label>
+
+                    <textarea id="txt2" class="form-control" ng-model="woaReasonStmt.text" id="stmt" name="stmt" required></textarea>
+                    <p class="alert error" ng-show="errMsgWOAStmt">Your reason for withdrawal is required.</p>
+                </div>
+            </li>
+            <li>
+                <div class="step-details">
+                    <fieldset>
+                        <legend>Select the Checkboxes that apply:</legend>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left" ng-model="withdrawCheckList[0]" ng-checked="checkbox1To5OnClick()"><span class="checkbox-label">(1)I have notified the applicant/registrant of my withdrawal from employment and the filing of this request for withdrawal with the USPTO.</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left" ng-model="withdrawCheckList[1]" ng-change="checkbox1To5OnClick()"><span class="checkbox-label">(2) I have delivered to the applicant/registrant all documents and property in any file concerning the application, registration, or proceeding to which the applicant/registrant is entitled.</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left" ng-model="withdrawCheckList[2]" ng-change="checkbox1To5OnClick()"><span class="checkbox-label">(3) I have notified the applicant/registrant of any response that may be due and the deadline for the response, or I affirm that no response is due at this time.</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left" ng-model="withdrawCheckList[3]" ng-change="checkbox1To5OnClick()"><span class="checkbox-label">(4) I have notified the TEAS Plus or TEAS RF applicant that any prior e-mail authorization will not continue and that the applicant must provide the USPTO an e-mail address and authorize the USPTO to communicate via e-mail to retain TEAS Plus or TEAS RF status, or I affirm that this notification is not necessary because the application does not currently have TEAS Plus or TEAS RF status.</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left" ng-model="withdrawCheckList[4]" ng-clicked="checkbox1To5OnClick()"><span class="checkbox-label">(5) I have given the applicant/registrant notice of my withdrawal from employment at least two (2) months prior to the expiration of the response period, if applicable; OR, notice of my withdrawal from employment was not required because the applicant/registrant terminated representation when less than two (2) months remained in the response period.</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-1 text-center">OR</div>
+                            <div class="col-md-5">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" class="pull-left" ng-model="withdrawCheckList[5]" ng-change="checkbox6OnClick()"><span class="checkbox-label">(6) I affirm that more than one qualified attorney is of record and representation by co-counsel will be ongoing.</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="alert error" ng-show="errMsgCheckBox">Please attest to the declaration before moving forward.</p>
+                    </fieldset>
+
+                </div>
+            </li>
+        </ol>
+
+    </div>

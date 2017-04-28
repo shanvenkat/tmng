@@ -1,0 +1,61 @@
+<div class="row">
+    <div class="col-sm-12">
+        <span class="h3" ng-bind-html="resourceBundle['ui.appointAttorney.lblTableHeader']"></span>
+        <span class="h3">{{trademark.serialNumTx}}</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-5">
+        <table class="no-border">
+            <tr>
+                <th scope="col" ng-bind-html="resourceBundle['ui.appointAttorney.lblAttorneyRecord']"></th>
+                <th scope="col">{{trademark.primaryAttorney.partyName}}</th>
+            </tr>
+            <tr>
+                <th scope="row" ng-bind-html="resourceBundle['ui.appointAttorney.lblFirmName']"></th>
+                <td>{{trademark.primaryAttorney.firmName}}</td>
+            </tr>
+            <tr>
+                <th scope="row" ng-bind-html="resourceBundle['ui.appointAttorney.lblDocketNoInfo']"></th>
+                <td>{{trademark.primaryAttorney.docketNumber}}</td>
+            </tr>
+            <tr>
+                <th scope="row" ng-bind-html="resourceBundle['ui.appointAttorney.lblOtherAttorneys']"></th>
+                <td>{{trademark.additionalAttorneysNM}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-sm-5">
+        <table class="no-border">
+            <tr>
+                <th scope="col" ng-bind-html="resourceBundle['ui.appointAttorney.lblOwner']"></th>
+                <th scope="col">{{trademark.owner}}</th>
+            </tr>
+            <tr>
+                <th scope="row" ng-bind-html="resourceBundle['ui.appointAttorney.lblRegistrationNo']"></th>
+                <td>{{trademark.registrationNum}}</td>
+            </tr>
+            <tr>
+                <th scope="row" ng-bind-html="resourceBundle['ui.appointAttorney.lblClassIDs']"></th>
+                <td>
+                    <span ng-repeat="class in trademark.classes">
+                        <button popover-placement="bottom" popover-title="{{class.idNum}}" popover="{{class.classIdPopover}}" class="btn btn-link"> {{class.idNum}} </button>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" ng-bind-html="resourceBundle['ui.appointAttorney.lblMarkLiteral']"></th>
+                <td>{{trademark.literalElementTx}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-sm-2">
+        <div style="border: 1px solid #333; height:100px; width:100%;" ng-if="trademark.standardCharacterTx != null" >
+           <img src="http://teas.uspto.gov/ccr/view/common/No-Image-File.jpg" alt="No Trademark Image"/>
+        </div>
+        <div style="border: 1px solid #333; height:100px; width:100%;" ng-if="trademark.standardCharacterTx == null" >
+            <img src="http://tess2.uspto.gov/ImageAgent/ImageAgentProxy?getImage={{trademark.serialNumTx}}" alt="Trademark Image" height="100%" width="100%">
+           <!-- <img ng-src="{{cmsMarkUrl}}/cms/rest/case/{{trademark.serialNumTx}}/mark/image/rendition/image-png" alt="Trademark Image" height="100%" width="100%" />
+        </div> -->
+    </div>
+</div>

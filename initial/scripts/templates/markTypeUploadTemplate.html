@@ -1,0 +1,145 @@
+<div id="utilityBarContainer"></div>
+<div class="container">
+<div class="row row-offcanvas row-offcanvas-left">
+<div class="col-md-3" role="navigation" id="leftNavContainer" ></div><div class="col-md-9" >
+<!-- begin Main -->
+<main class="main-wrapper">        
+            
+
+<% if (markTypeValueSelected=='4' ) {%>
+    <div class="page-header">
+        <h1>Enter the text-only mark</h1>
+    </div>
+    <div class="page-body">
+        <p>The USPTO refers to a mark <b>of text only, with no particular stylization or font</b>, as a <b>standard character mark</b>. To be sure your mark qualifies, check the USPTO's list of standard characters:</p>
+        <p><a href="#">See the complete list of standard characters</a>
+        </p>
+        <div class="row">
+            <div class="col-md-8">
+                <label for="standardChar" class="">Enter any standard characters such as letters, numerals, or punctuation.</label>
+                <textarea class="form-control" id="standardChar" name="standardChar"></textarea>
+                <div class="col-md-9">
+                    <p class="text-danger" id="standardCharError"></p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <button class="btn btn-primary pull-right margin-up-twenty" id="previewImage">Preview Generated Image</button>
+            </div>
+
+        </div>
+        <!-- show the following div when the preview is generated -->
+       <div id="previewDivContainer"></div>
+
+<%}%>
+<% if (markTypeValueSelected=='5' || markTypeValueSelected=='3' || markTypeValueSelected=='2' ) {%>
+    <% if (markTypeValueSelected=='5' ) {%>
+    <div class="page-header">
+        <h1>Enter the stylized text mark</h1>
+    </div>
+    <%}%>   
+    <% if (markTypeValueSelected=='3' ) {%>
+     <div class="page-header">
+        <h1>Enter the design with text mark</h1>
+    </div>
+    <%}%>
+    <% if (markTypeValueSelected=='2' ) {%>
+    <div class="page-header">
+        <h1>Enter the design only mark</h1>
+    </div>
+    <%}%>
+    <div class="page-body">
+         <% if (markTypeValueSelected=='5' ) {%>
+            <p>The USPTO considers a <b>text mark that has a particular stylization or font</b> a type of "special form mark."</p>
+
+        <%}%>
+        <% if (markTypeValueSelected=='3' ) {%>
+           <p>A <b>mark with both a design and text</b> is considered a type of  special form mark.  </p>
+        <%}%>
+        <% if (markTypeValueSelected=='2' ) {%>
+            <p>The USPTO considers a <b>design mark</b> a special form mark.</p>
+        <%}%>
+        <p>To apply for a trademark of this kind, you must provide an image of the mark. The image file should include only the mark itself.</p>
+        <div class="alert alert-warning">
+            <h2>Important: Only include the mark itself in the image you upload -</h2>
+            <p>Don't include:</p>
+            <ul>
+                <li>
+                quotation marks or TM, RM, or copyright symbol</li>
+                <li>
+                pictures of advertisements or products using the mark</li>
+            </ul>
+            <p>
+            Otherwise, you are claiming these symbols, ad copy, or products as features of the mark.</p>
+        </div>
+
+    <form action="/efile/rest/tmdocument/upload" id="uploadForm" enctype="multipart/form-data" method="POST">
+            <div class="row">
+                <div class="col-md-9">
+
+                    <label  class="">Upload the file containing your mark</label>
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                        <span class="btn btn-primary btn-file">
+                        Browse…
+                        <input type="file" id="file">
+                        </span>
+                        </span>
+                        <input type="text" class="form-control" id="filename" name="filename" readonly="">
+                    </div>
+                    <p class="help-block">File types accepted: JPEG,JFIF,JP2,J2K,JPF,JPX,JPM,MJ2,EXIF,TIFF,RAW,GIF,BMP,TGA,PNG,JPG,3FR,ARI,ARW,
+                    BAY,CRW,CR2,CAP,DCS,DCR,DNG,DRF,EIP,ERF,FFF,IIQ,K25,KDC,MDC,MEF,MOS,MRW,NEF,
+                    NRW,OBM,ORF,PEF,PTX,PXN,R3D,RAF,RAW,RWL,RW2,RWZ,SR2,SRF,SRW,X3F,TIF.</p>
+                </div>
+                <div class="col-md-2 col-xs-6">
+                    <button class="btn btn-primary margin-up-twenty-five" id="btnUploadMark">Upload</button>
+                </div>
+                <div class="col-md-9">
+                        <!--<p class="text-danger" id="fileUploadedMessage"></p>-->
+                    <div class="alert alert-danger" id="fileUploadErrorMsgContainer">
+                        <p id="fileUploadedErrorMessage"></p>
+                    </div>
+                    <div class="alert alert-success" id="fileUploadSuccessMsgContainer">
+                        <p id="fileUploadedSuccessMessage"></p>
+            </div>
+                </div>
+            </div>
+        </form>
+    
+
+<%}%>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4 col-xs-4 ">
+            <a class="btn btn-default margin-down-thirty" id="previousPage">Previous</a>
+        </div>
+        <div class="col-md-4 col-xs-4 text-center">
+            <a class="btn btn-primary margin-down-thirty" id="saveMark">Save</a>
+        </div>
+        <div class="col-md-4 col-xs-4">
+            <a class="btn btn-success margin-down-thirty pull-right" id="continueButton">Next</a>
+        </div>
+    </div>
+</div>
+</div>
+</main>
+<!-- end Main-->
+</div>
+    <script id="previewDivDetails" type="text/template">
+        <div class="row">
+            <div class="col-md-8">
+                <p>Your mark:</p>
+                <div style="border:1px solid #333; min-height: 100px;" id="previewdiv" name="previewdiv">
+                </div>
+                <button class="btn btn-primary pull-right margin-up-twenty" id="">Enlarge Image</button>
+            </div>
+            <div class="col-md-4">
+                <p>To be added later</p>
+                <ul>
+                    <li>Add helpful links here</li>
+                </ul>
+            </div>
+        </div>
+    </script>
+
+

@@ -1,0 +1,131 @@
+<div id="utilityBarContainer"></div>
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-md-3" role="navigation" id="leftNavContainer"></div>
+        <div class="col-md-9">
+            <!-- begin Main -->
+            <main class="main-wrapper">
+                <div class="page-header">
+                    <% if (markTypeValueSelected==='5' ) {%>
+                        <h1>Stylized text mark features</h1>
+                    <%}%>
+                    <% if (markTypeValueSelected==='3' ) {%>
+                        <h1>Design with text mark features</h1>
+                    <%}%>
+                    <% if (markTypeValueSelected==='2' ) {%>
+                        <h1>Design only mark features</h1>
+                    <%}%>
+                </div>
+                <div class="page-body">
+                    <div>
+                        <span aria-hidden="true" class="text-danger" id="markTypeError"></span>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-12">
+                            <p><b>Your mark:</b>
+                            </p>
+                        </div>
+                        <div class="col-md-8">
+                            <label id="filename" name="filename" value="" />
+                            <div style="border:1px solid #333; min-height: 100px;" id="previewdiv" name="previewdiv">
+                            </div>
+                            <button class="btn btn-primary pull-right margin-up-twenty" id="">Enlarge Image</button>
+                        </div>
+                        <div class="col-md-4">
+                            <ul>
+                                <li>The image file must include all elements of the mark - if your mark consists of a design and words, letters, or numbers, the image file must include all of these elements.</li>
+                                <li>Mark images should not include the trademark, service mark, or registration symbols (TM, SM, R).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <% if (markTypeValueSelected !=='2' ) {%>
+                        <div class="row margin-up-twenty">
+                            <div class="col-md-12">
+                                <label for="literalText" class="">Enter the text or other literal elements in the mark
+                                </label>
+                                <textarea class="form-control" id="literalText" name="literalText"></textarea>
+                                <div>
+                                    <span aria-hidden="true" class="text-danger" id="literalTypeError"></span>
+                                </div>
+                                <p class="text-muted">NOTE: Any entry in the literal element field that is not found in the attached image file will not be considered part of the mark.</p>
+                            </div>
+                        </div>
+                    <%}%>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <fieldset>
+                                <legend>Do you wish to claim particular colors as part of your mark?</legend>
+                                <div class="clearfix">
+                                    <input type="radio" id="markColorYes" name="colorin" value="true">
+                                    <label for="markColorYes" class="">Yes, I am claiming particular colors as a feature of the mark</label>
+                                </div>
+                                <div class="clearfix">
+                                    <input type="radio" id="markColorNo" name="colorin" value="false">
+                                    <label for="markColorNo" class="">I am not claiming particular colors in my mark</label>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <div id="specialFormMarkColorContainer"></div>
+                            <!-- show the warning if the user has seleceted a no for color and and then clicked next -->
+                            <div id="colorWarning" class="alert alert-warning margin-up-twenty" style="display:none;">
+                                <p>Warning: We detected color in the image you uploaded. Please confirm that you are not claiming any specific colors as distinctive to your mark. ... etc.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4 ">
+                            <a class="btn btn-default margin-down-thirty" id="previousPage">Previous</a>
+                        </div>
+                        <div class="col-md-4 col-xs-4 text-center">
+                            <a class="btn btn-success margin-down-thirty" id="saveMark">Save</a>
+                        </div>
+                        <div class="col-md-4 col-xs-4">
+                            <a class="btn btn-primary margin-down-thirty pull-right" id="continueButton">Next</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <!-- end Main-->
+</div>
+
+
+<script id="yesMarkColorDetails" type="text/template">
+<div class="panel panel-info margin-up-twenty">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <label for="colors" class="">Enter all colors appearing in the mark using common color names</label>
+                <p class="help-block">If claiming color as a feature of the mark, list the colors below. Include black or white if these are actual "colors" within the mark (for example, enter red, white, and blue).</p>
+                <input type="text" class="form-control" id="colors" name="colors">
+                <div>
+                    <span aria-hidden="true" class="text-danger" id="colorsTypeError"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row margin-up-twenty">
+            <div class="col-md-12">
+                <label for="description" class="">Describe the mark including the locations of any colors</label>
+                <textarea class="form-control" id="description" name="description"></textarea>
+                <p class="text-muted">NOTE: Filing fee will be higher if description is not provided.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</script>
+<script id="noMarkColorDetails" type="text/template">
+<div class="panel panel-info margin-up-twenty">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <label for="description" class="">Describe the mark</label>
+                <textarea class="form-control" id="description" name="description"></textarea>
+                <p class="text-muted">NOTE: Filing fee will be higher if description is not provided.</p>
+            </div> 
+        </div>       
+    </div>
+</div>
+</script>

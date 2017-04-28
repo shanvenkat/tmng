@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Role</th>
+            <th scope="col">Attorney</th>
+            <th scope="col">Firm</th>
+            <th scope="col">Address</th>
+            <th scope="col">Docket number</th>
+            <th scope="col">Email address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="attorney in attorneys | orderBy:'roleCd'">
+            <td>
+                <span ng-if="attorney.roleCd === 'AT'">Primary Attorney</span>
+                <span ng-if="attorney.roleCd === 'SAT'">Additional Authorized<br/>Attorney</span>
+            </td>
+            <td>{{attorney.partyName}}</td>
+            <td>{{attorney.firmName}}</td>
+            <td>
+                <span ng-if="attorney.address1!=null && attorney.address1!=undefined ">{{attorney.address1}} {{attorney.address2}} {{attorney.address3}}<br /></span>
+                <span ng-if="attorney.geographicRegion!=null && attorney.geographicRegion!=undefined ">{{attorney.geographicRegion}}<br /></span>
+                <span ng-if="attorney.country!=null && attorney.country!=undefined ">{{attorney.country}}<br /></span>
+            </td>
+            <td>{{attorney.docketNumber}}</td>
+            <td>{{attorney.email}}</td>
+        </tr>
+    </tbody>
+</table>

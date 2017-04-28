@@ -1,0 +1,82 @@
+@import "vendor/bootstrap/alerts.less";
+
+// improve alert padding
+.alert {
+    display: inline-block;
+    width: 100%;
+    padding: @alert-padding @alert-padding*2;
+
+    .close {
+        margin-top: -3px;
+        margin-left: 8px;
+        margin-right: -3px;
+        text-shadow: none;
+    }
+
+    .alert-icon {
+        margin-right: 6px;
+        width: 1.28571429em; // fa-fw
+        margin-left: -3px;
+        text-align: center;
+    }
+
+    .btn {
+        margin: -4px;
+        margin-left: 10px;
+        // margin-right: -10px;
+        // text-transform: uppercase;
+    }
+}
+
+.toast-list {
+    .toast {
+        position: relative;
+        border: 1px solid #ddd;
+        border-left-width: 4px;
+        border-radius: 2px;
+        margin: 8px;
+        position: relative;
+        font-size: 13px;
+        background: #fff;
+        box-shadow: 0px 1px 3px rgba(0,0,0,.1);
+        padding: @alert-padding*2;
+
+        &.toast-info {
+            border-left-color: @brand-info;
+        }
+        &.toast-primary {
+            border-left-color: @brand-primary;
+        }
+        &.toast-success {
+            border-left-color: @brand-success;
+        }
+        &.toast-danger {
+            border-left-color: @brand-danger;
+        }
+        &.toast-warning {
+            border-left-color: @brand-warning;
+        }
+
+        .toast-content {
+        }
+
+        .toast-actions {
+            margin-top: @alert-padding;
+            padding-top: 0;
+            display: inline-block;
+            width: 100%;
+
+            > .btn-link {
+                padding: 0px;
+                margin-right: 8px;
+            }
+        }
+
+        .close {
+            margin-top: -3px;
+            margin-left: 8px;
+        }
+    }
+
+
+}

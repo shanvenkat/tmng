@@ -1,0 +1,76 @@
+<!-- first section start-->
+<script id="mainContainer">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">DISCLAIMER</div>
+
+        <div class="panel-body">
+            <div id="addDisclaimerContainer" aria-live="assertive" class="form-inline row">
+                <% _.each(addStmtDisclaimerCollection.models, function(model) { %>
+                    <div class="col-md-12" id="<%= 'disclaimer' + model.get('id') %>">
+                        <div class="form-group">
+                            No claim is made to the exclusive right to use <%= model.get('word') %> apart from the mark as shown.
+                         </div>
+                         <div class="form-group">
+                             <button type="button" id="removeDisclaimer"  name="<%= model.get('id') %>" class="btn btn-primary">Remove
+                                <span class="sr-only">Remove</span>
+                            </button>
+                        </div>
+                    </div>
+                <% }); %>
+
+            </div>
+
+            
+            <div class="text-left">
+                 <span aria-hidden="true" style="color:red" id="disclaimerValMessage"></span>
+            </div>
+
+
+            <div class="form-inline row">
+
+                <div class="col-md-12">
+
+                   <div class="form-group">
+                        <p>No claim is made to the exclusive right to use</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="disclaimer">Disclaimer</label>
+                        <input type="text" class="form-control" id="disclaimer" name="disclaimer">
+                    </div>
+                    <div class="form-group">
+                        <p>apart from the mark as shown.</p>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" id="addAnotherDisclaimer" class="btn btn-primary">Add
+                            <span class="sr-only">Disclaimer</span>
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- first section End-->
+
+  
+
+   
+</script>
+
+<script id="addDisclaimerSummary" type="text/template">
+    <div class="col-md-12" id="<%= 'disclaimer' + model.get('id') %>">
+        <p>
+            No claim is made to the exclusive right to use <span class="wordWrap"><%= model.get('word') %></span> apart from the mark as shown.
+         </p>
+         <div class="form-group">
+             <button type="button" id="removeDisclaimer"  name="<%= model.get('id') %>" class="btn btn-primary">Remove
+                <span class="sr-only">Remove</span>
+            </button>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,32 @@
+@base: #336633;
+@complement1: spin(@base, 180);
+@complement2: darken(spin(@base, 180), 5%);
+@lighten1: lighten(@base, 15%);
+@lighten2: lighten(@base, 30%);
+@lighter1: lighten(spin(@base, 5), 10%);
+@lighter2: lighten(spin(@base, 10), 20%);
+@darker1: darken(spin(@base, -5), 10%);
+@darker2: darken(spin(@base, -10), 20%);
+
+@gray-base:              #000;
+@gray-darker:            lighten(@gray-base, 13.5%); // #222
+@gray-dark:              lighten(@gray-base, 20%);   // #333
+@gray:                   lighten(@gray-base, 33.5%); // #555
+@gray-light:             lighten(@gray-base, 50%); // #808080
+@gray-lighter:           lighten(@gray-base, 93.5%); // #eee
+
+.one   {color: @base;}
+.two   {color: @complement1;}
+.three {color: @complement2;}
+.four  {color: @lighten1;}
+.five  {color: @lighten2;}
+.six   {color: @lighter1;}
+.seven {color: @lighter2;}
+.eight  {color: @darker1;}
+.nine  {color: @darker2;}
+
+.gray-darker{color: @gray-darker;}
+.gray-dark{color: @gray-dark;}
+.gray{color: @gray;}
+.gray-light{color: @gray-light;}
+.gray-lighter{color: @gray-lighter;}

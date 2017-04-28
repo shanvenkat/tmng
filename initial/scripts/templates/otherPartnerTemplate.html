@@ -1,0 +1,37 @@
+<div  class="otherAttorney" >
+    <div id="otherAttorney<%=index%>" >
+        <input type="hidden" class="form-control" id="id" value="<%= model.id %>" >
+        <div class="col-sm-3">
+            <label for="oAFirstName" class="">First name</label>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control" id="oAFirstName" value="<%= model.oAFirstName %>" >
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <label for="oAMiddleName" class="">Middle name</label>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control" id="oAMiddleName" value="<%=model.oAMiddleName%>" >
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <label for="oAFamilyName" class="">Last name</label>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control"id="oAFamilyName"  value="<%=model.oAFamilyName%>" >
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <label for="oASuffix" class="">Suffix (Jr., Sr., III, etc.)</label>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control" id="oASuffix" value="<%=model.oASuffix%>" >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

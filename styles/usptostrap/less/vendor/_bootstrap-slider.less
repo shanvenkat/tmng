@@ -1,0 +1,61 @@
+// styles for https://github.com/seiyria/bootstrap-slider
+
+.slider {
+    .slider-handle {
+        border: 4px solid @progress-bar-bg;
+        background: @progress-bg;
+        box-shadow: none;
+        background-image: none;
+        filter: none;
+        opacity: 1;
+        height: 18px;
+        width: 18px;
+    }
+
+    &.slider-horizontal {
+        width: 100%;
+        height: @input-height-base;
+        .slider-handle {
+            margin-top: -6px;
+        }
+        .slider-track {
+            margin-top: -3px;
+            height: 6px;
+        }
+    }
+
+    &.slider-disabled {
+        .slider-handle {
+            background-image: none;
+            filter: none;
+            border-color: lighten(@gray-light, 30%);
+            background-color: @progress-bg;
+        }
+        .slider-selection {
+            background-color: lighten(@gray-light, 30%);
+        }
+        .slider-track {
+            background-image: none;
+            filter: none;
+            background-color: @progress-bg;
+        }
+    }
+
+
+    .slider-track {
+        box-shadow: inset 0 0px 0px 1px rgba(0, 0, 0, 0.1);
+        background-image: none;
+        filter: none;
+        background-color: @progress-bg;
+        border-radius: 2px;
+    }
+
+    .slider-selection {
+        box-shadow: none;
+        background-color: @progress-bar-bg;
+        background-image: none;
+        filter: none;
+        border-radius: @progress-border-radius;
+        margin-bottom: 0;
+    }
+}

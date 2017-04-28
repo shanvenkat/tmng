@@ -1,0 +1,104 @@
+<div>
+    <tabset type="btnGrp">
+        <tab>
+            <tab-heading class="connected"><span class='fa fa-search'></span>
+            </tab-heading>
+            <div class="left-col">
+                <div class="" ng-include="'html/searchFiltersDefault.html'">
+
+                </div>
+            </div>
+            <div class="right-col">
+                <div style="margin-top: -50px;">
+
+                    <div ng-hide="displaySearchResults" ng-include="'html/advancedSearch.html'"> </div>
+
+
+                    <div ng-show="displaySearchResults" ng-include="'html/searchResults.html'">
+                    </div>
+
+                </div>
+            </div>
+        </tab>
+        <tab>
+            <tab-heading class="connected"><span class='fa fa-tags'></span>
+            </tab-heading>
+            <div class="left-col">
+                <div class="" ng-include="'html/markSet.html'">
+
+                </div>
+            </div>
+            <div class="right-col">
+                <div style="margin-top: -50px;">
+
+                    <p>Place holder</p>
+
+                </div>
+            </div>
+        </tab>
+        <tab>
+            <tab-heading class="connected"><span class='fa fa-bolt'></span>
+            </tab-heading>
+            <div class="left-col">
+                <div class="" ng-include="'html/actionList.html'">
+
+                </div>
+            </div>
+            <div class="right-col">
+                <div style="margin-top: -50px;">
+
+                    <script type="text/ng-template" id="myModalContent.html">
+                        <div class="modal-header">
+                            <h3 class="modal-title">I'm a modal!</h3>
+                        </div>
+                        <div class="modal-body">
+                            <ul>
+                                <li ng-repeat="item in items">
+                                    <a ng-click="selected.item = item">{{ item }}</a>
+                                </li>
+                            </ul>
+                            Selected: <b>{{ selected.item }}</b>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" ng-click="ok()">OK</button>
+                            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                        </div>
+                    </script>
+
+                     <button class="btn btn-default" ng-click="open('lg')">Large modal</button>
+                   
+                </div>
+            </div>
+
+        </tab>
+        <tab>
+            <tab-heading class="connected"><span class='fa fa-bell'></span>
+            </tab-heading>
+            <div>hello</div>
+
+        </tab>
+        <tab>
+            <tab-heading class="connected"><span class='fa fa-share-square-o'></span>
+            </tab-heading>
+            <div class="left-col">
+                <div class="" ng-include="'html/signStatus.html'">
+
+                </div>
+            </div>
+            <div class="right-col">
+                <div style="margin-top: -50px;">
+
+
+                    <div ng-hide="displayAppStatus" ng-include="'html/saveApplication.html'"> </div>
+
+
+                    <div ng-show="displayAppStatus" ng-include="'html/updateSignStatus.html'">
+                    </div>
+
+                </div>
+            </div>
+
+        </tab>
+    </tabset>
+
+</div>

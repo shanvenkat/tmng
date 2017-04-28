@@ -1,0 +1,132 @@
+@import "vendor/bootstrap/variables.less";
+
+// @icon-font-path: "/bower_components/bootstrap/fonts/";
+// @fa-font-path: "/bower_components/font-awesome/fonts";
+
+// Bootstrap variable overrides
+//
+// To reduce the number of actual rule overrides, bootstrap variables are utilized as much as possible.
+
+
+// ui colors
+// @brand-success:                     #4AB471;
+// @brand-warning:                     #F3AE4E;
+// @brand-danger:                      #CF5C60;
+// @brand-primary:                     #004C97;
+// @brand-info:                        #717ECD;
+
+
+// actual brand colors
+@brand-primary: #004C97;
+@brand-success: #008139;
+@brand-danger: #AC2B37;
+@brand-warning: #C88242;
+@brand-info: #1596D1;
+
+@text-color:                        #444;
+@body-bg:                           #F3F4F5;
+
+@gray-light:                        #808080;
+
+@font-family-sans-serif:            "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+@headings-font-family:              "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+
+@btn-default-bg:                    #f9f9f9;
+@btn-default-color:                 @text-color;
+
+@border-radius-base:                2px;
+@border-radius-small:               2px;
+@border-radius-large:               2px;
+
+@btn-font-weight:                   600;
+@font-size-base:                    13px;
+@line-height-base:                  1.4;
+
+@input-border-focus:                @brand-info;
+
+@navbar-height:                     42px;
+@navbar-inverse-bg:                 @brand-primary;
+@navbar-inverse-color:              #fff;
+@navbar-inverse-link-color:         #fff;
+@navbar-border-radius:              0;
+@navbar-margin-bottom:              0;
+@navbar-inverse-link-hover-bg:      lighten(spin(@brand-primary, -3), 2%);
+@navbar-inverse-toggle-hover-bg:    @navbar-inverse-link-hover-bg;
+@navbar-inverse-brand-hover-bg:     @navbar-inverse-link-hover-bg;
+
+@nav-tabs-active-link-hover-bg:     #fff;
+
+@grid-gutter-width:                 16px;
+
+@alert-padding:                     6px;
+@alert-warning-text:                #ce8f22;
+
+@tooltip-bg:                        #313233;
+@tooltip-opacity:                   .99;
+
+@popover-border-color:                rgba(0,0,0,.05);
+
+@table-border-color:                #e9eaeb;
+@table-bg-header:                   #f1f2f3;
+@table-bg-accent:                   #f8f9fa;
+@table-bg-hover:                    @state-info-bg;
+@table-condensed-cell-padding:      4px;
+
+@dropdown-border:                   rgba(0,0,0,.05);
+@dropdown-fallback-border:          #ddd;
+@dropdown-link-hover-bg:            #eee;
+
+@breadcrumb-bg:                     transparent;
+@breadcrumb-active-color:           #888;
+@breadcrumb-color:                  @text-color;
+@breadcrumb-separator:              "\f105";
+
+@state-success-text:                @brand-success;
+@state-success-bg:                  saturate(mix(@brand-success, #fff, 7%), 5%);
+@state-success-border:              mix(@brand-success, #fff, 40%);
+
+@state-info-text:                   @brand-info;
+@state-info-bg:                     saturate(mix(@brand-info, #fff, 7%), 5%);
+@state-info-border:                 mix(@brand-info, #fff, 50%);
+
+@state-warning-text:                @brand-warning;
+@state-warning-bg:                  saturate(mix(@brand-warning, #fff, 7%), 5%);
+@state-warning-border:              mix(@brand-warning, #fff, 55%);
+
+@state-danger-text:                 @brand-danger;
+@state-danger-bg:                   saturate(mix(@brand-danger, #fff, 7%), 5%);
+@state-danger-border:               mix(@brand-danger, #fff, 40%);
+
+@alert-success-text:                @state-success-text;
+@alert-success-bg:                  @state-success-bg;
+@alert-success-border:              @state-success-border;
+
+@alert-info-text:                   @state-info-text;
+@alert-info-bg:                     @state-info-bg;
+@alert-info-border:                 @state-info-border;
+
+@alert-warning-text:                @state-warning-text;
+@alert-warning-bg:                  @state-warning-bg;
+@alert-warning-border:              @state-warning-border;
+
+@alert-danger-text:                 @state-danger-text;
+@alert-danger-bg:                   @state-danger-bg;
+@alert-danger-border:               @state-danger-border;
+
+@padding-small-vertical:            3px;
+@padding-small-horizontal:          8px;
+
+@padding-xs-vertical:               1px;
+@padding-xs-horizontal:             6px;
+
+@modal-content-border-color:        rgba(0,0,0,.05);
+//** Modal content border color **for IE8**
+@modal-content-fallback-border-color: #ddd;
+
+// Custom variables
+//
+// These variables don't exist in Bootstrap.
+
+@table-header-bg:                   #f5f6f7;
+@table-header-sortable-active-bg:    darken(@table-header-bg, 3%);
+@table-header-sortable-hover-bg:    darken(@table-header-bg, 6%);

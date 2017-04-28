@@ -1,0 +1,738 @@
+/* importing font awesome less */
+
+@import "font-awesome/font-awesome.less";
+/* importing bootstrap less */
+
+@import "usptostrap/less/usptostrap.less";
+/* importing custom less */
+
+@import "customMixin.less";
+@import "box.less";
+/* overriding bootstrap variables */
+
+@import "variables.less";
+@import "bootstrap-rem.less";
+header .navbar {
+    border-radius: 0;
+    margin-bottom: 0;
+}
+.main-container {
+    width: 100%;
+    min-height: 500px;
+}
+.large {
+    font-size: floor((100% * @font-size-large / @font-size-base));
+}
+.utilityBar {
+    background-color: @brand-primary;
+    .navbar-header {
+        > a {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: normal;
+            letter-spacing: .05rem;
+            margin: 1rem 0;
+        }
+    }
+}
+.breadcrumb {
+    background-color: #fff;
+    padding: 10px 0;
+    margin-bottom: 0;
+    > li {
+        display: inline-block;
+        + li:before {
+            font-family: FontAwesome;
+            content: "\f105\00a0"; // Unicode space added since inline-block means non-collapsing white-space
+            padding: 0 5px;
+            color: @breadcrumb-color;
+        }
+    }
+    a, a:hover {
+        color: @brand-primary;
+    }
+}
+// Default navbar
+.navbar-default {
+    background-color: @navbar-default-link-active-bg;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 2px solid #323232;
+    /*Change it to variable*/
+    
+    .navbar-text {
+        color: @navbar-default-color;
+    }
+    .navbar-nav {
+        > li:first-child {
+            border-left: 1px solid @gray-light;
+        }
+        > li {
+            border-right: 1px solid @gray-light;
+        }
+        > a {
+            color: @link-color;
+            font-weight: bold;
+            &:hover, &:focus {
+                color: @link-hover-color;
+                background-color: @navbar-default-link-hover-bg;
+            }
+        }
+        > .active > a {
+            &, &:hover, &:focus {
+                color: @link-color;
+                font-weight: bold;
+                background-color: white;
+                /*Change it to variable*/
+            }
+        }
+    }
+}
+// Status navbar
+.navbar-status {
+    #gradient > .vertical(@brand-white, darken(@gray-lighter, 4%));
+    border-color: @navbar-default-border;
+    border-radius: 4px;
+    min-height: 30px;
+    .nav-justified {
+        > li > a {
+            color: @navbar-status-link-color;
+            border-right: 1px solid @navbar-status-border;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            &:hover, &:focus {
+                color: @navbar-status-link-hover-color;
+                background-color: @navbar-status-link-hover-bg;
+            }
+        }
+        > li > a.two-line {
+            padding-top: 10px;
+            padding-bottom: 11px;
+        }
+        > .completed > a {
+            #gradient > .vertical(lighten(@navbar-status-link-completed-bg, 20%), darken(@navbar-status-link-completed-bg, 5%));
+            color: @navbar-status-link-color;
+            &, &:hover, &:focus {
+                color: @navbar-status-link-active-color;
+                background-color: @navbar-status-link-active-bg;
+            }
+        }
+        > .active > a {
+            background-color: @navbar-status-link-active-bg;
+            color: @navbar-status-link-color;
+            &, &:hover, &:focus {
+                color: @navbar-status-link-active-color;
+                background-color: @navbar-status-link-active-bg;
+            }
+        }
+        > .disabled > a {
+            #gradient > .vertical(lighten(@navbar-status-bg, 10%), darken(@navbar-status-bg, 20%));
+            //border-right: 1px solid @navbar-status-border; 
+            &, &:hover, &:focus {
+                color: @navbar-status-link-disabled-color;
+                background-color: @navbar-status-link-disabled-bg;
+            }
+        }
+        :first-child a {
+            border-radius: 4px 0 0 4px;
+        }
+        :last-child a {
+            border-right: 0;
+            border-radius: 0 4px 4px 0;
+        }
+    }
+    .navbar-toggle {
+        border-color: @navbar-default-toggle-border-color;
+        &:hover, &:focus {
+            background-color: @navbar-default-toggle-hover-bg;
+        }
+        .icon-bar {
+            background-color: @navbar-default-toggle-icon-bar-bg;
+        }
+    }
+    .navbar-collapse, .navbar-form {
+        border-color: @navbar-default-border;
+    }
+    // Dropdown menu items
+    .navbar-nav {
+        // Remove background color from open dropdown
+        > .open > a {
+            &, &:hover, &:focus {
+                background-color: @navbar-default-link-active-bg;
+                color: @navbar-default-link-active-color;
+            }
+        }
+        @media (max-width: @grid-float-breakpoint-max) {
+            // Dropdowns get custom display when collapsed
+            .open .dropdown-menu {
+                > li > a {
+                    color: @navbar-default-link-color;
+                    &:hover, &:focus {
+                        color: @navbar-default-link-hover-color;
+                        background-color: @navbar-default-link-hover-bg;
+                    }
+                }
+                > .active > a {
+                    &, &:hover, &:focus {
+                        color: @navbar-default-link-active-color;
+                        background-color: @navbar-default-link-active-bg;
+                    }
+                }
+                > .disabled > a {
+                    &, &:hover, &:focus {
+                        color: @navbar-default-link-disabled-color;
+                        background-color: @navbar-default-link-disabled-bg;
+                    }
+                }
+            }
+        }
+    }
+    // Links in navbars
+    //
+    // Add a class to ensure links outside the navbar nav are colored correctly.
+    .navbar-link {
+        color: @navbar-default-link-color;
+        &:hover {
+            color: @navbar-default-link-hover-color;
+        }
+    }
+    .btn-link {
+        color: @navbar-default-link-color;
+        &:hover, &:focus {
+            color: @navbar-default-link-hover-color;
+        }
+        &[disabled], fieldset[disabled] & {
+            &:hover, &:focus {
+                color: @navbar-default-link-disabled-color;
+            }
+        }
+    }
+}
+a.btn-tile {
+    text-decoration: none;
+    border: 1px solid @brand-primary;
+    display: block;
+    border-radius: 4px;
+    .top {
+        background-color: @brand-primary;
+        color: #fff;
+        display: block;
+        min-height: 75px;
+        padding: 10px;
+        .txt-lg {
+            display: block;
+            font-size: 1.4rem;
+            line-height: 1.4;
+        }
+    }
+    .bottom {
+        background-color: #e7e7e7;
+        border-radius: 0 0 4px 4px;
+        display: table;
+        padding: 10px;
+        width: 100%;
+        > span {
+            display: table-cell;
+            vertical-align: middle;
+            background-image: url(../images/eFileSprite.png);
+            background-position: right 2px;
+            background-repeat: no-repeat;
+            text-align: left;
+        }
+    }
+}
+// Gradient buttons
+// --------------------------------------------------
+.btn-secondary {
+    .button-gradient(@btn-secondary-color;
+    @btn-secondary-bg;
+    @btn-secondary-bg-top;
+    @btn-secondary-bg-btm;
+    @btn-secondary-border);
+}
+h1 {
+    color: @brand-green;
+    margin-top: 10px;
+}
+.section-heading {
+    color: @brand-green;
+    margin-top: 0;
+}
+.panel-body {
+    h2 {
+        margin-top: 0;
+    }
+}
+.text-bold {
+    font-weight: bold;
+}
+legend {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+.checkbox.required {
+    position: initial;
+    label {
+        padding-left: 30px;
+    }
+    label:before {
+        position: absolute;
+        content: "*";
+        color: @brand-danger;
+        left: 15px;
+        font-size: 12px;
+        input[type="checkbox"] {
+            margin-left: -15px;
+        }
+    }
+}
+hr.big {
+    height: 5px;
+}
+table.no-border {
+    border: 0;
+    table-layout: fixed;
+    th:first-child {
+        text-align: right;
+    }
+    th, td {
+        background-image: none;
+        background: none;
+        border: 0;
+        padding: .4rem .7rem;
+    }
+    .btn-link {
+        padding: 0;
+    }
+}
+.table {
+    border: 1px solid #ddd;
+    > thead > tr > th, > thead > tr > td {
+        vertical-align: middle;
+    }
+    th {
+        border: 0;
+        background-image: none;
+        background-color: none;
+        white-space: inherit;
+        > button.pn-table-sort-trigger:hover {
+            background: none;
+        }
+        > button {
+            font-size: 1rem;
+            /*min-width: 1.3rem;*/
+        }
+    }
+}
+.table-fixed {
+    table-layout: fixed;
+    td {
+        word-break: break-word;
+    }
+}
+.pn-last-visible {
+    min-width: 150px;
+    > button.pn-select-columns {
+        height: 100%;
+    }
+}
+table tr:hover, table tr.hover {
+    background: transparent;
+}
+table tbody.pn-table-grouped-rows-container > tr:first-child > * {
+    background-image: none;
+    background: none;
+    border-bottom: 1px solid #e8eaec;
+    padding: 8px;
+    button {
+        border: 0;
+        padding: 0;
+        font-size: 1rem;
+    }
+}
+table tbody.pn-table-grouped-rows-container>tr:first-child:hover>* {
+    background-image: none;
+    background: none;
+}
+.table .expandedContainer {
+    background-color: @gray-lighter;
+    padding: 1rem;
+    .expandedContent {
+        background-color: #fff;
+        /*border: 1px solid #999;*/
+        
+        padding: 1rem;
+        .table {
+            margin-top: 2rem;
+            margin-bottom: 0;
+        }
+    }
+}
+.glyphicon-asterisk {
+    font-size: .8rem;
+}
+.pager {
+    margin: 0;
+}
+.step {
+    counter-reset: my-badass-counter;
+    list-style: none;
+    padding-left: 0;
+    li:before {
+        content: counter(my-badass-counter);
+        counter-increment: my-badass-counter;
+        display: table-cell;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    li {
+        display: table-row;
+        .step-details {
+            display: table-cell;
+            padding-left: 15px;
+            .checkbox-label {
+                display: table;
+            }
+        }
+    }
+}
+/* editable and uneditable section */
+
+.uneditableDiv {
+    .box;
+    .box-default;
+    input[readonly] {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        width: auto;
+    }
+    .editControls {
+        display: none;
+    }
+}
+.editableDiv {
+    .box;
+    .box-info;
+}
+/* tab contier styles */
+
+.tab-pane {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-top: 0;
+    border-radius: 0 0 5px 5px;
+}
+.helpLinkContainer {
+    /*position: absolute;    
+    width: 100%;
+    bottom: 0;*/
+    
+    text-align: center;
+    .helpLinkList > li {
+        margin: 0;
+        padding: 0;
+        a {
+            border-right: 1px solid @gray-light;
+            padding-right: 5px;
+        }
+    }
+    .helpLinkList > li:last-child a {
+        border-right: 0;
+    }
+}
+footer {
+    background-color: @gray-dark;
+    border-top: 1px solid @gray-dark;
+    font-size: 13px;
+    position: relative;
+    padding-top: 10px;
+    bottom: 0;
+    margin-top: 2rem;
+    width: 100%;
+    a {
+        color: #fff;
+    }
+}
+/* expand collapse css*/
+
+.expandcollapse-link {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    .btn-link {
+        padding: 0;
+        &:before {
+            font-family: 'FontAwesome';
+            content: "\f0d7";
+            float: left;
+            color: @gray-light;
+            font-weight: normal;
+            padding-right: 5px;
+        }
+    }
+    .collapsed {
+        &:before {
+            content: "\f0da";
+        }
+    }
+}
+.expandcollapse-item {
+    overflow: hidden;
+}
+.expandcollapse-heading-collapsed {
+    cursor: pointer;
+    position: relative;
+    z-index: 100000000;
+}
+.expandcollapse-heading-expanded {
+    cursor: pointer;
+    z-index: 100000000;
+    position: relative;
+}
+.expandcollapse-heading-collapsed > span, .expandcollapse-heading-expanded > span {
+    position: absolute;
+    top: 25px;
+    right: 15px;
+    font-size: 20px;
+    line-height: 0px;
+}
+.expand-collapse-content {
+    padding: 0 1.5rem;
+}
+/*
+animation:*/
+
+.slideDown.ng-hide {
+    max-height: 0;
+    transition: height 0.35s ease;
+    overflow: hidden;
+    position: relative;
+}
+.slideDown {
+    max-height: 500px;
+    transition: height 0.35s ease;
+    overflow: hidden;
+    position: relative;
+}
+.slideDown.ng-hide-remove, .slideDown.ng-hide-add {
+    display: block!important;
+}
+.slideDown.ng-hide-add {
+    animation-name: hide;
+    -webkit-animation-name: hide;
+    animation-duration: 1.5s;
+    -webkit-animation-duration: 1.5s;
+    animation-timing-function: ease-in;
+    -webkit-animation-timing-function: ease-in;
+}
+.slideDown.ng-hide-remove {
+    animation-name: show;
+    -webkit-animation-name: show;
+    animation-duration: 1.5s;
+    -webkit-animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    -webkit-animation-timing-function: ease-out;
+}
+/*.animate-show {
+    line-height:20px;
+    opacity:1;
+    padding:10px;
+    border:1px solid black;
+    background:white;
+  }*/
+
+.animate-show.ng-hide-add.ng-hide-add-active, .animate-show.ng-hide-remove.ng-hide-remove-active {
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+}
+/* adding enterprise pattern library till I get less */
+
+.filters .filter-heading {
+    color: gray;
+    font-size: 1rem;
+    padding: 6px 0;
+    font-weight: 400;
+}
+.filters .filter-group-title {
+    padding: 8px 0;
+    font-weight: 700;
+    cursor: pointer;
+}
+.filters .filter-group-content {
+    padding: 2px 0 0;
+}
+/* pneumatic styles override */
+
+body {
+    background-image: none;
+    overflow: visible;
+    position: relative;
+}
+.alert {
+    font-weight: normal;
+    max-width: 100%;
+    text-align: left;
+}
+p, input, textarea, select, option, table, .btn-group button {
+    font-size: 1rem;
+}
+legend {
+    font-size: 1rem;
+}
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    font-size: 1rem;
+    line-height: @line-height-base;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    height: auto;
+    padding: 6px 12px;
+}
+input[readonly], .uneditable-input {
+    border: 0;
+    box-sizing: border-box;
+    box-shadow: none;
+    transition: none;
+    height: auto;
+    padding: 6px 12px;
+}
+input[type=file] {
+    line-height: 1.4;
+    font-size: 1rem;
+    height: auto;
+}
+textarea.form-control {
+    min-height: 80px;
+}
+.btn-primary:hover:not([disabled]) {
+    background: #003264 !important;
+}
+button:hover, .btn:hover {
+    background-position: 0 0;
+}
+.btn-group {
+    overflow: visible;
+}
+.btn-group button {
+    background-image: none;
+    line-height: 1.42857143;
+    margin-right: 0;
+    text-shadow: none;
+}
+.btn-group button.btn-primary {
+    color: #ffffff;
+    background-color: #004c97;
+    border-color: #003f7e;
+}
+.breadcrumb>li+li:before {
+    content: "\f105\00a0";
+}
+table tr:hover, table tr.hover, table tr:nth-child(even):hover {
+    background: none;
+}
+table tr:nth-child(even) {
+    background-color: white;
+}
+table th[aria-sort=ascending] {
+    background: none;
+}
+table th>button.pn-table-sort-trigger {
+    padding: 0;
+}
+table thead th {
+    font-weight: bold;
+}
+table tbody.pn-table-grouped-rows-container>tr:first-child>* {
+    font-weight: normal;
+}
+label, input, button, select, textarea, input, button, select, option, textarea {
+    font-family: @font-family-sans-serif;
+}
+option {
+    color: #333;
+}
+/* Hub Styles */
+
+.left-col {
+    box-sizing: border-box;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    width: 190px;
+}
+.right-col {
+    box-sizing: border-box;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    width: 790px;
+}
+/* Helper classes */
+
+.vertical-align-middle {
+    display: flex;
+    align-items: center;
+}
+.padding-right-zero {
+    padding-right: 0;
+}
+.padding-top-ten {
+    padding-top: 0.71428571rem;
+}
+.margin-top-zero {
+    margin-top: 0;
+}
+.margin-top-ten {
+    margin-top: 0.71428571rem;
+}
+.margin-btm-ten {
+    margin-bottom: 0.71428571rem;
+}
+.margin-rt-ten {
+    margin-right: 0.71428571rem;
+}
+.margin-lt-ten {
+    margin-left: 0.71428571rem;
+}
+.margin-top-fifteen {
+    margin-top: 1.1rem;
+}
+.margin-top-twenty {
+    margin-top: 1.425rem;
+}
+.margin-rt-twenty {
+    margin-right: 1.425rem;
+}
+.margin-btm-twenty {
+    margin-bottom: 1.425rem;
+}
+.margin-lt-twenty {
+    margin-left: 1.425rem;
+}
+.margin-top-thirty {
+    margin-top: 2.2rem;
+}
+/* added for demo */
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    background: red;
+    cursor: inherit;
+    display: block;
+}
+input[readonly] {
+    background-color: white !important;
+    cursor: text !important;
+}

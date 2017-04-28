@@ -1,0 +1,145 @@
+@import "vendor/bootstrap/type.less";
+
+/*
+Explicitly define a Segoe UI font-family so that we can assign Segoe UI
+Semilight to an appropriate font-weight.
+*/
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 200;
+    src: local("Segoe UI Light");
+}
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 300;
+    src: local("Segoe UI Semilight");
+}
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 400;
+    src: local("Segoe UI");
+}
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 600;
+    src: local("Segoe UI Semibold");
+}
+@font-face {
+    font-family: "Segoe UI";
+    font-weight: 700;
+    src: local("Segoe UI Bold");
+}
+@font-face {
+    font-family: "Segoe UI";
+    font-style: italic;
+    font-weight: 400;
+    src: local("Segoe UI Italic");
+}
+@font-face {
+    font-family: "Segoe UI";
+    font-style: italic;
+    font-weight: 700;
+    src: local("Segoe UI Bold Italic");
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+}
+
+.black {
+    font-weight: 700;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.normal {
+    font-weight: 400;
+}
+
+.light {
+    font-weight: 300;
+}
+
+.toolbar-text {
+    padding: 8px 12px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+dt {
+    font-weight: 600;
+    // color: @gray-light;
+}
+
+dd {
+    margin-bottom: 6px;
+}
+
+@media (min-width: @screen-sm) {
+    .dl-horizontal dd {
+        margin-bottom: 0px;
+    }
+}
+
+.dl-inline {
+    dd, dt {
+        font-weight: 400;
+        float: left;
+        display: inline-block;
+        color: @gray-light;
+    }
+    dd, dt {
+        margin-right: 4px;
+    }
+    dt:after {
+        content: ":";
+        display: inline-block;
+    }
+    dd:after {
+        margin-left: 8px;
+        margin-right: 4px;
+        display: inline-block;
+        content: "•";
+    }
+    dd:last-child:after {
+        display: none;
+    }
+}
+
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6,
+.subhead, .title, .headline, .display1, .display2, .display3 {
+    color: #222;
+}
+/*
+.caption {
+    font-size: 12px;
+}
+.subhead, h5, .h5 {
+    font-size: 15px;
+    font-weight: 600;
+}
+.title, h4, .h4 {
+    font-size: 18px;
+    font-weight: 600;
+}
+.headline, h3, .h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+.display1, h2, .h2 {
+    font-size: 34px;
+    font-weight: 300;
+}
+.display2, h1, .h1 {
+    font-size: 45px;
+    font-weight: 300;
+}
+.display3 {
+    font-size: 56px;
+    font-weight: 300;
+}*/

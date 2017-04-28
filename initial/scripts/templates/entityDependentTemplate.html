@@ -1,0 +1,32 @@
+<h3>Information of General Partners, Active Members, Individual, Trustees, or Executors</h3>
+
+<div  class="otherPartner" >
+    <div id="otherPartner<%=index%>" class="form-group row" >
+        <input type="hidden" class="form-control" id="id" value="<%= model.id %>" >
+        <div class="col-sm-4">
+            <label for="partnerName" class="">Name</label>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control" id="partnerName" value="<%=model.partnerName%>" >
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <label for="partnerEntityType" class="">Entity Type</label>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control"id="partnerEntityType"  value="<%=model.partnerEntityType%>" >
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <label for="partnerCitizenship" class="">Citizenship</label>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control" id="partnerCitizenship" value="<%=model.partnerCitizenship%>" >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

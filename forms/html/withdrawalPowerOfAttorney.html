@@ -1,0 +1,163 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a href="#">Attorney</a>
+        </li>
+        <li class="completed"><a href="#/html/attorneyTask">Actions</a>
+        </li>
+        <li class="disabled"><a href="#">Search</a>
+        </li>
+        <li class="disabled"><a href="#">Search Results</a>
+        </li>
+        <li class="disabled" dropdown is-open="status.isopen">
+            <a type="button" href="#" class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">My List <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a>
+                </li>
+                <li><a href="#">Another action</a>
+                </li>
+                <li><a href="#">Something else here</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<h1>Withdrawal as Attorney of Record Now that POA has Ended (Step 1)</h1>
+<div class="alert alert warning">
+    <p>Warning: You may not use this form if you are not the applicant's/registrant's current Primary attorney of record, or the mark owner.</p>
+</div>
+<div class="form-group row">
+    <div class="col-sm-5">
+        <button class="btn btn-default" ng-click="goBack()">
+            < Back to Actions</button>
+    </div>
+</div>
+<h2>1 Selection</h2>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div ng-include="'html/attorneyInfo.html'"></div>
+
+        <div class="margin-top-twenty">
+            <p><a href="">View all attorneys (in TSDR)</a>
+        </div>
+        <div class="expandcollapse-link">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                Show attorney details
+            </button>
+
+            <div class="collapse" id="collapseExample1" aria-expanded="false" style="height: 0px;">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table margin-top-twenty">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Attorney</th>
+                                    <th scope="col">Firm</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Docket number</th>
+                                    <th scope="col">Email address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                </tr>
+                                <tr>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                </tr>
+                                <tr>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2>The Primary Attorney for this record is</h2>
+        <div ng-include="'html/withdrawAttorneyList.html'"></div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2>Please enter your reasons for withdrawal as the attorney of record for mark serial number 12345678 :</h2>
+        <ol class="step">
+            <li>
+                <div class="step-details">
+                    <div class="form-inline">
+                        <p id="text1" class="form-group margin-rt-twenty">Are you withdrawing because Power of Attorney has ended ? </p>
+                        <label class="radio-inline">
+                            <input aria-describedby="text1" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input aria-describedby="text1" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> No
+                        </label>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="step-details">
+                    <label for="txt2">I wish to make the following statement regarding my withdrawal from this Mark:</label>
+                    <textarea id="txt2" class="form-control"></textarea>
+                </div>
+            </li>
+            <li>
+                <div class="step-details">
+                    <fieldset>
+                        <legend>I affirm by using the checkbox below:</legend>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left"><span class="checkbox-label"><span>I request removal of the attorney information currently listed in the application/registration record.  I affirm the power of attorney for the attorney(s) identified in the application/registration record has ended because the mark has registered, ownership has changed, the application has abandoned, or the mark has cancelled or expired.  If the power of attorney was filed in connection with an affidavit under section 8, 12(c), 15, or 71 of the Trademark Act, a renewal application under section 9 of the Act, or a request for amendment or correction under section 7 of the Act, I affirm that the power of attorney has ended due to the acceptance or final rejection of the filing.</span>
+                                    </label>
+                                </div>
+                               
+                            </div>
+                           
+                            
+                        </div>
+                    </fieldset>
+
+                </div>
+            </li>
+        </ol>
+
+    </div>
+    <div class="panel-footer">
+
+        <div class="row">
+            <div class="col-md-4 col-xs-4 ">
+                <button class="btn btn-default" id="previousPage">Cancel</button>
+            </div>
+            <div class="col-md-4 col-xs-4 text-center">
+                <button class="btn btn-default" id="saveButton">Save</button>
+            </div>
+            <div class="col-md-4 col-xs-4 text-right">
+
+                <button class="btn btn-primary pull-right" id="continueButton" ng-click="goToCorrespondence()">Continue</button>
+            </div>
+        </div>
+    </div>
+
+</div>

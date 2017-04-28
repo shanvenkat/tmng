@@ -1,0 +1,703 @@
+
+<!-- first section start-->
+<script id="mainContainer" xmlns="http://www.w3.org/1999/html">
+
+    <!-- first section End-->
+    <div class="panel panel-default">
+        <div class="panel-heading">* PRIOR REGISTRATION(S)</div>
+
+        <div class="panel-body">
+            <div class="form-inline">
+
+                <div>
+                    <div class="form-group">
+                        <p>The applicant claims ownership of U.S. Registration Number(s)</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="registrationNum1">Registration Number 1</label>
+                        <input type="text" class="form-control" id="registrationNum1">
+                    </div>
+                    <div class="form-group">,
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="registrationNum2">Registration Number 2</label>
+                        <input type="text" class="form-control" id="registrationNum2">
+                    </div>
+                    <div class="form-group">,
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="registrationNum3">Registration Number 3</label>
+                        <input type="text" class="form-control" id="registrationNum3">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <p class="text-muted">(Required if warranted by facts of application.) NOTE: Entry must not include any commas, and must be 7 numerals long (if necessary, add leading 0s to number, e.g., 0086417).</p>
+                    </div>
+
+
+                </div>
+                <div class="col-md-12">
+                    <input type="checkbox" id="additionalRegistrationNumChbx" name="additionalRegistrationNumChbx">
+                    <label for="additionalRegistrationNumChbx">
+                        Check here to indicate there are additional prior U.S. Registration Number(s).</label>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>   
+
+    <!-- first section End-->
+
+    
+    <!-- second section start-->
+    <div class="panel panel-default">
+        <div class="panel-heading">TRANSLATION</div>
+
+        <div class="panel-body">
+
+            <p class="text-muted">(Required if warranted by facts of application.)</p>
+
+            <div id="addTranslationContainer" class="form-inline row">
+                <% _.each(addStmtTransltCollection.models, function(addStmtTranslt) { %>
+                    <div class="col-md-12" id="<%= 'addStmtTranslt' + addStmtTranslt.get('id') %>">
+                        <div class="form-group">
+                            The English translation of <%= addStmtTranslt.get('meaning') %> is  <%= addStmtTranslt.get('translation') %> in the mark. <br>
+                         </div>
+                         <div class="form-group">
+                             <button type="button" id="removeTranslation"  name="<%= addStmtTranslt.get('id') %>" class="btn btn-primary">Remove
+                                <span class="sr-only">Remove</span>
+                            </button>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+
+            <div class="text-left">
+                 <span aria-hidden="true" style="color:red" id="valTransword"></span>
+            </div>
+
+            <div class="form-inline row">
+
+                <!-- first row -->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <p>The English translation of</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="transword">Translation</label>
+                        <input type="text" class="form-control" id="transword">
+                    </div>
+                    <div class="form-group">
+                        <p>is</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="translation">Translation</label>
+                        <input type="text" class="form-control" id="translation">
+                    </div>
+                     <div class="form-group">
+                        <p>in the mark.</p>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" id="addAnotherTranslation" class="btn btn-primary">Add
+                            <span class="sr-only">Another Translation</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <hr />
+            <div id="addNoTranslationContainer" class="form-inline row" aria-live="assertive">
+                <% _.each(addStmtTransNoMeanCollection.models, function(model) { %> 
+                    <div class="col-md-12" id="<%= 'addStmtNoTranslt' + model.get('id') %>">
+                        <div class="form-group">
+                            The wording <%= model.get('word') %> has no meaning in a foreign language.
+                         </div>
+                         <div class="form-group">
+                             <button type="button" id="removeAnotherNoTranslation"  name="<%= model.get('id') %>" class="btn btn-primary">Remove
+                                <span class="sr-only">Remove</span>
+                            </button>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+
+            <div class="text-left">
+                 <span aria-hidden="true" style="color:red" id="valNotranslation"></span>
+            </div>
+
+             <div class="form-inline row">
+
+                <!-- first row -->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <p>The wording </p>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="notranslation">Translation</label>
+                        <input type="text" class="form-control" id="notranslation">
+                    </div>
+                    <div class="form-group">
+                        <p>has no meaning in a foreign language. </p>
+                    </div>
+                   
+                    <div class="form-group">
+                        <button type="button" id="addAnotherNoTranslation" class="btn btn-primary">Add
+                            <span class="sr-only">Another No Translation</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- second section end--> 
+    <!-- third section start-->
+    <div class="panel panel-default">
+        <div class="panel-heading">TRANSLITERATION</div>
+        <div class="panel-body">
+
+            <p class="text-muted">(Required if warranted by facts of application.) (NOTE: Not required for any standard character marks.)</p>
+
+            <div id="addTransliterationContainer" class="form-inline row" aria-live="assertive">
+                <% _.each(addStmtTransltrCollection.models, function(model) { %>
+                    <div class="col-md-12" id="<%= 'addStmtTransltr' + model.get('id') %>">
+                        <div class="form-group">
+                            <%= model.get('transliteration') %> and this means <%= model.get('meaning') %> in English.
+                        </div>
+                         <div class="form-group">
+                             <button type="button" id="removeTransliteration"  name="<%= model.get('id') %>" class="btn btn-primary">Remove
+                                <span class="sr-only">Remove</span>
+                            </button>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+
+            <div class="form-inline row">
+
+                <!-- first row -->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <p>The non-Latin characters in the mark transliterate to</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="transliteration">Transliteration</label>
+                        <input type="text" class="form-control" id="transliteration">
+                    </div>
+                    <div class="form-group">
+                        <p>and this means</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="transltrword">Transliteration</label>
+                        <input type="text" class="form-control" id="transltrword">
+                    </div>
+                    <div class="form-group">
+                        <p>in English.</p>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" id="addAnotherTransliteration" class="btn btn-primary">Add
+                            <span class="sr-only">Another Transliteration</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <hr />
+            <div id="addNoTransliterationContainer" class="form-inline row" aria-live="assertive">
+               <% _.each(addStmtTransltrNoMeanCollection.models, function(model) { %> 
+                    <div class="col-md-12" id="<%= 'addStmtNoTransltr' + model.get('id') %>">
+                        <div class="form-group">
+                            The wording <%= model.get('word') %> has no meaning in a foreign language.
+                         </div>
+                         <div class="form-group">
+                             <button type="button" id="removeAnotherNoTransliteration"  name="<%= model.get('id') %>" class="btn btn-primary">Remove
+                                <span class="sr-only">Remove</span>
+                            </button>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+            <div class="form-inline row">
+
+                <!-- first row -->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <p>The non-Latin characters in the mark transliterate to</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="noTransliteration">Transliteration</label>
+                        <input type="text" class="form-control" id="noTransliteration">
+                    </div>
+                    <div class="form-group">
+                        <p>and this has no meaning in a foreign language.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" id="addAnotherNoTransliteration" class="btn btn-primary">Add
+                            <span class="sr-only">Another No Transliteration</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- third section end-->
+    <!-- fourth section start-->
+    <div class="panel panel-default">
+        <div class="panel-heading">MEANING OR SIGNIFICANCE OF WORDING, LETTER(S), OR NUMERAL(S)</div>
+        <div class="panel-body">
+
+
+            <div id="addSignificanceContainer" class="form-inline row" aria-live="assertive">
+                <% _.each(addStmtSignificanceCollection.models, function(model) { %>
+                    <div class="col-md-12" id="<%= 'addStmtSignificance' + model.get('id') %>">
+                        <div class="form-group">
+                            <%= model.get('word') %> appearing in the mark means or signifies or is a term of art for <%= model.get('meaning') %>.
+                        </div>
+                         <div class="form-group">
+                             <button type="button" id="removeSignificance"  name="<%= model.get('id') %>" class="btn btn-primary">Remove
+                                <span class="sr-only">Remove</span>
+                            </button>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+
+            <div class="text-left">
+                 <span aria-hidden="true" style="color:red" id="valSignificance"></span>
+            </div>
+
+            <div class="form-inline row">
+
+                <!-- first row -->
+                <div class="col-md-12">
+
+                    <div class="form-group">
+                        <label class="sr-only" for="Significance">Significance</label>
+                        <input type="text" class="form-control" id="Significance">
+                    </div>
+                    <div class="form-group">
+                        <p>appearing in the mark means or signifies or is a term of art for</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="SigniMean">Significance</label>
+                        <input type="text" class="form-control" id="SigniMean">
+                    </div>
+                    <div class="form-group">
+                        <p>in the relevant trade or industry or as applied to the goods/services listed in the application.</p>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" id="addAnotherSignificance" class="btn btn-primary">Add
+                            <span class="sr-only">Another Significance</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <hr />
+            <div id="addNoSignificanceContainer" class="form-inline row" aria-live="assertive">
+               <% _.each(addStmtNoSignificanceCollection.models, function(model) { %> 
+                    <div class="col-md-12" id="<%= 'addStmtNoSignificance' + model.get('id') %>">
+                        <div class="form-group">
+                            <%= model.get('word') %> appearing in the mark has no significance nor is it a term of art in the relevant trade or industry or as applied to the goods/services listed in the application, or any geographical significance.
+                         </div>
+                         <div class="form-group">
+                             <button type="button" id="removeNoSignificance"  name="<%= model.get('id') %>" class="btn btn-primary">Remove
+                                <span class="sr-only">Remove</span>
+                            </button>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+
+            <div class="text-left">
+                 <span aria-hidden="true" style="color:red" id="valNosignificance"></span>
+            </div>
+
+            <div class="form-inline row" class="form-inline row" >
+
+                <!-- first row -->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="sr-only" for="noSignificance">Significance</label>
+                        <input type="text" class="form-control" id="noSignificance">
+                    </div>
+                    <div class="form-group">
+                        <p>appearing in the mark has no significance nor is it a term of art in the relevant trade or industry or as applied to the goods/services listed in the application, or any geographical significance.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" id="addAnotherNoSignificance" class="btn btn-primary">Add
+                            <span class="sr-only">Another No Significance</span>
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+            <hr />
+            <div id="addNoForeignContainer" class="form-inline row" aria-live="assertive">
+               <% _.each(addStmtNoForeignCollection.models, function(model) { %> 
+                    <div class="col-md-12" id="<%= 'addStmtNoForeign' + model.get('id') %>">
+                        <div class="form-group">
+                            <%= model.get('word') %> The word(s) has no meaning in a foreign language.
+                         </div>
+                         <div class="form-group">
+                             <button type="button" id="removeNoForeign"  name="<%= model.get('id') %>" class="btn btn-primary">Remove
+                                <span class="sr-only">Remove</span>
+                            </button>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+
+            <div class="text-left">
+                 <span aria-hidden="true" style="color:red" id="valNoForeign"></span>
+            </div>
+
+            <div class="form-inline row">
+
+                <!-- first row -->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="sr-only" for="noForeign">Foreign</label>
+                        <input type="text" class="form-control" id="noForeign">
+                    </div>
+                    <div class="form-group">
+                        The word(s) has no meaning in a foreign language
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" id="addAnotherNoForeign" class="btn btn-primary">Add
+                            <span class="sr-only">Another No Foreign</span>
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    <!-- fourth section end-->
+    
+    <!-- fifth section start-->
+<div class="panel panel-default">
+    <div class="panel-heading">NAME(S), PORTRAIT(S), SIGNATURE(S) OF INDIVIDUAL(S)</div>
+    <div class="panel-body">
+        <div id="addSignificanceContainer" aria-live="assertive"></div>
+        <p class="text-muted">(Required if warranted by facts of application.) The name(s), portrait(s), and/or signature(s) shown in the mark identifies , whose consent(s) to register is made of record.</p>
+       <div class="form-inline row">
+    <!-- first row -->
+    <div class="col-md-12">
+        <div class="form-group">
+            <p>The name(s), portrait(s), and/or signature(s) shown in the mark identifies</p>
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="signature">Signature</label>
+            <input type="text" class="form-control" id="signature">
+        </div>
+        <div class="form-group">
+            <p>whose consent(s) to register is made of record.</p>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <button type="button" id="addAnotherSignature" class="btn btn-primary margin-botton-twenty">Add
+            <span class="sr-only">Another Signature</span>
+        </button>
+        <hr />
+    </div>
+    <div class="col-md-12">
+        <input type="checkbox" id="cbxLivingIn" name="cbxLivingIn">
+        <label for="cbxLivingIn">The name(s), portrait(s), and/or signature(s) shown in the mark does not identify a particular living individual.</label>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+<!-- sixth section end-->
+<!-- seventh section start-->
+<div class="panel panel-default">
+    <div class="panel-heading">MISCELLANEOUS STATEMENT:</div>
+    <div class="panel-body">
+        <div id="addSignificanceContainer" aria-live="assertive"></div>
+        <div class="row">
+            <!-- first row -->
+            <div class="col-md-12">
+                <p>
+                Enter information for which no other section of the form is appropriate.</p>
+                <fieldset>
+                    <legend>Do you wish to add any additional information about the mark? (this is not common)</legend>
+                    <div class="clearfix">
+                        <input type="radio" id="miscStatementYes" name="miscStatementSelected" value=true>
+                        <label>I would like to make an additional statement or upload another file for legal purposes:</label>
+                    </div>
+                    <div class="clearfix">
+                        <input type="radio" id="miscStatementNo" name="miscStatementSelected" checked='true' value=false>
+                        <label>No additional statement needed</label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+        <!-- Miscelleneous Statement Edit Fields -->
+        <div id="editStmtMiscPanel"></div>
+
+    </div>
+</div>
+        <!-- End Miscellaneous Statements -->
+
+</script>
+
+<!-- seventh section end-->
+
+<script id="addAnotherTranslationSummary" type="text/template">
+    <div class="col-md-12" id="<%= 'addStmtTranslt' + model.get('id') %>">
+        <div class="form-group">
+            The English translation of <%= model.get('meaning') %> is  <%= model.get('translation') %> in the mark. <br>
+         </div>
+         <div class="form-group">
+             <button type="button" id="removeTranslation"  name="<%= model.get('id') %>" class="btn btn-primary">Remove
+                <span class="sr-only">Remove</span>
+            </button>
+        </div>
+    </div>
+</script>
+
+
+<script id="addNoTranslationSummary" type="text/template">
+    <div class="col-md-12" id="<%= 'addStmtNoTranslt' + model.get('id') %>">
+        <div class="form-group">
+            The wording <%= model.get('word') %> has no meaning in a foreign language.
+         </div>
+         <div class="form-group">
+             <button type="button" id="removeAnotherNoTranslation"  name="<%= model.get('id') %>" class="btn btn-primary">Remove
+                <span class="sr-only">Remove</span>
+            </button>
+        </div>
+    </div>
+</script>
+
+
+<script id="addAnotherTransliterationSummary" type="text/template">
+    <div class="col-md-12" id="<%= 'addStmtTransltr' + model.get('id') %>">
+        <div class="form-group">
+            <%= model.get('transliteration') %> and this means <%= model.get('meaning') %> in English.
+        </div>
+         <div class="form-group">
+             <button type="button" id="removeTransliteration"  name="<%= model.get('id') %>" class="btn btn-primary">Remove
+                <span class="sr-only">Remove</span>
+            </button>
+        </div>
+    </div>
+</script>
+
+
+<script id="addNoTransliterationSummary" type="text/template">
+    <div class="col-md-12" id="<%= 'addStmtNoTransltr' + model.get('id') %>">
+        <div class="form-group">
+            The non-Latin characters in the mark transliterate to <%= model.get('word') %> and this has no meaning in a foreign language.
+         </div>
+         <div class="form-group">
+             <button type="button" id="removeAnotherNoTransliteration"  name="<%= model.get('id') %>" class="btn btn-primary">Remove
+                <span class="sr-only">Remove</span>
+            </button>
+        </div>
+    </div>
+</script>
+
+
+<script id="addSignificanceSummary" type="text/template">
+        <div class="col-md-12" id="<%= 'addStmtSignificance' + model.get('id') %>">
+            <div class="form-group">
+                <%= model.get('word') %> appearing in the mark means or signifies or is a term of art for <%= model.get('meaning') %>.
+            </div>
+             <div class="form-group">
+                 <button type="button" id="removeSignificance"  name="<%= model.get('id') %>" class="btn btn-primary">Remove
+                    <span class="sr-only">Remove</span>
+                </button>
+            </div>
+        </div>
+</script>
+
+
+<script id="addNoSignificanceSummary" type="text/template">
+    <div class="col-md-12" id="<%= 'addStmtNoSignificance' + model.get('id') %>">
+        <div class="form-group">
+            <%= model.get('word') %> appearing in the mark has no significance nor is it a term of art in the relevant trade or industry or as applied to the goods/services listed in the application, or any geographical significance.
+         </div>
+         <div class="form-group">
+             <button type="button" id="removeNoSignificance"  name="<%= model.get('id') %>" class="btn btn-primary">Remove
+                <span class="sr-only">Remove</span>
+            </button>
+        </div>
+    </div>
+</script>
+
+
+<script id="addNoForeignSummary" type="text/template">
+    
+    <div class="col-md-12" id="<%= 'addStmtNoForeign' + model.get('id') %>">
+        <div class="form-group">
+            <%= model.get('word') %> The word(s) has no meaning in a foreign language.
+         </div>
+         <div class="form-group">
+             <button type="button" id="removeNoForeign"  name="<%= model.get('id') %>" class="btn btn-primary">Remove
+                <span class="sr-only">Remove</span>
+            </button>
+        </div>
+    </div>
+</script>
+
+
+<script id="editStmtMisc" type="text/template">
+    <div class="margin-up-twenty" id="miscStatementPanel">
+        <div class="panel panel-info">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- start text editor -->
+                        <div class="summernote">
+                            <label class="" for="miscellaneous">Miscellaneous statement</label>
+                            <!--
+                             <div name="statementTx" id="miscellaneous" class="col-md-12" style="display: none;">
+                                 <p></p>
+                             </div>
+                             -->
+                            <div class="note-editor">
+                                <div class="note-dropzone">
+                                    <div class="note-dropzone-message"></div>
+                                </div>
+                                <div class="note-handle">
+                                    <div class="note-control-selection">
+                                        <div class="note-control-selection-bg"></div>
+                                        <div class="note-control-holder note-control-nw"></div>
+                                        <div class="note-control-holder note-control-ne"></div>
+                                        <div class="note-control-holder note-control-sw"></div>
+                                        <div class="note-control-sizing note-control-se"></div>
+                                        <div class="note-control-selection-info"></div>
+                                    </div>
+                                </div>
+                                <div class="note-toolbar btn-toolbar">
+                                    <div class="note-font btn-group">
+                                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="bold" tabindex="-1" data-original-title="Bold (CTRL+B)"><i class="fa fa-bold icon-bold"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="italic" tabindex="-1" data-original-title="Italic (CTRL+I)"><i class="fa fa-italic icon-italic"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="underline" tabindex="-1" data-original-title="Underline (CTRL+U)"><i class="fa fa-underline icon-underline"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="superscript" tabindex="-1" data-original-title="Superscript"><i class="fa fa-superscript icon-superscript"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="subscript" tabindex="-1" data-original-title="Subscript"><i class="fa fa-subscript icon-subscript"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="strikethrough" tabindex="-1" data-original-title="Strikethrough (CTRL+SHIFT+S)"><i class="fa fa-strikethrough icon-strikethrough"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="removeFormat" tabindex="-1" data-original-title="Remove Font Style (CTRL+\)"><i class="fa fa-eraser icon-eraser"></i>
+                                        </button>
+                                    </div>
+                                    <div class="note-para btn-group">
+                                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="insertUnorderedList" tabindex="-1" data-original-title="Unordered list (CTRL+SHIFT+NUM7)"><i class="fa fa-list-ul icon-list-ul"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="insertOrderedList" tabindex="-1" data-original-title="Ordered list (CTRL+SHIFT+NUM8)"><i class="fa fa-list-ol icon-list-ol"></i>
+                                        </button>
+                                    </div>
+                                    <div class="note-align btn-group">
+                                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="justifyLeft" tabindex="-1" data-original-title="Align left (CTRL+SHIFT+L)"><i class="fa fa-align-left icon-align-left"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="justifyCenter" tabindex="-1" data-original-title="Align center (CTRL+SHIFT+E)"><i class="fa fa-align-center icon-align-center"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="justifyRight" tabindex="-1" data-original-title="Align right (CTRL+SHIFT+R)"><i class="fa fa-align-right icon-align-right"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="justifyFull" tabindex="-1" data-original-title="Justify full (CTRL+SHIFT+J)"><i class="fa fa-align-justify icon-align-justify"></i>
+                                        </button>
+                                    </div>
+                                    <div class="note-list btn-group">
+                                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="indent" tabindex="-1" data-original-title="Indent (CTRL+])"><i class="fa fa-indent icon-indent-right"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="outdent" tabindex="-1" data-original-title="Outdent (CTRL+[)"><i class="fa fa-outdent icon-indent-left"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <textarea class="note-codable"></textarea>
+                                <div class="note-editable" name="statementTx" id="miscellaneous" contenteditable="true" style="height: 300px;">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end text editor -->
+
+                        <!-- List of attached documents -->
+                        <div id="addStmtMiscDocPanel"></div>
+
+                    </div>
+                </div>
+                <form action="efile/rest/additionalstmt/upload" id="uploadForm" enctype="multipart/form-data" method="POST">
+                    <div class="row margin-up-twenty">
+                        <div class="col-md-9">
+                            <div>
+                                <span aria-hidden="true" class="text-danger" id="uploadFileError"></span>
+                            </div>
+                            <label for="input30" class="">Upload a file</label>
+                            <div class="input-group">
+                                        <span class="input-group-btn">
+                                        <span class="btn btn-primary btn-file">
+                                        Browse…
+                                        <input type="file" id="file">
+                                        </span>
+                                        </span>
+                                <input type="text" class="form-control" id="filename" name="filename" readonly="">
+                            </div>
+                            <p class="help-block">File types accepted include XXXX, XX, XXX</p>
+                        </div>
+                        <div class="col-md-2 col-xs-6">
+                            <button class="btn btn-primary margin-up-twenty-five" id="btnUploadMark">Upload</button>
+                        </div>
+                    </div>
+                    <!--
+                     <span aria-hidden="true" style="color:green" id="fileUploadedMessage"></span>
+                     -->
+                    <div class="col-md-9">
+                        <p class="text-danger" id="fileUploadedMessage"></p>
+                    </div>
+                </form>
+
+
+                <!--                    <div class="col-md-12">
+                                        <button type="button" id="addAnotherMiscellaneous" class="btn btn-primary pull-right">Add
+                                        <span class="sr-only">Miscellaneous Statement</span>
+                                        </button>
+                                    </div>
+                -->
+                <span aria-hidden="true" class="text-danger" id="addMiscellaneousError"></span>
+            </div>
+</script>
+
+
+<script id="addStmtMiscDoc" type="text/template">
+
+    <div class="form-inline row">
+    <div class="col-md-12">
+        <div class="form-group">
+            Attached File: <%= model.get('fileName') %>
+        </div>
+        <div class="form-group">
+            <button type="button" id="removeDocument"  name="<%= sequence %>" class="btn btn-primary">Remove
+                <span class="sr-only">Remove</span>
+            </button>
+        </div>
+    </div>
+    </div>
+
+</script>
+

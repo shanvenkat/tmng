@@ -1,0 +1,171 @@
+<div class="info-box">
+
+    <% if (entityTypeValueSelected==='1' ) {%>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <label class="">Country of Citizenship</label>
+
+                <div id="countryContainer"></div>
+
+
+            </div>
+        </div>
+
+    <%}%>
+<!--start adding this block based on the wireframes -->
+    <% if (entityTypeValueSelected==='2' ) {%>
+       <div class="form-group row">
+            <div class="col-sm-4">
+                <label>Name of Partner</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-sm-4">
+                <label>Partner's entity type</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-sm-4">
+                <label class="">Partner's country of citizenship</label>
+                <select class="form-control">
+                    <option>United States of America</option>
+                </select>
+            </div>
+        </div>
+
+
+    <%}%>
+<!--end above block based on the wireframes -->
+    <% if (entityTypeValueSelected==='3' ) {%>
+
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <label class="">Country of Incorporation</label>
+                <div id="countryContainer"></div>
+
+
+            </div>
+            <div class="col-sm-6">
+
+
+
+                <div id="stateContainer"></div>
+
+
+            </div>
+        </div>
+
+    <%}%>
+
+    <% if (entityTypeValueSelected==='16' ) {%>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <label class="">Country Where Legally Organized</label>
+
+                <div id="countryContainer"></div>
+
+            </div>
+            <div class="col-sm-6">
+
+
+                <div id="stateContainer"></div>
+
+
+            </div>
+        </div>
+    <%}%>
+
+    <% if (entityTypeValueSelected==='13' || entityTypeValueSelected==='5' || entityTypeValueSelected==='19' || entityTypeValueSelected==='17' || entityTypeValueSelected==='18' ) {%>
+
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <label class="">Country Where Legally Organized</label>
+                <div id="countryContainer"></div>
+
+            </div>
+            <div class="col-sm-6">
+                <div id="stateContainer"></div>
+
+
+            </div>
+
+        </div>
+        <div id="countryDependentContainer">
+
+        </div>
+
+    <%}%>
+
+    <% if (entityTypeValueSelected==='99' ) {%>
+        <div class="form-group row">
+    <div class="col-sm-6">
+        <label class="">Country Where Legally Organized</label>
+        <div id="countryContainer"></div>
+        
+    </div>
+    <div class="col-sm-6">
+        <div id="stateContainer"></div>
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-sm-4">
+        <label for="entityOther">Other Entity Type</label>
+        <select id="entityOther" name="otherEntityType" class="form-control">
+            <option value="">Select Entity Type</option>
+            <option value="agency of the united states government">agency of the united states government</option>
+            <option value="6">incorporated association</option>
+            <option value="7">unincorporated association</option>
+            <option value="body politic and corporate">body politic and corporate</option>
+            <option value="37">business trust</option>
+            <option value="charitable corporation">charitable corporation</option>
+            <option value="charitable trust">charitable trust</option>
+            <option value="charitable, non-profit corporation">charitable, non-profit corporation</option>
+            <option value="chartered bank">chartered bank</option>
+            <option value="congressionally chartered nonprofit organization">congressionally chartered nonprofit organization</option>
+            <option value="cooperative association">cooperative association</option>
+            <option value="cooperative corporation">cooperative corporation</option>
+            <option value="credit union">credit union</option>
+            <option value="15">federal agency</option>
+            <option value="federally chartered credit union">federally chartered credit union</option>
+            <option value="federally-recognized indian tribe">federally-recognized indian tribe</option>
+            <option value="12">foundation</option>
+            <option value="instrumentality">instrumentality</option>
+            <option value="9">joint stock company</option>
+            <option value="limited liability limited partnership">limited liability limited partnership</option>
+            <option value="limited liability partnership">limited liability partnership</option>
+            <option value="municipal corporation">municipal corporation</option>
+            <option value="national banking association">national banking association</option>
+            <option value="non-profit association">non-profit association</option>
+            <option value="non-profit corporation">non-profit corporation</option>
+            <option value="non-profit organization">non-profit organization</option>
+            <option value="non-stock corporation">non-stock corporation</option>
+            <option value="professional corporation">professional corporation</option>
+            <option value="public benefit corporation">public benefit corporation</option>
+            <option value="14">state agency</option>
+            <option value="state-recognized indian tribe">state-recognized indian tribe</option>
+            <option value="state university">state university</option>
+            <option value="stock company">stock company</option>
+            <option value="tax exempt corporation">tax exempt corporation</option>
+            <option value="addOwnEntityType">Other</option>
+        </select>
+    </div>
+    <div class="col-sm-4">
+        <div id="addOwnEntityType">
+            <!--[Show only when other is select from previous dropdown] -->
+            <label for="input6" class="">Add you own Entity Type</label>
+            <input type="text" class="form-control" id="input6" name="otherEntityValue" >
+        </div>
+    </div>
+    <!-- end default value -->
+</div>
+<div id="countryDependentContainer">
+</div>
+<div id="dependents"></div>
+<div class="form-group row">
+    
+    <div class="col-sm-8">
+        <button class="btn btn-primary" id="addAnotherPartnerBtn">Add Another Partner</button>
+    </div>
+</div>
+ 
+        
+    <%}%>
+</div>

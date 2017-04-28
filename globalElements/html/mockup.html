@@ -1,0 +1,134 @@
+<link rel="stylesheet" href="../styles/patternLibrary.css">
+<link rel="stylesheet" href="../styles/globalElements.css">
+<div class="navbar navbar-inverse">
+    <header>
+        <img src="../images/logo.png" alt="USPTO Logo">
+    </header>
+</div>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Patents</a>
+                </li>
+                <li class="active"><a href="#">Trademarks</a>
+                </li>
+                <li><a href="#">Learning &amp; Resources</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div style="margin: 0 20px;">
+    <nav class="navbar" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Trademarks Filing</a>
+            </div>
+            <div class="nav navbar-nav navbar-right">
+                <fieldset class="user user-menu pn-menu">
+                    <legend>
+                        <span>Last Name, First Name</span>
+                    </legend>
+                    <ul id="da86ac1b-4a3b-4e81-ad04-5eed273a819c" tabindex="0" style="position: fixed; display: none;">
+                        <li>
+                            <button type="button" value="prefs">My Preferences</button>
+                        </li>
+                        <li>
+                            <button type="button" ng-click="showPopup()" value="fontSize">Font Size</button>
+                        </li>
+                        <li>
+                            <button type="button" value="logout">Logout</button>
+                        </li>
+                        <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                    </ul>
+                </fieldset>
+            </div>
+        </div>
+    </nav>
+    <div style="background-color: white;">
+        <div>
+            <div class="float-left">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a>
+                    </li>
+                    <li><a href="#">Library</a>
+                    </li>
+                    <li class="active">Data</li>
+                </ol>
+            </div>
+            <div class="float-right"></div>
+        </div>
+        <div class="pl-sidebar">
+            <li class="category">COMPONENTS</li>
+            <li class="active"><a href="/patterns-components-alerts.html">Alerts </a>
+                <ul class="nav">
+                    <li><a title="Contextual alerts" href="#contextual-alerts">Contextual alerts</a>
+                    </li>
+                    <li class="active"><a title="System alerts" href="#system-alerts">System alerts</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=""><a href="/patterns-components-breadcrumbs.html"><i title="Work in Progress / Preview" class="fa fa-exclamation pull-right"></i>Breadcrumbs </a>
+            </li>
+            <li class=""><a href="/patterns-components-buttons.html">Buttons </a>
+            </li>
+            <li class=""><a href="/patterns-components-dialogs.html"><i title="Work in Progress / Preview" class="fa fa-exclamation pull-right"></i>Dialogs </a>
+            </li>
+            <li class=""><a href="/patterns-components-filters.html">Filters </a>
+            </li>
+            </ul>
+        </div>
+        <div class="pl-content">
+            <div class="pl-pattern">
+                <h3><a class="pl-heading-link" id="contextual-alerts" href="#contextual-alerts"><i class="fa fa-link"></i></a> Contextual alerts</h3>
+                <p>Provide contextual feedback messages.</p>
+                <ul>
+                    <li>
+                        <strong>Info</strong>alerts can be used when there are tips/information that a user can benefit from.</li>
+                    <li>
+                        <strong>Success</strong>alerts can be used when an action was performed successfully.</li>
+                    <li>
+                        <strong>Warning</strong>alerts can be used when an action is out of the ordinary or might not be desired.</li>
+                    <li>
+                        <strong>Danger</strong>alerts can be used when the system has failed to perform an action, or when the user has made an error.</li>
+                </ul>
+                <div class="pl-preview">
+                    <div class="pl-toggle-code"><i class="fa fa-code"></i>
+                    </div>
+                    <p></p>
+                    <div class="alert alert-warning">
+                        <strong>Warning!</strong>There are more than
+                        <strong>10</strong>cases assigned to
+                        <strong>John</strong>. <a href="" class="alert-link pull-right">Dismiss</a>
+                    </div>
+                    <p></p>
+                    <p></p>
+                    <div class="alert alert-success">
+                        <strong>Success:</strong>Case assigned to
+                        <strong>Jerry</strong>. <a href="" class="alert-link pull-right">Undo</a>
+                    </div>
+                    <p></p>
+                    <p></p>
+                    <div class="alert alert-info">
+                        <strong>Info:</strong>Press the
+                        <strong>'A'</strong>key to automatically assign a case.<a href="" class="alert-link pull-right">Dismiss</a>
+                    </div>
+                    <p></p>
+                    <div class="alert alert-danger">
+                        <strong>Woops!</strong>There was an error assigning case
+                        <strong>90/934,382</strong>. <a href="" class="alert-link pull-right">Retry</a>
+                    </div>
+                    <div class="pl-pattern">
+                        <h3><a class="pl-heading-link" id="system-alerts" href="#system-alerts"><i class="fa fa-link"></i></a> System alerts</h3>
+                        <p>System alerts aren't placed in relation with any particular context.</p>
+                        <div class="pl-preview">
+                            <div class="pl-toggle-code"><i class="fa fa-code"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a href="#">Attorney</a>
+        </li>
+        <li class="completed"><a href="#/html/attorneyTask">Actions</a>
+        </li>
+        <li class="completed"><a href="#">Search</a>
+        </li>
+        <li class="active"><a href="#">Search Results</a>
+        </li>
+        <li class="disabled" dropdown is-open="status.isopen">
+            <a type="button" href="#" class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+        My List <span class="caret"></span>
+      </a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a>
+                </li>
+                <li><a href="#">Another action</a>
+                </li>
+                <li><a href="#">Something else here</a>
+                </li>
+
+            </ul>
+
+        </li>
+
+
+    </ul>
+</nav>
+<h1>Serial, registration, mark literal, or docket number search results</h1>
+<div class="form-group row">
+    <div class="col-sm-5">
+        <button class="btn btn-default" ng-click="goBack()">
+            < Back to Advanced Search</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div ng-include="'html/searchFiltersByMark.html'"></div>
+    </div>
+    <div class="col-md-9">
+        <div class="outline-box outline-box-default">
+            <div class="row">
+                <div class="col-sm-3">
+                    <p>You searched by:</p><p class="text-bold">
+                        Serial/resigstration numbers</p>
+                </div>
+                <div class="col-sm-5">
+                    <p> 12344555, 1233445, 3435456</p>
+                </div>
+                <div class="col-sm-4 text-right">
+                    <button class="btn btn-link"><span class="fa fa-pencil"></span><span class="sr-only">Edit</span></button>
+                    <button class="btn btn-link"><span class="fa fa-refresh"></span><span class="sr-only">Search again</span></button>
+                </div>
+            </div>
+        </div>
+        <div ng-include="'html/searchResultsListTest.html'"></div>
+    </div>
+</div>

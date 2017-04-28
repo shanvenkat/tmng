@@ -1,0 +1,39 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a href="#">Attorney</a>
+        </li>
+        <li class="completed"><a href="#/html/attorneyTask">Actions</a>
+        </li>
+        <li class="completed"><a href="#">Search</a>
+        </li>
+        <li class="active"><a href="#">Search Results</a>
+        </li>
+        <li class="disabled"><a href="#">Case Lists</a>
+        </li>
+        <li class="completed"><a href="#">Appoint Attorney</a>
+        </li>
+    </ul>
+</nav>
+<h1>Appoint additional attorneys</h1>
+<div class="row">
+    <div class="col-md-3">
+        <div ng-include="'html/searchFiltersDefault.html'"></div>
+    </div>
+    <div class="col-md-9">
+        <div style="border: 1px solid #ddd; padding: 1rem; padding-bottom: 0; margin-bottom: 15px; vertical-align: middle;">
+            <div class="row">
+                <div class="col-sm-8">
+                    <p>You searched by:
+                        <br /> 12344555, 1233445, 3435456</p>
+                </div>
+                <div class="col-sm-4 text-right">
+                    <button class="btn btn-link">Search Again</button>
+                </div>
+            </div>
+        </div>
+
+        <div ng-include="'html/searchResultsList.html'"></div>
+
+
+    </div>
+</div>

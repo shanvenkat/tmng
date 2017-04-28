@@ -1,0 +1,178 @@
+<div class="row form-group">
+    <div class="col-sm-4">
+
+
+    </div>
+    <div class="col-sm-8 text-right">
+        <span class="badge">42</span> Selected records
+        <button class="btn btn-default">Add to My List</button> or
+
+         <div class="btn-group" dropdown>
+            <button type="button" class="btn btn-primary">Appoint attorney</button>
+            <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle>
+                <span class="caret"></span>
+                <span class="sr-only">Split button!</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a>
+                </li>
+                <li><a href="#">Another action</a>
+                </li>
+                <li><a href="#">Something else here</a>
+                </li>
+
+                <li><a href="#">Separated link</a>
+                </li>
+            </ul>
+        </div>
+
+
+
+    </div>
+</div>
+<hr class="big" />
+<div class="row form-group">
+    <div class="col-sm-4">
+        <fieldset class="pn-toggle">
+            <label class="pn-toggle-next"><span>Expand all</span>
+                <input type="radio" name="1bb66911-eaa1-409b-919f-cd596762711e" value="Expand all" class="">
+            </label>
+            <label class="pn-toggle-checked"><span>Collapse all</span>
+                <input type="radio" name="1bb66911-eaa1-409b-919f-cd596762711e" value="Collapse all">
+            </label>
+        </fieldset>
+    </div>
+    <div class="col-sm-8 text-right">
+        <label for="select1">Group results by</label>
+        <select id="select1">
+            <option>Select</option>
+        </select>
+    </div>
+</div>
+<table class="table table-sortable">
+    <thead>
+        <tr>
+            <th class="" style="width: 35px;">
+                <label>
+                    <input type="checkbox">
+                </label>
+            </th>
+            <th class="sortable active" aria-sort="ascending">
+                <button class="pn-table-sort-trigger">Serial number</button>
+            </th>
+            <th class="sortable">
+                <button class="pn-table-sort-trigger">Registration
+                    <br />number</button>
+
+            </th>
+            <th>
+                <button class="pn-table-sort-trigger">Docket
+                    <br />number</button>
+
+            </th>
+            <th>
+                <button class="pn-table-sort-trigger">Primary attorney &amp; Firm</button>
+
+            </th>
+            <th>
+                <button class="pn-table-sort-trigger">Owner</button>
+
+            </th>
+            <th>
+                <button class="pn-table-sort-trigger">Mark literal
+                </button>
+
+            </th>
+            <th>
+                <button class="pn-table-sort-trigger">Mark image
+                </button>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody class="pn-table-grouped-rows-container" ng-class="class">
+        <tr class="pn-table-group-title-row">
+            <td>
+                <label>
+                    <input type="checkbox">
+                </label>
+            </td>
+            <td>
+                <a href="#">12345678</a>
+
+            </td>
+            <td>
+                1234567
+
+            </td><td>
+                2014-1234567
+
+            </td>
+            <td>Smith, Smith & Jones, LLC
+            </td>
+            <td>Carol Smith</td>
+            
+            <td>Acme Corp</td>
+            <td>image from the database</td>
+        </tr>
+
+<tr class="pn-table-group-title-row">
+            <td>
+                <label>
+                    <input type="checkbox">
+                </label>
+            </td>
+            <td>
+                <a href="#">12345678</a>
+
+            </td>
+            <td>
+                1234567
+
+            </td><td>
+                2014-1234567
+
+            </td>
+            <td>Smith, Smith & Jones, LLC
+            </td>
+            <td>Carol Smith</td>
+            
+            <td>Acme Corp</td>
+            <td>image from the database</td>
+        </tr>
+    </tbody>
+   
+</table>
+
+<div class="form-inline pull-right">
+    <div class="form-group">
+        <div class="dropdown" style="display: inline-block">
+            <button type="button" id="dropdownMenu3" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="text-muted normal">Showing</span> 150-160 <span class="text-muted normal">of</span> 305 <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+
+                <li style="padding: 0 16px" role="presentation">
+                    <form action="">
+                        <label>Jump to item</label>
+                        <input type="text" placeholder="150" class="form-control">
+                    </form>
+                </li>
+                <li class="divider"></li>
+                <li role="presentation" class="dropdown-header">Show up to</li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">10 items</a>
+                </li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">25 items</a>
+                </li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">50 items</a>
+                </li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">100 items</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <pager style="float: left;" boundary-links="true" items-per-page="15" total-items="1" ng-model="dict.currentPage" previous-text="<" next-text=">">
+        </pager>
+    </div>
+
+</div>

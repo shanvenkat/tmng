@@ -1,0 +1,178 @@
+<script id="addclassandid" type="text/template">
+
+<div id="utilityBarContainer"></div>
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-md-3" role="navigation" id="leftNavContainer"></div>
+        <div class="col-md-9">
+            <!-- begin Main -->
+            <main class="main-wrapper">
+            <div class="page-header">
+                <h1>On what goods and services will the mark be used?</h1>
+            </div>
+            <div class="page-body">
+                <div class="alert alert-info">
+                    <p>Note: Each class (category) of goods and services you include increases the cost of your filing fee.</p>
+                </div>
+                <hr />
+                <div class="form-inline">
+                    <div class="form-group">
+                        <p><b>Do you prefer adding your goods and services manually?</b></p>
+                    </div>
+                    <div class="form-group">
+                        <a id="manualEntry" class="btn btn-primary">Add Goods/Services Manually</a>
+                    </div>
+                </div>
+               
+                <!-- search form for ID manual -->
+                <hr />
+                <div class="row">
+                    <!-- first row -->
+                    <div class="col-md-12">                        
+                            <label for="searchText">Find goods and services below using their common name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <input class="form-control" name="searchText" id="searchText" />
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" id="search" class="btn btn-primary">Search
+
+                        </button>
+
+                    </div>                    
+                </div>
+                <div class="row margin-up-twenty">
+                    <div class="col-md-12">
+                        <div id='noresults'><!-- show this when no result -->
+                            <div class="alert alert-info"><p>Your identification of goods/services must be precise and accurate. If using the "Searching IDManual" option, do NOT simply select a listing that is "close" to your goods/services. If you do not find a listing that accurately identifies your goods/services, you may e-mail <span class="text-bold" style="font-weight:bold;"><a href="mailto:TMIDSUGGEST@uspto.gov?Subject=Hello" target="_top">TMIDSUGGEST@uspto.gov</a></span> to request that your identification be added to the IDManual, and then wait for the addition before filing. For more information on this process, <a href="">click here</a>. If your request is not approved or you wish to file immediately, you must use the "Entering Free-form text" option.</p>
+                            </div>
+                        </div>
+                        <div id='summary'>
+                            
+                        </div>
+                        <div id="searchresult"></div>
+                        <div id="pagination"></div>
+
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="addselectedContainer">
+                            <button class="btn btn-primary" id="addselectedGS">Add selected Goods and Services</button>
+                        </div>
+                        <br>
+                        <div id="removeErrorSummary">
+                            
+                        </div>
+                        <div id="selectIDContainer" <% if(collections.length == 0){%>style="display: none"<% } %> >                            
+                            <div id="addedGSList">
+                            <h2>List of Goods and Services Selected</h2>
+                            <table id="addedGSTable" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="col-md-1">
+                                            <input type="checkbox" name="removeCkAll" id="removeCkAll" onClick="toggleList(this);">
+                                            <label for="removeCkAll"><b>Select all</b></label>
+                                        </th>
+                                        <th scope="col" class="col-md-9">
+                                            Goods and Services
+                                        </th>
+                                        <th scope="col" class="col-md-2">
+                                            <small>International<br>Class
+                                            </small>
+                                        </th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <% _.each(collections.models, function(model){ %>
+                                    <tr id="gs<%= model.get('id') %>">                                        
+                                        <td>
+                                            <input type="checkbox" name="removeCk" id="<%= model.get('id') %>" value="<%= model.get('id') %>" >
+                                            <label for="<%= model.get('id') %>" class="sr-only"><%= model.get('description') %></label>
+                                        </td>                                        
+                                        <td><%= model.get('description') %> </td> 
+                                        <td><%= model.get('classId') %></td>
+                                    </tr>
+                                <% }); %>
+                                </tbody>
+                            </table>
+							<div id="selectedPaginationContainer"></div>
+                            <button id="removeGS" class="btn btn-warning">Remove Selected</button>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4 col-xs-4 ">
+                        <a class="btn btn-default margin-down-thirty" id="previousPage">Previous</a>
+                    </div>
+                    <div class="col-md-4 col-xs-4 text-center">
+                        <a class="btn btn-success margin-down-thirty" id="">Save</a>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <a class="btn btn-primary margin-down-thirty pull-right" id="continueButton">Next</a>
+                    </div>
+                </div>
+            </div>
+            </main>
+        </div>
+    </div>
+    <!-- end Main-->
+</div>
+</script>
+
+<script id="gsdetails" type="text/template">
+    <tr id="gs<%= model.get('id') %>">                                        
+        <td>
+            <input type="checkbox" name="removeCk" id="<%= model.get('id') %>" value="<%= model.get('id') %>" >
+            <label for="<%= model.get('id') %>" class="sr-only"><%= model.get('description') %></label>
+        </td>        
+        <td><%= model.get('description') %> </td>
+        <td><%= model.get('classId') %></td>
+    </tr>
+</script>
+<script id="idsearchdetails" type="text/template">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col" class="col-md-1">
+                </th>                
+                <th scope="col" class="col-md-9">
+                    Description
+                </th>
+                <th scope="col" class="col-md-2">
+                    <small>International<br>Class
+                    </small>
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+              <% _.each(idmresults, function(idmresult){ %>
+                 <tr>
+                    <td>
+                        <input type="checkbox" name="selected" value="<%= idmresult.id %>" id="<%= idmresult.id %>">
+                        <label for="<%= idmresult.id %>" class="sr-only"><%= idmresult.description %></label>
+                    </td>                    
+                    <td><p><%= idmresult.description %></p></td>
+                    <td>
+                        <span id="<%= idmresult.id %>-class-id"><%= idmresult.class_id %></span>
+                    </td>
+                </tr>
+            <% }); %> 
+          
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                  
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</script>

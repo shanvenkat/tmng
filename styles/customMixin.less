@@ -1,0 +1,59 @@
+// box
+
+.box-variant(@border; @bg-color) {
+  border-color: @border;
+  background-color: @bg-color; 
+}
+.outline-box-variant(@border) {
+  border-color: @border;
+}
+//button - gradient
+.button-gradient(@color; @background; @background-top; @background-btm; @border) {
+  color: @color;
+  #gradient > .vertical(@background-top, @background-btm, 0%, 100%);
+  border-color: @border;
+
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    color: @color;
+    background-color: darken(@background, 10%);
+        border-color: darken(@border, 12%);
+  }
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: @background;
+          border-color: @border;
+    }
+  }
+
+  .badge {
+    color: @background;
+    background-color: @color;
+  }
+}
+
+
+//font short cuts
+
+.font-size(@sizeValue) {
+  @remValue: @sizeValue;
+  @pxValue: (@sizeValue * 10);
+  font-size: ~"@{pxValue}"; 
+  font-size: ~"@{remValue}rem";
+}

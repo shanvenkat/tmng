@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-sm-4" ng-repeat="attorney in attorneys | orderBy:'roleCd'">
+    <p>
+      <span ng-if="attorney.roleCd === 'AT'"><b>Primary attorney of record</b><br/></span>
+      <span ng-if="attorney.roleCd === 'SAT'"><b>Additional attorney</b><br/></span>
+      {{attorney.partyName}}<br />
+      <!--
+      <br />Member, Virginia Bar Association
+      -->
+      <span ng-if="attorney.firmName != null">
+        {{attorney.firmName}}<br />
+      </span>
+      <span ng-if="attorney.address1 != null">
+        {{attorney.address}}<br />
+      </span>
+      <span ng-if="attorney.geographicRegion != null">
+        {{attorney.geographicRegion}}<br />
+      </span>
+      <span ng-if="attorney.country != null">
+        {{attorney.country}}<br />
+      </span>
+      <span ng-if="attorney.email != null">
+        (Email) {{attorney.email}}  <br />
+      </span>
+      <span ng-if="attorney.website != null">
+        (URL) {{attorney.website}}  <br />
+      </span>
+      <span ng-if="attorney.phone != null">
+        (Phone) {{attorney.phone}}  <br />
+      </span>
+      <span ng-if="attorney.fax != null">
+        (Fax) {{attorney.fax}}  <br />
+      </span>
+      <span ng-if="attorney.docketNumber != null">
+        Docket Number: {{attorney.docketNumber}}
+      </span>
+    </p>
+  </div>
+  
+</div>

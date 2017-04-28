@@ -1,0 +1,146 @@
+<h1>Search to select Marks</h1>
+<tabset type="pills">
+    <tab heading="Serial/Registration">
+        <div>
+            <div class="row ">
+                <div class="col-sm-8">
+                    <label for="exampleInput1 ">Enter the serial or registration number(s) for the cases</label>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-sm-10 padding-right-zero ">
+                    <input type="text " class="form-control " id="exampleInput1 ">
+                    <span class="help-block ">Enter one or more 7-digit or 8-digit numbers separated by commas</span>
+                </div>
+                <div class="col-sm-2 ">
+                    <button class="btn btn-primary " ng-click="goSomewhere() ">Add</button>
+                </div>
+            </div>
+        </div>
+    </tab>
+    <tab heading="Owner/Applicant">
+        <h3 class="section-heading">Find all mark records with ...</h3>
+        <div class="row form-group ">
+            <div class="col-sm-7 ">
+                <label for="input5">Any of these owner or applicant names</label>
+                <input id="input5" class="form-control" />
+                <p class="help-block">Enter all or part of the owner name(s), separated by commas</p>
+            </div>
+            <div class="col-sm-5 ">
+                <p class="text-muted">Enter the name as it is on the applicaton or registration. Your results will include any records with an owner or applican'ts name containing one of your entries.</p>
+            </div>
+        </div>
+        <hr />
+        <h3 class="section-heading">But only those including one or more of the following ...</h3>
+        <div class="row form-group ">
+            <div class="col-sm-7 ">
+                <label for="input6">This owner or applicant street address</label>
+                <input id="input6" class="form-control" />
+                <p class="help-block">Enter a street address only. </p>
+            </div>
+            <div class="col-sm-5 ">
+                <p class="text-muted">The street address of the owner as listed on the mark record. Enter all or part of the street address. Do not include the city, state, zip or postal code, or country. </p>
+            </div>
+        </div>
+        <div class="row form-group ">
+            <div class="col-sm-7 ">
+                <label for="entityType1">An owner with this entity type</label>
+                <select id="entityType1" class="form-control margin-btm-ten">
+                    <option></option>
+                </select>
+                <label for="entityType2" class="sr-only">domestic entity type</label>
+                <select id="entityType2" class="form-control">
+                    <option></option>
+                </select>
+
+            </div>
+            <div class="col-sm-5 ">
+                <p class="text-muted">If the owner is a citizen or organized in the U.S., you can limit to this domestic entity type or "other". If the owner is a non-U.S. entity, select a foreign entity type or "other foreign entity".</p>
+            </div>
+        </div>
+        <div class="row form-group ">
+            <div class="col-sm-7 ">
+                <label for="citizenship1">An owner with citizenship or legally organized in this country or U.S. state</label>
+                <select id="citizenship1" class="form-control margin-btm-ten">
+                    <option></option>
+                </select>
+                <label for="citizenship2" class="sr-only">An owner with citizenship or legally organized in this country or U.S. state</label>
+                <select id="citizenship2" class="form-control">
+                    <option></option>
+                </select>
+
+            </div>
+            <div class="col-sm-5 ">
+                <p class="text-muted">Records with at least one individual owner having citizenship in the selected country or state. Or, for other entity types, the country or state where the entity is legally organized or incorporated.</p>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-3">
+                <button class="btn btn-primary btn-block" ng-click="goToSearchResultByOwner()">Search</button>
+            </div>
+        </div>
+    </tab>
+    <tab heading="Attorney/Firm">
+        <h3 class="section-heading">Find all mark records with</h3>
+        <div class="row form-group ">
+            <div class="col-sm-7 ">
+                <label for="input1">Any of these attorneys or firms</label>
+                <input id="input1" class="form-control" />
+                <p class="help-block">Enter all or part of each name, separated by [commas]</p>
+            </div>
+            <div class="col-sm-5 ">
+                <p class="text-muted">Your results will include any records with either the firm name or an attorney name matching your entries.</p>
+            </div>
+        </div>
+        <hr />
+        <h3 class="section-heading">But only those including one or more of the following ...</h3>
+        <div class="row form-group ">
+            <div class="col-sm-7 ">
+                <label for="select1">Attorneys with addresses in this state</label>
+                <select id="select1" class="form-control">
+                    <option></option>
+                </select>
+            </div>
+            <div class="col-sm-5 ">
+                <p class="text-muted">Picking a state here will limit the results to records with an attorney listing this state as the attorney's address.</p>
+            </div>
+        </div>
+        <div class="row form-group ">
+            <div class="col-sm-7 ">
+                <label for="input2">This domain name in the attorney email address</label>
+                <input id="input2" class="form-control" />
+                <p class="help-block">Enter the part of the email address after the "@" sign</p>
+            </div>
+            <div class="col-sm-5 ">
+                <p class="text-muted">Entering a domain name here limits the results to records with an attorney email address ending in this entry, e.g., "attorney@domain.com"</p>
+            </div>
+        </div>
+        <div class="row form-group ">
+            <div class="col-sm-7 ">
+                <label for="input3">Records for this mark owner</label>
+                <input id="input3" class="form-control" />
+                <p class="help-block">Enter all or part of the name</p>
+            </div>
+            <div class="col-sm-5 ">
+                <p class="text-muted">Your entry here limits your results to marks that have this owner name.</p>
+            </div>
+        </div>
+        <div class="row form-group ">
+            <div class="col-sm-7 ">
+                <label for="input4">This exact name or firm name</label>
+                <input id="input4" class="form-control" />
+
+            </div>
+            <div class="col-sm-5 ">
+                <p class="text-muted">To limit your search, you can enter the name as it is on the application or registration</p>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-3">
+                <button class="btn btn-primary btn-block" ng-click="goToSearchResultByAttorney()">Search</button>
+            </div>
+        </div>
+    </tab>
+</tabset>

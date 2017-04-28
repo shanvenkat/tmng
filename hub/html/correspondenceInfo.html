@@ -1,0 +1,217 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a href="#">Attorney</a>
+        </li>
+        <li class="completed"><a href="#/html/attorneyTask">Actions</a>
+        </li>
+        <li class="disabled"><a href="#">Search</a>
+        </li>
+        <li class="disabled"><a href="#">Search Results</a>
+        </li>
+        <li class="disabled" dropdown is-open="status.isopen">
+            <a type="button" href="#" class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">My List <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a>
+                </li>
+                <li><a href="#">Another action</a>
+                </li>
+                <li><a href="#">Something else here</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<div ng-show="ctrlName=='domesticRep'">
+    <h1>Update Domestic Rep (Step 2)</h1>
+</div>
+<div ng-show="ctrlName=='correspondence'">
+    <h1>Update Correspondent Information (Step 2)</h1>
+</div>
+<div class="alert alert warning">
+    <p>Warning: You may not use this form if you are not the applicant’s/registrant’s current Primary attorney of record, or the mark owner.</p>
+</div>
+<div class="form-group row">
+    <div class="col-sm-5">
+        <button class="btn btn-default" ng-click="goBack()">
+            < Back to Step 1</button>
+    </div>
+</div>
+<h2>1 Selection</h2>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div ng-include="'html/attorneyInfo.html'"></div>
+
+        <div class="margin-top-twenty">
+            <p><a href="">View all attorneys (in TSDR)</a>
+        </div>
+        <div class="expandcollapse-link">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
+                Show attorney details
+            </button>
+
+            <div class="collapse" id="collapseExample1" aria-expanded="false" style="height: 0px;">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table margin-top-twenty">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Attorney</th>
+                                    <th scope="col">Firm</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Docket number</th>
+                                    <th scope="col">Email address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                </tr>
+                                <tr>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                </tr>
+                                <tr>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                    <td>text</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div ng-show="ctrlName=='correspondence'">
+            <h2 class="section-heading">Correspondence Information</h2>
+        </div>
+        <div ng-show="ctrlName=='domesticRep'">
+            <h2 class="section-heading">Domestic Representative Information</h2>
+        </div>
+
+        <p>The USPTO will send all future correspondence to the address you select below, until a new power of attorney or change of correspondence address is filed.</p>
+        <p><i>WARNING: For an application filed under TEAS Plus or TEAS RF, the failure to maintain a correct e-mail address for ongoing e-mail communication will result in the loss of TEAS Plus or TEAS RF status and a requirement to pay $50 per class processing fee.</i>
+        </p>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+
+        <div ng-show="ctrlName=='correspondence'">
+            <h2 class="section-heading">Select a Correspondence</h2>
+        </div>
+        <div ng-show="ctrlName=='domesticRep'">
+            <h2 class="section-heading">Select a Domestic Representative</h2>
+        </div>
+
+        <div class="row equalheight" equal-height>
+            <div class="col-sm-4 ">
+                <div class="box" ng-class="divSelected ? 'box-info' : 'box-default'">
+                    <div class="radio">
+                        <label>
+                            <!-- input box to toggle a variable to true or false -->
+                            <input type="radio" ng-model="divSelected">
+                            <p ng-show="ctrlName=='correspondence'">Current Correspondent</p>
+                            <p ng-show="ctrlName=='domesticRep'">Current Domestic Representative</p>
+                            <p><span class="text-bold">Smith, Adam Keller</span>
+                                <br />Member, Virginia Bar Association
+                                <br />
+                                <br /><span class="text-bold">Example, LLC</span>
+                                <br />123 Example Street
+                                <br />Suite 400
+                                <br />Vienna, VA 22181
+                                <br />USA
+
+                                <br />(p) 202-234-2343
+                                <br />(f) 202-123-4321
+                                <br />
+                                <br />Adam.keller@lawfirm.com
+                            </p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4 ">
+                <div class="box" ng-class="divSelected ? 'box-info' : 'box-default'">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" ng-model="divSelected">
+                            <p>Mark Owner's</p>
+                            <p><span class="text-bold">Owner, Adam Keller</span>
+                                <br /> Owner, Virginia Bar Association
+                                <br />
+                                <br /><span class="text-bold">Owner Example, LLC</span>
+                                <br />123 Example Street
+                                <br />Suite 400
+                                <br />Vienna, VA 22181
+                                <br />USA
+
+                                <br />(p) 202-234-2343
+                                <br />(f) 202-123-4321
+                                <br />
+                                <br /> Owner.keller@lawfirm.com
+                            </p>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="box" ng-class="content ? 'box-info' : 'box-default'">
+                    <div class="radio">
+                        <label>
+                            <input id="first" type="radio" name="content" ng-model="content" value="first">
+                            <span ng-show="ctrlName=='correspondence'">
+                    I wish to provide new correspondence information</span>
+
+                            <span ng-show="ctrlName=='domesticRep'">
+                    I wish to provide new domestic Representative</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="panel-body" ng-show="content == 'second'">
+        <div ng-include="'html/addressForm.html'"></div>
+
+    </div>
+    <div class="panel-body" ng-show="content == 'first'">
+        <div ng-include="'html/correspondenceForm.html'"></div>
+
+    </div>
+    <div class="panel-footer">
+
+        <div class="row">
+            <div class="col-md-4 col-xs-4 ">
+                <button class="btn btn-default" id="previousPage">Cancel</button>
+            </div>
+            <div class="col-md-4 col-xs-4 text-center">
+                <button class="btn btn-default" id="saveButton">Save</button>
+            </div>
+            <div class="col-md-4 col-xs-4 text-right">
+
+                <button class="btn btn-primary pull-right" ng-show="ctrlName=='correspondence'" id="continueButton" ng-click="goToDomesticRep()">Continue</button>
+                <button class="btn btn-primary pull-right" ng-show="ctrlName=='domesticRep'" id="continueButton" ng-click="goToReview()">Continue</button>
+            </div>
+        </div>
+    </div>
+
+</div>

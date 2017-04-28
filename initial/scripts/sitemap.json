@@ -1,0 +1,32 @@
+{
+    "search": [
+        "search"
+    ],
+	"ownerDetails": [
+        "ownerDetails"
+    ],
+    "results": [
+        "search",
+        "results"
+    ],
+    "compare": [
+        "search",
+        "results",
+        "compare"
+    ],
+    "profile": [
+        "search",
+        "profile"
+    ],
+    "profileresults": [
+        "search",
+        "results",
+        "profile"
+    ],
+    "correspondenceDetails": [
+        "search",
+        "results",
+        "compare",
+        "profile"
+    ]
+}

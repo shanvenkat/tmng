@@ -1,0 +1,227 @@
+
+
+<div class="row" style="margin-bottom: 20px;">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-8 text-right">
+        <span class="badge">{{selectedItems}}</span> Selected records
+        <button class="btn btn-default">Add to My List</button> or
+        <button class="btn btn-primary" ng-click="goToAppoint()">Appoint attorney</button>
+    </div>
+</div>
+<div class="alert alert-danger" ng-show="showErr" >You have to choose at least one trademark </div>
+
+
+<table class="table fixed">
+    <thead></br></br>
+        <tr>
+            <th class="" style="width: 50px;">
+                <label>
+                    <input type="checkbox" ng-click="allNeedsClicked()" ng-checked="allNeedsMet()">
+                </label>
+            </th>
+            <th class="" aria-sort="ascending">
+                <button class="pn-table-sort-trigger">Primary attorney</button>
+            </th>
+            <th>
+                <button class="pn-table-sort-trigger">Firm
+                    <br />name</button>
+
+            </th>
+            <th>
+                <button class="pn-table-sort-trigger">Other appointed
+                    <br />attorneys</button>
+
+            </th>
+            <th>
+                <button class="pn-table-sort-trigger">Serial
+                    <br />number</button>
+                <button class="pn-select-columns"><span>Select columns</span>
+            </th>
+            <th>
+                <button class="pn-table-sort-trigger">Owner</button>
+                <button class="pn-select-columns"><span>Select columns</span>
+            </th>
+            <th class="pn-last-visible">
+                <button class="pn-table-sort-trigger">Mark image
+                </button>
+                <!-- Note for Lechen - please show image, if no image then show mark literal -->
+                <button class="pn-select-columns"><span>Select columns</span>
+            </th>
+        </tr>
+    </thead>
+<<<<<<< .mine
+    <!--<tbody class="pn-table-grouped-rows-container" ng-class="activePosition == $index? 'defaultClass':'pn-inactive'" ng-repeat="result in searchResults.list">-->
+    <tbody class="pn-table-grouped-rows-container" ng-class="activePosition == $index? 'defaultClass':'pn-inactive'" ng-repeat="result in solrResults.response.docs">
+                
+=======
+    <tbody class="pn-table-grouped-rows-container" ng-class="activePosition == $index? 'defaultClass':'pn-inactive'" ng-repeat="result in searchResults.list ">
+>>>>>>> .r1599
+        <tr class="pn-table-group-title-row">
+            <td>
+                <label>
+                    <input type="checkbox" ng-model="result.cb" ng-click="calculateSelectedItems()">
+                </label>
+            </td>
+            <td class="freeze-column">
+                <!--<button ng-click="toggleClass($index)"><span style="display:none;">Expand/collapse</span> {{result.primaryAttorneyName}}-->
+                    
+                <button ng-click="toggleClass($index)"><span style="display:none;">Expand/collapse</span> {{result.primary_attorney_first_nm}},{{result.primary_attorney_last_nm}} 
+                </button>
+
+            </td>
+            <!--<td>{{result.primaryAttorneyFirm}}</td>
+            <td>{{result.additionalAttorneys}}</td>-->            
+            <!--<td><a target="_blank" href="http://tsdr.uspto.gov/#caseNumber={{result.serialNumTx}}&caseType=SERIAL_NO&searchType=statusSearch">{{result.serialNumTx}}</a>-->
+            <td></td>
+            <td></td>
+            <td><a target="_blank" href="http://tsdr.uspto.gov/#caseNumber={{result.serialNumTx}}&caseType=SERIAL_NO&searchType=statusSearch">{{result.serial_num}}</a>
+            </td>
+            <!--<td>{{result.owner}}</td>-->
+            <td>{{result.owner_nm}}</td>            
+
+            <td>
+                <div ng-if="result.standardCharacterTx!=null" >
+                    {{result.literalElementTx}}
+                </div>
+                <div ng-if="result.standardCharacterTx==null" >
+                    <!--<img src="http://tess2.uspto.gov/ImageAgent/ImageAgentProxy?getImage={{result.serialNumTx}}" alt="Trademark Image" height="100%" width="100%" />-->
+                    <img src="http://tess2.uspto.gov/ImageAgent/ImageAgentProxy?getImage={{result.serial_num}}" alt="Trademark Image" height="100%" width="100%" />
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="expandedContainer" colspan="7" ng-show="activePosition == $index">
+                <div class="expandedContent">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <table class="no-border">
+                                <tr>
+                                    <th scope="col">Serial Number:</th>
+                                    <!--<td scope="col">{{result.serialNumTx}}</td>-->
+                                    <td scope="col">{{result.serial_num}}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Registration Number:</th>
+                                    <!--<td>{{result.registrationNum}}</td>-->
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-4">
+                            <table class="no-border">
+                                <tr>
+                                    <th scope="col">Filing Date:</th>
+                                    <!--<td scope="col">{{result.filingDt|date:'yyyy-MM-dd'}}</td>-->
+                                    <td scope="col">{{ formatDate(result.filing_dt) | date:'yyyy-MM-dd' }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Registration Date:</th>
+                                    <td></td>
+                                 </tr>
+
+                            </table>
+                        </div>
+                        <div class="col-md-4">
+                            <table class="no-border">
+                                <tr>
+                                    <th scope="col">Class IDs:</th>
+                                    <!--<td scope="col">{{result.classIds}}</td>-->
+                                    <td scope="col">{{result.trademark_id}}</td>
+                                </tr>
+                                <tr>
+                                    <!--<th ng-if="result.mark_literal!=null" scope="row">Mark Literal:</th>
+                                    <td ng-if="result.standardCharacterTx!=null" >
+                                        {{result.literalElementTx}}
+                                    </td>-->
+                                    <th ng-if="result.mark_literal!=null" scope="row">Mark Literal:</th>
+                                    <td ng-if="result.mark_literal!=null" >      
+                                            {{result.mark_literal}}
+                                    </td>
+                                    <th ng-if="result.standardCharacterTx==null" scope="row">Mark Image:</th>
+                                    <td ng-if="result.standardCharacterTx==null" >
+                                        <!--<img src="http://tess2.uspto.gov/ImageAgent/ImageAgentProxy?getImage={{case.serialNumTx}}" alt="Trademark Image" height="100%" width="100%" />-->
+                                        <img src="http://tess2.uspto.gov/ImageAgent/ImageAgentProxy?getImage={{result.serial_num}}" alt="Trademark Image" height="100%" width="100%" />
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>                        
+                        <div class="col-md-12">
+                            <table class="table">
+                                <tr>
+                                    <th scope="col">Attorney</th>
+                                    <th scope="col">Firm</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Docket Number</th>
+                                    <th scope="col">Email Address</th>
+                                </tr>
+<<<<<<< .mine
+                                <tr ng-repeat="attorney in result.secondary_attorney">                                  
+                                                    
+                                   <td>{{getName(attorney)}}</td>
+                                   <td></td>
+                                   <td>{{getAddress(attorney)}}</td>
+                                   <td>{{getDocketNumber(attorney)}}</td>
+                                    <td>{{getEmail(attorney)}}</td>
+                                    <!--<td>{{attorney.attorneyName}}</td>
+=======
+                                <tr ng-repeat="attorney in result.attorneys ">
+                                    <td>{{attorney.partyName}}</td>
+>>>>>>> .r1599
+                                    <td>{{attorney.firmName}}</td>
+                                    <td>
+                                        <ul class="list-unstyled">
+                                            <li>{{attorney.address}}</li>
+                                            <li>{{attorney.geographicRegion}}</li>
+                                            <li>{{attorney.country}}</li>
+                                        </ul>
+                                    </td>
+                                    <td>{{attorney.docketNumber}}</td>
+                                    <td>{{attorney.email}}</td>-->
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </td>
+
+        </tr>
+</table>
+
+
+
+<div class="form-inline pull-right" ng-if="searchResults.totalResults>0">
+    <div class="form-group">
+        <div class="dropdown">
+            <button type="button" id="pageControlBtn" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="text-muted normal">Showing</span> {{(dict.currentPage-1)*pageSize+1}}-{{(dict.currentPage*pageSize>searchResults.totalResults)? searchResults.totalResults : dict.currentPage*pageSize}} <span class="text-muted normal">of</span> {{searchResults.totalResults}} <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+
+                <li style="padding: 0 16px" role="presentation">
+                    <form name="pagerForm" novalidate ng-submit="pagerForm.$valid && goToPage()">
+                        <label for="jumpToItem2">Jump to item</label>
+                        <input id="jumpToItem2" ng-model="itemToDisplay" type="number" min="1" max="{{searchResults.totalResults}}" class="form-control" required>
+                    </form>
+                </li>
+                <li class="divider"></li>
+                <li role="presentation" class="dropdown-header">Show up to</li>
+                <li role="presentation" ng-repeat="itemPerPage in itemPerPages" ><a role="menuitem" tabindex="-1"  ng-click="changePageSize(itemPerPage)">{{itemPerPage}} items</a>
+                </li>
+                <!--li role="presentation"><a role="menuitem" tabindex="-1" href="#">25 items</a>
+                </li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">50 items</a>
+                </li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">100 items</a>
+                </li-->
+            </ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <pager style="float: left;" boundary-links="true" items-per-page="searchResults.pageSize" total-items="searchResults.totalResults"  ng-model="dict.currentPage" ng-change="pageChanged()" previous-text="<" next-text=">">
+        </pager>
+    </div>
+
+</div>

@@ -1,0 +1,294 @@
+
+        <form>
+            <div class="form-group row">
+                <div class="col-sm-5">
+                    <label for="firstName" class="control-label">First name (personal name)
+                        <span>*
+                            <span class="sr-only">Required</span>
+                        </span>
+                    </label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" ng-model="firstName" required>
+                    <p class="help-block" ng-if="attorneyForm.name.$error.required">The attorney's name is required</p>
+
+                </div>
+                <div class="col-sm-2">
+                    <label for="middleName" class="">Middle name</label>
+                    <input type="text" class="form-control" id="middleName" name="middleName">
+
+                </div>
+                <div class="col-sm-5">
+                    <label for="lastName" class="">Last name (surname or family name)
+                        <span>*
+                            <span class="sr-only">Required</span>
+                        </span>
+                    </label>
+
+                    <input type="text" class="form-control" id="lastName" name="lastName">
+
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-3">
+                    <label for="suffix" class="">Suffix (Jr., Sr., III, etc.)</label>
+
+                    <select class="form-control" id="suffix" name="suffix">
+                        <option></option>
+                        <option>Jr.</option>
+                        <option>Sr.</option>
+                        <option>III</option>
+                    </select>
+
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-8">
+                    <label for="nameLine2Tx" class="">Bar information/ membership(s)</label>
+                    <input type="text" class="form-control" name="nameLine2Tx" id="nameLine2Tx">
+                    <span class="help-block">Enter bar association membership(s), separated by semicolons (;)
+                    </span>
+                </div>
+                <div class="col-sm-8">
+                    <label for="nameLine3Tx" class="">Firm name</label>
+                    <div><input type="checkbox"><label>Same firm as the primary attorney of record</label></div>
+                    <input type="text" class="form-control" name="nameLine3Tx" id="nameLine3Tx">
+
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <div class="col-sm-8">
+                    <label for="country" class="">
+                        Country
+                        <span>*
+                            <span class="sr-only">Required</span>
+                        </span>
+                    </label>
+                    <div class="control-group">
+                        <div class="controls">
+                            <select class="form-control" id="country" name="country">
+                                <option value="">Please select</option>
+                                <option value="US">United States</option>
+                                <option value="AF">Afghanistan</option>
+                                <option value="AX">&#197;land Islands</option>
+                                <option value="AL">Albania</option>
+                                <option value="DZ">Algeria</option>
+                                <option value="AS">American Samoa</option>
+                                <option value="AD">Andorra</option>
+                                <option value="BO">Bolivia, Plurinational State of</option>
+                                <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+                                <option value="BA">Bosnia and Herzegovina</option>
+                                <option value="BW">Botswana</option>
+                                <option value="BV">Bouvet Island</option>
+                                <option value="BR">Brazil</option>
+                                <option value="IO">British Indian Ocean Territory</option>
+                                <option value="BN">Brunei Darussalam</option>
+                                <option value="BG">Bulgaria</option>
+                                <option value="BF">Burkina Faso</option>
+                                <option value="BI">Burundi</option>
+                                <option value="KH">Cambodia</option>
+                                <option value="CM">Cameroon</option>
+                                <option value="CA">Canada</option>
+                                <option value="VG">Virgin Islands, British</option>
+                                <option value="VI">Virgin Islands, U.S.</option>
+                                <option value="WF">Wallis and Futuna</option>
+                                <option value="EH">Western Sahara</option>
+                                <option value="YE">Yemen</option>
+                                <option value="ZM">Zambia</option>
+                                <option value="ZW">Zimbabwe</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-8">
+                    <label for="address1" class="">
+                        Address Line 1
+                        <span>*
+                            <span class="sr-only">Required</span>
+                        </span>
+                    </label>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="text" class="form-control" id="address1" name="address1" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-8">
+                    <label for="address2" class="">
+                        Address Line 2
+                    </label>
+                    <input type="text" class="form-control" id="address2" name="address2" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-8">
+                    <label for="address3" class="">
+                        Address Line 3
+                    </label>
+                    <input type="text" class="form-control" id="address3" name="address3" />
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <div class="col-sm-5">
+                    <label for="city" class="">
+                        City
+                        <span>*
+                            <span class="sr-only">Required</span>
+                        </span>
+                    </label>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="text" class="form-control" id="city" name="city" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-5">
+                    <label for="state" class="">
+                        State
+                        <span>*
+                            <span class="sr-only">Required</span>
+                        </span>
+                    </label>
+                    <select id="state" name="state" class="form-control">
+                        <option value="">Please Select...</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="AE">Armed Forces Europe</option>
+                        <option value="AP">Armed Forces Pacific</option>
+                        <option value="AA">Armed Forces the Americas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-5">
+                    <label for="zip" class="">
+                        Zip code
+                        <span>*
+                            <span class="sr-only">Required</span>
+                        </span>
+                    </label>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="text" class="form-control" id="zip" name="zip" required />
+                        </div>
+                    </div>
+                    <span class="help-block">XXXXX or XXXXX-XXXX
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-5">
+                    <label for="phone" class="">
+                        Phone number
+                    </label>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="text" class="form-control" id="phone" name="phone" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-5">
+                    <label for="fax" class="">
+                        Fax
+                    </label>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="text" class="form-control" id="fax" name="fax" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group row" show-errors='{showSuccess: true}'>
+                <div class="col-sm-8">
+                    <label for="email" class="control-label">Email</label>
+                    <input type="email" class="form-control" name="email" ng-model="attorney.email" id="email" required />
+                    <p class="help-block" ng-if="attorneyForm.email.$error.required">The attorney's email is required</p>
+                    <p class="help-block" ng-if="attorneyForm.email.$error.email">The email address is invalid</p>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-8">
+                    
+                    <label ><input type="checkbox" id="email13"  required />
+Add this attorney to the list of courtesy copy emails for this record</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-8">
+                    <label for="website" class="">Website URL</label>
+                    <input type="url" class="form-control" id="website" name="website" required />
+
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-8">
+                    <label for="docketNumber" class="">Docket or Reference Number</label>
+
+                    <input type="text" class="form-control" name="docketNumber" id="docketNumber">
+
+                </div>
+            </div>
+           
+
+        </form>
+        

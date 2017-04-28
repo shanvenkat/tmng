@@ -1,0 +1,119 @@
+/*
+This file sets the styles for jPanel - (navigation that slides out when triggered by a button on mobile view
+*/
+
+/* If the offcanvas is open, take out the left margin from container */
+&[data-menu-position=open] {
+	.container {
+		margin-left: 10px;
+	}
+    
+    .navbar-toggle.navbar-toggle-main {
+        background: $brand-info;
+        
+        .icon-bar {
+            background-color: $navyblue-darker;
+        }
+    }
+}
+
+.navbar-toggle.navbar-toggle-main {
+	float: left;
+	margin: 10px 10px 0px 0 !important;
+	padding: 15px !important;
+    display: inline-block;
+    @include background($brand-primary, $navyblue-darker);
+    @include border-radius(8px);
+	
+	.icon-bar {
+		background-color: $brand-info; 
+		height: 3px;			
+	}
+}
+
+@media (max-width: $screen-md-min) {
+	.navbar-toggle-main {
+		display: block;
+	}
+}
+
+#jPanelMenu-menu {
+	overflow-y: auto;
+    		
+    > li {
+        margin-top: 0;
+        margin-bottom: 2px;
+        
+        em:before {
+            content: "\e113"
+        }
+    }
+
+    > li {
+        
+        > a {
+            // main
+            padding: 15px 15px;
+            font-size: 15px;
+            background: $brand-info;
+            color: $navyblue-darker;
+            font-weight: bold;
+            display: table;
+            width: 100%;
+            
+            em:before {
+                content: "\e113"
+            }
+            
+            > span {
+                display: table-cell;
+                width: 100%;
+            }
+            
+            > em {
+                margin-top: 3px;
+                font-size: 16px;
+                display: table-cell;
+                vertical-align: middle;
+            }
+            
+            &.collapsed {
+                @include background($brand-primary, $navyblue-darker);
+                font-weight: bold;
+                color: $brand-white;
+                
+                em:before {
+                    content: "\e114"
+                }
+            }
+        }
+    }
+
+    ul.sub-menu {
+        padding-left: 0;
+        li {
+            background: $brand-default;
+            @include background($brand-default, $grayblue-dark);
+            color: $navyblue-darker;
+            padding: 8px 20px;
+            
+            &.divider {
+                height: 2px;
+                margin: 0;
+                padding: 0;
+                background: $navyblue-darker;
+            }
+            
+            a {
+                color: $navyblue-darker;
+                font-size: 12px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.jPanelMenu-panel {
+	background: $grayblue-dark;
+	@include background($grayblue-dark, $brand-white);
+}

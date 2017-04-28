@@ -1,0 +1,737 @@
+<div class="pn-flex-row pn-flex-grid" style="-webkit-box-flex: 1; flex-grow: 1;">
+    <div class="pn-flex-gutter"></div>
+    <div class="pn-flex-col" style="-webkit-box-flex: 1; flex-grow: 1;">
+        <div class="pn-flex-gutter"></div>
+        <div class="pn-flex-row pn-flex-fit-content">
+            <div class="pn-flex-col" style="-webkit-box-flex: 1; flex-grow: 1;">
+                <div class="pn-flex-view pn-src-ribbon">
+                    <div class="pn-flex-body">
+                        <div class="ribbon-toolbar">
+                            <div>
+                                <a href="#dash" class="btn docket" title="Docket">
+                                    <span>Docket</span>
+                                </a>
+                                <label class="recent better-select">
+                                    <span>Recent Cases</span>
+                                    <select>
+                                        <option data-source=".title" class="pn-bindomatic-insertion-point-zombie" style="display: none;"></option>
+                                    </select>
+                                </label>
+                                <div>
+                                    <a class="code-version" href="../test#meta" target="_blank">515
+</a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <a class="alerts" href="#alerts.html">
+                                    <div class="messages">
+                                        <!-- A stack of spans that will always contain at least two children, the first
+                        being the previously displayed message, the second is the current message and
+                        the remainder are the upcoming queue. -->
+                                        <span class="default-message">Show all messages</span>
+                                        <span class="default-message">Show all messages</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <div class="dev-interesting-cases hidden">
+                                    <label>
+                                        <span>Special cases</span>
+                                        <select class="dev-special-case"></select>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="messagesContainer">
+                                <a class="messages" href="#alerts.html" title="Messages">
+                                    <span class="alert-unread-count">0</span>
+                                    <span>Messages</span>
+                                </a>
+                            </div>
+
+                            <div class="alertsContainer">
+                                <a class="alerts" href="#alerts-new.html" title="Alerts">
+                                    <!--Needs special event handler-->
+                                    <span class="notification-unread-count empty">0</span>
+                                    <span>Alerts</span>
+                                </a>
+                            </div>
+
+                            <div>
+                                <form class="ribbonSearch input-append">
+                                    <label class="search">
+                                        <span>Search</span>
+                                        <input class="input-medium" type="search" name="search" placeholder="Find Serial Number">
+                                    </label>
+                                    <button type="submit" class="btn">Open</button>
+                                </form>
+                                <fieldset class="user user-menu pn-menu">
+                                    <legend>
+                                        <!--<button  type="button" >Set</button>-->
+                                        
+                                            <span>Last Name, First Name Click me to see the font-resizer</span>
+                                       
+                                    </legend>
+                                    <ul id="da86ac1b-4a3b-4e81-ad04-5eed273a819c" tabindex="0" style="position: fixed; display: none;">
+                                        <li>
+                                            <button type="button" value="prefs">My Preferences</button>
+                                        </li>
+                                        <li>
+                                            <button type="button" ng-click="showPopup()" value="fontSize" >Font Size</button>
+                                        </li>
+                                       
+                                        <li>
+                                            <button type="button" value="logout">Logout</button>
+                                        </li>
+                                        <li class="pn-focus-trap" tabindex="0" style="display: block; position: absolute; height: 0px; width: 0px; border: none; margin: 0px; padding: 0px;"></li>
+                                    </ul>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="dash pn-src-ribbon-sub">
+                            <!-- Always has one or the other of the "dash" or "case" class -->
+                            <div class="dash">
+                                <ul class="layouts btn-group">
+                                    <!-- TODO: would rather not have these non-semantic "btn" classes, but they don't
+                        display quite right as less mixins -->
+                                    <li class="layout-on"><a href="#dash" class="btn">Dockets</a>
+                                    </li>
+                                    <li><a href="#reports" class="btn">Reports</a>
+                                    </li>
+                                </ul>
+                            </div>                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pn-flex-gutter"></div>
+        <div class="pn-flex-row" style="-webkit-box-flex: 1; flex-grow: 1;">
+            <div class="pn-flex-col pn-flex-fit-content">
+                <div class="pn-flex-view pn-src-toolbox open" ng-class="class">
+                    <div class="pn-flex-body">
+                        <!-- <h2 class="tools">Tools</h2> -->
+                        <!-- For each link under "tools," JavaScript adds a class matching the href -->
+                        <!-- If user is not a supervisor, JavaScript removes links with class "supervisor" -->
+                        <div class="toolbox-content">
+                            <div class="dash reports screenshot submenu libraryResponse">
+                                <h3 class="icon-resources dash reports screenshot case oa xsearch contextual tools libraryResponse">Resources</h3>
+                                <ul class="dash reports screenshot case oa xsearch contextual tools libraryResponse">
+                                    <li class="resource-center">
+                                        <a href="#" target="_blank" >
+                                            <span>Resource Center</span>
+                                        </a>
+                                    </li>
+                                    <li class="tidm">
+                                        <a href="#">
+                                            <span>ID Manual</span>
+                                        </a>
+                                    </li>
+                                    <li class="resource-center">
+                                        <a>
+                                            <span>TMEP</span>
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+
+                            <div class="dash reports screenshot submenu supervisor">
+                                <h3 class="icon-mywork dash reports screenshot contextual tools">My Work</h3>
+                                <ul class="dash reports screenshot contextual tools">
+                                    <li class="docket-findings open">
+                                        <a href="#">
+                                            <span>Findings</span>
+                                        </a>
+                                    </li>
+                                    <li class="requests">
+                                        <a href="#">
+                                            <span>Requests</span>
+                                        </a>
+                                    </li>
+                                    <li class="appeal-briefs">
+                                        <a href="#">
+                                            <span>Appeal Briefs</span>
+                                        </a>
+                                    </li>
+                                    <li class="resource-center">
+                                        <a>
+                                            <span>Writing Reviews</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="dash reports screenshot submenu supervisor">
+                                <h3 class="icon-attorney dash reports screenshot contextual tools supervisor">Attorney Work</h3>
+                                <ul class="dash reports screenshot contextual tools">
+                                    <li class="docket-supervisor open">
+                                        <a href="#">
+                                            <span>Attorney Dockets</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="dash reports screenshot submenu mentor">
+                                <h3 class="icon-mentoring dash reports screenshot contextual tools mentor">Mentoring</h3>
+                                <ul class="dash reports screenshot contextual tools">
+                                    <li class="docket-mentor">
+                                        <a href="#">
+                                            <span>Mentor Docket</span>
+                                            <span class="mentor-docket-num tbx-count">(0)</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="dash reports screenshot submenu">
+                                <h3 class="icon-mydocket dash reports screenshot contextual tools">My Docket</h3>
+                                <ul class="dash reports screenshot contextual tools">
+                                    <li class="docket open">
+                                        <a href="#">
+                                            <span>My Docket</span>
+                                            <span class="my-docket-num tbx-count">(8)</span>
+                                        </a>
+                                    </li>
+                                    <li class="office-action-drafts">
+                                        <a href="#">
+                                            <span>Office Action Drafts</span>
+                                        </a>
+                                    </li>
+                                    <li class="docket-active">
+                                        <a href="#">
+                                            <span>My Other Cases</span>
+                                        </a>
+                                    </li>
+                                    <li class="docket-mail">
+                                        <a href="#">
+                                            <span>Print Docket</span>
+                                        </a>
+                                    </li>
+                                    <li class="library-docket">
+                                        <a href="#">
+                                            <span>Library Docket</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                           
+                            <div class="case oa xsearch submenu libraryResponse">
+                                <h3 class="icon-case case oa xsearch contextual libraryResponse tools pn-inactive">Case</h3>
+                                <ul class="case oa xsearch contextual libraryResponse tools pn-inactive">
+                                    <li class="case-contents">
+                                        <a href="#">
+                                            <span>Case Contents</span>
+                                        </a>
+                                    </li>
+                                    <li class="related">
+                                        <a href="#">
+                                            <span>Related Cases</span>
+                                        </a>
+                                    </li>
+                                    <li class="trademark-viewer">
+                                        <a href="#">
+                                            <span>Trademark Viewer</span>
+                                        </a>
+                                    </li>
+                                    <li class="history">
+                                        <a href="#">
+                                            <span>History</span>
+                                        </a>
+                                    </li>
+                                    <li class="public-notes-table">
+                                        <a href="#">
+                                            <span>Public Notes</span>
+                                        </a>
+                                    </li>
+                                    <!-- <li><a><span>Checklist</span></a></li> -->
+                                </ul>
+                            </div>
+
+                            <div class="oa case xsearch submenu libraryResponse">
+                                <h3 class="icon-oa oa case xsearch contextual tools libraryResponse pn-inactive">Office Action</h3>
+                                <ul class="oa case xsearch contextual tools libraryResponse pn-inactive">
+                                    <li class="office-action">
+                                        <a href="#">
+                                            <span>Office Action Editor</span>
+                                        </a>
+                                    </li>
+                                    <li class="office-action-drafts">
+                                        <a href="#">
+                                            <span>Office Action Drafts</span>
+                                        </a>
+                                    </li>
+                                    <li class="office-action-paragraph-fp">
+                                        <a href="#">
+                                            <span>Form Paragraphs</span>
+                                        </a>
+                                    </li>
+                                    <li class="office-action-paragraph-usp">
+                                        <a href="#">
+                                            <span>USPs</span>
+                                        </a>
+                                    </li>
+                                    <li class="evidence">
+                                        <a href="#">
+                                            <span>Evidence Bin</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                          
+                           
+                        </div>
+                        <div class="toolbox-slider">
+                            <button class="toolbox-slider-btn" ng-click="changeClass()">
+                                <span>Tools</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pn-flex-gutter"></div>
+            <div class="pn-flex-col" style="-webkit-box-flex: 1; flex-grow: 1;">
+                <div class="pn-flex-row">
+                    <div class="pn-flex-gutter" aria-dropeffect="none"></div>
+                    <div class="pn-flex-col" style="-webkit-box-flex: 1; flex-grow: 1;">
+                        <div class="pn-flex-gutter" aria-dropeffect="none"></div>
+                       
+                        <div class="view pn-pinnable pn-hide-pin pn-flex-view pn-src-docket-supervisor" id="0a47b608-3f16-485a-a016-6640899d0143" role="tabpanel">
+                            <div class="banner pn-flex-banner">
+                                <h3>Staff Workload</h3>
+                                <ul class="legend">
+                                    <li class="barChartGreen">
+                                        New
+                                    </li>
+                                    <li class="barChartYellow">
+                                        Coming Due
+                                    </li>
+                                    <li class="barChartRed">
+                                        Overdue
+                                    </li>
+                                </ul>
+                                <fieldset class="table-format pn-toggle">
+                                    <label class="pn-toggle-checked">
+                                        <span>All</span>
+                                        <input type="radio" name="39a20ab6-56ac-4e36-963e-7eb2f8595d2c" value="All" class="">
+                                    </label>
+                                    <label class="pn-toggle-next">
+                                        <span>New + Amended</span>
+                                        <input type="radio" name="39a20ab6-56ac-4e36-963e-7eb2f8595d2c" value="New + Amended" class="">
+                                    </label>
+                                </fieldset>
+                            </div>
+                            <div class="body pn-flex-body">
+                                <div class="staff-summary">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th class="freeze-column" aria-sort="ascending">
+                                                    <button class="pn-table-sort-trigger">Staff Name</button>
+                                                </th>
+                                                <th>
+                                                    <button class="pn-table-sort-trigger">In Docket</button>
+                                                    <button class="pn-select-columns">
+                                                        <span>Select columns</span>
+                                                    </button>
+                                                </th>
+                                                <th class="freeze-column breakdown all">
+                                                    <button class="pn-table-sort-trigger">All Cases</button>
+                                                    <button class="pn-select-columns">
+                                                        <span>Select columns</span>
+                                                    </button>
+                                                </th>
+                                                <th class="freeze-column breakdown new">
+                                                    <button class="pn-table-sort-trigger">New</button>
+                                                    <button class="pn-select-columns">
+                                                        <span>Select columns</span>
+                                                    </button>
+                                                </th>
+                                                <th>
+                                                    <button class="pn-table-sort-trigger">Avg Days New</button>
+                                                    <button class="pn-select-columns">
+                                                        <span>Select columns</span>
+                                                    </button>
+                                                </th>
+                                                <th class="freeze-column breakdown amended">
+                                                    <button class="pn-table-sort-trigger">Amended</button>
+                                                    <button class="pn-select-columns">
+                                                        <span>Select columns</span>
+                                                    </button>
+                                                </th>
+                                                <th class="pn-last-visible">
+                                                    <button class="pn-table-sort-trigger">Avg Days Amended</button>
+                                                    <button class="pn-select-columns">
+                                                        <span>Select columns</span>
+                                                    </button>
+                                                </th>
+                                            </tr>
+                                            <tr class="unassigned">
+                                                <td class="freeze-column">
+                                                    <a href="#docket.html?title=Unassigned&amp;unassigned=1">
+                                                        <span>Unassigned</span>
+                                                    </a>
+                                                </td>
+                                                <td class="unassigned-total">84314</td>
+                                                <td class="freeze-column" colspan="999"></td>
+                                            </tr>
+                                            <tr class="staff">
+                                                <td class="freeze-column">
+                                                    <a href="#docket.html?staff=1&amp;title=All%20My%20Law%20Offices">
+                                                        <span>All My Law Offices</span>
+                                                    </a>
+                                                </td>
+                                                <td data-source=".workload" pn-table-data-type="number" data-decorator="totalCases">33</td>
+                                                <td class="freeze-column breakdown all">
+                                                    <span class="stackedBar">
+                                                        <a class="barChartGreen" href="#docket.html?category=all&amp;staff=1&amp;title=All%20My%20Law%20Offices%20-%20New%20Cases&amp;urgency=on-schedule" style="width: 225px;">
+                                                            <span data-source=".workload.onSchedule" data-decorator="breakdown">33</span>
+                                                            <span>New</span>
+                                                        </a>
+                                                        <a class="barChartYellow" href="#docket.html?category=all&amp;staff=1&amp;title=All%20My%20Law%20Offices%20-%20Coming%20Due%20Cases&amp;urgency=coming-due" style="width: 0px;">
+                                                            <span data-source=".workload.comingDue" data-decorator="breakdown">0</span>
+                                                            <span>Coming Due</span>
+                                                        </a>
+                                                        <a class="barChartRed" href="#docket.html?category=all&amp;staff=1&amp;title=All%20My%20Law%20Offices%20-%20Overdue%20Cases&amp;urgency=overdue" style="width: 0px;">
+                                                            <span data-source=".workload.overdue" data-decorator="breakdown">0</span>
+                                                            <span>Overdue</span>
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                                <td class="freeze-column breakdown new">
+                                                    <span class="stackedBar">
+                                                        <a class="barChartGreen" href="#docket.html?category=new&amp;staff=1&amp;title=All%20My%20Law%20Offices%20-%20New%20Cases&amp;urgency=on-schedule" style="width: 225px;">
+                                                            <span data-source=".workload.new.onSchedule" data-decorator="breakdown">33</span>
+                                                            <span>New</span>
+                                                        </a>
+                                                        <a class="barChartYellow" href="#docket.html?category=new&amp;staff=1&amp;title=All%20My%20Law%20Offices%20-%20Coming%20Due%20Cases&amp;urgency=coming-due" style="width: 0px;">
+                                                            <span data-source=".workload.new.comingDue" data-decorator="breakdown">0</span>
+                                                            <span>Coming Due</span>
+                                                        </a>
+                                                        <a class="barChartRed" href="#docket.html?category=new&amp;staff=1&amp;title=All%20My%20Law%20Offices%20-%20Overdue%20Cases&amp;urgency=overdue" style="width: 0px;">
+                                                            <span data-source=".workload.new.overdue" data-decorator="breakdown">0</span>
+                                                            <span>Overdue</span>
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                                <td data-source=".stats.averageDaysNew" pn-table-data-type="number" data-decorator="shortDecimal">1.1</td>
+                                                <td class="freeze-column breakdown amended">
+                                                    <span class="stackedBar">
+                                                        <a class="barChartGreen" href="#docket.html?category=amended&amp;staff=1&amp;title=All%20My%20Law%20Offices%20-%20New%20Cases&amp;urgency=on-schedule" style="width: 0px;">
+                                                            <span data-source=".workload.amended.onSchedule" data-decorator="breakdown">0</span>
+                                                            <span>New</span>
+                                                        </a>
+                                                        <a class="barChartYellow" href="#docket.html?category=amended&amp;staff=1&amp;title=All%20My%20Law%20Offices%20-%20Coming%20Due%20Cases&amp;urgency=coming-due" style="width: 0px;">
+                                                            <span data-source=".workload.amended.comingDue" data-decorator="breakdown">0</span>
+                                                            <span>Coming Due</span>
+                                                        </a>
+                                                        <a class="barChartRed" href="#docket.html?category=amended&amp;staff=1&amp;title=All%20My%20Law%20Offices%20-%20Overdue%20Cases&amp;urgency=overdue" style="width: 0px;">
+                                                            <span data-source=".workload.amended.overdue" data-decorator="breakdown">0</span>
+                                                            <span>Overdue</span>
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                                <td data-source=".stats.averageDaysAmended" pn-table-data-type="number" data-decorator="shortDecimal"></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="pn-table-grouped-rows-container" data-repeat-instance="">
+                                            <tr class="pn-table-group-title-row">
+                                                <th class="freeze-column">
+                                                    <button>
+                                                        <span>Expand/collapse law office</span>
+                                                    </button>
+                                                    <div>
+                                                        <!-- for positioning in Firefox -->
+                                                        <a data-source=".officeId" data-decorator="officeName" href="#docket.html?officeId=LO1969--LAW%20OFFICE%201969&amp;title=LO1969--LAW%20OFFICE%201969">LO1969--LAW OFFICE 1969</a>
+                                                    </div>
+                                                </th>
+                                                <th data-source=".workload" data-decorator="totalCases">33</th>
+                                                <th class="freeze-column breakdown all">
+                                                    <span data-source=".workload" data-decorator="totalCases">33</span>
+                                                    (
+                                                    <a href="#docket.html?category=all&amp;officeId=LO1969--LAW%20OFFICE%201969&amp;title=LO1969--LAW%20OFFICE%201969%20-%20Overdue%20Cases&amp;urgency=overdue">
+                                                        <span data-source=".workload" data-decorator="officeOverdue">0</span>overdue</a>)
+                                                </th>
+                                                <th class="freeze-column breakdown new">
+                                                    <span data-source=".workload.new" data-decorator="totalCases">33</span>
+                                                    (
+                                                    <a href="#docket.html?category=new&amp;officeId=LO1969--LAW%20OFFICE%201969&amp;title=LO1969--LAW%20OFFICE%201969%20-%20Overdue%20Cases&amp;urgency=overdue">
+                                                        <span data-source=".workload.new" data-decorator="officeOverdue">0</span>overdue</a>)
+                                                </th>
+                                                <th data-source=".stats.averageDaysNew" pn-table-data-type="number" data-decorator="shortDecimal">1.1</th>
+                                                <th class="freeze-column breakdown amended">
+                                                    <span data-source=".workload.amended" data-decorator="totalCases">0</span>
+                                                    (
+                                                    <a href="#docket.html?category=amended&amp;officeId=LO1969--LAW%20OFFICE%201969&amp;title=LO1969--LAW%20OFFICE%201969%20-%20Overdue%20Cases&amp;urgency=overdue">
+                                                        <span data-source=".workload.amended" data-decorator="officeOverdue">0</span>overdue</a>)
+                                                </th>
+                                                <th data-source=".stats.averageDaysAmended" pn-table-data-type="number" data-decorator="shortDecimal"></th>
+                                            </tr>
+                                            <tr class="pn-bindomatic-insertion-point-zombie" style="display: none;"></tr>
+                                            <tr data-repeat-instance="" data-drop="url">
+                                                <td class="freeze-column sort-by">
+                                                    <a href="#docket.html?title=Agee%2C%20Tommie&amp;userId=00020">
+                                                        <span data-source=".displayName" data-decorator="userDocket">Agee, Tommie</span>
+                                                    </a>
+                                                </td>
+                                                <!-- clone of data cells from "all my law offices" row -->
+                                                <td data-source=".workload" pn-table-data-type="number" data-decorator="totalCases">0</td>
+                                                <td class="freeze-column breakdown all">
+                                                    <span class="stackedBar">
+                                                        <a class="barChartGreen" href="#docket.html?category=all&amp;title=Agee%2C%20Tommie%20-%20New%20Cases&amp;urgency=on-schedule&amp;userId=00020" style="width: 0px;">
+                                                            <span data-source=".workload.onSchedule" data-decorator="breakdown">0</span>
+                                                            <span>New</span>
+                                                        </a>
+                                                        <a class="barChartYellow" href="#docket.html?category=all&amp;title=Agee%2C%20Tommie%20-%20Coming%20Due%20Cases&amp;urgency=coming-due&amp;userId=00020" style="width: 0px;">
+                                                            <span data-source=".workload.comingDue" data-decorator="breakdown">0</span>
+                                                            <span>Coming Due</span>
+                                                        </a>
+                                                        <a class="barChartRed" href="#docket.html?category=all&amp;title=Agee%2C%20Tommie%20-%20Overdue%20Cases&amp;urgency=overdue&amp;userId=00020" style="width: 0px;">
+                                                            <span data-source=".workload.overdue" data-decorator="breakdown">0</span>
+                                                            <span>Overdue</span>
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                                <td class="freeze-column breakdown new">
+                                                    <span class="stackedBar">
+                                                        <a class="barChartGreen" href="#docket.html?category=new&amp;title=Agee%2C%20Tommie%20-%20New%20Cases&amp;urgency=on-schedule&amp;userId=00020" style="width: 0px;">
+                                                            <span data-source=".workload.new.onSchedule" data-decorator="breakdown">0</span>
+                                                            <span>New</span>
+                                                        </a>
+                                                        <a class="barChartYellow" href="#docket.html?category=new&amp;title=Agee%2C%20Tommie%20-%20Coming%20Due%20Cases&amp;urgency=coming-due&amp;userId=00020" style="width: 0px;">
+                                                            <span data-source=".workload.new.comingDue" data-decorator="breakdown">0</span>
+                                                            <span>Coming Due</span>
+                                                        </a>
+                                                        <a class="barChartRed" href="#docket.html?category=new&amp;title=Agee%2C%20Tommie%20-%20Overdue%20Cases&amp;urgency=overdue&amp;userId=00020" style="width: 0px;">
+                                                            <span data-source=".workload.new.overdue" data-decorator="breakdown">0</span>
+                                                            <span>Overdue</span>
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                                <td data-source=".stats.averageDaysNew" pn-table-data-type="number" data-decorator="shortDecimal">0.1</td>
+                                                <td class="freeze-column breakdown amended">
+                                                    <span class="stackedBar">
+                                                        <a class="barChartGreen" href="#docket.html?category=amended&amp;title=Agee%2C%20Tommie%20-%20New%20Cases&amp;urgency=on-schedule&amp;userId=00020" style="width: 0px;">
+                                                            <span data-source=".workload.amended.onSchedule" data-decorator="breakdown">0</span>
+                                                            <span>New</span>
+                                                        </a>
+                                                        <a class="barChartYellow" href="#docket.html?category=amended&amp;title=Agee%2C%20Tommie%20-%20Coming%20Due%20Cases&amp;urgency=coming-due&amp;userId=00020" style="width: 0px;">
+                                                            <span data-source=".workload.amended.comingDue" data-decorator="breakdown">0</span>
+                                                            <span>Coming Due</span>
+                                                        </a>
+                                                        <a class="barChartRed" href="#docket.html?category=amended&amp;title=Agee%2C%20Tommie%20-%20Overdue%20Cases&amp;urgency=overdue&amp;userId=00020" style="width: 0px;">
+                                                            <span data-source=".workload.amended.overdue" data-decorator="breakdown">0</span>
+                                                            <span>Overdue</span>
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                                <td data-source=".stats.averageDaysAmended" pn-table-data-type="number" data-decorator="shortDecimal"></td>
+                                            </tr>
+                                            <tr data-repeat-instance="" data-drop="url">
+                                                <td class="freeze-column sort-by">
+                                                    <a href="#docket.html?title=Koosman%2C%20Jerry&amp;userId=00036">
+                                                        <span data-source=".displayName" data-decorator="userDocket">Koosman, Jerry</span>
+                                                    </a>
+                                                </td>
+                                                <!-- clone of data cells from "all my law offices" row -->
+                                                <td data-source=".workload" pn-table-data-type="number" data-decorator="totalCases">3</td>
+                                                <td class="freeze-column breakdown all">
+                                                    <span class="stackedBar">
+                                                        <a class="barChartGreen" href="#docket.html?category=all&amp;title=Koosman%2C%20Jerry%20-%20New%20Cases&amp;urgency=on-schedule&amp;userId=00036" style="width: 20.454545454545453px;">
+                                                            <span data-source=".workload.onSchedule" data-decorator="breakdown">3</span>
+                                                            <span>New</span>
+                                                        </a>
+                                                        <a class="barChartYellow" href="#docket.html?category=all&amp;title=Koosman%2C%20Jerry%20-%20Coming%20Due%20Cases&amp;urgency=coming-due&amp;userId=00036" style="width: 0px;">
+                                                            <span data-source=".workload.comingDue" data-decorator="breakdown">0</span>
+                                                            <span>Coming Due</span>
+                                                        </a>
+                                                        <a class="barChartRed" href="#docket.html?category=all&amp;title=Koosman%2C%20Jerry%20-%20Overdue%20Cases&amp;urgency=overdue&amp;userId=00036" style="width: 0px;">
+                                                            <span data-source=".workload.overdue" data-decorator="breakdown">0</span>
+                                                            <span>Overdue</span>
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                                <td class="freeze-column breakdown new">
+                                                    <span class="stackedBar">
+                                                        <a class="barChartGreen" href="#docket.html?category=new&amp;title=Koosman%2C%20Jerry%20-%20New%20Cases&amp;urgency=on-schedule&amp;userId=00036" style="width: 20.454545454545453px;">
+                                                            <span data-source=".workload.new.onSchedule" data-decorator="breakdown">3</span>
+                                                            <span>New</span>
+                                                        </a>
+                                                        <a class="barChartYellow" href="#docket.html?category=new&amp;title=Koosman%2C%20Jerry%20-%20Coming%20Due%20Cases&amp;urgency=coming-due&amp;userId=00036" style="width: 0px;">
+                                                            <span data-source=".workload.new.comingDue" data-decorator="breakdown">0</span>
+                                                            <span>Coming Due</span>
+                                                        </a>
+                                                        <a class="barChartRed" href="#docket.html?category=new&amp;title=Koosman%2C%20Jerry%20-%20Overdue%20Cases&amp;urgency=overdue&amp;userId=00036" style="width: 0px;">
+                                                            <span data-source=".workload.new.overdue" data-decorator="breakdown">0</span>
+                                                            <span>Overdue</span>
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                                <td data-source=".stats.averageDaysNew" pn-table-data-type="number" data-decorator="shortDecimal">2.1</td>
+                                                <td class="freeze-column breakdown amended">
+                                                    <span class="stackedBar">
+                                                        <a class="barChartGreen" href="#docket.html?category=amended&amp;title=Koosman%2C%20Jerry%20-%20New%20Cases&amp;urgency=on-schedule&amp;userId=00036" style="width: 0px;">
+                                                            <span data-source=".workload.amended.onSchedule" data-decorator="breakdown">0</span>
+                                                            <span>New</span>
+                                                        </a>
+                                                        <a class="barChartYellow" href="#docket.html?category=amended&amp;title=Koosman%2C%20Jerry%20-%20Coming%20Due%20Cases&amp;urgency=coming-due&amp;userId=00036" style="width: 0px;">
+                                                            <span data-source=".workload.amended.comingDue" data-decorator="breakdown">0</span>
+                                                            <span>Coming Due</span>
+                                                        </a>
+                                                        <a class="barChartRed" href="#docket.html?category=amended&amp;title=Koosman%2C%20Jerry%20-%20Overdue%20Cases&amp;urgency=overdue&amp;userId=00036" style="width: 0px;">
+                                                            <span data-source=".workload.amended.overdue" data-decorator="breakdown">0</span>
+                                                            <span>Overdue</span>
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                                <td data-source=".stats.averageDaysAmended" pn-table-data-type="number" data-decorator="shortDecimal"></td>
+                                            </tr>
+                                            <tr data-repeat-instance="" data-drop="url">
+                                                <td class="freeze-column sort-by">
+                                                    <a href="#docket.html?title=Kranepool%2C%20Ed&amp;userId=00007">
+                                                        <span data-source=".displayName" data-decorator="userDocket">Kranepool, Ed</span>
+                                                    </a>
+                                                </td>
+                                                <!-- clone of data cells from "all my law offices" row -->
+                                                <td data-source=".workload" pn-table-data-type="number" data-decorator="totalCases">22</td>
+                                                <td class="freeze-column breakdown all">
+                                                    <span class="stackedBar">
+                                                        <a class="barChartGreen" href="#docket.html?category=all&amp;title=Kranepool%2C%20Ed%20-%20New%20Cases&amp;urgency=on-schedule&amp;userId=00007" style="width: 150px;">
+                                                            <span data-source=".workload.onSchedule" data-decorator="breakdown">22</span>
+                                                            <span>New</span>
+                                                        </a>
+                                                        <a class="barChartYellow" href="#docket.html?category=all&amp;title=Kranepool%2C%20Ed%20-%20Coming%20Due%20Cases&amp;urgency=coming-due&amp;userId=00007" style="width: 0px;">
+                                                            <span data-source=".workload.comingDue" data-decorator="breakdown">0</span>
+                                                            <span>Coming Due</span>
+                                                        </a>
+                                                        <a class="barChartRed" href="#docket.html?category=all&amp;title=Kranepool%2C%20Ed%20-%20Overdue%20Cases&amp;urgency=overdue&amp;userId=00007" style="width: 0px;">
+                                                            <span data-source=".workload.overdue" data-decorator="breakdown">0</span>
+                                                            <span>Overdue</span>
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                                <td class="freeze-column breakdown new">
+                                                    <span class="stackedBar">
+                                                        <a class="barChartGreen" href="#docket.html?category=new&amp;title=Kranepool%2C%20Ed%20-%20New%20Cases&amp;urgency=on-schedule&amp;userId=00007" style="width: 150px;">
+                                                            <span data-source=".workload.new.onSchedule" data-decorator="breakdown">22</span>
+                                                            <span>New</span>
+                                                        </a>
+                                                        <a class="barChartYellow" href="#docket.html?category=new&amp;title=Kranepool%2C%20Ed%20-%20Coming%20Due%20Cases&amp;urgency=coming-due&amp;userId=00007" style="width: 0px;">
+                                                            <span data-source=".workload.new.comingDue" data-decorator="breakdown">0</span>
+                                                            <span>Coming Due</span>
+                                                        </a>
+                                                        <a class="barChartRed" href="#docket.html?category=new&amp;title=Kranepool%2C%20Ed%20-%20Overdue%20Cases&amp;urgency=overdue&amp;userId=00007" style="width: 0px;">
+                                                            <span data-source=".workload.new.overdue" data-decorator="breakdown">0</span>
+                                                            <span>Overdue</span>
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                                <td data-source=".stats.averageDaysNew" pn-table-data-type="number" data-decorator="shortDecimal">1.2</td>
+                                                <td class="freeze-column breakdown amended">
+                                                    <span class="stackedBar">
+                                                        <a class="barChartGreen" href="#docket.html?category=amended&amp;title=Kranepool%2C%20Ed%20-%20New%20Cases&amp;urgency=on-schedule&amp;userId=00007" style="width: 0px;">
+                                                            <span data-source=".workload.amended.onSchedule" data-decorator="breakdown">0</span>
+                                                            <span>New</span>
+                                                        </a>
+                                                        <a class="barChartYellow" href="#docket.html?category=amended&amp;title=Kranepool%2C%20Ed%20-%20Coming%20Due%20Cases&amp;urgency=coming-due&amp;userId=00007" style="width: 0px;">
+                                                            <span data-source=".workload.amended.comingDue" data-decorator="breakdown">0</span>
+                                                            <span>Coming Due</span>
+                                                        </a>
+                                                        <a class="barChartRed" href="#docket.html?category=amended&amp;title=Kranepool%2C%20Ed%20-%20Overdue%20Cases&amp;urgency=overdue&amp;userId=00007" style="width: 0px;">
+                                                            <span data-source=".workload.amended.overdue" data-decorator="breakdown">0</span>
+                                                            <span>Overdue</span>
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                                <td data-source=".stats.averageDaysAmended" pn-table-data-type="number" data-decorator="shortDecimal"></td>
+                                            </tr>
+                                            <tr data-repeat-instance="" data-drop="url" class="current-user">
+                                                <td class="freeze-column sort-by">
+                                                    <a href="#docket.html?title=Seaver%2C%20Tom&amp;userId=00041">
+                                                        <span data-source=".displayName" data-decorator="userDocket">Seaver, Tom</span>
+                                                    </a>
+                                                </td>
+                                                <!-- clone of data cells from "all my law offices" row -->
+                                                <td data-source=".workload" pn-table-data-type="number" data-decorator="totalCases">8</td>
+                                                <td class="freeze-column breakdown all">
+                                                    <span class="stackedBar">
+                                                        <a class="barChartGreen" href="#docket.html?category=all&amp;title=Seaver%2C%20Tom%20-%20New%20Cases&amp;urgency=on-schedule&amp;userId=00041" style="width: 54.54545454545455px;">
+                                                            <span data-source=".workload.onSchedule" data-decorator="breakdown">8</span>
+                                                            <span>New</span>
+                                                        </a>
+                                                        <a class="barChartYellow" href="#docket.html?category=all&amp;title=Seaver%2C%20Tom%20-%20Coming%20Due%20Cases&amp;urgency=coming-due&amp;userId=00041" style="width: 0px;">
+                                                            <span data-source=".workload.comingDue" data-decorator="breakdown">0</span>
+                                                            <span>Coming Due</span>
+                                                        </a>
+                                                        <a class="barChartRed" href="#docket.html?category=all&amp;title=Seaver%2C%20Tom%20-%20Overdue%20Cases&amp;urgency=overdue&amp;userId=00041" style="width: 0px;">
+                                                            <span data-source=".workload.overdue" data-decorator="breakdown">0</span>
+                                                            <span>Overdue</span>
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                                <td class="freeze-column breakdown new">
+                                                    <span class="stackedBar">
+                                                        <a class="barChartGreen" href="#docket.html?category=new&amp;title=Seaver%2C%20Tom%20-%20New%20Cases&amp;urgency=on-schedule&amp;userId=00041" style="width: 54.54545454545455px;">
+                                                            <span data-source=".workload.new.onSchedule" data-decorator="breakdown">8</span>
+                                                            <span>New</span>
+                                                        </a>
+                                                        <a class="barChartYellow" href="#docket.html?category=new&amp;title=Seaver%2C%20Tom%20-%20Coming%20Due%20Cases&amp;urgency=coming-due&amp;userId=00041" style="width: 0px;">
+                                                            <span data-source=".workload.new.comingDue" data-decorator="breakdown">0</span>
+                                                            <span>Coming Due</span>
+                                                        </a>
+                                                        <a class="barChartRed" href="#docket.html?category=new&amp;title=Seaver%2C%20Tom%20-%20Overdue%20Cases&amp;urgency=overdue&amp;userId=00041" style="width: 0px;">
+                                                            <span data-source=".workload.new.overdue" data-decorator="breakdown">0</span>
+                                                            <span>Overdue</span>
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                                <td data-source=".stats.averageDaysNew" pn-table-data-type="number" data-decorator="shortDecimal">1.1</td>
+                                                <td class="freeze-column breakdown amended">
+                                                    <span class="stackedBar">
+                                                        <a class="barChartGreen" href="#docket.html?category=amended&amp;title=Seaver%2C%20Tom%20-%20New%20Cases&amp;urgency=on-schedule&amp;userId=00041" style="width: 0px;">
+                                                            <span data-source=".workload.amended.onSchedule" data-decorator="breakdown">0</span>
+                                                            <span>New</span>
+                                                        </a>
+                                                        <a class="barChartYellow" href="#docket.html?category=amended&amp;title=Seaver%2C%20Tom%20-%20Coming%20Due%20Cases&amp;urgency=coming-due&amp;userId=00041" style="width: 0px;">
+                                                            <span data-source=".workload.amended.comingDue" data-decorator="breakdown">0</span>
+                                                            <span>Coming Due</span>
+                                                        </a>
+                                                        <a class="barChartRed" href="#docket.html?category=amended&amp;title=Seaver%2C%20Tom%20-%20Overdue%20Cases&amp;urgency=overdue&amp;userId=00041" style="width: 0px;">
+                                                            <span data-source=".workload.amended.overdue" data-decorator="breakdown">0</span>
+                                                            <span>Overdue</span>
+                                                        </a>
+                                                    </span>
+                                                </td>
+                                                <td data-source=".stats.averageDaysAmended" pn-table-data-type="number" data-decorator="shortDecimal"></td>
+                                            </tr>
+                                        </tbody>
+                                        <tbody class="pn-table-grouped-rows-container pn-bindomatic-insertion-point-zombie" style="display: none;"></tbody>
+                                    </table>
+                                    <span class="pn-spinner">
+                                        <span>Loading</span>
+                                    </span>
+                                    <span class="pn-error">
+                                        <span>Error</span>
+                                    </span>
+                                </div>
+                                <div class="staff-docket">
+                                    <!-- dockets go here -->
+                                </div>
+                            </div>
+                        </div>
+                                              
+                        <div class="pn-flex-gutter" aria-dropeffect="none"></div>
+                    </div>
+                    <div class="pn-flex-gutter" aria-dropeffect="none"></div>
+                </div>
+            </div>
+        </div>
+        <div class="pn-flex-gutter"></div>
+    </div>
+    <div class="pn-flex-gutter"></div>
+</div>

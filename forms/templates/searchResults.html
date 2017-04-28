@@ -1,0 +1,44 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a>Attorney</a>
+        </li>
+        <li class="completed"><a>Actions</a>
+        </li>
+        <li class="completed"><a>Search</a>
+        </li>
+        <li class="active"><a>Search Results</a>
+        </li>
+        <li class="disabled"><a>Case Lists</a>
+        </li>
+        <li class="completed"><a>Appoint Attorney</a>
+        </li>
+    </ul>
+</nav>
+
+<h1>Appoint additional attorneys</h1>
+<div class="row">
+    <div class="col-md-3">
+        <div ng-if="searchType === ''" ng-include="'templates/searchFiltersByAttorney.html'"></div>
+        <div ng-if="searchType === 'SERIAL_NUMBER_SEARCH'" ng-include="'templates/searchFiltersByAttorney.html'"></div>
+        <div ng-if="searchType === 'MARK_LITERAL_SEARCH'" ng-include="'templates/searchFiltersByMarkLiteral.html'"></div>
+        <div ng-if="searchType === 'DOCKET_NUMBER_SEARCH'" ng-include="'templates/searchFiltersByMarkLiteral.html'"></div>
+        <div ng-if="searchType === 'OWNER_SEARCH'" ng-include="'templates/searchFiltersByOwner.html'"></div>
+        <div ng-if="searchType === 'LAWFIRM_SEARCH'" ng-include="'templates/searchFiltersByAttorney.html'"></div>
+    </div>
+    <div class="col-md-9">
+        <div style="border: 1px solid #ddd; padding: 1rem; padding-bottom: 0; margin-bottom: 15px; vertical-align: middle;">
+            <div class="row">
+                <div class="col-sm-8">
+                    <p>You searched by:<br /></p>                       
+                    <ul style="list-style-type:none" ng-repeat="singleitem in wrapSerialNumber">
+                        <li>{{singleitem}}</li>
+                    </ul>                            
+                </div>
+                <div class="col-sm-4 text-right">
+                    <button class="btn btn-link" ng-click="searchAgain()">Search Again</button>
+                </div>
+            </div>
+        </div>
+        <div ng-include="'templates/searchResultsList.html'"></div> 
+    </div>
+</div>

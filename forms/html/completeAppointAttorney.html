@@ -1,0 +1,71 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a href="#">Attorney </a>
+        </li>
+        <li class="completed"><a href="#/html/attorneyTask">Actions</a>
+        </li>
+        <li class="disabled"><a href="#">Search</a>
+        </li>
+        <li class="disabled"><a href="#">Search Results</a>
+        </li>
+        <li class="disabled"><a href="#">Case Lists</a>
+        </li>
+        <li class="active"><a href="#">Review and sign</a>
+        </li>
+    </ul>
+</nav>
+<h1>Review and sign</h1>
+<div class="alert alert-success">
+    <p>You have successfully appointed 1 additional authorized attorney to mark record 12345678.</p>
+</div>
+<div class="panel panel-default ">
+    <div class="panel-body">
+        <div class="alert alert-info">
+            <p>Important: Once an appointment is submitted, the Office will immediately provide the sender with an electronic acknowledgment of receipt.</p>
+        </div>
+        <p>Please contact teas@uspto.gov within 24 hours of transmission (or by the next business day) if you do not receive the email acknowledgment.</p>
+        <div class="row">
+            <div class="col-md-12">
+                <label>
+                    <input type="checkbox" ng-model="checked">Email additional copies of the receipt
+                </label>
+                <div class="check-element animate-show" ng-show="checked">
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="emailaddress">Enter any email addresses to send additional courtesy copies of the receipt</label>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <input id="emailaddress" type="text" class="form-control" />
+                            <span class="help-block">Enter up to XX courtesy email addresses</span>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-primary">Send reciept</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div>
+            <h2>What would you like to do next?</h2>
+            <ul class="list-unstyled">
+                <li><a href="">Add the same attorney(s) to other mark records</a>
+                </li>
+
+                <li><a href="">Replace the same mark's primary attorney of record with another authorized attorney</a>
+                </li>
+                <li><a href="">Remove appointed attorneys from the same mark record</a>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary btn-block">No thanks, I'm done</button>
+            </div>
+        </div>
+    </div>
+</div>

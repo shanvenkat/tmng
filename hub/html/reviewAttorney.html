@@ -1,0 +1,289 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a href="#">Attorney </a>
+        </li>
+        <li class="completed"><a href="#/html/attorneyTask">Actions</a>
+        </li>
+        <li class="completed"><a href="#">Search</a>
+        </li>
+        <li class="completed"><a href="#">Search Results</a>
+        </li>
+        <li class="completed"><a href="#">Case Lists</a>
+        </li>
+        <li class="active"><a href="#">Review and sign</a>
+        </li>
+    </ul>
+</nav>
+
+<div ng-show="ctrlName=='reviewRemove'">
+    <p>For remove</p>
+</div>
+
+<div ng-show="ctrlName=='reviewAppoint'">
+    <p>For appoint</p>
+</div>
+
+<h1>Review and sign</h1>
+
+<div class="panel panel-default" ng-hide="ctrlName=='reviewAppointMultiple' || ctrlName=='reviewWithdrawPOA'">
+    <div class="panel-body">
+        <div ng-include="'html/attorneyInfo.html'"></div>
+
+
+        <div class="expandcollapse-item">
+            <button class="btn btn-link" ng-click="active = !active" ng-class="{'expandcollapse-heading-collapsed': active, 'expandcollapse-heading-expanded': !active}">
+                > Show attorney details</button>
+
+            <div class="slideDown" ng-show="active">
+                <div class="expand-collapse-content">
+                    Show hide content to be added later
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+<div ng-show="ctrlName=='reviewAppointMultiple' || ctrlName=='reviewWithdrawPOA'">
+    <div ng-include="'html/attorneyInfoTable.html'"></div>
+</div>
+<div class="panel panel-default" ng-hide="ctrlName=='reviewWithdraw' || ctrlName=='reviewWithdrawPOA'">
+    <div class="panel-body">
+        <h2>Review your enteries</h2>
+        <p>You are appointing the following attorney(s) to the record</p>
+        <div ng-include="'html/appointAttorneyResult.html'"></div>
+    </div>
+</div>
+<div class="panel panel-default" ng-show="ctrlName=='reviewWithdraw' || ctrlName=='reviewWithdrawPOA'">
+    <div class="panel-body">
+
+        <h2>Please review the Withdrawal of Attorney Information:</h2>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="step-details">
+                    <fieldset>
+                        <legend class="h3">You Attest:</legend>
+                        <div class="row" ng-hide="ctrlName=='reviewWithdrawPOA'" ng-show="ctrlName=='reviewWithdraw'">
+                            <div class="col-md-12">
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left" disabled="disabled"><span class="checkbox-label">(1)I have notified the applicant/registrant of my withdrawal from employment and the filing of this request for withdrawal with the USPTO.</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left"><span class="checkbox-label">(2) I have delivered to the applicant/registrant all documents and property in any file concerning the application, registration, or proceeding to which the applicant/registrant is entitled.</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left"><span class="checkbox-label">(3) I have notified the applicant/registrant of any response that may be due and the deadline for the response, or I affirm that no response is due at this time.</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left"><span class="checkbox-label">(4) I have notified the TEAS Plus or TEAS RF applicant that any prior e-mail authorization will not continue and that the applicant must provide the USPTO an e-mail address and authorize the USPTO to communicate via e-mail to retain TEAS Plus or TEAS RF status, or I affirm that this notification is not necessary because the application does not currently have TEAS Plus or TEAS RF status.</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left"><span class="checkbox-label">(5) I have given the applicant/registrant notice of my withdrawal from employment at least two (2) months prior to the expiration of the response period, if applicable; OR, notice of my withdrawal from employment was not required because the applicant/registrant terminated representation when less than two (2) months remained in the response period.</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- there is a switch between the top box and the following depending on the user selection -->
+                            <div class="col-md-12 hide">
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left"><span class="checkbox-label">(6) I affirm that more than one qualified attorney is of record and representation by co-counsel will be ongoing.</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="ctrlName=='reviewWithdrawPOA'" ng-hide="ctrlName=='reviewWithdraw'">
+                            <div class="col-md-5">
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left"><span class="checkbox-label"><span>I request removal of the attorney information currently listed in the application/registration record.  I affirm the power of attorney for the attorney(s) identified in the application/registration record has ended because the mark has registered, ownership has changed, the application has abandoned, or the mark has cancelled or expired.  If the power of attorney was filed in connection with an affidavit under section 8, 12(c), 15, or 71 of the Trademark Act, a renewal application under section 9 of the Act, or a request for amendment or correction under section 7 of the Act, I affirm that the power of attorney has ended due to the acceptance or final rejection of the filing.</span>
+                                    </label>
+                                </div>
+                               
+                            </div>
+                           
+                            
+                        </div>
+                    </fieldset>
+
+                </div>
+                <h3>And your statement is as follows:</h3>
+                <p>"lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio."</p>
+                <h3>If the information above is correct, you may complete the remainder of this form.</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default" ng-show="ctrlName=='reviewWithdraw' || ctrlName=='reviewWithdrawPOA'">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-8">
+                <h3>You are requesting removal of the following primary attorney from the record.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box box-info">
+                    <p>Smith, Adam Keller
+                        <br />Member, Virginia Bar Association
+                        <br />Example, LLC
+                        <br />123 Example Street
+                        <br />Suite 400
+                        <br />Vienna, VA 22181
+                        <br />USA
+                        <br />Adam.keller@lawfirm.com
+                        <br />(p) 202-234-2343, (f) 202-123-4321
+                        <br />
+                        <strong>Docket #</strong>- 1234-908573
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- following are dynamic section and changes based on domestic rep and correspondence information change -->
+        <div class="row">
+            <div class="col-md-8">
+                <h3>And you have supplied the following as updated correspondence information.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="outline-box outline-box-default">
+                    <h4>Domestic representative</h4>
+                    
+                    <address>
+
+
+                        Box 564, Disneyland
+                        <br /> USA
+                        <br /> Example.com
+                    </address>
+                </div>
+                <h4>Changes to the courtesy copy emails</h4> To Be Removed: jmsmith@smithjones.com
+                <br /> To Be Added: jmsmith@smithjones.com
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2>
+            Miscellaneous statement</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-click="showMiscStatement()" ng-model="checked">I would like to include a miscellaneous statement
+                    </label>
+                </div>
+                <div class="check-element animate-show" ng-show="checked">
+                    <div class="row form-group">
+                        <div class="col-sm-12" style="border:1px solid #333;">
+                            <div id='editor-example-1'>
+                                <h2>Gettysburg Address Opening</h2>
+                                <p>
+                                    Four score and seven years ago our fathers brought forth on this continent a new nation, conceived in liberty, and dedicated to the proposition that all men are created equal.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <input id="fileupload" type="file" />
+                            <label for="fileupload" class="sr-only">Upload file</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <button class="btn btn-primary">Upload</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div ng-include="'html/signatureSection.html'"></div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row form-group">
+            <div class="col-md-6">
+                <h2 class="section-heading">Your progress has been saved</h2> </div>
+            <div class="col-md-6 text-right">
+                <button class="btn btn-default active" ng-click="printDiv('printableArea');"><span class="fa fa-print"></span> Print to Sign</button>
+            </div>
+        </div>
+        <p>se the link below to resume the process and complete signature. If you are not authorized to provide a signature,forward this link directly or use the email option below to send to a second party for signature.</p>
+        <p>Progress link: <a href="">http://teas.uspto.gov/application/12345</a>
+        </p>
+        <p>Signatory link: <a href="">http://teas.uspto.gov/application/12345</a>
+        </p>
+        <div class="outline-box outline-box-default">
+            <h3 class="h4 section-heading">Email links (optional)</h3>
+            <div class="row form-group">
+                <div class="col-md-6">
+                    <label for="operatorName">Your Name</label>
+                    <input type="text" name="operatorName" id="operatorName" class="form-control" ng-model="signatureEmail.operatorName">
+                </div>
+                <div class="col-md-6">
+                    <label for="recipientName">Name of Recipient(optional)</label>
+                    <input type="text" name="recipientName" id="recipientName" class="form-control" ng-model="signatureEmail.recipientName">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-6">
+                    <label for="operatorEmail">Your Email Address</label>
+                    <input type="text" name="operatorEmail" id="operatorEmail" class="form-control" ng-model="signatureEmail.operatorEmail">
+                </div>
+                <div class="col-md-6">
+                    <label for="recipientEmail">Recipient Email Address(optional)</label>
+                    <input type="text" name="recipientEmail" id="recipientEmail" class="form-control" ng-model="signatureEmail.recipientEmail">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="confirmOperatorEmail">Confirm Your Email Address</label>
+                    <input type="text" name="confirmOperatorEmail" id="confirmOperatorEmail" class="form-control" ng-model="signatureEmail.confirmOperatorEmail">
+                </div>
+                <div class="col-md-6">
+                    <label for="confirmRecipientEmail">Confirm Recipient Email Address</label>
+                    <input type="text" name="confirmRecipientEmail" id="confirmRecipientEmail" class="form-control" ng-model="signatureEmail.confirmRecipientEmail">
+                    <div class="margin-top-fifteen"><strong>Include: </strong>
+                        <div class="checkbox-inline">
+                            <label>
+                                <input type="checkbox">Only signatory link</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-default" ng-click="sendRequestSignatureEmail()">Send Email</button>
+        </div>
+    </div>
+    <div class="panel-footer">
+
+        <div class="row">
+            <div class="col-md-4 col-xs-4 ">
+                <button class="btn btn-default" id="previousPage">Go back</button>
+            </div>
+            <div class="col-md-4 col-xs-4 text-center">
+                <button class="btn btn-default" id="saveButton">Save</button>
+            </div>
+            <div class="col-md-4 col-xs-4 text-right">
+
+                <button class="btn btn-primary pull-right" id="continueButton">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

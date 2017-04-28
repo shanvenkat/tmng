@@ -1,0 +1,71 @@
+<div class="outline-box outline-box-default">
+    <form class="filters">
+        <div class="filter-heading">
+            Refine by <a href="" class="filters-clear pull-right" ng-click="clear()">Clear</a>
+        </div>
+        <div class="form-group clearfix">
+            <label for="input12">Search within by
+            </label>
+            <div class="input-group">
+                <input id="input12" type="text"  name="facet_field_Search_in_Search" class="form-control" ng-model="html_further_search_txt">
+                <span class="input-group-btn">
+                <button class="btn btn-info" ng-click="goFilterSearch(html_further_search_txt)"><span class="fa fa-inverse fa-search"></span><span class="sr-only">Filter</span>
+                </button>
+                </span>
+            </div>
+       </div>
+        <div class="filter-list">       
+            
+            <h2 class="h4">Mark information</h2>
+            <div data-toggle="collapse" data-target="#filterGroup4" class="filter-group-title">
+                Mark status
+            </div>
+            <div id="filterGroup4" class="collapse in">
+                <div class="filter-group-content">
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="facet_field_app_status" value="Registered" ng-click="doFilterSearch()">Registered
+                                <span>({{getCount(solrResults.facet_counts.facet_fields.app_status, 'Registered')}})</span>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="facet_field_app_status" value="Application" ng-click="doFilterSearch()">Application
+                                <span>({{getCount(solrResults.facet_counts.facet_fields.app_status, 'Application')}})</span>
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="facet_field_app_status" value="Expired" ng-click="doFilterSearch()">expired
+                                <span>({{getCount(solrResults.facet_counts.facet_fields.app_status, 'Expired')}})</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-toggle="collapse" data-target="#filterGroup5" class="filter-group-title">
+                Mark literal
+            </div>
+            <div id="filterGroup5" class="collapse in">
+                <div class="filter-group-content">
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="facet_field_has_mark_literal" value="YES" ng-click="doFilterSearch()">Literal elements
+                                <span>({{getCount(solrResults.facet_counts.facet_fields.has_mark_literal, 'YES')}})</span>
+                            </label>
+                        </div>
+                        
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="facet_field_no_mark_literal" value="YES" ng-click="doFilterSearch()">No mark literal
+                                <span>({{getCount(solrResults.facet_counts.facet_fields.no_mark_literal, 'YES')}})</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

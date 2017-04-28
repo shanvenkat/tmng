@@ -1,0 +1,33 @@
+<main class="main-container">
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-2">
+    <!--Sidebar content-->
+
+  </div>
+  <div class="col-md-10">
+    <!--Body content-->
+    
+    <table class="table">
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Created By</th>
+        <th>Create Date</th>
+        <th>Action</th>
+    </thead>
+    <tbody ng-repeat="app in apps | filter:query | orderBy:id">
+        <tr>
+          <td>{{app.id}}</td>
+          <td>{{app.appName}}</td>
+          <td>{{app.createdBy}}</td>
+          <td>{{app.createDateTime}}</td>
+          <td><a href="#/app/{{app.id}}">View</a></td>
+        </tr>
+    </tbody>
+</table>
+    
+  </div>
+</div>
+</div>
+</main>

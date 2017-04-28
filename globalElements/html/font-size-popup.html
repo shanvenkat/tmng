@@ -1,0 +1,31 @@
+<form title="Font size">
+    <div class="font-sizer">
+        <select name="application.fontSize">
+            <option value="50%">Aa</option>
+            <option value="62.5%">Aa</option>
+            <option value="87.5%">Aa</option>
+            <option value="112.5%">Aa</option>
+        </select>
+    </div>
+    <div class="popup-bottom">
+        <button class="btn cancel" name="cancel">Cancel</button>
+        <button class="btn btn-primary" name="ok">OK</button>
+    </div>
+</form>
+<script>
+    pn.toggle(snip.find('div.font-sizer select')).on('change', function (evt) {
+        var newSize = $(evt.target).closest('input').val();
+        $('html').css('font-size', newSize);
+    });
+    function setCurrentFont() {
+        var sizeObj = {
+            "9px": "50%",
+            "10px": "62.5%",
+            "14px": "87.5%",
+            "18px": "112.5%"
+        }; 
+        var newSize = sizeObj[$('html').css('font-size')] || "62.5%";
+        snip.find('input[value="' + newSize + '"]').prop('checked', true).trigger('change');
+    }
+    setCurrentFont();
+</script>

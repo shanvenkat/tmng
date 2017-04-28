@@ -1,0 +1,122 @@
+<h1>Change Log</h1>
+<p>Meeting Date: January 14th at 11:00 am</p>
+<p>Html reviewed for page</p>
+<table class="table table-fixed">
+    <thead>
+        <tr>
+            <th>Page link</th>
+            <th>Visual issue </th>
+            <th>Suggested solution</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Main page / Landing page
+                <br />
+                <a href="https://sit-tm-efile.etc.uspto.gov/forms/#/main">Main page SIT URL</a>
+            </td>
+            <td>Text on the page taking the full width of the container</td>
+            <td>Reduce the width to go as far as tile button</td>
+            <td><strong>Displaying options - pending final decision </strong>
+                <br /> The top text goes as far as the button (taking 50% of the container) and the bottom text goes little further and take 66% of the container. </td>
+        </tr>
+        <tr>
+            <td>Advanced search page (tab 2 and 3)
+                <br /><a href="https://sit-tm-efile.etc.uspto.gov/forms/#/advSearch">SIT URL for advanced search</a>
+            </td>
+            <td>Vertical alignment of the "explaination text" with the form fields</td>
+            <td>Align the text with the top of the form label</td>
+            <td><strong>Completed</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>Advanced search page (tab 2 and 3)
+                <br /><a href="https://sit-tm-efile.etc.uspto.gov/forms/#/advSearch">SIT URL for advanced search</a>
+            </td>
+            <td>Add vertical separation between search button and last form field</td>
+            <td>Add a horizontal ruler before the button</td>
+            <td><strong>Completed</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>Search results page
+                <br /><a href="https://sit-tm-efile.etc.uspto.gov/forms/#/search/searchResults">SIT URL for search results</a>
+                <p class="small">Sample registration number for search - 77512284,85509723,77955678,81074395,81074395,85043163,86288853,85776150,77959893,85442084,85424580,85422489</p>
+            </td>
+            <td>Remove bolding for label text in expanded search results area</td>
+            <td></td>
+            <td><strong>Completed</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>Search results page
+                <br /><a href="https://sit-tm-efile.etc.uspto.gov/forms/#/search/searchResults">SIT URL for search results</a>
+                <p class="small">Sample registration number for search - 77512284,85509723,77955678,81074395,81074395,85043163,86288853,85776150,77959893,85442084,85424580,85422489</p>
+            </td>
+            <td>As the expand collapse will not work if the column count is changed</td>
+            <td>Remove "select column button" </td>
+            <td><strong>Completed</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>Search results page
+                <br /><a href="https://sit-tm-efile.etc.uspto.gov/forms/#/search/searchResults">SIT URL for search results</a>
+                <p class="small">Sample registration number for search - 77512284,85509723,77955678,81074395,81074395,85043163,86288853,85776150,77959893,85442084,85424580,85422489</p>
+            </td>
+            <td>Multiple issues to fixed with the new design implementation </td>
+            <td>Wait for the new design</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+<p>Meeting Date: February 04th at 11:00 am</p>
+<p>Html reviewed for pages related to withdraw attorney and signature section.</p>
+<table class="table table-fixed">
+    <thead>
+        <tr>
+            <th>Page link</th>
+            <th>Visual issue </th>
+            <th>Suggested solution</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Global file upload button styles
+                <br /><a href="https://sit-tm-efile.etc.uspto.gov/forms/#/html/reviewWithdrawAttorney">SIT URL </td>
+            <td>Get global pattern for file upload</td>
+            <td>Wait for enterprise pattern library</td>
+            <td>Adding three different patterns at the end of the page.
+                <p>Pros of custom style</p>
+                <ul>
+                <li>Unique pattern for eFile</li></ul>
+                <p>Cons of custom style</p>
+                <ul>
+                <li>Custom styling hides the original file upload, thus hiding the text "no file chosen" (this text changes based on browser)</li>
+                <li>To add the feedback message, javascript functions need to be added</li></ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="row">
+        <div class="col-lg-6 col-sm-6 col-12">
+            <h4>Standard Button</h4>
+            <span class="file-input btn btn-primary btn-file">
+            Browse&hellip; <input type="file" multiple>
+            </span>
+        </div>
+        <div class="col-lg-6 col-sm-6 col-12">
+            <h4>Current Button</h4>
+            <label class="sr-only" for="fileInput">File upload</label>
+            <input id="fileInput" type="file" multiple>
+            
+        </div>
+        <div class="col-lg-6 col-sm-6 col-12">
+            <h4>Block-level Button
+            <span class="file-input btn btn-block btn-primary btn-file">
+            Browse&hellip; <input type="file" multiple>
+            </span>
+        </div>
+        
+    </div>

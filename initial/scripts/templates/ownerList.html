@@ -1,0 +1,87 @@
+<div id="utilityBarContainer"></div>
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-md-3" role="navigation" id="leftNavContainer"></div>
+        <div class="col-md-9">
+            <!-- begin Main -->
+            <main class="main-wrapper">
+            <div class="page-header">
+                <h1>Applicants</h1>
+            </div>
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>The USPTO requires that you identify the individual, business, or other entity (or entities) applying to register the trademark. Many filers will only have one applicant, usually the individual or company that owns the mark. But some trademarks are applied for by a group of owners or by several related companies.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Applicants list</h2>
+                        <hr />
+                        <!-- show the following div if there is no applicant added -->
+                        <div id="noApplicants">
+                            <p>You currently have no applicants listed.
+                            <br />You must have at least one applicant to file an application.</p>
+                        </div>
+                        <!-- end show the following div if there is no applicant added -->
+                        <table class="table">
+                            <caption class="sr-only">Multiple Owner Details</caption>
+                            <thead class="sr-only">
+                                <tr>
+                                    <th scope="column">Owner Name</th>
+                                    <th>Owner Type</th>
+                                    <th>Edit/Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% _.each(collections.owners.models, function(owner){ %>
+                                <tr>
+                                    <td>
+                                    <!-- id is not displayed here 
+                                        <%= owner.get( 'id') %> ,--> 
+                                        <%= owner.get( 'markOwner')%>
+                                    </td>
+                                    <td>
+                                    <!-- owner type is displayed here -->
+                                    	<% switch(owner.get('entityType')){
+                                    	case '3': %>Corporation <%break;
+										case '16': %>Limited Liability Company <%break;
+										case '2': %>Partnership <%break;
+										case '13': %>Limited Partnership <%break;
+										case '5': %>Joint Venture <%break;
+										case '19': %>Sole Proprietorship <%break;
+										case '17': %>Trust <%break;
+										case '18': %>Estate <%break;
+										case '99': %>Other <%break;
+										default: %>Individual<% } %>
+                                    </td>
+                                    <td>
+                                        <button type="button" id="editOwner" name="<%= owner.get('id') %>" class="btn btn-primary">Edit</button>
+                                        <button type="button" id="ownerDelete" name="<%= owner.get('id') %>" class="btn btn-default">Remove</button>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+                        <hr />
+                        <button type="button" class="btn btn-primary" id="addAnotherOwner">Add an applicant</button>
+                    </div>
+                </div>
+                <hr class="margin-up-fifty" />
+                <div class="row">
+                    <div class="col-md-4 col-xs-4 ">
+                        <a class="btn btn-default" id="previousPage">Previous</a>
+                    </div>
+                    <div class="col-md-4 col-xs-4 text-center">
+                        <a class="btn btn-success " >Save</a>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <a class="btn btn-primary pull-right" id="continueButton">Next</a>
+                    </div>
+                </div>
+            </div>
+            </main>
+        </div>
+    </div>
+    <!-- end Main-->
+</div>

@@ -1,0 +1,162 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a href="#">Attorney</a>
+        </li>
+        <li class="completed"><a href="#/html/attorneyTask">Actions</a>
+        </li>
+        <li class="disabled"><a href="#">Search</a>
+        </li>
+        <li class="disabled"><a href="#">Search Results</a>
+        </li>
+        <li class="disabled"><a href="#">Case Lists</a>
+        </li>
+        <li class="active"><a href="#">Remove Attorney</a>
+        </li>
+    </ul>
+</nav>
+<h1>Withdrawal as Attorney of Record (Step 1)</h1>
+<div class="alert alert warning">
+    <p>Warning: You may not use this form if you are not the applicant’s/registrant’s current Primary attorney of record, or the mark owner.</p>
+</div>
+<div class="form-group row">
+    <div class="col-sm-5">
+        <button class="btn btn-default" ng-click="goBack()">
+            < Back to Actions</button>
+    </div>
+</div>
+<h2>1 Selection</h2>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div ng-include="'html/attorneyInfo.html'"></div>
+
+
+        <div class="expandcollapse-item">
+            <button class="btn btn-link" ng-click="active = !active" ng-class="{'expandcollapse-heading-collapsed': active, 'expandcollapse-heading-expanded': !active}">
+                > Show attorney details</button>
+
+            <div class="slideDown" ng-show="active">
+                <div class="expand-collapse-content">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Role</th>
+                                <th scope="col">Attorney</th>
+                                <th scope="col">Firm</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Docket number</th>
+                                <th scope="col">Email address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>text</td>
+                                <td>text</td>
+                                <td>text</td>
+                                <td>text</td>
+                                <td>text</td>
+                                <td>text</td>
+                            </tr>
+                            <tr>
+                                <td>text</td>
+                                <td>text</td>
+                                <td>text</td>
+                                <td>text</td>
+                                <td>text</td>
+                                <td>text</td>
+                            </tr>
+                            <tr>
+                                <td>text</td>
+                                <td>text</td>
+                                <td>text</td>
+                                <td>text</td>
+                                <td>text</td>
+                                <td>text</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2>The Primary Attorney for this record is</h2>
+        <div ng-include="'html/withdrawAttorneyList.html'"></div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2>Please enter your reasons for withdrawal as the attorney of record for mark serial number 12345678 :</h2>
+        <ol class="step">
+            <li>
+                <div class="step-details">
+                    <label for="txt2">I wish to make the following statement regarding my withdrawal from this Mark:</label>
+                    <textarea id="txt2" class="form-control"></textarea>
+                </div>
+            </li>
+            <li>
+                <div class="step-details">
+                    <fieldset>
+                        <legend>Select the Checkboxes that apply:</legend>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left"><span class="checkbox-label">(1)I have notified the applicant/registrant of my withdrawal from employment and the filing of this request for withdrawal with the USPTO.</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left"><span class="checkbox-label">(2) I have delivered to the applicant/registrant all documents and property in any file concerning the application, registration, or proceeding to which the applicant/registrant is entitled.</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left"><span class="checkbox-label">(3) I have notified the applicant/registrant of any response that may be due and the deadline for the response, or I affirm that no response is due at this time.</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left"><span class="checkbox-label">(4) I have notified the TEAS Plus or TEAS RF applicant that any prior e-mail authorization will not continue and that the applicant must provide the USPTO an e-mail address and authorize the USPTO to communicate via e-mail to retain TEAS Plus or TEAS RF status, or I affirm that this notification is not necessary because the application does not currently have TEAS Plus or TEAS RF status.</span>
+                                    </label>
+                                </div>
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left"><span class="checkbox-label">(5) I have given the applicant/registrant notice of my withdrawal from employment at least two (2) months prior to the expiration of the response period, if applicable; OR, notice of my withdrawal from employment was not required because the applicant/registrant terminated representation when less than two (2) months remained in the response period.</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-1 text-center">OR</div>
+                            <div class="col-md-5">
+                                <div class="checkbox required">
+                                    <label>
+                                        <input type="checkbox" class="pull-left"><span class="checkbox-label">(6) I affirm that more than one qualified attorney is of record and representation by co-counsel will be ongoing.</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                </div>
+            </li>
+        </ol>
+
+    </div>
+    <div class="panel-footer">
+
+        <div class="row">
+            <div class="col-md-4 col-xs-4 ">
+                <button class="btn btn-default" id="previousPage">Cancel</button>
+            </div>
+            <div class="col-md-4 col-xs-4 text-center">
+                <button class="btn btn-default" id="saveButton">Save</button>
+            </div>
+            <div class="col-md-4 col-xs-4 text-right">
+
+                <button class="btn btn-primary pull-right" id="continueButton" ng-click="goToCorrespondence()">Continue</button>
+            </div>
+        </div>
+    </div>
+
+</div>

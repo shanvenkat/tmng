@@ -1,0 +1,36 @@
+<div class="container">
+<div id="left-content"></div>
+    <!-- begin Main -->
+    <main class="wrapper">
+        <h2>New Trademark Application</h2>
+
+        <button class="btn btn-lg btn-primary" id="continueNewApp">Start a New Application</button>
+
+        <h2>Status of an application already started</h2>
+        <div class="form-group row">
+            
+            <div class="col-md-12">
+                <h2>Trademark already started</h2>
+                <table class="table table-bordered">
+                    <% _.each(marks, function(mark){ %>
+                    <tr>
+                        <td><%= mark.get('id') %></td>
+                        <td><%= mark.get('registrationNum') %></td>
+                        <td><%= mark.get('createUserId') %></td>
+                        <td><%= mark.get('createTs') %></td>
+                        <td><a id="markDetails/<%= mark.get('id') %>"  href="#markDetails/<%= mark.get('id') %>">View</button> | <a class="deleteApp" id="<%= mark.get('id') %>" href="#">Delete</a> </td>
+                    </tr>
+                    <% }); %> 
+                </table>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+<script id="markList" type="text/template">
+
+     
+    
+
+</script>

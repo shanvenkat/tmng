@@ -1,0 +1,381 @@
+/********************
+***  core styles  ***
+********************/
+
+
+$icon-font-path:"../fonts/";
+$fa-font-path:"../fonts/";
+@import'font-awesome/font-awesome';
+
+@import"bootstrap";
+
+@import"custom-input";
+
+@import"helpers";
+
+@import"top-nav";
+
+@import"text-editor";
+
+body {
+    background: $brand-white;    
+    @include font-size-REM($font-size-base);
+}
+a.skipnav {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+a.skipnav:focus {
+    background: #01435f;
+    color: #fff;
+    padding: 3px 10px;
+    height: auto;
+    width: auto;
+    clip: auto;
+    z-index: 1000;
+}
+.navbar {
+    margin-bottom: 0;
+    @include border-radius(0);
+}
+.navbar-brand {
+    @include font-size-REM($font-size-h1);
+}
+.navbar-toggle {
+    float: left;
+}
+.wrapper {
+    background: none repeat scroll 0 0 $brand-white;
+    border: 1px solid #eee;
+    min-height: 650px;
+    @include border-radius(8px);
+    @include box-shadow(0 3px 5px rgba(0, 0, 0, .125));
+    margin: 30px 0;
+    padding: 0 20px 20px;
+}
+.main-wrapper {
+    background: none repeat scroll 0 0 $brand-white;
+    @include border-radius(8px);
+    @include box-shadow(0 3px 5px rgba(0, 0, 0, .125));
+    margin: 30px 0;
+    .page-header {
+        @include border-top-left-radius(8px);
+        @include border-top-right-radius(8px);
+        border: 1px solid $brand-info;
+        background: none no-repeat scroll 0 0 $brand-info;
+        margin: 0;
+        padding: 20px;
+    }
+    .page-body {
+        @include border-bottom-left-radius(8px);
+        @include border-bottom-right-radius(8px);
+        border: 1px solid #d5d5d5;
+        padding: 20px;
+        min-height: 500px;
+        .button-row {
+            margin: 30px -15px 10px;
+        }
+    }
+    hr {
+    border-top: 1px solid #999;
+    }
+}
+
+#main-content {
+    //padding-top: 20px;
+    background-color: $brand-white;
+}
+.nav-list {
+    list-style: none outside;
+    padding: 0;
+    color: #207B9E;
+    font-size: 1.75rem;
+    margin: 30px 0;
+    >li {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.33) inset, 0 -2px 5px rgba(0, 0, 0, 0.33) inset;
+    }
+    > li > a {
+        color: #207B9E;
+        display: block;
+        margin: 0 0 -1px;
+        padding: 20px 14px;
+        display: block;
+        margin: 0 0 -1px;
+        padding: 20px 14px 20px 18px;
+        position: relative;
+        white-space: normal;
+    }
+    .fa {
+        float: left;
+        height: 30px;        
+        width: 30px;        
+        
+    }
+    .fa-arrow-circle-down{ font-size:28px; color: $brand-success;}
+    .completed {
+        .fa-check{ font-size:24px; color: $brand-success;}
+        a {
+            color: $brand-success;
+        }
+    }
+    .active {
+        /*background: none repeat scroll 0 0 $brand-primary;
+        color: #fff;
+        a {
+            color: #fff;
+        }
+        */
+        ul {
+            border: 0 none;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+            padding: 0;
+            z-index: 2;
+            list-style: none outside;
+            /*margin-bottom: 20px;*/
+            li {
+                padding: 15px;
+               
+            }
+             .active {
+                background: none repeat scroll 0 0 $brand-primary;
+                color: #fff;
+                 a {
+            color: #fff;
+        }
+                }
+        }
+    }
+}
+.alert {
+    h2{ margin: 0;
+        color: #333;
+        }
+}
+.wordWrap { word-wrap: break-word;}
+.text-bold{font-weight:bold;}
+legend {
+    border-bottom: 0;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    @include font-size-REM($font-size-base * 1.1);
+    .glyphicon{
+        font-size: 14px;
+    }
+    a{
+    @include font-size-REM($font-size-base);
+    }
+}
+label + .help-block{
+    margin-top:0;
+    margin-bottom:5px;
+}
+.help-block{ margin-bottom:0;}
+textarea{
+min-height:100px;
+    .tall{
+    min-height:200px;}
+}
+.form-inline .form-group .form-control {
+    max-width: 125px;
+}
+.table-fixed {
+    table-layout: fixed;
+}
+.sub-section > span {
+    padding-left:20px;
+}
+/****************
+***  Boxs  ***
+****************/
+
+.info-box {
+    background: #d9edf7;
+    border: 1px solid #bce9f1;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.list-box {
+    @include border-radius(5px);
+    background: #e6e6e6;
+    border: 1px solid #adadad;
+    padding: 10px;
+    margin-bottom: 10px;
+    min-width: 97%;
+    max-width: 841px;
+    display: inline;
+    float: left;
+    &.selected {
+        background: #3071a9;
+        border-colo: #285e8e;
+        color: $brand-white;
+    }
+}
+.markType-box {
+    background:  #d5d5d5;      
+    border: $gray-darker;
+    color: $gray-darker;
+    padding: 10px;
+    width: 100%;
+    min-height:120px;
+    display: inline;
+    float: left;
+    &.selected {
+        background: #3071a9;
+        border-color: #285e8e;
+        color: $brand-white;
+    }
+    .custom-radio{
+        width:100%;
+    }
+}
+.markType-example{
+    border: 1px solid #666;
+    background-color: #fff;
+    position: relative; 
+    left: 50%; 
+    width:80px; 
+    height:80px; 
+    margin-left: -40px; 
+    bottom:0px; 
+    top:-30px; 
+    overflow:hidden;
+    text-align: center;
+    img{
+     }
+}
+.table {
+    .custom-checkbox{
+        margin-bottom: 0;
+    }
+}
+.pagination{
+    margin-top:0;
+}
+/****************
+***  Buttons  ***
+****************/
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 999px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    background: red;
+    cursor: inherit;
+    display: block;
+}
+input[readonly] {
+    cursor: text !important;
+}
+.btn .fa, .btn .glyphicon {
+    margin-right: 5px;
+}
+.navbar-brand {
+    font-size: 40px;
+    height: auto;
+    padding: 25px;
+}
+.glyphicon-asterisk {
+    color: $brand-danger;
+}
+h1 {
+    color: $header1-color;
+    @include font-size-REM($font-size-h1);
+    &.border-bottom {}
+}
+h2 {
+    color: $header2-color;
+    @include font-size-REM($font-size-h2);
+}
+/* END Heading Tags */
+
+@import"header";
+
+@import"footers-medicare";
+
+/****************************************
+*     max-width media query setion      *
+****************************************/
+
+@media screen and (max-width: $screen-lg-min) {
+    .list-box {
+        width: 814px;
+    }
+}
+@media screen and (max-width: $screen-md-min) {
+    .list-box {
+        width: 640px;
+    }
+}
+@media screen and (max-width: $screen-sm-min) {}@media screen and (max-width: 765px) {
+    .list-box {
+        width: 95%;
+    }
+    .sm-hide {
+        display: none;
+    }
+    .row-offcanvas {
+        position: relative;
+        -webkit-transition: all 0.25s ease-out;
+        -moz-transition: all 0.25s ease-out;
+        transition: all 0.25s ease-out;
+    }
+    .row-offcanvas-right .sidebar-offcanvas {
+        right: -41.6%;
+    }
+    .row-offcanvas-left .sidebar-offcanvas {
+        left: -41.6%;
+    }
+    .row-offcanvas-right.active {
+        right: 41.6%;
+    }
+    .row-offcanvas-left.active {
+        left: 41.6%;
+    }
+    .sidebar-offcanvas {
+        position: absolute;
+        top: 0;
+        width: 41.6%;
+    }
+}
+@media screen and (max-width: $screen-xs-min) {}
+/****************************************
+*     min-width media query setion      *
+****************************************/
+
+@media screen and (min-width: $screen-xs-min) {}@media screen and (min-width: $screen-sm-min) {
+    .form-inline {
+        margin-bottom:5px;
+    }
+}
+@media screen and (min-width: $screen-md-min) {
+    .form-inline .form-group, .form-inline .navbar-form {
+        vertical-align: baseline;
+        margin-bottom: 15px;
+    }
+}
+@media screen and (min-width: $screen-lg-min) {}@media print {
+    a:link, a:visited {
+        color: $link-color !important;
+        text-decoration: underline;
+    }
+    a[href]:after {
+        content: "";
+    }
+}

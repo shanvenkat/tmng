@@ -1,0 +1,64 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a href="#">Attorney</a>
+        </li>
+        <li class="active"><a href="#">Actions</a>
+        </li>
+        <li class="disabled"><a href="#">Search</a>
+        </li>
+        <li class="disabled"><a href="#">Search Results</a>
+        </li>
+        <li class="disabled"><a href="#">Case Lists</a>
+        </li>
+        <li class="disabled"><a href="#">Update Records</a>
+        </li>
+    </ul>
+</nav>
+<h1>Select Action</h1>
+
+<fieldset>
+    <legend>I am the applicant's or registrant's attorney of record and I want to:</legend>
+<div ng-repeat="item in taskList" class="radio">
+<label>
+  <input type="radio" ng-value="item.value"
+      ng-model="data.task">
+    {{item.text}}
+</label>
+</div>   
+   
+  
+</fieldset>
+<hr class="big" />
+
+<div>
+    <div class="row">
+        <div class="col-sm-8">
+            <label for="exampleInput1">Enter the serial or registration number(s) for the cases</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 padding-right-zero">
+            <input type="text" class="form-control" id="exampleInput1">
+            <span class="help-block">Enter one or more 7-digit or 8-digit numbers separated by commas</span>
+        </div>
+        <div class="col-sm-4">
+            <button class="btn btn-primary" ng-click="goSomewhere()">Go</button>       
+            <!--Start this code is not the part of developement -->        
+            <button class="btn btn-primary" ng-click="go()">Goes to search (demo)</button>
+             <!--End this code is not the part of developement -->
+        </div>
+       
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <p><strong>or</strong></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <p>Find records using other search criteria, such as attorney, firm, owner, or docket number.</p>
+            <button class="btn btn-secondary" ng-click="go()">Search by providing other information
+            </button>
+        </div>
+    </div>
+</div>

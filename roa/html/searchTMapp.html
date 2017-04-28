@@ -1,0 +1,44 @@
+<main class="main-container ">
+    <div class="pn-flex-col">
+        <h1>Response to office action</h1>
+        <div class="flex-row-center">
+            <label for="applicationNumber">Application ID</label>
+            <input type="text" id="applicationNumber" ng-model="applicationNumber" />
+            <!-- the button to take to the next page #/html/123 -->
+
+            <button class="btn-primary" ng-click="go()">Find Application</button>
+        </div>
+        <div class=" ">
+            <div class="alert info" ng-show="showme">Please enter the id 123 to go to next page</div>
+            <div class="alert error" ng-show="showme">
+            <p>Based on the provided serial number, no response was found that requires action at this time.  Here are some other forms that you may want to use if you have changes you need to make regarding your application.</p>
+             <ul>
+                  <li>Voluntary Amendment <a href="http://teas.uspto.gov/office/pra">http://teas.uspto.gov/office/pra</a></li>
+                  <li>Correspondence <a href="http://teas.uspto.gov/ccr/cca">http://teas.uspto.gov/ccr/cca</a> </li>
+                  <li>Attorney form revocation or appointment of attorney - <a href="http://teas.uspto.gov/ccr/raa"> http://teas.uspto.gov/ccr/raa</a></li>
+                  <li>Change of Owner Address <a href="http://teas.uspto.gov/ccr/coa/">http://teas.uspto.gov/ccr/coa/</a></li>
+              </ul>
+              <!--
+            <table>
+                <tr>
+                    <td>Voluntary Amendment</td>
+                    <td><a href="http://teas.uspto.gov/office/pra">http://teas.uspto.gov/office/pra</a></td>
+                </tr>
+                <tr>
+                    <td>Correspondence</td>
+                    <td><a href="http://teas.uspto.gov/ccr/cca">http://teas.uspto.gov/ccr/cca</a></td>
+                </tr>
+                <tr>
+                    <td>Attorney form revocation or appointment of attorney</td>
+                    <td><a href="http://teas.uspto.gov/ccr/raa"> http://teas.uspto.gov/ccr/raa</a></td>
+                </tr>
+                <tr>
+                    <td>Change of Owner Address</td>
+                    <td><a href="http://teas.uspto.gov/ccr/coa/">http://teas.uspto.gov/ccr/coa/</a></td>
+                </tr>
+            </table>
+            -->
+            </div>
+        </div>
+    </div>
+</main>

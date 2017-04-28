@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" xmlns:ng="http://angularjs.org" id="ng-app" ng-app="efileApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>eFile Application</title>
+    <!-- modernizr is called first to load the right classes for the browser -->
+    <script type="text/javascript" src="../vendor/modernizr/modernizr.js"></script>
+    <!--Styles-->
+    <!-- following link is for the pneumatic css in SIT
+     <link rel="stylesheet" href="https://sit-tmng-ui.etc.uspto.gov/tmng/css/theme/vanilla.min.css" />-->
+    <link rel="stylesheet" href="../styles/pneumatic/theme/vanilla.min.css" />
+    <!-- link for the css from beta site -->
+    <link rel="stylesheet" href="../beta/css_ltzFucMIrSMFgMszophbkH4Bdzs6dQ1Pzx74RDT5S0g.css" />
+    <link rel="stylesheet" href="../beta/css_r4dPyStwGMjinXuEX0DBMXldaIczzxV7tBj92wfG9fM.css" />
+    <link rel="stylesheet" href="../beta/css_x1Nt7IBfVhRk0-lZNR2vevFG1b6_bKTshYoBuYcJTXI.css" />
+    <link rel="stylesheet" href="../beta/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4.css" />
+
+    <link rel="stylesheet" href="../styles/main-hub.css" />
+   
+</head>
+
+<body ng-controller="MainCtrl">
+    <div class="hidden-print" ng-include=""></div>
+
+    <div class="utilityBar hidden-print">
+        <div class="container">
+            <div class="navbar-header">
+                <a>Trademarks Filing</a>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <main class="main-container hidden-print">
+            <div>
+
+                <ol class="breadcrumb">
+                    <li><a href="#">Trademarks</a>
+                    </li>
+
+                    <li class="active">Attorney forms</li>
+                </ol>
+
+            </div>
+            <div>
+                <p class="text-muted small" ng-bind-html="resourceBundle['warn.global.warnAttorneyForm']"></p>
+                <div class="alert alert-warning">
+
+                    <span class="fa fa-exclamation-triangle alert-icon" aria-hidden="true"></span><span class="sr-only">Warning</span> You may not use this form if you are not the applicant’s/registrant’s current Primary attorney of record, or the mark owner.
+                </div>
+                <!-- dynamic content -->
+                <div class="clearfix" ng-view></div>
+                <p class="text-muted margin-top-twenty small">TEAS version X.X - Updated 4/30/2015</p>
+            </div>
+            <div class="helpLinkContainer">
+                <!-- bottom links section -->
+
+                <ul class="list-inline helpLinkList">
+                    <li><a href="">Privacy Statement</a>
+                    </li>
+                    <li><a href="">TEAS Form Burden Statement​ </a>
+                    </li>
+                    <li><a href="">Glossary</a>
+                    </li>
+                </ul>
+
+            </div>
+        </main>
+    </div>
+
+    <div ng-include="">
+
+    </div>
+    <div class="visible-print-block" id="printableArea" ng-include="'html/printSection.html'">
+
+    </div>
+    <!-- Angular -->
+    <script src="../vendor/angular-1.3.8/angular.min.js"></script>
+    <script src="../vendor/angular-1.3.8/angular-route.min.js"></script>
+    <script src="../vendor/angular-1.3.8/angular-resource.min.js"></script>
+    <script src="../vendor/angular-1.3.8/angular-sanitize.min.js"></script>
+    <script src="../vendor/angular-1.3.8/angular-animate.min.js"></script>
+    <script src="../vendor/angular-1.3.8/angular-touch.min.js"></script>
+
+    <script src="../vendor/angular-bootstrap/angular-bootstrap.js"></script>
+
+    <script src="../vendor/moment/moment.js"></script>
+
+    <!-- Pneumatic -->
+    <script src="../vendor/htmlShim/shims.js"></script>
+    <!--[if lt IE 9]>
+<script src="vendor/jquery/jquery-1.11.1.js"></script>
+<![endif]-->
+    <!--[if gte IE 9]><!-->
+    <script src="../vendor/jquery/jquery-2.1.1.min.js"></script>
+    <!--<![endif]-->
+    <script src="../vendor/jquery/jquery-migrate-1.2.1.js"></script>
+    <script src="../vendor/pneumatic/pneumatic.js"></script>
+
+    <!-- bootstrap -->
+    <script src="../vendor/bootstrap/bootstrap.min.js"></script>   
+
+    <script src="../vendor/jQuery.equalHeights/jquery.equalheights.min.js"></script>
+
+    <!-- eFile -->
+    <script src="scripts/efile-app.js"></script>
+    <script src="scripts/efile-services.js"></script>
+    <script src="scripts/efile-filters.js"></script>
+    <script src="scripts/efile-directives.js"></script>
+
+    <!-- efile javascript controllers -->
+    <script src="scripts/efile-controllers-main.js"></script>
+    <script src="scripts/efile-html-controllers.js"></script>
+
+
+    <!--config-->
+    <script src="scripts/efile-config.js"></script>
+
+</body>
+
+</html>

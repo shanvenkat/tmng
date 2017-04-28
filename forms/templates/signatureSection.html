@@ -1,0 +1,95 @@
+<h2>Signature</h2>
+<div class="alert alert-warning">
+    <p>
+        <span aria-hidden="true" class="fa fa-exclamation-triangle"></span><strong>Warning:</strong>You must be the applicant's/registrant's current Primary attorney of record to sign for changes.</p>
+</div>
+<div class="form-group row">
+    <div class="col-sm-8">Only one signature is required, regardless of the number of attorneys on the record.</div>
+    <div class="col-sm-4 text-right"><a href="">Read more about signatures</a>
+    </div>
+</div>
+<form name="signatureForm" class="ng-pristine ng-invalid ng-invalid-required ng-valid-pattern">
+    <input type="hidden" ng-model="signatures[0].id" /> 
+    
+    <div class="form-group row">
+        <div class="col-md-6">
+            <label for="signatoryName" class="" ng-bind-html="resourceBundle['ui.reviewAndSign.lblSignatoryName']"></label>
+            <span>*
+              <span class="sr-only" ng-bind-html="resourceBundle['err.global.required']"></span>
+            </span>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control" id="signatoryName" name="signatoryName" data-ng-model="signatures[0].signatoryName" required>
+                    <div class="alert error" ng-show="signatureNameRequiredError">Signature name is required.</div>
+                </div>
+            </div>
+
+            <label for="signatoryPosition" class="margin-top-twenty" ng-bind-html="resourceBundle['ui.reviewAndSign.lblSignatoryPosition']"></label>
+            <input type="text" class="form-control" id="signatoryPosition" name="signatoryPosition" data-ng-model="signatures[0].signatoryPosition">
+            <p class="help-block">Enter "Attorney of record" or "Associate Attorney"</p>
+
+        </div>
+        <div class="col-md-6">
+            <div ng-switch on="signTemplate">
+                <label for="signature" class="" ng-bind-html="resourceBundle['ui.reviewAndSign.lblSignature']"></label>
+                    <span>*
+                      <span class="sr-only" ng-bind-html="resourceBundle['err.global.required']"></span>
+                    </span>  
+                <div ng-switch-when="touch" ng-init="beginFingerSign()">
+                    <button ng-click="clearFingerSign()">Clear</button>
+                    <div class="sigPad">
+                        <canvas class="pad"  width="480" height="100"></canvas>
+                    </div>
+                    <p class="help-block">Click and use the cursor to sign your name</p>                    
+                </div>
+                <div ng-switch-when="upload">
+                    <div style="min-height: 80px; margin-bottom: 0;" class="outline-box outline-box-default" type="text" class="form-control" id="signature" name="signature">
+                    <label for="exampleInputFile">File input</label>
+                    <input type="file" id="exampleInputFile" class="">
+                    </div>
+                    <p class="help-block">Upload a signature file</p>
+                </div>
+                <div ng-switch-default>                   
+
+                    <textarea style="min-height: 80px;" type="text" class="form-control" id="signature" name="signature" data-ng-model="signatures[0].signature" required></textarea>
+                    <p class="help-block" ng-bind-html="resourceBundle['ui.reviewAndSign.lblSignatureHelp']"></p>
+                    <div class="alert error"  ng-show="electtonicSignWrongFormate">Signature does not contain two forward slashes with at least one alpha/numeric between the slashes.</div>
+                </div>
+                <div ng-switch-when="sound">
+                    <h1>sound</h1>
+                </div>
+            </div>
+            <div class="margin-top-ten">
+                <button class="btn btn-default" ng-click="signTemplate='electronic'" ng-class="{'btn-primary': (signTemplate==='electronic')||(signTemplate===undefined)||(signTemplate===null)}"><span class="fa fa-keyboard-o"></span><span class="sr-only">electronic sign</span>
+                </button>
+                <button class="btn btn-default" ng-click="signTemplate='upload'" ng-class="{'btn-primary': (signTemplate==='upload')}"><span class="fa fa-upload"></span><span class="sr-only">Upload sign</span>
+                </button>
+                <button class="btn btn-default" ng-click="signTemplate = 'touch'" ng-class="{'btn-primary': (signTemplate==='touch')}"><span class="fa fa-pencil-square-o"></span><span class="sr-only">sign with mouse</span>
+                </button>
+                <!--button class="btn btn-default" ng-click="signTemplate='sound'" ng-class="{'btn-primary': (signTemplate==='sound')}"><span class="fa fa-volume-up"></span><span class="sr-only">Captcha sign</span>
+                </button-->
+            </div>
+            <div class="alert error" ng-show="signatureRequiredError">Please provide a valid signature</div>
+        </div>
+    </div>
+    <div class="form-group row ">
+        <div class="col-sm-6">
+            <label for="signatoryPhoneNumber" ng-bind-html="resourceBundle['ui.reviewAndSign.lblSignatoryPhone']"></label>
+            <input type="text" class="form-control" id="signatoryPhoneNumber" name="signatoryPhoneNumber" data-ng-model="signatures[0].signatoryPhoneNumber">
+        </div>
+        <div class="col-sm-6 margin-top-twenty">
+            <label for="signingDt" class="" ng-bind-html="resourceBundle['ui.reviewAndSign.lblSignatureDate']"></label>
+            <input type="date" id="signingDt" name="signingDt" data-ng-model="signatureInfoForm.signingDt" readonly required>
+        </div>
+    </div>
+</form>
+
+<!--
+<p class="text-bold">Signatory's firm name (if not a current attorney of record)</p>
+<p class="text-muted">
+    Indicate below if you are an attorney from the same United States firm as the attorney of record, but you were not listed in the original filing and are not otherwise of record for one or more marks. This will establish the acceptability of your signature. (TMEP §604.01).</p>
+<div class="checkbox">
+    <label>
+        <input type="checkbox" id="" value="">I am not currently an attorney of record, but I am from the same United States firm as the primary attorney of record for all of the marks above</label>
+</div>
+-->

@@ -1,0 +1,164 @@
+
+// Brand colors
+// -------------------------
+$brand-secondary:       #ffcc00 !default;
+$brand-success:         #006a39 !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+$brand-info:            #b0d1ea !default; // was different than style guide
+$brand-default:         #eef3ea !default; // in style guide #eef3fa
+$brand-panel:           #fdfefe !default;
+$brand-white:           #fff    !default;
+$brand-navbar-top:      #0b3d69 !default;
+                    //  #003366
+                       // #efecdb
+
+// new arrangement
+
+$navyblue-darker:       #042c4f; // flat and fore color. also used as bottom gradient
+$navyblue-lighter:      #d3edfc; // used as top gradient
+                       //#D6F1FF // testing against style guide vs. production
+                       // #C5E4F7
+//$navyblue-light:        #b0d1ea; // $brand-info flat. also used as bottom gradient
+$grayblue:              #ceeefb; // used as bottom gradient with white on top
+                    
+                    //  #C9D3DF
+                    //  #DDE4EE
+                    //  #CAD4E0
+                    //  #CDD5E0 // from $header-bg-gradientTop
+$grayblue-dark:         #cbd5e1; // used as bottom gradient with grayblue-lighter as top
+$grayblue-light:        #e7f6fd; // used as bottom gradient with white on top
+$grayblue-lighter:      #eef3fa; // used as top gradient with grayblue-lighter as bottom. in style guide 
+                                 // colors page is #eef3fa in production and in button instructions of style 
+                                 // guide is #eef3fa
+// green
+$green-darker:          #00442A;
+                    //  #00492C
+$green-lighter:         #027D3F;
+
+//yellow
+$yellow-darker:         #feda41;
+$yellow-lighter:        #fbeebb;
+                    //  #EFEBDA
+
+
+// Common colors
+// ------------------------------
+$panel-bg-color:        #efecdb !default;
+                    //  #EFEBDA
+$twitter-color:         #4FA1D3 !default;
+$youtube-color:         #CC181E !default;
+$rss-color:             #F26623 !default;
+
+// check if needed then remove
+$header1-color:             $navyblue-darker !default;
+$header2-color:             $brand-success !default;
+
+// Grays
+// -------------------------
+
+$gray-darker:            lighten(#000, 13.5%) !default; // #222
+$gray-dark:              lighten(#000, 20%) !default;   // #333
+$gray:                   lighten(#000, 33.5%) !default; // #555
+$gray-light:             lighten(#000, 60%) !default;   // #999
+$gray-lighter:           lighten(#000, 93.5%) !default; // #eee
+
+$gray-btn-border:            #666666; // default button border
+
+//
+// Gradient Variables
+// --------------------------------------------------
+
+/* done
+$pills-bg-gradientTop:  $brand-primary;
+$pills-bg-gradientBottom: $navyblue-darker;
+$pills-bg-gradientFlat: $brand-primary;
+
+$secondary-bg-gradientTop:  $yellow-lighter;
+$secondary-bg-gradientBottom: $yellow-darker;
+$secondary-bg-gradientFlat: $brand-secondary;
+$secondary-border-color: $yellow-darker;
+
+$success-bg-gradientTop:  $green-lighter;
+$success-bg-gradientBottom: $green-darker;
+$success-bg-gradientFlat: $brand-success;
+$success-border-color: $green-darker;
+
+$info-bg-gradientTop:  $navyblue-lighter;
+$info-bg-gradientBottom: $brand-info;
+$info-bg-gradientFlat: $brand-info;
+$info-border-color: $navyblue-darker;
+
+$default-bg-gradientTop:  $brand-default;
+$default-bg-gradientBottom: $grayblue-dark;                           
+$default-bg-gradientFlat: $brand-default;
+$default-border-color: $gray-btn-border;
+
+$panel-bg-gradientTop:  $brand-panel;
+$panel-bg-gradientBottom: $brand-info; // in production is #b8d4ea;                  
+$panel-bg-gradientFlat: $brand-panel;
+// no border info in style guide
+
+
+$header-bg-gradientTop: $grayblue-dark;
+$header-bg-gradientBottom: $brand-white;
+$header-bg-gradientFlat: $grayblue-dark;
+*/
+
+
+// Global values
+// --------------------------------------------------
+
+
+// Scaffolding
+// -------------------------
+
+$body-bg:               $brand-white !default;
+$text-color:            $gray-dark !default;
+
+// Links
+// -------------------------
+
+// changed to match original
+$link-color:            #006699 !default;
+$link-hover-color:      #006699 !default;
+$link-visit-color:      #884488 !default;
+$link-bg-hover-color:   #E6E1E1 !default;
+
+// Typography
+// -------------------------
+
+$font-family-sans-serif:  Arial, Helvetica, sans-serif !default;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace !default;
+$font-family-base:        $font-family-sans-serif !default;
+
+$font-size-base:          14px !default;
+$font-size-large:         ceil($font-size-base * 1.25) !default; // ~18px
+$font-size-small:         ceil($font-size-base * 0.85) !default; // ~12px
+
+$font-size-h1:            24px !default; //  floor($font-size-base * 2.6) ~36px
+$font-size-h2:            19px !default; // floor($font-size-base * 2.15) ~30px
+$font-size-h3:            17px !default; // ceil($font-size-base * 1.57) ~22Spx
+$font-size-h4:            14px !default; // ceil($font-size-base * 1.25) ~18px
+$font-size-h5:            $font-size-base !default;
+$font-size-h6:            ceil($font-size-base * 0.85) !default; // ~12px
+
+$line-height-base:        1.428571429 !default; // 20/14
+$line-height-computed:    floor($font-size-base * $line-height-base) !default; // ~20px
+
+$headings-font-family:    $font-family-base !default;
+$headings-font-weight:    700 !default;
+$headings-line-height:    1.5 !default;
+$headings-color:          inherit !default;
+
+
+// Iconography
+// -------------------------
+
+$icon-font-path:          "../fonts/" !default;
+$icon-font-name:          "glyphicons-halflings-regular" !default;
+
+
+
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://hackerwins.github.io/summernote/ -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Summernote - Super Simple WYSIWYG editor on Bootstrap</title>
+    <meta name="description" content="Super Simple WYSIWYG Editor on Bootstrap">
+    <meta name="author" content="https://github.com/HackerWins">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+  <script src="//twitter.github.io/bootstrap/assets/js/html5shiv.js"></script>
+  <![endif]-->
+    <!-- add library -->
+    <script src="../vendor/jquery/jquery.js"></script>
+    <link href="../styles/main.css" rel="stylesheet">
+    <script src="../vendor/boostrap/bootstrap.min.js"></script>
+   
+    <!-- add summernote 
+    <link href="http://hackerwins.github.io/summernote/summernote-dist/summernote.css" rel="stylesheet">-->
+    <script src="../vendor/textEditor/summernote.min.js"></script>
+   
+</head>
+
+<body data-twttr-rendered="true">
+    <div class="jumbotron">
+        <div class="summernote container">
+            <div id="summernote" class="col-md-12" style="display: none;">
+                <p></p>
+            </div>
+            <div class="note-editor">
+                <div class="note-dropzone">
+                    <div class="note-dropzone-message"></div>
+                </div>
+                <div class="note-handle">
+                    <div class="note-control-selection">
+                        <div class="note-control-selection-bg"></div>
+                        <div class="note-control-holder note-control-nw"></div>
+                        <div class="note-control-holder note-control-ne"></div>
+                        <div class="note-control-holder note-control-sw"></div>
+                        <div class="note-control-sizing note-control-se"></div>
+                        <div class="note-control-selection-info"></div>
+                    </div>
+                </div>
+                <div class="note-toolbar btn-toolbar">
+                   <div class="note-font btn-group">
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="bold" tabindex="-1" data-original-title="Bold (CTRL+B)"><i class="fa fa-bold icon-bold"></i>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="italic" tabindex="-1" data-original-title="Italic (CTRL+I)"><i class="fa fa-italic icon-italic"></i>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="underline" tabindex="-1" data-original-title="Underline (CTRL+U)"><i class="fa fa-underline icon-underline"></i>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="superscript" tabindex="-1" data-original-title="Superscript"><i class="fa fa-superscript icon-superscript"></i>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="subscript" tabindex="-1" data-original-title="Subscript"><i class="fa fa-subscript icon-subscript"></i>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="strikethrough" tabindex="-1" data-original-title="Strikethrough (CTRL+SHIFT+S)"><i class="fa fa-strikethrough icon-strikethrough"></i>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="removeFormat" tabindex="-1" data-original-title="Remove Font Style (CTRL+\)"><i class="fa fa-eraser icon-eraser"></i>
+                        </button>
+                    </div>
+                    <div class="note-para btn-group">
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="insertUnorderedList" tabindex="-1" data-original-title="Unordered list (CTRL+SHIFT+NUM7)"><i class="fa fa-list-ul icon-list-ul"></i>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="insertOrderedList" tabindex="-1" data-original-title="Ordered list (CTRL+SHIFT+NUM8)"><i class="fa fa-list-ol icon-list-ol"></i>
+                        </button>
+                    </div>
+                    <div class="note-align btn-group">
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="justifyLeft" tabindex="-1" data-original-title="Align left (CTRL+SHIFT+L)"><i class="fa fa-align-left icon-align-left"></i>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="justifyCenter" tabindex="-1" data-original-title="Align center (CTRL+SHIFT+E)"><i class="fa fa-align-center icon-align-center"></i>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="justifyRight" tabindex="-1" data-original-title="Align right (CTRL+SHIFT+R)"><i class="fa fa-align-right icon-align-right"></i>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="justifyFull" tabindex="-1" data-original-title="Justify full (CTRL+SHIFT+J)"><i class="fa fa-align-justify icon-align-justify"></i>
+                        </button>
+                    </div>
+                    <div class="note-list btn-group">
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="indent" tabindex="-1" data-original-title="Indent (CTRL+])"><i class="fa fa-indent icon-indent-right"></i>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="outdent" tabindex="-1" data-original-title="Outdent (CTRL+[)"><i class="fa fa-outdent icon-indent-left"></i>
+                        </button>
+                    </div>
+                    <div class="note-insert btn-group">
+                       
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="insertHorizontalRule" tabindex="-1" data-original-title="Insert Horizontal Rule (CTRL+ENTER)"><i class="fa fa-minus icon-hr"></i>
+                        </button>
+                        <button type="button" class="btn btn-default btn-sm btn-small" title="" data-event="codeview" tabindex="-1" data-original-title="Code View"><i class="fa fa-code icon-code"></i>
+                        </button>
+                    </div>
+                </div>
+                <textarea class="note-codable"></textarea>
+                <div class="note-editable" contenteditable="true" style="height: 300px;">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            height: 300,
+
+        });
+    });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+<div class="form-group row ">
+    <div class="col-sm-4">
+        <h2 class="h4">5 Records to be updated</h2>
+    </div>
+
+
+    <div class="col-sm-4" >
+        <form class="form-inline" role="form" ng-hide="ctrlName=='reviewAppointMultiple'">
+            <div class="form-group">
+
+                <label class="sr-only" for="select1">Case list</label>
+                <select id="select1" class="form-control">
+                    <option>My case list</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" ng-click="goToAppoint()">Appoint attorney</button>
+
+
+
+        </form>
+    </div>
+    <div class="col-sm-4 text-right">
+        <button class="btn btn-default"><span class="fa fa-print"></span><span class="sr-only">Print</span>
+        </button>
+        <button class="btn btn-default"><span class="fa fa-file-text-o"></span><span class="sr-only">file</span>
+        </button>
+        <button class="btn btn-default"><span class="fa fa-download"></span><span class="sr-only">Download</span>
+        </button>
+        <button class="btn btn-primary" id="tableView"><span class="fa fa-th-large"></span><span class="sr-only">Table View</span>
+        </button>
+        <button class="btn btn-default" id="listView"><span class="fa fa-th-list"></span><span class="sr-only">List View</span>
+        </button>
+    </div>
+</div>
+<table class="table fixed">
+    <thead>
+        <tr>
+            <th class="" style="width: 50px;">
+                <label>
+                    <input type="checkbox">
+                </label>
+            </th>
+            <th class="" style="width:30px;">
+                <button class="sr-only">expand/collapse</button>
+
+            </th>
+            <th>
+                <button class="pn-table-sort-trigger">Serial
+                    <br />number</button>
+
+            </th>
+            <th class="" aria-sort="ascending">
+                <button class="pn-table-sort-trigger">Primary attorney &amp; Firm name
+                </button>
+
+            </th>
+
+            <th>
+                <button class="pn-table-sort-trigger">Owner</button>
+                <button class="pn-select-columns"><span>Select columns</span>
+            </th>
+            <th class="pn-last-visible">
+                <button class="pn-table-sort-trigger">Mark image
+                </button>
+                <!-- Note for Lechen - please show image, if no image then show mark literal -->
+                <button class="pn-select-columns"><span>Select columns</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody class="pn-table-grouped-rows-container" ng-class="class">
+        <tr class="pn-table-group-title-row">
+            <td>
+                <label>
+                    <input type="checkbox">
+                </label>
+            </td>
+            <td class="freeze-column">
+                <button ng-click="toggleClass()"><span style="display:none;">Expand/collapse</span>
+                </button>
+
+            </td>
+            <td><a href="">12345678</a>
+            </td>
+            <td>Primary attorney: Smith, J - Smith, Smith & Jones
+            </td>
+
+
+            <td>Acme Corp</td>
+            <td>image or mark literal from the database</td>
+        </tr>
+        <tr>
+            <td class="expandedContainer" colspan="6">
+                <div class="expandedContent">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <table class="no-border">
+                                <tr>
+                                    <th scope="row">Primary attorney</th>
+                                    <td>Smith, J</td>
+                                    <td>Smith, Smith & Jones</td>
+                                    <td>123 Example Street
+                                        <br /> Suite 5
+                                        <br /> Alexandria, VA 22314
+                                        <br /> USA
+                                    </td>
+                                    <td>SMIT-2012413</td>
+                                    <td>jsmith-tmarks@example.com</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Other authorized attorneys</th>
+                                    <td>Julia Guston, Esq</td>
+                                    <td>Smith, Smith & Jones</td>
+                                    <td>Alexandria, VA
+                                        <br /> USA
+                                    </td>
+                                    <td></td>
+                                    <td>TM@firm.com</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        <div class="col-md-2">
+                            <div>
+                                <p>Mark Literal</p>
+
+                                <p>Acme Corp</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+            </td>
+
+        </tr>
+
+    </tbody>
+    <tbody class="pn-table-grouped-rows-container pn-inactive">
+        <tr class="pn-table-group-title-row">
+            <td>
+                <label>
+                    <input type="checkbox">
+                </label>
+            </td>
+            <td class="freeze-column">
+                <button><span style="display:none;">Expand/collapse</span> 
+                </button>
+
+            </td>
+
+            <td>26</td>
+            <td>26</td>
+            <td>26</td>
+            <td>26</td>
+        </tr>
+        <tr data-repeat-instance="" data-drop="url" class="current-user">
+            <td class="" colspan="7">
+                <div> expand collapse content </div>
+            </td>
+
+        </tr>
+
+    </tbody>
+</table>
+<div class="form-group">
+    <div class="dropdown" style="display: inline-block">
+        <button type="button" id="dropdownMenu3" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="text-muted normal">Showing</span> 150-160 <span class="text-muted normal">of</span> 305 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3">
+
+            <li style="padding: 0 16px" role="presentation">
+                <form action="">
+                    <label>Jump to item</label>
+                    <input type="text" placeholder="150" class="form-control">
+                </form>
+            </li>
+            <li class="divider"></li>
+            <li role="presentation" class="dropdown-header">Show up to</li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">10 items</a>
+            </li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">25 items</a>
+            </li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">50 items</a>
+            </li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">100 items</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="btn-group">
+        <a href="#" class="btn btn-default"><i class="fa fa-angle-left"></i></a>
+        <a href="#" class="btn btn-default"><i class="fa fa-angle-right"></i></a>
+    </div>
+
+</div>

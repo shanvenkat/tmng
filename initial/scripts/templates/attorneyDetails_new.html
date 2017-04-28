@@ -1,0 +1,56 @@
+<div id="utilityBarContainer"></div>
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-md-3" role="navigation" id="leftNavContainer"></div>
+        <div class="col-md-9">
+            <!-- begin Main -->
+            <main class="main-wrapper">
+            <div class="page-header">
+                <h1>Is an attorney representing this application?</h1>
+            </div>
+            <div class="page-body">
+                <fieldset>
+                    <legend class="legend">If an attorney is assisting with this application, USPTO will communicate with the listed attorney throughout the application process.</legend>
+                    <p><a href=""> Read more about filing with (or as) an attorney</a></p>
+                    <div class="clearfix">
+                        <input type="radio" id="attorneyYes" name="attorneyFillingIn" value="true" />
+                        <label for="attorneyYes">Yes, an attorney is representing this trademark application</label></div> <div class="clearfix">
+                        <input type="radio" id="attorneyNo" name="attorneyFillingIn" value="false"/>
+                        <label for="attorneyNo">No, no attorney is representing this application</label>
+                    </div>
+                </fieldset>
+                <div id="deletedAttorneyWarn" class="alert alert-warning" hidden>
+                    <p>It will delete all attorneys.</p>
+                    <fieldset>
+                        <legend>Do you want to continue?</legend>
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <input type="radio" id="confirm" />
+                                <label for="confirm" class="">Yes</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="radio" id="cancel"/>
+                                <label for="cancel">No</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="button-bar">
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4 ">
+                            <a class="btn btn-default margin-down-thirty" id="previousPage">Previous</a>
+                        </div>
+                        <!--div class="col-md-4 col-xs-4 text-center">
+                            <a class="btn btn-success margin-down-thirty" id="saveButton">Save</a>
+                        </div-->
+                        <div class="col-md-4 col-xs-4">
+                            <a class="btn btn-primary margin-down-thirty pull-right" id="continueButton">Next</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </main>
+        </div>
+    </div>
+</div>

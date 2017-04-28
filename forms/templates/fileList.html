@@ -1,0 +1,19 @@
+<div class="well" ng-show="files.length">
+    <div class="row" ng-repeat="file in files">
+        <div class="col-md-9" >
+            <p>
+                <div>
+                    <span ng-if="file.id">
+                      <a href="/efile/rest/cms/download/id/{{file.id}}/markId/{{file.trademarkId}}">{{file.name}}</a> ({{file.size|bytes}})
+                    </span>
+                    <span ng-if="!(file.id)">
+                      {{file.name}} ({{file.size|bytes}})
+                    </span>
+                </div>
+            </p>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary btn-block" id="removeFile" ng-click="deleteFile(file)">Remove File</button>
+        </div>
+    </div>
+</div>

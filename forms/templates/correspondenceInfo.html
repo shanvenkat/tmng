@@ -1,0 +1,116 @@
+<nav class="navbar navbar-status" role="navigation">
+    <ul class="nav nav-justified">
+        <li class="completed"><a>Attorney</a>
+        </li>
+        <li class="completed"><a>Actions</a>
+        </li>
+        <li class="disabled"><a>Search</a>
+        </li>
+        <li class="disabled"><a>Search Results</a>
+        </li>
+        <li class="disabled"><a>Case Lists</a>
+        </li>
+        <li class="active"><a>Remove Attorney</a>
+        </li>
+    </ul>
+</nav>
+<h1>Withdrawal as Attorney of Record (Step 2)</h1>
+<div class="alert alert warning">
+    <p>Warning: You may not use this form if you are not the applicant's/registrant's current Primary attorney of record, or the mark owner.</p>
+</div>
+<div class="form-group row">
+    <div class="col-sm-5">
+        <button class="btn btn-default" ng-click="backStep1()">
+            < Back to Step 1</button>
+    </div>
+</div>
+<h2>1 Selection</h2>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div ng-include="'templates/attorneyInfoWithdraw.html'"></div>
+
+
+        <div class="expandcollapse-item">
+            <button class="btn btn-link" ng-click="active = !active" ng-class="{'expandcollapse-heading-collapsed': active, 'expandcollapse-heading-expanded': !active}">
+                > Show attorney details</button>
+
+            <div class="slideDown" ng-show="active">
+                <div class="expand-collapse-content">
+                    <div ng-include="'templates/subAttorneyDetailTable.html'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2 class="section-heading">Correspondence Information</h2>
+        <p>The USPTO will send all future correspondence to the address you select below, until a new power of attorney or change of correspondence address is filed.</p>
+        <p><i>WARNING: For an application filed under TEAS Plus or TEAS RF, the failure to maintain a correct e-mail address for ongoing e-mail communication will result in the loss of TEAS Plus or TEAS RF status and a requirement to pay $50 per class processing fee.</i>
+        </p>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2 class="section-heading">
+       Select the Correspondence</h2>
+        <div class="row equalheight" equal-height>
+            <div class="col-xs-4" ng-repeat="party in trademarkInfo.parties">
+                <div class="box" ng-class="divSelected ? 'box-info' : 'box-default'">
+                    <div class="radio">
+                        <label for="{{party.id}}" ng-if="party.roleCd == 'OWNER'">
+                            <input id="{{party.id}}" type="radio" name="content" ng-model="radio.content" value="{{party.id}}">Mark Owner
+                        </label>
+                        <label for="{{party.id}}" ng-if="party.roleCd == 'DR'">
+                            <input id="{{party.id}}" type="radio" name="content" ng-model="radio.content" value="{{party.id}}">Domestic Representative
+                        </label>
+                        <label for="{{party.id}}" ng-if="party.roleCd == 'CO'">
+                            <input id="{{party.id}}" type="radio" name="content" ng-model="radio.content" value="{{party.id}}">Primary Correspondent
+                            </label>
+
+                    </div>
+                    <!-- note for Waseem/Lechen you will need to show whole information for them not just address-->
+                    <address>
+                        {{party.partyName}}
+                        <br /> {{party.address}}
+                        <br /> {{party.geographicRegion}}
+                        <br /> {{party.country}}
+                        <span ng-if="party.phone"><br /> (P){{party.phone}}</span>
+                        <span ng-if="party.fax"><br />(F){{party.fax}}</span>
+                        <span ng-if="party.fax"><br />  {{party.email}}</span>
+                    </address>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="box" ng-class="divSelected ? 'box-info' : 'box-default'">
+                    <div class="radio">
+                        <label for="new">
+                            <input id="new" type="radio" name="content" ng-model="radio.content" value="new">I wish to provide new correspondence information{{content}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div ng-if="radio.content == 'new'">
+        <div ng-include="'templates/correspondenceForm.html'"></div>
+    </div>
+
+    <div class="panel-footer" ng-if="radio.content!=='new'">
+        <div class="row">
+            <div class="col-md-4 col-xs-4 ">
+                <button class="btn btn-default" id="previousPage" ng-click="cancel()">Cancel</button>
+            </div>
+            <div class="col-md-4 col-xs-4 text-center">
+                <button class="btn btn-default" id="saveButton" ng-click="save()">Save</button>
+            </div>
+            <div class="col-md-4 col-xs-4 text-right">
+                <!--button class="btn btn-primary pull-right" id="continueButton" ng-click="goToReviewAndSign()">Continue</button-->
+                <button class="btn btn-primary pull-right" id="continueButton" ng-click="gotoReviewAndSign()">Continue</button>
+                <!--button class="btn btn-primary pull-right" id="continueButton" ng-disabled="!correspondenceForm.$valid"  type="submit"> Continue</button-->
+            </div>
+        </div>
+    </div>
+</div>

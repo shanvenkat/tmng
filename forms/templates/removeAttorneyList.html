@@ -1,0 +1,63 @@
+<div class="row equalheight" equal-height>
+    <div class="col-sm-4 " ng-repeat="attorney in secondaryAttorneys">
+        <div class="box " ng-class="divSelected ? 'box-info' : 'box-default'">        
+            <!-- input box to toggle a variable to true or false -->
+            <div class="checkbox">
+                
+                <label for="checkbox{{attorney.fkInterestedPartyId}}">
+                <!-- ng-checked="removedAttorneys.indexOf(attorney) > -1" -->
+                    <input type="checkbox" id="checkbox{{attorney.id}}" name="selectedAttorney" value="{{attorney.id}}" ng-checked="findObjectInArray(attorney) > -1" ng-click="toggleSelection(attorney)" ng-model="divSelected">
+                    <p>
+                        <span ng-if="attorney.roleCd === 'AT'"><b>Primary attorney of record</b><br/></span>
+                        <span ng-if="attorney.roleCd === 'SAT'"><b>Additional attorney</b><br/></span>
+                        {{attorney.partyName}}<br />
+                        <!--
+                        <br />Member, Virginia Bar Association
+                        -->
+                        <span ng-if="attorney.firmName != null">
+                        {{attorney.firmName}}<br />
+                        </span>
+                        <span ng-if="attorney.address1 != null">
+                        {{attorney.address}}<br />
+                        </span>
+                        <span ng-if="attorney.geographicRegion != null">
+                        {{attorney.geographicRegion}}<br />
+                        </span>
+                        <span ng-if="attorney.country != null">
+                        {{attorney.country}}<br />
+                        </span>
+                        <span ng-if="attorney.email != null">
+                        (Email) {{attorney.email}}  <br />
+                        </span>
+                        <span ng-if="attorney.website != null">
+                        (URL) {{attorney.website}}  <br />
+                        </span>
+                        <span ng-if="attorney.phone != null">
+                        (Phone) {{attorney.phone}}  <br />
+                        </span>
+                        <span ng-if="attorney.fax != null">
+                        (Fax) {{attorney.fax}}  <br />
+                        </span>
+                        <span ng-if="attorney.docketNumber != null">
+                        Docket Number: {{attorney.docketNumber}}
+                        </span>
+                    </p>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="alert alert-warning">
+                    <p>
+                        Additional authorized attorneys submitted outside of the TEAS Trademarks Attorney Forms might not be listed here. <a href="#">Please check for additional authorized attorneys in TSDR</a>
+                    </p>
+                </div> <label>
+                <input type="checkbox" ng-model="checked">
+               Remove additional previously appointed attorneys </label>
+                <div ng-show="checked"><label for="input10" class="sr-only">Enter the attorney names as shown in TSDR, separated by commas</label><input id="input10" type="text" class="form-control"><span class="help-block">Enter the attorney names as shown in TSDR, separated by commas</span></div>
+            </div>
+        </div>
+    </div>
+</div>
